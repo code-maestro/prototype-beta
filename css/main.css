@@ -1,0 +1,22 @@
+body{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+  height: 100vh;
+}
+
+/* SCROLL BAR STYLING */
+body::-webkit-scrollbar{
+  width: 0.30rem;
+}
+
+body::-webkit-scrollbar-track{
+  background: var(--text-color);
+}
+
+body::-webkit-scrollbar-thumb{
+  background: var(--bg);
+  border-radius: 25px;
+}
