@@ -34,7 +34,7 @@ body::-webkit-scrollbar-thumb{
 /* The sidebar menu */
 header{
   height: 100%; 
-  width: 180px; 
+  width: 172px; 
   position: fixed; 
   z-index: 1;
   top: 0; 
@@ -93,7 +93,51 @@ header .logout i{
 
 main {
   margin-left: 200px;
-  padding: 10px;
+}
+
+main .header{
+  padding: 0 0 1rem 0;
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--icon-color);
+}
+
+main .header .welcome-txt,
+main .header .notification-area{
+  padding: 1rem;
+}
+
+h2{
+  margin: 0;
+}
+
+main .header .welcome-txt h2{
+  font-size: 2rem;
+}
+
+main .header .notification-area i{
+  padding: 1rem;
+  font-size: 1.5rem;
+}
+
+main .appointments{
+  margin: 0;
+  display: flex;
+}
+
+main .appointments .wrapper{
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+main .appointments .wrapper .count i{
+  padding: 0 1rem 0 1rem;
+  font-size: 1.5rem;
+}
+
+.total-numbers span{
+  font-size: .8rem;
 }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
