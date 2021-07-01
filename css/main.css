@@ -4,6 +4,7 @@
   --navbar-background-color: #000;
   --nav-hover-color: #2b2b2b;
   --main-background-color: #e3fde3;
+  --card-background-color: #66de51;
   font-size: 14px;
   font-family: 'Poppins', sans-serif;
 }
@@ -67,10 +68,13 @@ header nav ul {
   height: 100%;
 }
 
+ul li{
+  list-style: none;
+}
+
 header nav ul li{
   padding-left: 1rem;
   display: flex;
-  list-style: none;
   align-items: center;
   justify-content: flex-start;
 }
@@ -95,14 +99,19 @@ main {
   margin-left: 200px;
 }
 
+/* MAIN SECTION WITH CONTENT */
+/* Main header section wit username counsellor's name in this case */
 main .header{
-  padding: 0 0 1rem 0;
+  padding: 0;
   display: flex;
   justify-content: space-between;
   background-color: var(--icon-color);
 }
 
-main .header .welcome-txt,
+main .header .welcome-txt{
+  padding: 1.5rem 0 1rem 1rem;
+}
+
 main .header .notification-area{
   padding: 1rem;
 }
@@ -116,10 +125,11 @@ main .header .welcome-txt h2{
 }
 
 main .header .notification-area i{
-  padding: 1rem;
-  font-size: 1.5rem;
+  padding: 1rem 2rem 0 0;
+  font-size: 2rem;
 }
 
+/* Main Appointments sections with list and counter */
 main .appointments{
   margin: 0;
   display: flex;
@@ -128,19 +138,147 @@ main .appointments{
 main .appointments .wrapper{
   display: flex;
   flex-direction: column;
+  padding: 1rem 0 0 1rem;
+}
+
+main .appointments .wrapper .count{
+  display: flex;
+  padding: 1rem 0 1rem 0;
+}
+
+.count .total,
+.count .approved,
+.count .cancelled,
+.count .total-patients{
+  background-color: var(--icon-color);
+  box-shadow: 0 2px 3px rgba(0,0,0,.6);
+  border-radius: 1rem;
+  display: flex;
+  margin-right: 1rem;
   padding: 1rem;
 }
 
+.count .total-patients{
+  margin-right: 0;
+}
+
 main .appointments .wrapper .count i{
-  padding: 0 1rem 0 1rem;
+  padding: 0 1rem 0 0;
   font-size: 1.5rem;
 }
 
 .total-numbers span{
-  font-size: .8rem;
+  font-size: 1rem;
 }
 
-/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+/* Thee appointment list */
+/* List header */
+.list-header h2{
+  font-size: 1.75rem;
+  margin: .5rem 0 0 0;
+  padding: 1rem;
+}
+
+.list-header ul{
+ display: flex;
+ margin-left: 1rem;
+ padding: 0 0 .5rem 0;
+ border-bottom: 2px solid rgb(157, 157, 157);
+}
+
+.list-header ul li {
+  padding: 0 1rem 1rem 1rem;
+  margin: 0;
+}
+
+.list-header ul li:hover{
+  cursor: pointer;
+}
+
+
+.list-header ul .pending{
+  padding-left: 0;
+}
+
+.list-header ul li h3{
+  margin: 0;
+}
+
+/* Actual list styling */
+.thee-list ul {
+  padding: 0;
+  margin-right: 1rem;
+}
+
+.thee-list ul::-webkit-scrollbar{
+  width: 0.30rem;
+}
+
+.thee-list ul::-webkit-scrollbar-track{
+  background: var(--text-color);
+}
+
+.thee-list ul::-webkit-scrollbar-thumb{
+  background: var(--bg);
+  border-radius: 25px;
+}
+
+.thee-list ul li {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  background-color: var(--icon-color);
+  box-shadow: 0 1px 2px rgba(0,0,0,.6);
+  border-radius: 1rem;
+  align-items: center;
+}
+.thee-list ul li:first-child{
+  margin-top: 1.5rem;
+}
+
+.thee-list ul li .time,
+.thee-list ul li .student,
+.thee-list ul li .actions{
+  margin: 0 0 0 1rem;
+  display: flex;
+}
+
+.thee-list ul li .time{
+  font-weight: 600;
+  font-size: 1.2rem;
+  padding-left: 0.5rem;
+  margin: 0 1rem 0 0;
+}
+
+.thee-list ul li .student img{
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+}
+
+.thee-list ul li .student h3{
+  margin: 1.1rem 0 0 1rem;
+}
+
+.thee-list ul li .actions{
+  margin-left: auto;
+}
+
+.thee-list ul li .actions i{
+  color: var(--nav-hover-color);
+  border: 1px solid var(--nav-hover-color);
+  padding: .75rem;
+  border-radius: .75rem;
+  margin: 0 0 0 1rem;
+  font-size: 1rem;
+}
+
+.thee-list ul li .actions i:hover{
+  background-color: var(--navbar-background-color);
+  color: var(--icon-color);
+}
+
+/* On smaller screens */
 @media screen and (max-height: 450px) {
   header {padding-top: 15px;}
 }
