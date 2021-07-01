@@ -1,6 +1,6 @@
 :root{
   --icon-color: #fff;
-  --text-color: #f5f5f5;
+  --text-color: #fbfbfbe3;
   --navbar-background-color: #000;
   --nav-hover-color: #2b2b2b;
   --main-background-color: #e3fde3;
@@ -15,7 +15,7 @@ body{
   box-sizing: border-box;
   text-decoration: none;
   height: 100vh;
-  background-color: var(--main-background-color);
+  /* background-color: var(--main-background-color); */
 }
 
 /* SCROLL BAR STYLING */
@@ -35,12 +35,12 @@ body::-webkit-scrollbar-thumb{
 /* The sidebar menu */
 header{
   height: 100%; 
-  width: 172px; 
+  width: 220px; 
   position: fixed; 
   z-index: 1;
   top: 0; 
   left: 0;
-  background-color: var(--navbar-background-color); 
+  background-color: var(--navbar-background-color);
   color: var(--text-color);
   overflow-x: hidden; 
   padding: 1rem;
@@ -96,7 +96,7 @@ header .logout i{
 }
 
 main {
-  margin-left: 200px;
+  margin-left: 250px;
 }
 
 /* MAIN SECTION WITH CONTENT */
@@ -106,10 +106,12 @@ main .header{
   display: flex;
   justify-content: space-between;
   background-color: var(--icon-color);
+  box-shadow: 0 1px 3.5px -0.5px rgb(0 0 0 / 77%);
 }
 
 main .header .welcome-txt{
   padding: 1.5rem 0 1rem 1rem;
+  margin-left: 2.5rem;
 }
 
 main .header .notification-area{
@@ -133,12 +135,14 @@ main .header .notification-area i{
 main .appointments{
   margin: 0;
   display: flex;
+  justify-content: space-evenly;
 }
 
 main .appointments .wrapper{
+  width: 900px;
   display: flex;
   flex-direction: column;
-  padding: 1rem 0 0 1rem;
+  padding: 1rem 0 1rem 1rem;
 }
 
 main .appointments .wrapper .count{
@@ -183,7 +187,6 @@ main .appointments .wrapper .count i{
  display: flex;
  margin-left: 1rem;
  padding: 0 0 .5rem 0;
- border-bottom: 2px solid rgb(157, 157, 157);
 }
 
 .list-header ul li {
@@ -193,6 +196,7 @@ main .appointments .wrapper .count i{
 
 .list-header ul li:hover{
   cursor: pointer;
+  border-bottom: 2px solid rgb(157, 157, 157);
 }
 
 
@@ -231,9 +235,6 @@ main .appointments .wrapper .count i{
   box-shadow: 0 1px 2px rgba(0,0,0,.6);
   border-radius: 1rem;
   align-items: center;
-}
-.thee-list ul li:first-child{
-  margin-top: 1.5rem;
 }
 
 .thee-list ul li .time,
@@ -276,6 +277,97 @@ main .appointments .wrapper .count i{
 .thee-list ul li .actions i:hover{
   background-color: var(--navbar-background-color);
   color: var(--icon-color);
+}
+
+/* Selected Appointment details */
+.student-info {
+  background-color: var(--text-color);
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.student-info .student-profile{
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  justify-content: center;
+  align-items: center;
+}
+
+.student-info .student-profile img{
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.student-info .student-profile h3{
+  font-size: 2rem;
+  margin: 1rem 0 0 0;
+}
+
+.student-info .student-profile p{
+  font-size: 1.2rem;
+  margin: .45rem 0 1rem 0;
+  font-weight: 600;
+}
+
+.student-info .student-profile .actions{
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid #b4b4b4;
+}
+
+.student-info .student-profile .actions i{
+  color: var(--nav-hover-color);
+  border: 1px solid var(--nav-hover-color);
+  padding: .75rem;
+  border-radius: .75rem;
+  margin: 0 0 0 .5rem;
+  font-size: 1rem;
+}
+
+/* MORE DETAILS SECTION */
+.student-info .the-details{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.student-info .the-details h3{
+  text-align: start;
+  margin-bottom: 0.5rem;
+}
+
+.student-info .the-details .more{
+  display: flex;
+}
+
+.student-info .the-details .more .labels{
+  display: flex;
+  flex-direction: column;
+}
+
+.student-info .the-details .more .labels span,
+.student-info .the-details .more .data p{
+  padding: 1rem;
+}
+
+.student-info .the-details .more .data{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.student-info .the-details .more .data p{
+  margin: 0;
+  font-weight: 600;
 }
 
 /* On smaller screens */
