@@ -281,7 +281,8 @@ main .appointments .wrapper .count i{
 
 /* Selected Appointment details */
 .student-info {
-  background-color: var(--text-color);
+  background-color: #f8f8f8;
+  box-shadow: .4px 2px 3px rgb(0 0 0 / 20%);
   border-radius: 1rem;
   display: flex;
   flex-direction: column;
@@ -318,20 +319,21 @@ main .appointments .wrapper .count i{
 
 .student-info .student-profile .actions{
   padding-bottom: 1.5rem;
-  border-bottom: 2px solid #b4b4b4;
 }
 
 .student-info .student-profile .actions i{
   color: var(--nav-hover-color);
-  border: 1px solid var(--nav-hover-color);
-  padding: .75rem;
+  background-color: var(--icon-color);
+  box-shadow: .4px 2px 3px rgb(0 0 0 / 20%);
+  padding: .75rem 2rem .75rem 2rem;
   border-radius: .75rem;
   margin: 0 0 0 .5rem;
-  font-size: 1rem;
+  font-size: 1.15rem;
 }
 
 /* MORE DETAILS SECTION */
 .student-info .the-details{
+  border-top: 2px solid #b4b4b4;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -353,6 +355,10 @@ main .appointments .wrapper .count i{
   flex-direction: column;
 }
 
+.student-info .the-details .more .labels span{
+  font-weight: 600;
+}
+
 .student-info .the-details .more .labels span,
 .student-info .the-details .more .data p{
   padding: 1rem;
@@ -367,7 +373,6 @@ main .appointments .wrapper .count i{
 
 .student-info .the-details .more .data p{
   margin: 0;
-  font-weight: 600;
 }
 
 /* On smaller screens */
