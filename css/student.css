@@ -19,17 +19,17 @@ body{
 }
 
 /* SCROLL BAR STYLING */
-body::-webkit-scrollbar{
+body ul::-webkit-scrollbar{
   width: 0.30rem;
 }
 
-body::-webkit-scrollbar-track{
-  background: var(--text-color);
+body ul::-webkit-scrollbar-track{
+  background: var(--navbar-background-color);
 }
 
-body::-webkit-scrollbar-thumb{
-  background: var(--bg);
+body ul::-webkit-scrollbar-thumb{
   border-radius: 25px;
+  background: var(--text-color);
 }
 
 /* The sidebar menu */
@@ -196,10 +196,6 @@ main .header .notification-area i{
   padding: .65rem 1rem .5rem 1rem;
 }
 
-/* .student-main .book-appointment{
-  margin-left: .75rem;
-} */
-
 .student-main  .book-appointment .completed {
   display: flex;
   flex-direction: column;
@@ -244,7 +240,7 @@ main .header .notification-area i{
 
 /* LIVE CHAT AREA */
 .chat-area{
-  height: 500px;
+  height: 485px;
   overflow-y: auto;
 }
 
@@ -305,17 +301,88 @@ main .header .notification-area i{
   outline: none;
   padding: 10px;
   border: none;
-  border-radius: 1rem;
-  background-color: var(--nav-hover-color);
-  color: white;
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+  background-color: #eae8e8;
+  box-shadow: .4px 2px 3px rgb(0 0 0 / 20%);
+  font-weight: 600;
 }
 
-.chat-form form input:last-child {
+.chat-form form input:last-child{
+  outline: none;
+  padding: .7rem 2rem .7rem 2rem;
+  border: none;
+  background-color: var(--nav-hover-color);
+  box-shadow: .4px 2px 3px rgb(0 0 0 / 20%);
+  color: white;
+  font-weight: 600; 
+  font-size: 1.1rem;
+  margin-left: 0;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+
+/* Making appointment Reservation */
+.appointments .container{
+  padding: 0 1rem 1rem 1rem;
+}
+
+.appointments .reservation-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.appointments .reservation-form form input{
+  box-shadow: .4px 2px 3px rgb(0 0 0 / 10%);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.appointments .reservation-form form input::placeholder{
+  font-weight: 300;
+  font-style: italic;
+}
+
+.appointments .reservation-form form textarea::placeholder{
+  font-weight: 300;
+  font-style: italic;
+}
+
+.appointments .reservation-form form input,
+textarea,
+.choose-counsellor{
+  padding: .75rem;
+  border-radius: 1rem;
+  border: none;
+  outline: none;
+  background-color: #f5f5f5;
+  margin-bottom: 1rem;
+}
+
+.appointments .reservation-form form input:last-child{ 
   margin-left: 1rem;
   outline: none;
-  padding: .5rem 2rem .5rem 2rem;
+  padding: .7rem 2rem .7rem 2rem;
   border: none;
   border-radius: 1rem;
   background-color: var(--nav-hover-color);
   color: white;
+  font-weight: 600; 
+  font-size: 1.1rem;
+}
+
+.choose-counsellor {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  padding: 1rem 1rem 0 1rem;
+}
+
+.choose-counsellor label{
+  margin-right: 2rem;
+}
+
+/* THE FOOTER */
+footer{
+  text-align: center;
 }
