@@ -15,22 +15,49 @@ body{
   box-sizing: border-box;
   text-decoration: none;
   height: 100vh;
-  /* background-color: var(--main-background-color); */
 }
 
+
 /* SCROLL BAR STYLING */
-body ul::-webkit-scrollbar{
+body::-webkit-scrollbar{
   width: 0.30rem;
 }
 
-body ul::-webkit-scrollbar-track{
+body::-webkit-scrollbar-track{
   background: var(--navbar-background-color);
 }
 
-body ul::-webkit-scrollbar-thumb{
+body::-webkit-scrollbar-thumb{
   border-radius: 25px;
   background: var(--text-color);
 }
+
+ul::-webkit-scrollbar{
+  width: 0.30rem;
+}
+
+ul::-webkit-scrollbar-track{
+  background: var(--navbar-background-color);
+}
+
+ul::-webkit-scrollbar-thumb{
+  border-radius: 25px;
+  background: var(--text-color);
+}
+
+.chat-area::-webkit-scrollbar{
+  width: 0.30rem;
+}
+
+.chat-area::-webkit-scrollbar-track{
+  background: var(--navbar-background-color);
+}
+
+.chat-area::-webkit-scrollbar-thumb{
+  border-radius: 25px;
+  background: var(--text-color);
+}
+
 
 /* The sidebar menu */
 header{
@@ -95,6 +122,7 @@ header .logout i{
   margin-right: 1rem;
 }
 
+
 /* FROM THE ALPHA */
 .main-navbar {
   padding-top: 10px;
@@ -142,11 +170,11 @@ header .logout i{
   padding: 0;
   margin: 0;
 }
-/* end of alpha import */
 
 main {
   margin-left: 250px;
 }
+
 
 /* MAIN SECTION WITH CONTENT */
 /* Main header section wit username counsellor's name in this case */
@@ -238,6 +266,7 @@ main .header .notification-area i{
   object-fit: cover;
 }
 
+
 /* LIVE CHAT AREA */
 .chat-area{
   height: 485px;
@@ -288,6 +317,7 @@ main .header .notification-area i{
   color: #fff;
 }
 
+
 /* LIVE CHAT MESSAGE INPUT ARE */
 .chat-form form {
   width: 100%;
@@ -321,6 +351,7 @@ main .header .notification-area i{
   border-top-right-radius: 1rem;
   border-bottom-right-radius: 1rem;
 }
+
 
 /* Making appointment Reservation */
 .appointments .container{
@@ -381,6 +412,7 @@ textarea,
 .choose-counsellor label{
   margin-right: 2rem;
 }
+
 
 /* THE FOOTER */
 footer{
