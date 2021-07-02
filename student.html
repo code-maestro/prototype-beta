@@ -56,13 +56,13 @@
       <section class="main-navbar">
         <div class="chat-title">
           <div class="left">
-            <img src="resources/img/must.png" alt="" srcset="">   
+            <img src="resources/img/must.png" alt="" srcset="">
             <div class="user-info">
               <span> chello </span>
               <p>online</p>
             </div>
           </div>
-    
+
           <div class="right">
             <i class="fas fa-calendar" onclick="viewModal()"></i>
             <i class="fas fa-bell" onclick="viewModal()"></i>
@@ -71,99 +71,182 @@
         </div>
       </section>
 
-      <!-- Section with class book-appointment  -->
-      <section class="book-appointment">
-        <div class="container">
-          <div class="row">
-            <h2>BOOK AN APPOINTMENT</h2>
+      <section class="student-main">
+
+        <div class="book-appointment">
+          <div class="booked">
+            <h3>
+              Booked Appointments
+            </h3>
+            <div class="container">
+              <ul>
+                <li>
+                  <p>Lorem ipsum</p>
+                  <span> 10:30 </span>
+                </li>
+                <li>
+                  <p>Lorem ipsum</p>
+                  <span> 10:30 </span>
+                </li>
+                <li>
+                  <p>Lorem ipsum</p>
+                  <span> 10:30 </span>
+                </li>
+                <li>
+                  <p>Lorem ipsum</p>
+                  <span> 10:30 </span>
+                </li>
+                <li>
+                  <p>Lorem ipsum</p>
+                  <span> 10:30 </span>
+                </li>
+                <li>
+                  <p>Lorem ipsum</p>
+                  <span> 10:30 </span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="completed">
+            <h3>Completed</h3>
+            <ul>
+              <li>
+                <p>Lorem ipsum</p>
+                <span> 10:30 </span>
+              </li>
+              <li>
+                <p>Lorem ipsum</p>
+                <span> 10:30 </span>
+              </li>
+              <li>
+                <p>Lorem ipsum</p>
+                <span> 10:30 </span>
+              </li>
+              <li>
+                <p>Lorem ipsum</p>
+                <span> 10:30 </span>
+              </li>
+              <li>
+                <p>Lorem ipsum</p>
+                <span> 10:30 </span>
+              </li>
+              <li>
+                <p>Lorem ipsum</p>
+                <span> 10:30 </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="chatting">
+          <h3>
+            Live chat Messaging
+          </h3>
+          <div class="chat-area">
+            <div class="student-msg">
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo, provident!
+              </p>
+            </div>
+            <div class="admin-msg">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, adipisci.
+              </p>
+            </div>
+            <div class="student-msg">
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo, provident!
+              </p>
+            </div>
+            <div class="admin-msg">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, adipisci.
+              </p>
+            </div>
+            <div class="student-msg">
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo, provident!
+              </p>
+            </div>
+            <div class="admin-msg">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, adipisci.
+              </p>
+            </div>
+            <div class="student-msg">
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo, provident!
+              </p>
+            </div>
+            <div class="admin-msg">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, adipisci.
+              </p>
+            </div>
+            <div class="student-msg">
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo, provident!
+              </p>
+            </div>
+            <div class="admin-msg">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, adipisci.
+              </p>
+            </div>
+            <div class="student-msg">
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo, provident!
+              </p>
+            </div>
+            <div class="admin-msg">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, adipisci.
+              </p>
+            </div>
+            <div class="student-msg">
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo, provident!
+              </p>
+            </div>
+            <div class="admin-msg">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, adipisci.
+              </p>
+            </div>
+          </div>
+          <div class="chat-form">
+            <form action="#" method="post">
+              <input type="number" name="out-msg-id" id="out-msg-id" hidden>
+              <input type="text" name="out-msg" id="out-msg" placeholder="Enter Message .... ">
+              <input type="submit" value="SEND" name="send-btn">
+            </form>
+          </div>
+        </div>
+
+        <!-- Section with class book-appointment  -->
+        <div class="appointments">
+          <div class="container">
+            <div class="row">
+              <h2>BOOK AN APPOINTMENT</h2>
+            </div>
+            <div class="reservation-form">
+              <form action="appointments.php" method="post">
+                <input type="text" name="regno" id="regno">
+                <input type="text" name="name" id="name">
+                <input type="datetime" name="dt" id="dt">
+                <input type="text" name="complaint" id="complaint">
+                <input type="checkbox" name="counsellor-one" value="cousellor-one" id="counsellor-one">
+                <label for="counsellor-one">counsellor-one</label>
+                <input type="checkbox" name="counsellor-two" value="cousellor-two" id="counsellor-two">
+                <label for="counsellor-two">counsellor-two</label>
+                <input type="submit" value="MAKE A RESERVATION">
+              </form>
+            </div>
           </div>
         </div>
       </section>
 
-      <section class="chatting">
-        <h3>
-          Live chat Messaging
-        </h3>
-        <div class="chat-area">
-          <div class="student-msg">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo, provident!
-            </p>
-          </div>
-          <div class="admin-msg">
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, adipisci.
-            </p>
-          </div>
-          <div class="student-msg">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo, provident!
-            </p>
-          </div>
-          <div class="admin-msg">
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, adipisci.
-            </p>
-          </div>
-          <div class="student-msg">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo, provident!
-            </p>
-          </div>
-          <div class="admin-msg">
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, adipisci.
-            </p>
-          </div>
-          <div class="student-msg">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo, provident!
-            </p>
-          </div>
-          <div class="admin-msg">
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, adipisci.
-            </p>
-          </div>
-          <div class="student-msg">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo, provident!
-            </p>
-          </div>
-          <div class="admin-msg">
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, adipisci.
-            </p>
-          </div>
-          <div class="student-msg">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo, provident!
-            </p>
-          </div>
-          <div class="admin-msg">
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, adipisci.
-            </p>
-          </div>
-          <div class="student-msg">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo, provident!
-            </p>
-          </div>
-          <div class="admin-msg">
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, adipisci.
-            </p>
-          </div>
-        </div>
-        <div class="chat-form">
-          <form action="#" method="post">
-            <input type="number" name="out-msg-id" id="out-msg-id" hidden>
-            <input type="text" name="out-msg" id="out-msg" placeholder="Enter Message .... ">
-            <input type="submit" value="SEND" name="send-btn">
-          </form>
-        </div>
-      </section>
     </main>
 
     <script src="js/events.js"></script>
