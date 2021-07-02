@@ -24,12 +24,12 @@ body::-webkit-scrollbar{
 }
 
 body::-webkit-scrollbar-track{
-  background: var(--navbar-background-color);
+  background: var(--text-color);
 }
 
 body::-webkit-scrollbar-thumb{
   border-radius: 25px;
-  background: var(--text-color);
+  background: var(--navbar-background-color);
 }
 
 ul::-webkit-scrollbar{
@@ -37,12 +37,12 @@ ul::-webkit-scrollbar{
 }
 
 ul::-webkit-scrollbar-track{
-  background: var(--navbar-background-color);
+  background: var(--text-color);
 }
 
 ul::-webkit-scrollbar-thumb{
   border-radius: 25px;
-  background: var(--text-color);
+  background: var(--navbar-background-color);
 }
 
 .chat-area::-webkit-scrollbar{
@@ -50,12 +50,12 @@ ul::-webkit-scrollbar-thumb{
 }
 
 .chat-area::-webkit-scrollbar-track{
-  background: var(--navbar-background-color);
+  background: var(--text-color);
 }
 
 .chat-area::-webkit-scrollbar-thumb{
+  background: var(--navbar-background-color);
   border-radius: 25px;
-  background: var(--text-color);
 }
 
 
@@ -417,4 +417,6 @@ textarea,
 /* THE FOOTER */
 footer{
   text-align: center;
+  font-weight: bold;
+  font-size: 1.15rem;
 }
