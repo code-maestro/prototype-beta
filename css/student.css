@@ -153,22 +153,17 @@ header .logout i{
 .main-navbar .chat-title img{
   width: 40px;
   height: 40px;
-  margin: 0 15px 0 1rem;
+  margin: 5px 15px 0 1rem;
 }
 
 .main-navbar .chat-title .user-info{
   display: flex;
-  flex-direction: column;
-  margin: .5rem 0 0 0;
+  align-items: center;
 }
 
 .main-navbar .chat-title .user-info span{
   font-weight: bold;
-}
-
-.main-navbar .chat-title .user-info p{
-  padding: 0;
-  margin: 0;
+  font-size: 1.2rem;
 }
 
 main {
