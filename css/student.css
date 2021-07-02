@@ -119,6 +119,7 @@ header .logout i{
 .main-navbar .chat-title i{
   /* margin: 1rem 0 0 1rem; */
   padding: 1rem;
+  font-size: 1.5rem;
 }
 
 .main-navbar .chat-title img{
@@ -177,4 +178,144 @@ main .header .welcome-txt h2{
 main .header .notification-area i{
   padding: 1rem 2rem 0 0;
   font-size: 2rem;
+}
+
+.student-main {
+  display: flex;
+  background-color: #f5f5f5;
+}
+
+.student-main .book-appointment,
+.student-main .chatting,
+.student-main .appointments{
+  margin: 1rem .5rem 1rem .5rem;
+  box-shadow: .4px 2px 3px rgb(0 0 0 / 30%);
+  border-radius: 1rem;
+  background-color: #fff;
+  width: 100%;
+  padding: .65rem 1rem .5rem 1rem;
+}
+
+/* .student-main .book-appointment{
+  margin-left: .75rem;
+} */
+
+.student-main  .book-appointment .completed {
+  display: flex;
+  flex-direction: column;
+}
+
+.student-main  .book-appointment h3 {
+  padding: 0 0 0 1rem;
+  font-size: 1.25rem;
+  margin-block-start: .75em; 
+  margin-block-end: .75em;
+}
+
+.student-main  .book-appointment ul{
+  padding: .4rem 1rem 0 1rem;
+  margin: 0;
+  height: 250px;
+  overflow-y: auto;
+}
+
+.student-main  .book-appointment ul li{ 
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: .25rem .5rem .25rem .5rem;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  background-color: var(--nav-hover-color);
+  color: var(--icon-color);
+}
+
+.student-main  .book-appointment ul li i{
+  padding: .65rem;
+  border: 1.45px solid var(--icon-color);
+  border-radius: 10px;
+}
+
+.student-main  .book-appointment ul li img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+}
+
+/* LIVE CHAT AREA */
+.chat-area{
+  height: 500px;
+  overflow-y: auto;
+}
+
+.chat-area div p {
+  word-wrap: break-word;
+  padding: 8px 5px;
+}
+
+.chat-area .student-msg {
+  display: flex;
+  margin-bottom: 5px;
+  margin-left: 4px;
+}
+
+.chat-area .admin-msg {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  margin-right: .5rem;
+}
+
+.chat-area .student-msg p,
+.chat-area .admin-msg p {
+  max-width: calc(100% - 130px);
+}
+
+.chat-area .student-msg p{
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  border-top-left-radius: 16px;
+  box-shadow: 0 2px 4px -.5px rgba(0, 0, 0, 0.772);
+  margin-block-start: .25em;
+  margin-block-end: .25em;
+}
+
+.chat-area .admin-msg p {
+  border-top-left-radius: 16px;
+  border-bottom-left-radius: 16px;
+  border-top-right-radius: 16px;
+  margin-block-start: 10px;
+  margin-block-end: 10px;
+  padding-left: 10px;
+  box-shadow: 0 2px 4px -.5px #f8ffc5e8;;
+  background-color: #020202;
+  color: #fff;
+}
+
+/* LIVE CHAT MESSAGE INPUT ARE */
+.chat-form form {
+  width: 100%;
+  padding: .5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.chat-form form #out-msg {
+  width: 100%;
+  outline: none;
+  padding: 10px;
+  border: none;
+  border-radius: 1rem;
+  background-color: var(--nav-hover-color);
+  color: white;
+}
+
+.chat-form form input:last-child {
+  margin-left: 1rem;
+  outline: none;
+  padding: .5rem 2rem .5rem 2rem;
+  border: none;
+  border-radius: 1rem;
+  background-color: var(--nav-hover-color);
+  color: white;
 }
