@@ -53,10 +53,10 @@ main .inputs {
 main .inputs .error{
   border: none;
   border-radius: 1rem;
-  font-weight: 400;
   background-color: #e09396;
   padding: 1rem;
   font-size: 1.15rem;
+  font-weight: 700;
   text-align: center;
 }
 
@@ -69,7 +69,7 @@ main .inputs .signup {
   padding: 2rem 0 2rem 0;
 }
 
-main .inputs .signup form {
+main .inputs form{
   display: flex;
   flex-direction: column; 
 }

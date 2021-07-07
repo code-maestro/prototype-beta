@@ -4,7 +4,6 @@
 include 'database/db_module.php';
 include 'modules/signup.php';
 
-
 $regno = "";
 $email = "";
 $fname = "";
@@ -12,6 +11,12 @@ $lname = "";
 $password = "";
 $confirmedPassword = "";
 $result = "";
+
+if (isset($_POST['login'])) {
+
+  $result = "YOU'VE CLICKED LOG IN 😑🤦‍♀️";
+  
+}
 
 if (isset($_POST['register'])) {
 
@@ -21,9 +26,9 @@ if (isset($_POST['register'])) {
     if ($result != "") {
         $result = "ENTER DATA IN ALL FIELDS";
     }else {
-        //header("Location: index.html");
+        header("Location: index.html");
         $result = "SUCCESS";
-        //die;
+        die;
     }
 
     $regno = $_POST['regno'];
@@ -57,10 +62,12 @@ if (isset($_POST['register'])) {
     <section class="inputs">
       <!-- LOGIN INPUTS -->
       <div class="login">
-        <input type="text" name="regno" id="regno" placeholder="Enter Emall or Registration Number">
-        <input type="password" name="password" id="password" placeholder="Enter Password">
-        <!-- LOGIN BUTTON -->
-        <input type="submit" name="login" id="login" value="LOGIN">
+        <form action="" method="post">
+          <input type="text" name="regno" id="regno" placeholder="Enter Emall or Registration Number">
+          <input type="password" name="password" id="password" placeholder="Enter Password">
+          <!-- LOGIN BUTTON -->
+          <input type="submit" name="login" id="login" value="LOGIN">
+        </form>
         <p><a href="#">Sign up </a></p>
       </div>
 

@@ -38,25 +38,25 @@ include 'create.php';
 
       $random = new Create();
 
-      $uid = $random->randomID("STUDENT");
+      $uid = $random->randomID("STD/");
       $fname = $data['first_name'];
       $lname = $data['last_name'];
       $email = $data['email'];
 
-      $login_id = random_int(0001, 1000);
+      $login_id = random_int(1, 10000);
       $regno = $data['regno'];
       $passwrd = md5($data['confirm_password']);
       
-    // QUERIES TO ENTER
+      //QUERIES TO ENTER DATA
       $query = "INSERT INTO users (users_id, first_name, last_name, email)
                 VALUES ('$uid', '$fname', '$lname', '$email')";
 
-      // $query2 = "INSERT INTO login (login_id, reg_no, password)
-      //             VALUES ('$login_id', '$regno', '$passwrd')";
+      $query2 = "INSERT INTO login (login_id, reg_no, password)
+                  VALUES ('$login_id', '$regno', '$passwrd')";
 
       $DB = new DatabaseModule();
-
       $DB->saveData($query);
+      $DB->saveData($query2);
 
     }
 
