@@ -3,6 +3,7 @@
 
 include 'database/db_module.php';
 include 'modules/signup.php';
+include 'modules/login.php';
 
 $regno = "";
 $email = "";
@@ -10,9 +11,25 @@ $fname = "";
 $lname = "";
 $password = "";
 $confirmedPassword = "";
+
 $result = "";
 
 if (isset($_POST['login'])) {
+
+  $login = new Login();
+  $result = $login->auth($_POST);
+
+  if ($result != "") {
+      
+      echo $result;
+      
+  }else {
+      header("Location: index.html");
+      die;
+  }
+
+  $regno = $_POST['regno'];
+  $password = $_POST['password'];
 
   $result = "YOU'VE CLICKED LOG IN 😑🤦‍♀️";
   
@@ -39,6 +56,7 @@ if (isset($_POST['register'])) {
     $confirmedPassword = $_POST['confirm_password'];
     
 } 
+
 ?>
 
 <!DOCTYPE html>
