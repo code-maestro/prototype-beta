@@ -96,11 +96,11 @@
     // Function creating new random IDs
     public function randomID($word){
           
-      $length = rand(2, 3);
+      $length = rand(2, 5);
 
       for ($i=0; $i < $length; $i++) { 
 
-        $new_num = rand(1,100);
+        $new_num = rand(1,10000);
         $num = $word . $new_num;
       }
 
