@@ -93,6 +93,21 @@
       }
     }
 
+    // Function creating new random IDs
+    public function randomID($word){
+          
+      $length = rand(2, 3);
+
+      for ($i=0; $i < $length; $i++) { 
+
+        $new_num = rand(1,100);
+        $num = $word . $new_num;
+      }
+
+      return $num;
+
+    }
+
     // Functions to retrieve appointments from database.
     public function retrieveAppointments(){
 

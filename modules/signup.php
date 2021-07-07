@@ -1,5 +1,7 @@
 <?php
 
+include 'create.php';
+
   class Signup{
 
     private $error = "";
@@ -27,8 +29,6 @@
         
         $this->create_user($data);
 
-        echo "all is well fam 😎🎉🎉";
-
       }else{
         return $this->error;
       }
@@ -36,49 +36,29 @@
 
     public function create_user($data){
 
-      $uniqueID = rand(time(), 100000000);
-      $fname = ucfirst($data['fname']);
-      $lname = ucfirst($data['lname']);
-      $regno = $data['regno'];
+      $random = new Create();
+
+      $uid = $random->randomID("STUDENT");
+      $fname = $data['first_name'];
+      $lname = $data['last_name'];
       $email = $data['email'];
-      $phoneNo = $data['phone'];
+
+      $login_id = random_int(0001, 1000);
+      $regno = $data['regno'];
       $passwrd = md5($data['confirm_password']);
       
-    // QUERIES TO STORE THE  DATA INTO -
-    // REGISTER TABLE
-      $query = "INSERT INTO users 
-                (user_id, fname, lname, regno, email, phone_number, password)
-                VALUES
-                  ('$uniqueID',
-                  '$fname',
-                  '$lname', 
-                  '$regno',
-                  '$email',
-                  '$phoneNo', 
-                  '$passwrd')";
+    // QUERIES TO ENTER
+      $query = "INSERT INTO users (users_id, first_name, last_name, email)
+                VALUES ('$uid', '$fname', '$lname', '$email')";
 
-    // VIEWING THE EXECUTED QUERIES
-      echo $query;
+      // $query2 = "INSERT INTO login (login_id, reg_no, password)
+      //             VALUES ('$login_id', '$regno', '$passwrd')";
 
       $DB = new DatabaseModule();
+
       $DB->saveData($query);
 
     }
 
-    // private function randomID(){
-      
-    //   $length = rand(2, 3);
-
-    //   $number = "STAFF";
-
-    //   for ($i=0; $i < $length; $i++) { 
-
-    //     $new_num = rand(1,100);
-    //     $num = $number . $new_num;
-    //   }
-
-    //   return $num;
- 
-    // }
   }
 ?>

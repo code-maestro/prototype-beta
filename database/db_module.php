@@ -14,7 +14,7 @@
       $this->server = "localhost";
       $this->username = "root";
       $this->password = "";
-      $this->dbname = "project_alpha";
+      $this->dbname = "beta";
 
       try {
 
@@ -69,8 +69,6 @@
       $result = mysqli_query($conn, $query);
 
       if (!$result) {
-
-        echo "Sumn wrong kid 😥😥";
         
         return false;
 

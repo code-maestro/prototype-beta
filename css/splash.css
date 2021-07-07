@@ -49,6 +49,17 @@ main .inputs {
   width: 100%;
 }
 
+/* ERROR STYLING */
+main .inputs .error{
+  border: none;
+  border-radius: 1rem;
+  font-weight: 400;
+  background-color: #e09396;
+  padding: 1rem;
+  font-size: 1.15rem;
+  text-align: center;
+}
+
 main .inputs .login,
 main .inputs .signup {
   width: 100%;
@@ -56,6 +67,11 @@ main .inputs .signup {
   flex-direction: column;
   margin: 5rem 2rem 2rem 2rem;
   padding: 2rem 0 2rem 0;
+}
+
+main .inputs .signup form {
+  display: flex;
+  flex-direction: column; 
 }
 
 main .inputs .login p{
@@ -66,12 +82,12 @@ main .inputs .login p{
 main .inputs input {
   padding: 1rem;
   margin: 1rem 0 1rem 0;
-    outline: none;
-    border: none;
-    border-radius: 1rem;
-    background-color: #f8f8f8;
-    box-shadow: .4px 2px 3px rgb(0 0 0 / 20%);
-    font-weight: 600;
+  outline: none;
+  border: none;
+  border-radius: 1rem;
+  background-color: #f8f8f8;
+  box-shadow: .4px 2px 3px rgb(0 0 0 / 20%);
+  font-weight: 600;
 }
 
 main .inputs input:last-child {
