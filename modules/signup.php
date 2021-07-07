@@ -8,7 +8,7 @@ include 'create.php';
 
     public function evaluate($data){
 
-      // DATA VALIDATION FROM THE
+      // DATA VALIDATION
       foreach ($data as $key => $value) {
         
         if (empty($value)) {
@@ -23,6 +23,7 @@ include 'create.php';
             $this->error = $this->error . " INVALID EMAIL ADDRESS ! <br> ";
           }
         }
+
       }
 
       if ($this->error == "") {
@@ -45,18 +46,19 @@ include 'create.php';
 
       $login_id = random_int(1, 10000);
       $regno = $data['regno'];
-      $passwrd = md5($data['confirm_password']);
-      
-      //QUERIES TO ENTER DATA
+      $password = md5($data['password']);
+      $password2 = md5($data['confirm_password']);
+
+      //QUERIES TO ENTER DATA 
       $query = "INSERT INTO users (users_id, first_name, last_name, email)
                 VALUES ('$uid', '$fname', '$lname', '$email')";
 
-      $query2 = "INSERT INTO login (login_id, reg_no, password)
-                  VALUES ('$login_id', '$regno', '$passwrd')";
-
+      $query2 = "INSERT INTO login (login_id, reg_no, password, users_uid)
+                  VALUES ('$login_id', '$regno', '$password', '$uid')";
+      
       $DB = new DatabaseModule();
       $DB->saveData($query);
-      $DB->saveData($query2);
+      $DB->saveData($query2);  
 
     }
 

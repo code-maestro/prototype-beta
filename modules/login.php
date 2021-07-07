@@ -9,9 +9,8 @@
       $Regno = $data['regno'];
       $Password = md5($data['password']);
             
-    // QUERIES TO RETRIEVE THE  DATA FROM
-    // LOGIN TABLE
-      $query = "SELECT * FROM users WHERE regno = '$Regno' limit 1 ";
+    // QUERIES TO RETRIEVE THE  DATA 
+      $query = "SELECT * FROM login WHERE regno = '$Regno' limit 1 ";
 
       $DB = new DatabaseModule();
       $result = $DB->readData($query);
