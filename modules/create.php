@@ -4,6 +4,7 @@
 
     private $error = "";
 
+    // Function to create an appointment
     public function createAppointment($uid, $data){
 
       $appointment_id = rand(time(), 100000000);
@@ -14,13 +15,10 @@
         $appointment_date = addslashes($data['select-date']);
         $appointment_time = addslashes($data['select-time']);
 
-      // SQL query to save thenissue to db
+      // SQL query to save the appointment to db
       $query = "INSERT INTO appointment (appointment_id, reason, appointment_date, appointment_time, userid) 
                 VALUES ('$appointment_id', '$reason', '$appointment_date', '$appointment_time', '$uid')";
 
-      // VIEWING THE EXECUTED QUERIES
-        //echo $query;
-  
         $DB = new DatabaseModule();
         $DB->saveData($query);
         
@@ -29,23 +27,20 @@
       }
     }
 
-    // Pending appointment
+  // Creating Pending appointment
     public function createPending($uid, $data){
 
-      $pending_id = rand(time(), 100000000);
+      $pending_id = rand(time(), 1000000);
       
       if (!empty($data)) {
         
         $reason = addslashes($data['reason']);
         $pdate = addslashes($data['select-date']);
 
-      // SQL query to save thenissue to db
+      // SQL query to save pending to db
       $query = "INSERT INTO pending_appointments (pending_id, reason, date, user_id) 
                 VALUES ('$pending_id', '$reason', '$pdate', '$pending_time', '$uid')";
 
-      // VIEWING THE EXECUTED QUERIES
-        //echo $query;
-  
         $DB = new DatabaseModule();
         $DB->saveData($query);
         
@@ -89,13 +84,9 @@
 
       // SQL query to save thenissue to db
       $query = "INSERT INTO issues_raised (issue_id, issue, userid) VALUES ('$issue_id', '$issue', '$uid')";
-
-      // VIEWING THE EXECUTED QUERIES
-        echo $query;
   
         $DB = new DatabaseModule();
         $DB->saveData($query);
-
 
       }else {
         $this->error .= "Please enter something to send 😒😒 </br> ";
@@ -132,7 +123,6 @@
       }else {
         return false;
       }
-  }
-
+    }
   }
 ?>
