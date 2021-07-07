@@ -25,6 +25,7 @@
           //SESSION DATA CREATION
           $_SESSION['id'] = $row['users_uid'];
           $_SESSION['regno'] = $row['reg_no'];
+          $_SESSION['name'] = $row['last_name'] . $row['first_name'];
 
         }else {
          $this->error .= $row['password'] . " " . "WRONG PASSWORD MAN TRY AGAIN";
