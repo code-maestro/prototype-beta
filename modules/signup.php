@@ -49,6 +49,8 @@ include 'create.php';
       $password = md5($data['password']);
       $password2 = md5($data['confirm_password']);
 
+      $role = $data['acc_type'];
+
       //QUERIES TO ENTER DATA 
       $query = "INSERT INTO users (users_id, first_name, last_name, email)
                 VALUES ('$uid', '$fname', '$lname', '$email')";
@@ -57,13 +59,14 @@ include 'create.php';
                  VALUES ('$login_id', '$regno', '$password', '$uid')";
 
 
-      // Query for the Role
-      // $query3 = "INSERT INTO roles (role_id, users_uid) 
-      //            VALUES ('', '$uid')";
+      //Query for the Role
+      $query3 = "INSERT INTO roles (role_id, users_uid) 
+                 VALUES ('$role', '$uid')";
       
       $DB = new DatabaseModule();
       $DB->saveData($query);
       $DB->saveData($query2);  
+      $DB->saveData($query3);  
 
     }
 

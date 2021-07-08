@@ -5,6 +5,7 @@ include 'database/db_module.php';
 include 'modules/signup.php';
 include 'modules/login.php';
 
+$role = "";
 $regno = "";
 $email = "";
 $fname = "";
@@ -14,28 +15,28 @@ $confirmedPassword = "";
 
 $result = "";
 
-if (isset($_POST['login'])) {
+// if (isset($_POST['login'])) {
 
-  $login = new Login();
-  $result = $login->auth($_POST);
+//   $login = new Login();
+//   $result = $login->auth($_POST);
 
-  if ($result != "") {
+//   if ($result != "") {
       
-      echo $result;
+//       echo $result;
       
-  }else {
-      header("Location: index.html");
-      die;
-  }
+//   }else {
+//       header("Location: index.html");
+//       die;
+//   }
 
-  $regno = $_POST['regno'];
-  $password = $_POST['password'];
+//   $regno = $_POST['regno'];
+//   $password = $_POST['password'];
 
-  $result = "YOU'VE CLICKED LOG IN 😑🤦‍♀️";
+//   $result = "YOU'VE CLICKED LOG IN 😑🤦‍♀️";
   
-}
+// }
 
-if (isset($_POST['register'])) {
+if (isset($_POST['std_register'])) {
 
     $signup = new Signup();
     $result = $signup->evaluate($_POST);
@@ -43,85 +44,127 @@ if (isset($_POST['register'])) {
     if ($result != "") {
         $result = "ENTER DATA IN ALL FIELDS";
     }else {
-        header("Location: index.html");
+      //  header("Location: splash.php");
         $result = "SUCCESS";
-        die;
     }
 
+    $role = $_POST['acc_type'];
     $regno = $_POST['regno'];
     $email = $_POST['email'];
     $fname = $_POST['first_name'];
     $lname = $_POST['last_name'];
     $password = $_POST['password'];
     $confirmedPassword = $_POST['confirm_password'];
-    
+  } 
+
+  
+if (isset($_POST['staff_register'])) {
+
+  $signup = new Signup();
+  $result = $signup->evaluate($_POST);
+
+  if ($result != "") {
+      $result = "ENTER DATA IN ALL FIELDS";
+  }else {
+    //  header("Location: splash.php");
+      $result = "SUCCESS";
+  }
+
+  $role = $_POST['acc_type'];
+  $email = $_POST['email'];
+  $fname = $_POST['first_name'];
+  $lname = $_POST['last_name'];
+  $password = $_POST['password'];
+  $confirmedPassword = $_POST['confirm_password'];
 } 
 
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title> Willkommen </title>
 
-  <link rel="stylesheet" href="css/splash.css">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 
-</head>
-<body>
+    <link rel="stylesheet" href="css/design.css">
 
-  <main>
-    <section class="display-svg">
-      <img src="resources/img/must.png" alt="" srcset="">
-    </section>
-    
-    <section class="inputs">
-      <!-- LOGIN INPUTS -->
-      <div class="login">
-        <form action="" method="post">
-          <input type="text" name="regno" id="regno" placeholder="Enter Emall or Registration Number">
-          <input type="password" name="password" id="password" placeholder="Enter Password">
-          <!-- LOGIN BUTTON -->
-          <input type="submit" name="login" id="login" value="LOGIN">
-        </form>
-        <p><a href="#">Sign up </a></p>
-      </div>
+  </head>
 
-      <!-- SIGN UP INPUTS -->
-      <div class="signup">
-        <form action="#" method="post">
-          <!-- ERROR MESSAGE  -->
-          <p class="error"> 
-            <?php echo $result ?>
-          </p>
-          <!-- USER INPUTS -->
-          <div class="select">
-            <select name="slct" id="slct">
-              <option selected disabled>Choose Account type </option>
-              <option value="1" id="std" > STUDENT </option>
-              <option value="2"> STAFF </option>
-              <option value="3"> 
-                <input type="number" name="staff" id="staff" value="1" placeholder="2" hidden > 
-              </option>
-            </select>
+  <body>
+
+    <main>
+      <div class="container" id="container">
+        <div class="form-container sign-up-container">
+          <div class="form">
+            <h1>Create Account</h1>
+            <div class="social-container">
+              <a href="#" class="student" id="student">STUDENT</a>
+              <a href="#" class="staff" id="staff">STAFF</a>
+            </div>
+            <p> <?php echo $result ?></p>
+              <div class="overlay-signup">
+                <div class="student-signup" id="student-signup">
+                  <form action="" method="post">
+                    <input type="number" name="acc_type" id="acc_type" hidden value="1">
+                    <input type="text" name="regno" id="regno" placeholder="Enter Registration Number" required>
+                    <input type="email" name="email" id="email" placeholder="Enter email" required>
+                    <input type="text" name="first_name" id="first_name" placeholder="Enter Firstname" required>
+                    <input type="text" name="last_name" id="last_name" placeholder="Enter Lastname" required>
+                    <input type="password" name="password" id="password" placeholder="Enter Password" required>
+                    <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm Password" required>
+                    <!-- SUBMIT / SIGN UP BUTTON -->
+                    <input type="submit" name="std_register" value="Sign up ">
+                  </form>
+                </div>
+
+                <div class="staff-signup " id="staff-signup">
+                <input type="number" name="acc_type" id="acc_type" hidden value="1">
+                  <input type="email" name="email" id="email" placeholder="Enter email">
+                  <input type="text" name="first_name" id="first_name" placeholder="Enter Firstname">
+                  <input type="text" name="last_name" id="last_name" placeholder="Enter Lastname">
+                  <input type="password" name="password" id="password" placeholder="Enter Password">
+                  <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm Password">
+                  <!-- SUBMIT / SIGN UP BUTTON -->
+                  <input type="submit" name="staff_register" value="Sign up ">
+                </div>
+              </div>
+
           </div>
+        </div>
+        <div class="form-container sign-in-container">
+          <form action="#" method="post" class="form">
+            <h1> Log in</h1>
+            <div class="social-container">
 
-          <input type="text" name="regno" id="regno" placeholder="Enter Registration Number">
-          <input type="email" name="email" id="email" placeholder="Enter email">
-          <input type="text" name="first_name" id="first_name" placeholder="Enter Firstname">
-          <input type="text" name="last_name" id="last_name" placeholder="Enter Lastname">
-          <input type="password" name="password" id="password" placeholder="Enter Password">
-          <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm Password">
-          <!-- SUBMIT / SIGN UP BUTTON -->
-          <input type="submit" name="register" value="Sign up ">
-        </form>
+            </div>
+            <input type="email" placeholder="Email" />
+            <input type="password" placeholder="Password" />
+            <a href="#">Forgot your password?</a>
+            <input id="login" type="submit" name="login" value="LOG IN">
+          </form>
+        </div>
+        <div class="overlay-container">
+          <div class="overlay">
+            <div class="overlay-panel overlay-left">
+              <h1>Welcome Back!</h1>
+              <p>To keep connected with us please login with your personal info</p>
+              <button class="ghost" id="signIn">Log In</button>
+            </div>
+            <div class="overlay-panel overlay-right">
+              <h1>Hello, Friend!</h1>
+              <p>Enter your personal details and start journey with us</p>
+              <button class="ghost" id="signUp">Sign Up</button>
+            </div>
+          </div>
+        </div>
       </div>
-    </section>
-  </main>
-  
-  <script src="js/delete.js"></script>
+    </main>
 
-</body>
+    <script src="js/delete.js"></script>
+
+  </body>
+
 </html>
