@@ -2,7 +2,6 @@
   
   include_once 'header.php';
 
-
 ?>
 
 <!DOCTYPE html>
@@ -60,7 +59,7 @@
 
       <div class="logout">
         <i class="fas fa-sign-out-alt"></i>
-        <h3> Logout </h3>
+        <h3> <a href="logout.php"> Logout </a> </h3>
       </div>
     </header>
 

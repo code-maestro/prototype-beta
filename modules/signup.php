@@ -54,7 +54,12 @@ include 'create.php';
                 VALUES ('$uid', '$fname', '$lname', '$email')";
 
       $query2 = "INSERT INTO login (login_id, reg_no, password, users_uid)
-                  VALUES ('$login_id', '$regno', '$password', '$uid')";
+                 VALUES ('$login_id', '$regno', '$password', '$uid')";
+
+
+      // Query for the Role
+      // $query3 = "INSERT INTO roles (role_id, users_uid) 
+      //            VALUES ('', '$uid')";
       
       $DB = new DatabaseModule();
       $DB->saveData($query);

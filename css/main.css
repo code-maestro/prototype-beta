@@ -15,7 +15,6 @@ body{
   box-sizing: border-box;
   text-decoration: none;
   height: 100vh;
-  /* background-color: var(--main-background-color); */
 }
 
 /* SCROLL BAR STYLING */
@@ -93,6 +92,11 @@ header .logout{
 
 header .logout i{
   margin-right: 1rem;
+}
+
+header .logout a{
+  text-decoration: none;
+  color: var(--icon-color);
 }
 
 main {
