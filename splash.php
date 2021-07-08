@@ -97,6 +97,17 @@ if (isset($_POST['register'])) {
             <?php echo $result ?>
           </p>
           <!-- USER INPUTS -->
+          <div class="select">
+            <select name="slct" id="slct">
+              <option selected disabled>Choose Account type </option>
+              <option value="1" id="std" > STUDENT </option>
+              <option value="2"> STAFF </option>
+              <option value="3"> 
+                <input type="number" name="staff" id="staff" value="1" placeholder="2" hidden > 
+              </option>
+            </select>
+          </div>
+
           <input type="text" name="regno" id="regno" placeholder="Enter Registration Number">
           <input type="email" name="email" id="email" placeholder="Enter email">
           <input type="text" name="first_name" id="first_name" placeholder="Enter Firstname">
@@ -110,5 +121,7 @@ if (isset($_POST['register'])) {
     </section>
   </main>
   
+  <script src="js/delete.js"></script>
+
 </body>
 </html>
