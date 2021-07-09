@@ -58,25 +58,25 @@ if (isset($_POST['std_register'])) {
   } 
 
   
-if (isset($_POST['staff_register'])) {
+  if (isset($_POST['staff_register'])) {
 
-  $signup = new Signup();
-  $result = $signup->evaluate($_POST);
+    $signup = new Signup();
+    $result = $signup->evaluate($_POST);
 
-  if ($result != "") {
-      $result = "ENTER DATA IN ALL FIELDS";
-  }else {
-    //  header("Location: splash.php");
-      $result = "SUCCESS";
-  }
+    if ($result != "") {
+        $result = "ENTER DATA IN ALL FIELDS";
+    }else {
+      //  header("Location: splash.php");
+        $result = "SUCCESS";
+    }
 
-  $role = $_POST['acc_type'];
-  $email = $_POST['email'];
-  $fname = $_POST['first_name'];
-  $lname = $_POST['last_name'];
-  $password = $_POST['password'];
-  $confirmedPassword = $_POST['confirm_password'];
-} 
+    $role = $_POST['acc_type'];
+    $email = $_POST['email'];
+    $fname = $_POST['first_name'];
+    $lname = $_POST['last_name'];
+    $password = $_POST['password'];
+    $confirmedPassword = $_POST['confirm_password'];
+  } 
 
 ?>
 
@@ -104,9 +104,11 @@ if (isset($_POST['staff_register'])) {
               <a href="#" class="student" id="student">STUDENT</a>
               <a href="#" class="staff" id="staff">STAFF</a>
             </div>
-            <p> <?php echo $result ?></p>
               <div class="overlay-signup">
                 <div class="student-signup" id="student-signup">
+
+                  <span id="err-msg" > <?php echo $result; ?> </span>
+                
                   <form action="" method="post">
                     <input type="number" name="acc_type" id="acc_type" hidden value="1">
                     <input type="text" name="regno" id="regno" placeholder="Enter Registration Number" required>
@@ -121,14 +123,20 @@ if (isset($_POST['staff_register'])) {
                 </div>
 
                 <div class="staff-signup " id="staff-signup">
-                <input type="number" name="acc_type" id="acc_type" hidden value="1">
-                  <input type="email" name="email" id="email" placeholder="Enter email">
-                  <input type="text" name="first_name" id="first_name" placeholder="Enter Firstname">
-                  <input type="text" name="last_name" id="last_name" placeholder="Enter Lastname">
-                  <input type="password" name="password" id="password" placeholder="Enter Password">
-                  <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm Password">
-                  <!-- SUBMIT / SIGN UP BUTTON -->
-                  <input type="submit" name="staff_register" value="Sign up ">
+
+                  <span id="err-msg"> <?php echo $result; ?> </span>
+
+                  <form class="form" action="" method="post">
+                    <input type="number" name="acc_type" id="acc_type" hidden value="2">
+                    <input type="email" name="email" id="email" placeholder="Enter email">
+                    <input type="text" name="first_name" id="first_name" placeholder="Enter Firstname">
+                    <input type="text" name="last_name" id="last_name" placeholder="Enter Lastname">
+                    <input type="password" name="password" id="password" placeholder="Enter Password">
+                    <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm Password">
+                    <!-- SUBMIT / SIGN UP BUTTON -->
+                    <input type="submit" name="staff_register" value="Sign up ">
+                  </form>
+
                 </div>
               </div>
 
@@ -138,7 +146,7 @@ if (isset($_POST['staff_register'])) {
           <form action="#" method="post" class="form">
             <h1> Log in</h1>
             <div class="social-container">
-
+              <span id="err-msg"> <?php echo $result; ?> </span>
             </div>
             <input type="email" placeholder="Email" />
             <input type="password" placeholder="Password" />

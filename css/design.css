@@ -75,7 +75,7 @@ button.ghost {
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
-	padding: 2rem;
+	padding: 1rem 2rem;
 	height: 100%;
 	text-align: center;
 }
@@ -226,7 +226,7 @@ main {
 	display: flex;
   width: 100%;
   justify-content: center;
-  margin: 20px 0 10px 0;
+  margin-top: 20px;
 }
 
 .social-container a {
@@ -239,12 +239,14 @@ main {
 }
 
 .social-container .student {
+	margin: 8px 0;
   border-left: none;
 	border-top-left-radius: 1.5rem;
   border-bottom-left-radius: 1.5rem;
 }
 
 .social-container .staff {
+	margin: 8px 0;
 	border-right: none;
   border-top-right-radius: 1.5rem;
   border-bottom-right-radius: 1.5rem;
@@ -283,6 +285,11 @@ main {
   color: #fff;
 }
 
+.student-signup input:last-child:hover,
+.staff-signup input:last-child:hover {
+	cursor: pointer;
+}
+
 .student-signup {
 	transform: translateX(-20%);
 }
@@ -291,4 +298,15 @@ main {
 	display: none;
   left: -20%;
 	transform: translateX(0);
+}
+
+.staff-signup form{
+	padding: .25rem;
+}
+
+span {
+	color:#e22222;
+	width: 100%;
+	padding: .75rem;
+	font-weight: 600;
 }
