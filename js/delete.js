@@ -19,7 +19,7 @@ signInButton.addEventListener('click', () => {
 	container.classList.remove("right-panel-active");
 });
 
-student.addEventListener('click', () => {
+student_tag.addEventListener('click', () => {
 	staff_signup.style.display = "none";
   student_signup.style.display = "block";
 	

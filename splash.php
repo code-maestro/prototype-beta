@@ -1,51 +1,91 @@
 
 <?php
 
-include 'database/db_module.php';
-include 'modules/signup.php';
-include 'modules/login.php';
+  include 'database/db_module.php';
+  include 'modules/signup.php';
+  include 'modules/login.php';
 
-$role = "";
-$regno = "";
-$email = "";
-$fname = "";
-$lname = "";
-$password = "";
-$confirmedPassword = "";
+  $role = "";
+  $regno = "";
+  $email = "";
+  $fname = "";
+  $lname = "";
+  $password = "";
+  $confirmedPassword = "";
 
-$result = "";
+  $result = "";
+  $res = "";
 
-// if (isset($_POST['login'])) {
+  if (isset($_POST['login'])) {
 
-//   $login = new Login();
-//   $result = $login->auth($_POST);
+    $login = new Login();
+    $res = $login->auth($_POST);
 
-//   if ($result != "") {
-      
-//       echo $result;
-      
-//   }else {
-//       header("Location: index.html");
-//       die;
-//   }
-
-//   $regno = $_POST['regno'];
-//   $password = $_POST['password'];
-
-//   $result = "YOU'VE CLICKED LOG IN 😑🤦‍♀️";
-  
-// }
-
-if (isset($_POST['std_register'])) {
-
-    $signup = new Signup();
-    $result = $signup->evaluate($_POST);
-
-    if ($result != "") {
-        $result = "ENTER DATA IN ALL FIELDS";
+    if ($res != "") {
+        
+        echo $res;
+        
     }else {
-      //  header("Location: splash.php");
-        $result = "SUCCESS";
+        
+        die;
+    }
+
+    $regno = $_POST['regno'];
+    $password = $_POST['password'];
+
+    $result = "YOU'VE CLICKED LOG IN 😑🤦‍♀️";
+    
+  }
+
+  //  Student signup
+  if (isset($_POST['std_register'])) {
+
+    $query4 = "SELECT email FROM users WHERE email = '$email'; ";
+        
+    $DB = new DatabaseModule();
+
+    $db_email = $DB->readData($query4);
+
+    if ($db_email === $email) {
+      
+      echo "<script> alert('Email is already taken'); </script> ";
+      
+    }else {
+
+      $signup = new Signup();
+      $result = $signup->evaluate($_POST);
+
+      if ($result != "") {
+          $result = "ENTER DATA IN ALL FIELDS";
+      }else {
+          $result = "SUCCESS";
+      }
+    
+    }
+  }
+
+  // Condtion for staff signup
+  if (isset($_POST['staff_register'])) {
+
+    $query4 = "SELECT email FROM users WHERE email = '$email' ";
+        
+    $DB = new DatabaseModule();
+
+    $db_email = $DB->readData($query4);
+
+    if ($db_email !== $email) {
+
+      $signup = new Signup();
+      $result = $signup->evaluate($_POST);
+
+      if ($result != "") {
+          $result = "ENTER DATA IN ALL FIELDS";
+      }else {
+          $result = "SUCCESS";
+      }
+
+    }else {
+      echo " <script> alert('Email is already taken'); </script> ";      
     }
 
     $role = $_POST['acc_type'];
@@ -55,27 +95,7 @@ if (isset($_POST['std_register'])) {
     $lname = $_POST['last_name'];
     $password = $_POST['password'];
     $confirmedPassword = $_POST['confirm_password'];
-  } 
 
-  
-  if (isset($_POST['staff_register'])) {
-
-    $signup = new Signup();
-    $result = $signup->evaluate($_POST);
-
-    if ($result != "") {
-        $result = "ENTER DATA IN ALL FIELDS";
-    }else {
-      //  header("Location: splash.php");
-        $result = "SUCCESS";
-    }
-
-    $role = $_POST['acc_type'];
-    $email = $_POST['email'];
-    $fname = $_POST['first_name'];
-    $lname = $_POST['last_name'];
-    $password = $_POST['password'];
-    $confirmedPassword = $_POST['confirm_password'];
   } 
 
 ?>
@@ -87,7 +107,8 @@ if (isset($_POST['std_register'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    
+    <title> Student Welfare </title>
 
     <link rel="stylesheet" href="css/design.css">
 
@@ -128,11 +149,12 @@ if (isset($_POST['std_register'])) {
 
                   <form class="form" action="" method="post">
                     <input type="number" name="acc_type" id="acc_type" hidden value="2">
-                    <input type="email" name="email" id="email" placeholder="Enter email">
-                    <input type="text" name="first_name" id="first_name" placeholder="Enter Firstname">
-                    <input type="text" name="last_name" id="last_name" placeholder="Enter Lastname">
-                    <input type="password" name="password" id="password" placeholder="Enter Password">
-                    <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm Password">
+                    <input type="text" name="regno" id="regno" hidden value="">
+                    <input type="email" name="email" id="email" placeholder="Enter email" required>
+                    <input type="text" name="first_name" id="first_name" placeholder="Enter Firstname" required>
+                    <input type="text" name="last_name" id="last_name" placeholder="Enter Lastname" required>
+                    <input type="password" name="password" id="password" placeholder="Enter Password" required>
+                    <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm Password" required>
                     <!-- SUBMIT / SIGN UP BUTTON -->
                     <input type="submit" name="staff_register" value="Sign up ">
                   </form>
@@ -146,7 +168,7 @@ if (isset($_POST['std_register'])) {
           <form action="#" method="post" class="form">
             <h1> Log in</h1>
             <div class="social-container">
-              <span id="err-msg"> <?php echo $result; ?> </span>
+              <span id="err-msg"> <?php echo $res; ?> </span>
             </div>
             <input type="email" placeholder="Email" />
             <input type="password" placeholder="Password" />
