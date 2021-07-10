@@ -43,3 +43,24 @@ staff_tag.addEventListener('click', () => {
 	err_msg.style.width = "100%";
 
 });
+
+// PASSWORD COMPARISION
+function verifyPassword() {  
+  var password = document.getElementById("password").value;  
+	var confirm_password = document.getElementById("confirm_password").value;  
+   
+ //minimum password length validation  
+  if(password.length < 8 && confirm_password.length < 8) {  
+     document.getElementById("err-msg").innerHTML = "**Password is too short ";  
+     alert("🗳📎");
+		 return false;  
+  }  
+
+	 //PASSWORD COMPARISON  
+	 if(password != confirm_password) {  
+		document.getElementById("err-msg").innerHTML = "**Password mismatch ";  
+		alert("🗳 📎  MISMATCH  ");
+		return false;  
+ 	}  
+
+}  

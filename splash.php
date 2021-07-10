@@ -147,9 +147,9 @@
               <div class="overlay-signup">
                 <div class="student-signup" id="student-signup">
 
-                  <span id="err-msg" > <?php echo $result; ?> </span>
+                  <span id="err-msg" > </span>
                 
-                  <form action="" method="post">
+                  <form onsubmit ="return verifyPassword()" action="" method="post" >
                     <input type="number" name="acc_type" id="acc_type" hidden value="1">
                     <input type="text" name="regno" id="regno" placeholder="Enter Registration Number" required value="<?php echo $regno; ?>">
                     <input type="email" name="email" id="email" placeholder="Enter email" required value="<?php echo $email; ?>">
@@ -189,8 +189,8 @@
             <div class="social-container">
               <span id="err-msg"> <?php echo $res; ?> </span>
             </div>
-            <input type="email" placeholder="Email" />
-            <input type="password" placeholder="Password" />
+            <input type="text" name="regno" placeholder="Email" />
+            <input type="password" name="password" placeholder="Password" />
             <a href="#">Forgot your password?</a>
             <input id="login" type="submit" name="login" value="LOG IN">
           </form>
