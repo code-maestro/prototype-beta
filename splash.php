@@ -32,71 +32,89 @@
 
     $regno = $_POST['regno'];
     $password = $_POST['password'];
-
-    $result = "YOU'VE CLICKED LOG IN 😑🤦‍♀️";
     
   }
 
   //  Student signup
   if (isset($_POST['std_register'])) {
 
-    $query4 = "SELECT email FROM users WHERE email = '$email'; ";
+    $email = $_POST['email'];
+
+    $query4 = "SELECT * FROM users WHERE email = '$email' LIMIT 1; ";
         
     $DB = new DatabaseModule();
 
     $db_email = $DB->readData($query4);
 
-    if ($db_email === $email) {
+    if ($db_email) {
+        
+      // echo $db_email;
+
+      $row = $db_email[0];
+
+      if ($email === $row['email']) {
+        
+        echo "Email is already taken";
+        $result = "Email gone";  
       
-      echo "<script> alert('Email is already taken'); </script> ";
-      
+      }else {
+
+        $signup = new Signup();
+        $result = $signup->evaluate($_POST);
+
+        if ($result != "") {
+            $result = "ENTER DATA IN ALL FIELDS";
+        }else {
+            $result = "SUCCESS";
+        }
+        
+      }
+
     }else {
 
-      $signup = new Signup();
-      $result = $signup->evaluate($_POST);
+        $signup = new Signup();
+        $result = $signup->evaluate($_POST);
 
-      if ($result != "") {
-          $result = "ENTER DATA IN ALL FIELDS";
-      }else {
+        if ($result != "") {
+          $result;
+        }else {
           $result = "SUCCESS";
       }
     
     }
-  }
-
-  // Condtion for staff signup
-  if (isset($_POST['staff_register'])) {
-
-    $query4 = "SELECT email FROM users WHERE email = '$email' ";
-        
-    $DB = new DatabaseModule();
-
-    $db_email = $DB->readData($query4);
-
-    if ($db_email !== $email) {
-
-      $signup = new Signup();
-      $result = $signup->evaluate($_POST);
-
-      if ($result != "") {
-          $result = "ENTER DATA IN ALL FIELDS";
-      }else {
-          $result = "SUCCESS";
-      }
-
-    }else {
-      echo " <script> alert('Email is already taken'); </script> ";      
-    }
-
+    
     $role = $_POST['acc_type'];
     $regno = $_POST['regno'];
-    $email = $_POST['email'];
     $fname = $_POST['first_name'];
     $lname = $_POST['last_name'];
     $password = $_POST['password'];
     $confirmedPassword = $_POST['confirm_password'];
+  }
 
-  } 
+  // // Condtion for staff signup
+  // if (isset($_POST['staff_register'])) {
+
+  //   $query4 = "SELECT email FROM users WHERE email = '$email'; ";
+        
+  //   $DB = new DatabaseModule();
+
+  //   $db_email = $DB->readData($query4);
+
+  //   if ($db_email === $email) {
+  //     echo "Email is already taken ";    
+  //   }else {  
+
+  //     $signup = new Signup();
+  //     $result = $signup->evaluate($_POST);
+
+  //     if ($result != "") {
+  //         $result = "ENTER DATA IN ALL FIELDS";
+  //     }else {
+  //         $result = "SUCCESS";
+  //     }
+
+  //   }
+  // } 
 
 ?>
 
@@ -118,6 +136,7 @@
 
     <main>
       <div class="container" id="container">
+      <span id="err-msg" > <?php echo $result; ?> </span>
         <div class="form-container sign-up-container">
           <div class="form">
             <h1>Create Account</h1>
@@ -132,10 +151,10 @@
                 
                   <form action="" method="post">
                     <input type="number" name="acc_type" id="acc_type" hidden value="1">
-                    <input type="text" name="regno" id="regno" placeholder="Enter Registration Number" required>
-                    <input type="email" name="email" id="email" placeholder="Enter email" required>
-                    <input type="text" name="first_name" id="first_name" placeholder="Enter Firstname" required>
-                    <input type="text" name="last_name" id="last_name" placeholder="Enter Lastname" required>
+                    <input type="text" name="regno" id="regno" placeholder="Enter Registration Number" required value="<?php echo $regno; ?>">
+                    <input type="email" name="email" id="email" placeholder="Enter email" required value="<?php echo $email; ?>">
+                    <input type="text" name="first_name" id="first_name" placeholder="Enter Firstname" required value="<?php echo $fname; ?>">
+                    <input type="text" name="last_name" id="last_name" placeholder="Enter Lastname" required value="<?php echo $lname; ?>">
                     <input type="password" name="password" id="password" placeholder="Enter Password" required>
                     <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm Password" required>
                     <!-- SUBMIT / SIGN UP BUTTON -->

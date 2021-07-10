@@ -24,6 +24,19 @@ include 'create.php';
           }
         }
 
+        if ($key == "first_name") {
+
+          if (is_numeric($value)) {
+            $this->error = $this->error . " FIRST NAME SHOULD CONTAIN ALPHABETICAL LETTERS <br> ";
+          }
+        }
+
+        if ($key == "last_name") {
+
+          if (is_numeric($value)) {
+            $this->error = $this->error . " LAST NAME SHOULD CONTAIN ALPHABETICAL LETTERS <br> ";
+          }
+        }
       }
 
       if ($this->error == "") {
@@ -37,9 +50,6 @@ include 'create.php';
 
     public function create_user($data){
 
-      $random = new Create();
-
-      $uid = $random->randomID("STD/");
       $fname = $data['first_name'];
       $lname = $data['last_name'];
       $email = $data['email'];
@@ -50,6 +60,18 @@ include 'create.php';
       $password2 = md5($data['confirm_password']);
 
       $role = $data['acc_type'];
+
+      if ($role === "1") {
+        
+        $random = new Create();
+
+        $uid = $random->randomID("STD/");
+
+      }else {
+        
+        $uid = $random->randomID("STAFF/");
+
+      }
 
       //QUERIES TO ENTER DATA 
       $query = "INSERT INTO users (users_id, first_name, last_name, email)
