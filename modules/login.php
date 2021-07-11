@@ -6,18 +6,15 @@
 
     public function auth($data){
 
-      $regno = $data['regno2'];
+      $email = $data['email2'];
       $Password = md5($data['password2']);
             
     // QUERIES TO RETRIEVE THE  DATA 
-    $query = "SELECT * FROM login INNER JOIN users WHERE reg_no = '$regno' AND login.users_uid = users.users_id LIMIT 1;";
-
-    // $query = "SELECT * FROM login WHERE reg_no = '$regno' LIMIT 1;";
+    $query = "SELECT * FROM login INNER JOIN roles WHERE email = '$email' 
+              AND roles.users_uid = login.users_uid LIMIT 1;";
 
       $DB = new DatabaseModule();
       $result = $DB->readData($query);
-
-      print_r($result);
 
       if ($result) {
 
@@ -29,9 +26,13 @@
 
           //SESSION DATA CREATION
           $_SESSION['id'] = $row['users_uid'];
-          $_SESSION['regno'] = $row['reg_no'];
-          $_SESSION['name'] = $row['last_name'] . $row['first_name'];
+          $_SESSION['regno'] = $row['email'];
 
+          if ($row['role_id'] == "1") {
+            header("Location: student.html");
+          }else {
+            header("Location: index.php");
+          }
 
         }else {
          $this->error .= $row['password'] . " " . "WRONG PASSWORD MAN TRY AGAIN";
