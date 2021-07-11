@@ -64,3 +64,23 @@ function verifyPassword() {
  	}  
 
 }  
+
+function verifyStaffPassword() {  
+  var password = document.getElementById("password").value;  
+	var confirm_password = document.getElementById("confirm_password").value;  
+   
+ //minimum password length validation  
+  if(password.length < 5 ) {  
+     document.getElementById("err-msg2").innerHTML = "**Password is too short ";  
+     alert(" too short ");
+		 return false;  
+  }  
+
+	 //PASSWORD COMPARISON  
+	 if(password != confirm_password) {  
+		document.getElementById("err-msg2").innerHTML = "**Password mismatch ";  
+		alert(" MISMATCH  ");
+		return false;  
+ 	}  
+
+}  
