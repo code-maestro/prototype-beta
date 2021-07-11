@@ -21,17 +21,22 @@
     $login = new Login();
     $res = $login->auth($_POST);
 
-    if ($res != "") {
-        
-        echo $res;
+    if ($res === "") {
+      
+      header("Location: index.php");
+
+      echo "<script> alert('😒'); </script>";
+
+      die;
         
     }else {
-        
-        die;
+
+      echo $res;
+
     }
 
-    $regno = $_POST['regno'];
-    $password = $_POST['password'];
+    $regno = $_POST['regno2'];
+    $password = $_POST['password2'];
     
   }
 
@@ -184,13 +189,13 @@
           </div>
         </div>
         <div class="form-container sign-in-container">
-          <form action="#" method="post" class="form">
+          <form method="POST" class="form">
             <h1> Log in</h1>
             <div class="social-container">
               <span id="err-msg"> <?php echo $res; ?> </span>
             </div>
-            <input type="text" name="regno" placeholder="Email" />
-            <input type="password" name="password" placeholder="Password" />
+            <input type="text" name="regno2" placeholder="Regno" />
+            <input type="password" name="password2" placeholder="Password" />
             <a href="#">Forgot your password?</a>
             <input id="login" type="submit" name="login" value="LOG IN">
           </form>
