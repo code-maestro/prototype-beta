@@ -148,7 +148,8 @@
 
     <main>
       <div class="container" id="container">
-      <span id="err-msg" > <?php echo $result; ?> </span>
+      <span id="err-msg2" > </span>
+      <!-- <span id="err-msg" > <?php echo $result; ?> </span> -->
         <div class="form-container sign-up-container">
           <div class="form">
             <h1>Create Account</h1>
@@ -172,7 +173,7 @@
                 </div>
 
                 <div class="staff-signup " id="staff-signup">
-                  <form onsubmit ="return verifyPassword()" class="form" action="" method="post">
+                  <form onsubmit ="return verifyPassword()" action="" method="post">
                     <input type="number" name="acc_type" id="acc_type" hidden value="2">
                     <input type="text" name="regno" id="regno" hidden value="  ">
                     <input type="email" name="email" id="email" placeholder="Enter email" required>

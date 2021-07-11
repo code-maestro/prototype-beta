@@ -50,16 +50,16 @@ function verifyPassword() {
 	var confirm_password = document.getElementById("confirm_password").value;  
    
  //minimum password length validation  
-  if(password.length < 8 ) {  
-     document.getElementById("err-msg").innerHTML = "**Password is too short ";  
-     alert("🗳📎");
+  if(password.length < 5 ) {  
+     document.getElementById("err-msg2").innerHTML = "**Password is too short ";  
+     alert(" too short ");
 		 return false;  
   }  
 
 	 //PASSWORD COMPARISON  
 	 if(password != confirm_password) {  
-		document.getElementById("err-msg").innerHTML = "**Password mismatch ";  
-		alert("🗳 📎  MISMATCH  ");
+		document.getElementById("err-msg2").innerHTML = "**Password mismatch ";  
+		alert(" MISMATCH  ");
 		return false;  
  	}  
 
