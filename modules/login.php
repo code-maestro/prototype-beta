@@ -29,7 +29,7 @@
           $_SESSION['regno'] = $row['email'];
 
           if ($row['role_id'] == "1") {
-            header("Location: student.html");
+            header("Location: student.php");
           }else {
             header("Location: index.php");
           }

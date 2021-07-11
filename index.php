@@ -1,6 +1,10 @@
 <?php
   
   include_once 'header.php';
+  include_once 'modules/user.php';
+
+  $user = new User();
+  $current_user = $user->getData($_SESSION['id']);
 
 ?>
 
@@ -69,7 +73,7 @@
       <section class="header">
         <!-- Welcome txt -->
         <div class="welcome-txt">
-          <h2>Willkommen</h2>
+          <h2> Willkommen <?php echo $current_user['last_name']; ?> </h2>
           <span>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</span>
         </div>
         <!-- Notification icon -->

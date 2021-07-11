@@ -1,7 +1,10 @@
-
 <?php
 
   include_once 'header.php';
+  include_once 'modules/user.php';
+
+  $user = new User();
+  $current_user = $user->getData($_SESSION['id']);
 
 ?>
 
@@ -65,7 +68,7 @@
           <div class="left">
             <img src="resources/img/must.png" alt="" srcset="">
             <div class="user-info">
-              <span> Willkommen chello </span>
+              <span> Willkommen <?php echo $current_user['last_name']; ?> </span>
             </div>
           </div>
 
