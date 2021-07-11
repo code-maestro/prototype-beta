@@ -61,32 +61,33 @@ include 'create.php';
 
       $role = $data['acc_type'];
 
-      if ($role === "1") {
+      $random = new Create();
 
-        $random = new Create();
+      if ($role == "1") {
+
         $uid = $random->randomID("STD/");
-
-        //QUERIES TO ENTER DATA 
-        $query = "INSERT INTO users (users_id, first_name, last_name)
-                  VALUES ('$uid', '$fname', '$lname')";
-
-        $query2 = "INSERT INTO login (login_id, reg_no, password, users_uid, email)
-                   VALUES ('$login_id', '$regno', '$password', '$uid', '$email' )";
-
-        //Query for the Role
-        $query3 = "INSERT INTO roles (role_id, users_uid) 
-                   VALUES ('$role', '$uid')";
-
-        $DB = new DatabaseModule();
-        $DB->saveData($query);
-        $DB->saveData($query2);  
-        $DB->saveData($query3);
 
       }else {
         
         $uid = $random->randomID("STAFF/");
 
       }
+
+       //QUERIES TO ENTER DATA 
+      $query = "INSERT INTO users (users_id, first_name, last_name)
+                VALUES ('$uid', '$fname', '$lname')";
+
+      $query2 = "INSERT INTO login (login_id, reg_no, password, users_uid, email)
+                 VALUES ('$login_id', '$regno', '$password', '$uid', '$email' )";
+
+      //Query for the Role
+      $query3 = "INSERT INTO roles (role_id, users_uid) 
+                 VALUES ('$role', '$uid')";
+
+      $DB = new DatabaseModule();
+      $DB->saveData($query);
+      $DB->saveData($query2);  
+      $DB->saveData($query3);
 
     }
 
