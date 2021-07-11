@@ -14,7 +14,7 @@
       $this->server = "localhost";
       $this->username = "root";
       $this->password = "";
-      $this->dbname = "prototype_beta";
+      $this->dbname = "β-prototype";
 
       try {
 
