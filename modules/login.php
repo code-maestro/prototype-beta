@@ -10,9 +10,9 @@
       $Password = md5($data['password2']);
             
     // QUERIES TO RETRIEVE THE  DATA 
-    // $query = "SELECT * FROM login INNER JOIN users WHERE reg_no = '$regno' AND login.users_uid = users.users_id LIMIT 1;";
+    $query = "SELECT * FROM login INNER JOIN users WHERE reg_no = '$regno' AND login.users_uid = users.users_id LIMIT 1;";
 
-      $query = "SELECT * FROM login WHERE reg_no = '$regno' LIMIT 1;";
+    // $query = "SELECT * FROM login WHERE reg_no = '$regno' LIMIT 1;";
 
       $DB = new DatabaseModule();
       $result = $DB->readData($query);
@@ -25,16 +25,13 @@
 
         if ($Password === $row['password']) {
 
-          echo $row['password'];
-
           session_start();
 
           //SESSION DATA CREATION
           $_SESSION['id'] = $row['users_uid'];
-          //$_SESSION['regno'] = $row['reg_no'];
-          //$_SESSION['name'] = $row['last_name'] . $row['first_name'];
+          $_SESSION['regno'] = $row['reg_no'];
+          $_SESSION['name'] = $row['last_name'] . $row['first_name'];
 
-          echo $_SESSION['id'];
 
         }else {
          $this->error .= $row['password'] . " " . "WRONG PASSWORD MAN TRY AGAIN";

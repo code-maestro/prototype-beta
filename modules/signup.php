@@ -61,9 +61,9 @@ include 'create.php';
 
       $role = $data['acc_type'];
 
+      $random = new Create();
+
       if ($role === "1") {
-        
-        $random = new Create();
 
         $uid = $random->randomID("STD/");
 

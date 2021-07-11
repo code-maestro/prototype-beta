@@ -50,7 +50,7 @@ function verifyPassword() {
 	var confirm_password = document.getElementById("confirm_password").value;  
    
  //minimum password length validation  
-  if(password.length < 8 && confirm_password.length < 8) {  
+  if(password.length < 8 ) {  
      document.getElementById("err-msg").innerHTML = "**Password is too short ";  
      alert("🗳📎");
 		 return false;  

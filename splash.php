@@ -52,8 +52,6 @@
     $db_email = $DB->readData($query4);
 
     if ($db_email) {
-        
-      // echo $db_email;
 
       $row = $db_email[0];
 
@@ -96,30 +94,39 @@
     $confirmedPassword = $_POST['confirm_password'];
   }
 
-  // // Condtion for staff signup
-  // if (isset($_POST['staff_register'])) {
+  // Condtion for staff signup
+  if (isset($_POST['staff_register'])) {
 
-  //   $query4 = "SELECT email FROM users WHERE email = '$email'; ";
+    $email = $_POST['email'];
+
+    $query4 = "SELECT email FROM users WHERE email = '$email'; ";
         
-  //   $DB = new DatabaseModule();
+    $DB = new DatabaseModule();
 
-  //   $db_email = $DB->readData($query4);
+    $db_email = $DB->readData($query4);
 
-  //   if ($db_email === $email) {
-  //     echo "Email is already taken ";    
-  //   }else {  
+    if ($db_email === $email) {
+      echo " <script> alert(' Email is already taken ! ') </script> ";    
+    }else {  
 
-  //     $signup = new Signup();
-  //     $result = $signup->evaluate($_POST);
+      $signup = new Signup();
+      $result = $signup->evaluate($_POST);
 
-  //     if ($result != "") {
-  //         $result = "ENTER DATA IN ALL FIELDS";
-  //     }else {
-  //         $result = "SUCCESS";
-  //     }
+      if ($result != "") {
+          $result = "ENTER DATA IN ALL FIELDS";
+      }else {
+          $result = "SUCCESS";
+      }
+    }
 
-  //   }
-  // } 
+    $role = $_POST['acc_type'];
+    $regno = $_POST['regno'];
+    $fname = $_POST['first_name'];
+    $lname = $_POST['last_name'];
+    $password = $_POST['password'];
+    $confirmedPassword = $_POST['confirm_password'];
+
+  } 
 
 ?>
 
@@ -150,10 +157,7 @@
               <a href="#" class="staff" id="staff">STAFF</a>
             </div>
               <div class="overlay-signup">
-                <div class="student-signup" id="student-signup">
-
-                  <span id="err-msg" > </span>
-                
+                <div class="student-signup" id="student-signup">                
                   <form onsubmit ="return verifyPassword()" action="" method="post" >
                     <input type="number" name="acc_type" id="acc_type" hidden value="1">
                     <input type="text" name="regno" id="regno" placeholder="Enter Registration Number" required value="<?php echo $regno; ?>">
@@ -168,12 +172,9 @@
                 </div>
 
                 <div class="staff-signup " id="staff-signup">
-
-                  <span id="err-msg"> <?php echo $result; ?> </span>
-
-                  <form class="form" action="" method="post">
+                  <form onsubmit ="return verifyPassword()" class="form" action="" method="post">
                     <input type="number" name="acc_type" id="acc_type" hidden value="2">
-                    <input type="text" name="regno" id="regno" hidden value="">
+                    <input type="text" name="regno" id="regno" hidden value="  ">
                     <input type="email" name="email" id="email" placeholder="Enter email" required>
                     <input type="text" name="first_name" id="first_name" placeholder="Enter Firstname" required>
                     <input type="text" name="last_name" id="last_name" placeholder="Enter Lastname" required>
