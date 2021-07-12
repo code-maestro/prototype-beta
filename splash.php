@@ -16,14 +16,13 @@
   $result = "";
   $res = "";
 
+  // LOGIN LOGIC
   if (isset($_POST['login'])) {
 
     $login = new Login();
     $res = $login->auth($_POST);
 
     if ($res === "") {
-      
-      // header("Location: index.php");
 
       echo "<script> alert('😒'); </script>";
 
