@@ -44,7 +44,7 @@ staff_tag.addEventListener('click', () => {
 
 });
 
-// PASSWORD COMPARISION
+
 function verifyPassword() {  
   var password = document.getElementById("password").value;  
 	var confirm_password = document.getElementById("confirm_password").value;  
