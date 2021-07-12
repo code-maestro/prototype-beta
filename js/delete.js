@@ -52,14 +52,14 @@ function verifyPassword() {
  //minimum password length validation  
   if(password.length < 5 ) {  
      document.getElementById("err-msg2").innerHTML = "**Password is too short ";  
-     alert(" too short 😒 ");
+     alert(" too short ");
 		 return false;  
   }  
 
 	 //PASSWORD COMPARISON  
 	 if(password != confirm_password) {  
 		document.getElementById("err-msg2").innerHTML = "**Password mismatch ";  
-		alert("🗳 📎  MISMATCH  ");
+		alert(" MISMATCH  ");
 		return false;  
  	}  
 
@@ -73,14 +73,14 @@ function verifyStaffPassword() {
  //minimum password length validation  
   if(password.length < 5 ) {  
      document.getElementById("err-msg2").innerHTML = "**Password is too short ";  
-     alert(" too short 😒 ");
+     alert(" too short ");
 		 return false;  
   }  
 
 	 //PASSWORD COMPARISON  
 	 if(password != confirm_password) {  
 		document.getElementById("err-msg2").innerHTML = "**Password mismatch ";  
-		alert("🗳 📎  MISMATCH  ");
+		alert(" MISMATCH  ");
 		return false;  
  	}  
 
