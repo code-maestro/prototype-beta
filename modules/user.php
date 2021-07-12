@@ -6,10 +6,6 @@
 
       $query = " SELECT * FROM users WHERE users_id = '$uid' limit 1 ";
 
-      // $query2 = " SELECT * FROM users WHERE users_uid = '$uid' limit 1 ";
-      
-      // $query3 = " SELECT * FROM users WHERE users_uid = '$uid' limit 1 ";
-
       $DB = new DatabaseModule();
       $result = $DB->readData($query);
 
@@ -18,11 +14,47 @@
         $row = $result[0];
 
         return $row; 
+
       }else {
 
         return false;
          
       }
+
+    }
+
+    // Function to retrieve the total number of users
+    public function getTotalUsers($query) {
+
+      $DB = new DatabaseModule();
+      $result = $DB->readData($query);
+
+      if ($result) {
+
+        $row = $result[0];
+
+        $string_number = $row['COUNT(id)'];
+        
+        return $string_number; 
+
+      }else {
+
+        return false;
+         
+      }
+
+    }
+
+    // Function to retrieve the total number of users
+    public function getTotal($query) {
+
+      $DB = new DatabaseModule();
+
+      $result = $DB->readDara($query);
+
+      $res = mysqli_num_rows($result);
+
+      return $res;
 
     }
 

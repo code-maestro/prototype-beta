@@ -6,6 +6,14 @@
   $user = new User();
   $current_user = $user->getData($_SESSION['id']);
 
+  //Qeuries
+  $query = "SELECT COUNT(id) FROM roles WHERE role_id = '1'; ";
+  $query2 = "SELECT * FROM users ";
+
+  $total_numbers = $user->getTotalUsers($query);
+
+  $total_users = $user->getTotal($query2);
+
 ?>
 
 <!DOCTYPE html>
@@ -73,8 +81,9 @@
       <section class="header">
         <!-- Welcome txt -->
         <div class="welcome-txt">
-          <h2> Willkommen <?php echo $current_user['last_name']; ?> </h2>
-          <span>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</span>
+          <span> Welcome back </span>  
+          <br>
+          <h2> <?php echo $current_user['last_name'] . " " . $current_user['first_name'] ; ?> </h2>
         </div>
         <!-- Notification icon -->
         <div class="notification-area">
@@ -92,29 +101,28 @@
           <div class="count">
             <!-- Total Appointments -->
             <div class="total">
-              <i class="fas fa-users"></i>
+              <i class="fas fa-hospital-user"></i>
               <div class="total-numbers">
-                <h2>234</h2>
+                <h2><?php echo $total_users; ?></h2>
                 <span>Today's Appointments</span>
               </div>
             </div>
             <div class="approved">
+              <i class="fas fa-users"></i>
+              <div class="total-numbers">
+                <h2><?php echo $total_users; ?></h2>
+                <span>Today's Appointments</span>
+              </div>
+            </div>
+            <div class="cancelled">
               <i class="fas fa-user-check"></i>
               <div class="total-numbers">
                 <h2>234</h2>
                 <span>Today's Appointments</span>
               </div>
             </div>
-            <div class="cancelled">
-              <i class="fas fa-user-times"></i>
-              <div class="total-numbers">
-                <h2>234</h2>
-                <span>Today's Appointments</span>
-              </div>
-            </div>
             <div class="total-patients">
-              <i class="fas fa-hospital-user"></i>
-              <!-- <i class="fas fa-comment-dots"></i> -->
+              <i class="fas fa-user-times"></i>
               <div class="total-numbers">
                 <h2>234</h2>
                 <span>Today's Appointments</span>
