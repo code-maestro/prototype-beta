@@ -157,6 +157,7 @@
               <a href="#" class="staff" id="staff">STAFF</a>
             </div>
             <div class="overlay-signup">
+              <!-- STUDENT SIGNUP CONTAINER -->
               <div class="student-signup" id="student-signup">                
                 <form onsubmit ="return verifyPassword()" action="" method="post" >
                   <input type="number" name="acc_type" id="acc_type" hidden value="1">
