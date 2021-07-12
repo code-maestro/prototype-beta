@@ -21,19 +21,19 @@ signInButton.addEventListener('click', () => {
 
 student_tag.addEventListener('click', () => {
 	staff_signup.style.display = "none";
-  student_signup.style.display = "block";
-	
+	student_signup.style.display = "block";
+
 	student_tag.style.backgroundColor = "#2c3e50";
 	student_tag.style.color = "#FFFFFF";
-	
+
 	staff_tag.style.backgroundColor = "#f8f8f8";
 	staff_tag.style.color = "#000000";
 });
 
 staff_tag.addEventListener('click', () => {
 	staff_signup.style.display = "block";
-  student_signup.style.display = "none";
-	
+	student_signup.style.display = "none";
+
 	staff_tag.style.backgroundColor = "#2c3e50";
 	staff_tag.style.color = "#FFFFFF";
 
@@ -44,43 +44,42 @@ staff_tag.addEventListener('click', () => {
 
 });
 
+
+function verifyPassword() {
+	var password = document.getElementById("password").value;
+	var confirm_password = document.getElementById("confirm_password").value;
+
+	//minimum password length validation  
+	if (password.length < 5) {
+		document.getElementById("err-msg2").innerHTML = "**Password is too short ";
+		alert(" too short ");
+		return false;
+	}
+
+	if (password != confirm_password) {
+		document.getElementById("err-msg2").innerHTML = "**Password mismatch ";
+		alert(" MISMATCH  ");
+		return false;
+	}
+
+}
+
 // PASSWORD COMPARISION
-function verifyPassword() {  
-  var password = document.getElementById("password").value;  
-	var confirm_password = document.getElementById("confirm_password").value;  
-   
- //minimum password length validation  
-  if(password.length < 5 ) {  
-     document.getElementById("err-msg2").innerHTML = "**Password is too short ";  
-     alert(" too short ");
-		 return false;  
-  }  
+function verifyStaffPassword() {
+	var password = document.getElementById("password").value;
+	var confirm_password = document.getElementById("confirm_password").value;
 
-	 //PASSWORD COMPARISON  
-	 if(password != confirm_password) {  
-		document.getElementById("err-msg2").innerHTML = "**Password mismatch ";  
+	//minimum password length validation  
+	if (password.length < 5) {
+		document.getElementById("err-msg2").innerHTML = "**Password is too short ";
+		alert(" too short ");
+		return false;
+	}
+
+	if (password != confirm_password) {
+		document.getElementById("err-msg2").innerHTML = "**Password mismatch ";
 		alert(" MISMATCH  ");
-		return false;  
- 	}  
+		return false;
+	}
 
-}  
-
-function verifyStaffPassword() {  
-  var password = document.getElementById("password").value;  
-	var confirm_password = document.getElementById("confirm_password").value;  
-   
- //minimum password length validation  
-  if(password.length < 5 ) {  
-     document.getElementById("err-msg2").innerHTML = "**Password is too short ";  
-     alert(" too short ");
-		 return false;  
-  }  
-
-	 //PASSWORD COMPARISON  
-	 if(password != confirm_password) {  
-		document.getElementById("err-msg2").innerHTML = "**Password mismatch ";  
-		alert(" MISMATCH  ");
-		return false;  
- 	}  
-
-}  
+}
