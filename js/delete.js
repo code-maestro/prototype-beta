@@ -53,6 +53,7 @@ function verifyPassword() {
   if(password.length < 5 ) {  
      document.getElementById("err-msg2").innerHTML = "**Password is too short ";  
      alert(" too short ");
+
 		 return false;  
   }  
 
@@ -81,6 +82,7 @@ function verifyStaffPassword() {
 	 if(password != confirm_password) {  
 		document.getElementById("err-msg2").innerHTML = "**Password mismatch ";  
 		alert(" MISMATCH  ");
+
 		return false;  
  	}  
 
