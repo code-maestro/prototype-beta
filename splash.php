@@ -159,7 +159,7 @@
             <div class="overlay-signup">
               <!-- STUDENT SIGNUP CONTAINER -->
               <div class="student-signup" id="student-signup">                
-                <form onsubmit ="return verifyPassword()" action="" method="post" >
+                <form onsubmit="return verifyPassword()" action="" method="post" >
                   <input type="number" name="acc_type" id="acc_type" hidden value="1">
                   <input type="text" name="regno" id="regno" placeholder="Enter Registration Number" required value="<?php echo $regno; ?>">
                   <input type="email" name="email" id="email" placeholder="Enter email" required value="<?php echo $email; ?>">
