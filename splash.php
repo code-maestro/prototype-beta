@@ -171,6 +171,7 @@
                 </form>
               </div>
 
+              
               <div class="staff-signup " id="staff-signup">
                 <form onsubmit="return verifyStaffPassword()" action="" method="post">
                   <input type="number" name="acc_type" id="acc_type" hidden value="2">
@@ -183,10 +184,8 @@
                   <!-- SUBMIT / SIGN UP BUTTON -->
                   <input type="submit" name="staff_register" value="Sign up ">
                 </form>
-
               </div>
             </div>
-
           </div>
         </div>
         <div class="form-container sign-in-container">
