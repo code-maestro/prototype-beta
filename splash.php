@@ -16,14 +16,13 @@
   $result = "";
   $res = "";
 
+  // LOGIN LOGIC
   if (isset($_POST['login'])) {
 
     $login = new Login();
     $res = $login->auth($_POST);
 
     if ($res === "") {
-      
-      header("Location: index.php");
 
       echo "<script> alert('😒'); </script>";
 
@@ -35,7 +34,7 @@
 
     }
 
-    $regno = $_POST['regno2'];
+    $email = $_POST['email2'];
     $password = $_POST['password2'];
     
   }
@@ -198,8 +197,8 @@
             <div class="social-container">
               <span id="err-msg"> <?php echo $res; ?> </span>
             </div>
-            <input type="text" name="regno2" placeholder="Regno" />
-            <input type="password" name="password2" placeholder="Password" />
+            <input type="email" name="email2" placeholder=" Enter Email" value="<?php echo $email; ?>" />
+            <input type="password" name="password2" placeholder=" Enter Password" />
             <a href="#">Forgot your password?</a>
             <input id="login" type="submit" name="login" value="LOG IN">
           </form>
