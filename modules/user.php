@@ -16,11 +16,8 @@
         return $row; 
 
       }else {
-
-        return false;
-         
+        return false;      
       }
-
     }
 
     // Function to retrieve the total number of users
@@ -42,19 +39,6 @@
         return false;
          
       }
-
-    }
-
-    // Function to retrieve the total number of users
-    public function getTotal($query) {
-
-      $DB = new DatabaseModule();
-
-      $result = $DB->readDara($query);
-
-      $res = mysqli_num_rows($result);
-
-      return $res;
 
     }
 

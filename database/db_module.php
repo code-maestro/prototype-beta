@@ -60,17 +60,6 @@
       }
     }
 
-    //READ FUNCTION/METHOD TO RETRIEVE DATA PASSED TO IT WHEN IT'S CALLED
-    public function readDara($query){
-
-      $conn = $this->connect();
-
-      $result = mysqli_query($conn, $query);
-
-      return $result;
-
-    }
-
     //SAVE METHOD TO STORE THE DATA PASSED TO IT WHEN IT'S CALLED
     public function saveData($query){
       

@@ -6,6 +6,8 @@
   $user = new User();
   $current_user = $user->getData($_SESSION['id']);
 
+  $names = $user_details['first_name'];
+
 ?>
 
 <!DOCTYPE html>

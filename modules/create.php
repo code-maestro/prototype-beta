@@ -111,8 +111,7 @@
     // Functions to retrieve appointments from database.
     public function retrieveAppointments(){
 
-        // SQL query to save thenissue to db
-        $query = "SELECT * FROM appointment order by id desc" ;
+        $query = "SELECT * FROM users" ;
 
         $DB = new DatabaseModule();
         $appointments = $DB->readData($query);
@@ -124,20 +123,5 @@
         }
     }
 
-    // Functions to retrieve appointments from database.
-    public function retrieveCommunications(){
-
-      // SQL query to save thenissue to db
-      $query = "SELECT * FROM communications order by id desc" ;
-
-      $DB = new DatabaseModule();
-      $info = $DB->readData($query);
-
-      if ($info) {
-        return $info;
-      }else {
-        return false;
-      }
-    }
   }
 ?>

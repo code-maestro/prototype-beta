@@ -1,19 +1,22 @@
 <?php
   
   include_once 'header.php';
-  include_once 'modules/user.php';
+  include_once 'modules/create.php';
 
   $user = new User();
   $current_user = $user->getData($_SESSION['id']);
 
   //Qeuries
   $query = "SELECT COUNT(id) FROM roles WHERE role_id = '1'; ";
-  $query2 = "SELECT * FROM users ";
 
   $total_numbers = $user->getTotalUsers($query);
 
-  $total_users = $user->getTotal($query2);
+  //Retrieving appointments
+  $info = new Create();
+  $list = $info->retrieveAppointments();
 
+  //$names = $user_details['first_name'];
+       
 ?>
 
 <!DOCTYPE html>
@@ -103,14 +106,14 @@
             <div class="total">
               <i class="fas fa-hospital-user"></i>
               <div class="total-numbers">
-                <h2><?php echo $total_users; ?></h2>
+                <h2> <?php echo $total_numbers; ?> </h2>
                 <span>Today's Appointments</span>
               </div>
             </div>
             <div class="approved">
               <i class="fas fa-users"></i>
               <div class="total-numbers">
-                <h2><?php echo $total_users; ?></h2>
+                <h2></h2>
                 <span>Today's Appointments</span>
               </div>
             </div>
@@ -151,13 +154,22 @@
             <!-- Thee list -->
             <div class="thee-list">
               <ul>
+              
+                <?php
+                  if ($list) {                 
+                    foreach ($list as $ROW) {
+                      include 'modules/appointment.php';
+                    }
+                  }
+                ?>
+
                 <li>
                   <div class="time">
                     <span> 10:00 - 11:00 </span>
                   </div>
                   <div class="student">
                     <img src="resources/img/must.png" alt="avatar">
-                    <h3>code-maestro</h3>
+                    <h3>code- <?php echo $user_details['first_name']; ?></h3>
                   </div>
                   <div class="actions">
                     <i class="fas fa-check"> </i>
