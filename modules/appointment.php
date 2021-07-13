@@ -4,7 +4,7 @@
   </div>
   <div class="student">
     <img src="resources/img/must.png" alt="avatar">
-    <h3>code-<?php echo $ROW['first_name']; ?> </h3>
+    <h3> <?php echo $ROW['last_name'] . " " . $ROW['first_name']; ?> </h3>
   </div>
   <div class="actions">
     <i class="fas fa-check"> </i>

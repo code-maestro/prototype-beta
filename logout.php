@@ -13,7 +13,7 @@
 
   }
 
-  header("Location: splash.php");
+  header("Location: index.php");
   die;
 
 ?>

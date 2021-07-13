@@ -6,9 +6,9 @@
     include 'modules/user.php';
     
     // Checking whether user is logged in 
-    if (isset($_SESSION['id'])) {
+    if (isset($_SESSION['std_id'])) {
     
-        $user_id = $_SESSION['id'];
+        $user_id = $_SESSION['std_id'];
 
         $user_data = new User();
 
@@ -17,12 +17,12 @@
         // Checking if the logged in user exists in db
         if (!$user_details) {
           // Redirecting if use is not found
-          header("Location: ./splash.php");
+          header("Location: ./index.php");
           die;
         }
 
     }else{
-      header("Location: ./splash.php");
+      header("Location: ./index.php");
       die;
     } 
 

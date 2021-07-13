@@ -1,22 +1,132 @@
+
 <?php
-  
-  include_once 'header.php';
-  include_once 'modules/create.php';
 
-  $user = new User();
-  $current_user = $user->getData($_SESSION['id']);
+  include 'database/db_module.php';
+  include 'modules/signup.php';
+  include 'modules/login.php';
 
-  //Qeuries
-  $query = "SELECT COUNT(id) FROM roles WHERE role_id = '1'; ";
+  $role = "";
+  $regno = "";
+  $email = "";
+  $fname = "";
+  $lname = "";
+  $password = "";
+  $confirmedPassword = "";
 
-  $total_numbers = $user->getTotalUsers($query);
+  $result = "";
+  $res = "";
 
-  //Retrieving appointments
-  $info = new Create();
-  $list = $info->retrieveAppointments();
+  // LOGIN LOGIC
+  if (isset($_POST['login'])) {
 
-  //$names = $user_details['first_name'];
-       
+    $login = new Login();
+    $res = $login->auth($_POST);
+
+    if ($res === "") {
+
+      echo "<script> alert('😒'); </script>";
+
+      die;
+        
+    }else {
+
+      echo $res;
+
+    }
+
+    $email = $_POST['email2'];
+    $password = $_POST['password2'];
+    
+  }
+
+  //  Student signup
+  if (isset($_POST['std_register'])) {
+
+    $email = $_POST['email'];
+
+    $query4 = "SELECT * FROM users WHERE email = '$email' LIMIT 1; ";
+        
+    $DB = new DatabaseModule();
+
+    $db_email = $DB->readData($query4);
+
+    if ($db_email) {
+
+      $row = $db_email[0];
+
+      if ($email === $row['email']) {
+        
+        echo "Email is already taken";
+        $result = "Email gone";  
+      
+      }else {
+
+        $signup = new Signup();
+        $result = $signup->evaluate($_POST);
+
+        if ($result != "") {
+            $result = "ENTER DATA IN ALL FIELDS";
+        }else {
+            $result = "SUCCESS";
+        }
+        
+      }
+
+    }else {
+
+        $signup = new Signup();
+        $result = $signup->evaluate($_POST);
+
+        if ($result != "") {
+          $result;
+        }else {
+          $result = "SUCCESS";
+      }
+    
+    }
+    
+    $role = $_POST['acc_type'];
+    $regno = $_POST['regno'];
+    $fname = $_POST['first_name'];
+    $lname = $_POST['last_name'];
+    $password = $_POST['password'];
+    $confirmedPassword = $_POST['confirm_password'];
+  }
+
+  // Condtion for staff signup
+  if (isset($_POST['staff_register'])) {
+
+    $email = $_POST['email'];
+
+    $query4 = "SELECT email FROM users WHERE email = '$email'; ";
+        
+    $DB = new DatabaseModule();
+
+    $db_email = $DB->readData($query4);
+
+    if ($db_email === $email) {
+      echo " <script> alert(' Email is already taken ! ') </script> ";    
+    }else {  
+
+      $signup = new Signup();
+      $result = $signup->evaluate($_POST);
+
+      if ($result != "") {
+          $result = "ENTER DATA IN ALL FIELDS";
+      }else {
+          $result = "SUCCESS";
+      }
+    }
+
+    $role = $_POST['acc_type'];
+    $regno = $_POST['regno'];
+    $fname = $_POST['first_name'];
+    $lname = $_POST['last_name'];
+    $password = $_POST['password'];
+    $confirmedPassword = $_POST['confirm_password'];
+
+  } 
+
 ?>
 
 <!DOCTYPE html>
@@ -26,193 +136,92 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> MUST COUNSELLOR APP</title>
+    
+    <title> Student Welfare </title>
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/all.min.css">
-    <link rel="stylesheet" href="css/fontawesome.min.css">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/design.css">
 
   </head>
 
   <body>
 
-    <!-- HEADER -->
-    <header>
-      <!-- Heading -->
-      <div class="heading">
-        <img src="resources/img/must.png" alt="">
-        <h3> COUNSELLOR APP </h3>
-      </div>
-      <!-- /Heading -->
-
-      <!-- RIGHT SIDE NAVBAR -->
-      <nav>
-        <ul>
-          <li class="nav-item">
-            <i class="fas fa-layer-group"></i>
-            <h3>Overview</h3>
-          </li>
-          <li class="nav-item">
-            <i class="fas fa-calendar-check"></i>
-            <h3>Appointments</h3>
-          </li>
-          <li class="nav-item">
-            <i class="fas fa-user-graduate"></i>
-            <h3> Students </h3>
-          </li>
-          <li class="nav-item">
-            <i class="fas fa-user-md"></i>
-            <h3> Counsellors </h3>
-          </li>
-          <li class="nav-item">
-            <i class="fas fa-clipboard-list"></i>
-            <h3>FAQs</h3>
-          </li>
-        </ul>
-      </nav>
-
-      <div class="logout">
-        <i class="fas fa-sign-out-alt"></i>
-        <h3> <a href="logout.php"> Logout </a> </h3>
-      </div>
-    </header>
-
-    <!-- MAIN -->
     <main>
-      <!-- Header section for the main -->
-      <section class="header">
-        <!-- Welcome txt -->
-        <div class="welcome-txt">
-          <span> Welcome back </span>  
-          <br>
-          <h2> <?php echo $current_user['last_name'] . " " . $current_user['first_name'] ; ?> </h2>
-        </div>
-        <!-- Notification icon -->
-        <div class="notification-area">
-          <i class="fas fa-bell"></i>
-        </div>
-      </section>
-
-      <!-- Appointments count -->
-      <section class="appointments">
-
-        <!-- wrapper -->
-        <div class="wrapper">
-
-          <!-- COUNT & LIST -->
-          <div class="count">
-            <!-- Total Appointments -->
-            <div class="total">
-              <i class="fas fa-hospital-user"></i>
-              <div class="total-numbers">
-                <h2> <?php echo $total_numbers; ?> </h2>
-                <span>Today's Appointments</span>
+      <div class="container" id="container">
+      <span id="err-msg2" > </span>
+      
+        <div class="form-container sign-up-container">
+          <div class="form">
+            <h1>Create Account</h1>
+            <div class="social-container">
+              <a href="#" class="student" id="student">STUDENT</a>
+              <a href="#" class="staff" id="staff">STAFF</a>
+            </div>
+            <div class="overlay-signup">
+              <!-- STUDENT SIGNUP CONTAINER -->
+              <div class="student-signup" id="student-signup">                
+                <form onsubmit="return verifyPassword()" action="" method="post" >
+                  <input type="number" name="acc_type" id="acc_type" hidden value="1">
+                  <input type="text" name="regno" id="regno" placeholder="Enter Registration Number" required value="<?php echo $regno; ?>">
+                  <input type="email" name="email" id="email" placeholder="Enter email" required value="<?php echo $email; ?>">
+                  <input type="text" name="first_name" id="first_name" placeholder="Enter Firstname" required value="<?php echo $fname; ?>">
+                  <input type="text" name="last_name" id="last_name" placeholder="Enter Lastname" required value="<?php echo $lname; ?>">
+                  <input type="password" name="password" id="password" placeholder="Enter Password" required>
+                  <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm Password" required>
+                  <!-- SUBMIT / SIGN UP BUTTON -->
+                  <input type="submit" name="std_register" value="Sign up ">
+                </form>
               </div>
-            </div>
-            <div class="approved">
-              <i class="fas fa-users"></i>
-              <div class="total-numbers">
-                <h2></h2>
-                <span>Today's Appointments</span>
-              </div>
-            </div>
-            <div class="cancelled">
-              <i class="fas fa-user-check"></i>
-              <div class="total-numbers">
-                <h2>234</h2>
-                <span>Today's Appointments</span>
-              </div>
-            </div>
-            <div class="total-patients">
-              <i class="fas fa-user-times"></i>
-              <div class="total-numbers">
-                <h2>234</h2>
-                <span>Today's Appointments</span>
-              </div>
-            </div>
-          </div>
 
-          <!-- Appointments list -->
-          <div class="appoitment-list">
-            <!-- List heading -->
-            <div class="list-header">
-              <h2> Appointments </h2>
-              <ul>
-                <li class="pending">
-                  <h3> Pending </h3>
-                </li>
-                <li class="approved">
-                  <h3> Approved </h3>
-                </li>
-                <li class="finished">
-                  <h3> Completed </h3>
-                </li>
-              </ul>
-            </div>
-
-            <!-- Thee list -->
-            <div class="thee-list">
-              <ul>
-              
-                <?php
-                  if ($list) {                 
-                    foreach ($list as $ROW) {
-                      include 'modules/appointment.php';
-                    }
-                  }
-                ?>
-
-                <li>
-                  <div class="time">
-                    <span> 10:00 - 11:00 </span>
-                  </div>
-                  <div class="student">
-                    <img src="resources/img/must.png" alt="avatar">
-                    <h3>code- <?php echo $user_details['first_name']; ?></h3>
-                  </div>
-                  <div class="actions">
-                    <i class="fas fa-check"> </i>
-                    <i class="fas fa-trash"> </i>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- Student details -->
-        <div class="student-info">
-          <div class="student-profile">
-            <img src="resources/img/must.png" alt="avatar">
-            <h3>code-maestro</h3>
-            <p> 2021/BAF/001 </p>
-            <div class="actions">
-              <i class="fas fa-history"> History </i>
-              <i class="fas fa-comment-dots"> Live Chat </i>
-            </div>
-          </div>
-          <div class="the-details">
-            <h3> More Details </h3>
-            <div class="more">
-              <div class="labels">
-                <span> Email : </span>
-                <span> Phone : </span>
-                <span> Reason : </span>
-              </div>
-              <div class="data">
-                <p> 2021@must.ac.ug </p>
-                <p> +254773209778 </p>
-                <p> Lorem ipsum dolor sit. </p>
+              <!-- STAFF SIGNUP CONTAINER -->
+              <div class="staff-signup " id="staff-signup">
+                <form onsubmit="return verifyStaffPassword()" action="" method="post">
+                  <input type="number" name="acc_type" id="acc_type" hidden value="2">
+                  <input type="text" name="regno" id="regno" hidden value="  ">
+                  <input type="email" name="email" id="email" placeholder="Enter email" required>
+                  <input type="text" name="first_name" id="first_name" placeholder="Enter Firstname" required>
+                  <input type="text" name="last_name" id="last_name" placeholder="Enter Lastname" required>
+                  <input type="password" name="password" id="password" placeholder="Enter Password" required>
+                  <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm Password" required>
+                  <!-- SUBMIT / SIGN UP BUTTON -->
+                  <input type="submit" name="staff_register" value="Sign up ">
+                </form>
               </div>
             </div>
           </div>
         </div>
 
-      </section>
+        <!-- LOGIN CONTAINER -->
+        <div class="form-container sign-in-container">
+          <form method="POST" class="form">
+            <h1> Log in</h1>
+            <div class="social-container">
+              <span id="err-msg"> <?php echo $res; ?> </span>
+            </div>
+            <input type="email" name="email2" placeholder=" Enter Email" value="<?php echo $email; ?>" />
+            <input type="password" name="password2" placeholder=" Enter Password" />
+            <a href="#">Forgot your password?</a>
+            <input id="login" type="submit" name="login" value="LOG IN">
+          </form>
+        </div>
 
+        <div class="overlay-container">
+          <div class="overlay">
+            <div class="overlay-panel overlay-left">
+              <h1>Welcome Back!</h1>
+              <p>To keep connected with us please login with your personal info</p>
+              <button class="ghost" id="signIn">Log In</button>
+            </div>
+            <div class="overlay-panel overlay-right">
+              <h1>Hello, Friend!</h1>
+              <p>Enter your personal details and start journey with us</p>
+              <button class="ghost" id="signUp">Sign Up</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
+
+    <script src="js/delete.js"></script>
 
   </body>
 

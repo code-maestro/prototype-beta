@@ -24,14 +24,22 @@
 
           session_start();
 
-          //SESSION DATA CREATION
-          $_SESSION['id'] = $row['users_uid'];
-          $_SESSION['regno'] = $row['email'];
-
           if ($row['role_id'] == "1") {
+            
+            //SESSION DATA CREATION
+            $_SESSION['std_id'] = $row['users_uid'];
+            $_SESSION['regno'] = $row['email'];
+  
             header("Location: student.php");
+  
           }else {
-            header("Location: index.php");
+
+            //SESSION DATA CREATION
+            $_SESSION['staff_id'] = $row['users_uid'];
+            $_SESSION['email'] = $row['email'];
+
+            header("Location: admin.php");
+
           }
 
         }else {

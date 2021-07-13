@@ -1,10 +1,10 @@
 <?php
 
-  include_once 'header.php';
+  include_once 'std_header.php';
   include_once 'modules/user.php';
 
   $user = new User();
-  $current_user = $user->getData($_SESSION['id']);
+  $current_user = $user->getData($_SESSION['std_id']);
 
   $names = $user_details['first_name'];
 

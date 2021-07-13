@@ -321,11 +321,11 @@ main .appointments .wrapper .count i{
   font-weight: 600;
 }
 
-.student-info .student-profile .actions{
+.actions{
   padding-bottom: 1.5rem;
 }
 
-.student-info .student-profile .actions i{
+ .actions i{
   color: var(--nav-hover-color);
   background-color: var(--icon-color);
   box-shadow: .4px 2px 3px rgb(0 0 0 / 20%);
@@ -337,7 +337,6 @@ main .appointments .wrapper .count i{
 
 /* MORE DETAILS SECTION */
 .student-info .the-details{
-  border-top: 2px solid #b4b4b4;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -350,33 +349,16 @@ main .appointments .wrapper .count i{
   margin-bottom: 0.5rem;
 }
 
-.student-info .the-details .more{
-  display: flex;
+table{
+  border: 1px solid black;
 }
 
-.student-info .the-details .more .labels{
-  display: flex;
-  flex-direction: column;
+table tr:nth-child(even) {
+  background-color: #2b2b2b;
 }
 
-.student-info .the-details .more .labels span{
-  font-weight: 600;
-}
-
-.student-info .the-details .more .labels span,
-.student-info .the-details .more .data p{
-  padding: 1rem;
-}
-
-.student-info .the-details .more .data{
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: flex-end;
-}
-
-.student-info .the-details .more .data p{
-  margin: 0;
+table tr td{
+  letter-spacing: 2px;
 }
 
 /* On smaller screens */
