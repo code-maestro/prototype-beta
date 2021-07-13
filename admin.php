@@ -20,8 +20,6 @@
   //Retrieving appointments
   $info = new Create();
   $list = $info->retrieveAppointments();
-
-  //$names = $user_details['first_name'];
        
 ?>
 
@@ -180,13 +178,12 @@
           <div class="student-profile">
             <img src="resources/img/must.png" alt="avatar">
             <h3>code-maestro</h3>
-            <p> 2021/BAF/001 </p>
           </div>
           <div class="the-details">
+          
+            <h4> More Details </h4>
+
             <table>
-              <tr>
-                <th> <h3> More Details </h3> </th>
-              </tr>
               <tr>
                 <td>January</td>
                 <td>$100</td>
@@ -208,9 +205,11 @@
                 <td>$100</td>
               </tr>
             </table>
-
+            
             <div class="actions">
+              <i class="fas fa-backward"> </i>
               <i class="fas fa-comment-dots"> Live Chat </i>
+              <i class="fas fa-forward"> </i>
             </div>
             
           </div>
