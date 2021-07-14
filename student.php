@@ -2,11 +2,30 @@
 
   include_once 'std_header.php';
   include_once 'modules/user.php';
+  include_once 'modules/create.php';
 
   $user = new User();
   $current_user = $user->getData($_SESSION['std_id']);
 
-  $names = $user_details['first_name'];
+  $date = "";
+  $start_time = "";
+  $end_time = "";
+  $complaint = "";
+  $complaint_detail = "";
+
+  //  Student signup
+  if (isset($_POST['make-btn'])) {
+
+    $new_appointment = new Create();
+    $new_appointment->createAppointment($current_user['users_id'], $_POST);
+
+    $date = $_POST['select-date'];
+    $start_time = $_POST['start-time'];
+    $end_time = $_POST['end-time'];
+    $complaint = $_POST['complaint'];
+    $complaint_detail = $_POST['complaint-detail'];
+  
+  }
 
 ?>
 
@@ -265,14 +284,12 @@
             </div>
             <div class="reservation-form">
               <form action="" method="post">
-                <input type="text" name="regno" id="regno" placeholder="Enter your Registration Number">
-                <input type="text" name="name" id="name" placeholder="Enter your Firstname and lastname ">
-                <input type="date" name="dt" id="dt" placeholder="Enter suitable date">
-                <input type="time" name="start_time" id="start_time" placeholder="Enter Start Time "> 
-                <input type="time" name="end_time" id="end_time" placeholder="Enter End TIme">
+                <input type="date" name="select-date" id="select-date" placeholder="Enter suitable date">
+                <input type="time" name="start-time" id="start-time" placeholder="Enter Start Time "> 
+                <input type="time" name="end-time" id="end-time" placeholder="Enter End TIme">
                 <input type="text" name="complaint" id="complaint" placeholder="Enter your reason ">
-                <textarea name="complaint-details" id="complaint-details" placeholder="Elaborate more on your complaint/issue ..... " cols="30" rows="10"></textarea>
-                <input type="submit" value="MAKE A RESERVATION">
+                <textarea name="complaint-detail" id="complaint-detail" placeholder="Elaborate more on your complaint/issue ..... " cols="30" rows="10"></textarea>
+                <input type="submit" name="make-btn" value="MAKE A RESERVATION">
               </form>
             </div>
           </div>

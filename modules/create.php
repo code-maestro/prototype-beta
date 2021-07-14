@@ -7,23 +7,26 @@
     // Function to create an appointment
     public function createAppointment($uid, $data){
 
-      $appointment_id = rand(time(), 100000000);
+      $random = new Create();
+      $appointment_id = $random->randomID("A-");
       
       if (!empty($data)) {
         
-        $reason = addslashes($data['reason']);
-        $appointment_date = addslashes($data['select-date']);
-        $appointment_time = addslashes($data['select-time']);
+        $complaint = addslashes($data['complaint']);
+        $complaint_detail = addslashes($data['complaint-detail']);
+        $date = $data['select-date'];
+        $start_time = $data['start-time'];
+        $end_time = $data['end-time'];
 
-      // SQL query to save the appointment to db
-      $query = "INSERT INTO appointment (appointment_id, reason, appointment_date, appointment_time, userid) 
-                VALUES ('$appointment_id', '$reason', '$appointment_date', '$appointment_time', '$uid')";
+        // SQL query to save the appointment to db
+        $query = "INSERT INTO appointments (appointment_id, complaint, complaint_detail, date, start_time, end_time, users_uid) 
+                  VALUES ('$appointment_id', '$complaint', '$complaint_detail', '$date', '$start_time', '$end_time', '$uid')";
 
         $DB = new DatabaseModule();
         $DB->saveData($query);
         
       }else {
-        $this->error .= "Please enter something to send 😒😒 </br> ";
+        $this->error .= "Please enter all the required information </br> ";
       }
     }
 
