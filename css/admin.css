@@ -261,8 +261,10 @@ main .appointments .wrapper .count i{
   object-fit: cover;
 }
 
-.thee-list ul li .student h3{
-  margin: 1.1rem 0 0 1rem;
+.thee-list ul li .student h4{
+  padding: 1rem;
+  margin-block-start: 0;
+  margin-block-end: 0;
 }
 
 .thee-list ul li .actions{

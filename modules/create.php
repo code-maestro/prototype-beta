@@ -112,9 +112,7 @@
     }
 
     // Functions to retrieve appointments from database.
-    public function retrieveAppointments(){
-
-      $sql = "SELECT * FROM users INNER JOIN roles WHERE role_id = '1' AND users.users_id = roles.users_uid;";
+    public function retrieveAppointments($sql){
 
       $DB = new DatabaseModule();
       $appointments = $DB->readData($sql);

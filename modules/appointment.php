@@ -1,11 +1,11 @@
 <li>
   <div class="time">
-    <span> 10:00 - 11:00 </span>
+    <span> <?php echo $ROW['start_time'] . " - " . $ROW['end_time']; ?> </span>
   </div>
   <div class="student">
     <img src="resources/img/must.png" alt="avatar">
-    <h3> <?php echo $ROW['last_name'] . " " . $ROW['first_name']; ?> </h3>
-    <h3 class="complaint"> Lorem ipsum dolor sit amet. Lorem ipsum dolor sit. </h3>
+    <h4> <?php echo $ROW['first_name'] . " " . $ROW['last_name']; ?> </h4>
+    <h4 class="complaint"> <?php echo $ROW['complaint']?> </h4>
   </div>
   <div class="actions">
     <i class="fas fa-check"> </i>

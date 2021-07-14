@@ -18,8 +18,11 @@
   $total_pending = $user->getTotalUsers($query4);
 
   //Retrieving appointments
+  
+  $sql = "SELECT * FROM users INNER JOIN roles WHERE role_id = '1' AND users.users_id = roles.users_uid;";
+
   $info = new Create();
-  $list = $info->retrieveAppointments();
+  $list = $info->retrieveAppointments($sql);
        
 ?>
 

@@ -4,20 +4,18 @@
   include_once 'modules/user.php';
   include_once 'modules/create.php';
 
-  $user = new User();
-  $current_user = $user->getData($_SESSION['std_id']);
-
   $date = "";
   $start_time = "";
   $end_time = "";
   $complaint = "";
   $complaint_detail = "";
 
+  $new_appointment = new Create();
+
   //  Student signup
   if (isset($_POST['make-btn'])) {
 
-    $new_appointment = new Create();
-    $new_appointment->createAppointment($current_user['users_id'], $_POST);
+    $new_appointment->createAppointment($user_id, $_POST);
 
     $date = $_POST['select-date'];
     $start_time = $_POST['start-time'];
@@ -26,6 +24,12 @@
     $complaint_detail = $_POST['complaint-detail'];
   
   }
+
+  //Retrieving appointments
+
+  $query = "SELECT * FROM appointments INNER JOIN users WHERE users_uid = '$user_id' AND appointments.users_uid = users.users_id;";
+
+  $my_list = $new_appointment->retrieveAppointments($query);
 
 ?>
 
@@ -41,7 +45,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="css/fontawesome.min.css">
-    <link rel="stylesheet" href="css/STYLE.css">
+    <link rel="stylesheet" href="css/student.css">
 
   </head>
 
@@ -111,11 +115,10 @@
             <div class="carousel"> 
               <i class="fas fa-chevron-left"></i>
               <p>
-                Aliquid at deleniti iusto, suscipit maiores dolorem nesciunt odio unde illum doloribus consectetur rem molestias repellat, iure nemo minima. Amet eos animi eum cum odit tenetur id at maxime laboriosam nam architecto culpa, molestias fugiat.
+                Aliquid at deleniti iusto, <?php echo $user_id; ?>
               </p>
               <i class="fas fa-chevron-right"></i>
             </div>
-
           </div>
 
           <!-- Appointments list -->
@@ -125,16 +128,13 @@
               <h2> Your  Appointments </h2>
               <ul>
                 <li class="pending">
-                  <h3> Pending </h3>
+                  <h3> Scheduled </h3>
                 </li>
                 <li class="approved">
-                  <h3> Approved </h3>
+                  <h3> Upcoming </h3>
                 </li>
                 <li class="finished">
                   <h3> Completed </h3>
-                </li>
-                <li class="deleted">
-                  <h3> Deleted </h3>
                 </li>
               </ul>
             </div>
@@ -142,6 +142,14 @@
             <!-- Thee list -->
             <div class="thee-list">
               <ul>
+              <!--  List for the appointments -->
+                <?php
+                    if ($my_list) {                 
+                      foreach ($my_list as $ROW) {
+                        include 'modules/appointment.php';
+                      }
+                    }
+                  ?>
                 <li>
                   <div class="time">
                     <span> 10:00 - 11:00 </span>
@@ -149,52 +157,10 @@
                   <div class="student">
                     <img src="resources/img/must.png" alt="avatar">
                     <h4> Lorem, ipsum. </h4>
-                    <h4 class="complaint"> Lorem ipsum dolor sit amet. Lorem ipsum dolor sit. </h4>
+                    <input type="text" class="complaint" id="complaint" value="Lorem ipsum dolor sit amet." > 
                   </div>
                   <div class="actions">
-                    <i class="fas fa-check"> </i>
-                    <i class="fas fa-trash"> </i>
-                  </div>
-                </li>
-                <li>
-                  <div class="time">
-                    <span> 10:00 - 11:00 </span>
-                  </div>
-                  <div class="student">
-                    <img src="resources/img/must.png" alt="avatar">
-                    <h4> Lorem, ipsum. </h4>
-                    <h4 class="complaint"> Lorem ipsum dolor sit amet. Lorem ipsum dolor sit. </h4>
-                  </div>
-                  <div class="actions">
-                    <i class="fas fa-check"> </i>
-                    <i class="fas fa-trash"> </i>
-                  </div>
-                </li>
-                <li>
-                  <div class="time">
-                    <span> 10:00 - 11:00 </span>
-                  </div>
-                  <div class="student">
-                    <img src="resources/img/must.png" alt="avatar">
-                    <h4> Lorem, ipsum. </h4>
-                    <h4 class="complaint"> Lorem ipsum dolor sit amet. Lorem ipsum dolor sit. </h4>
-                  </div>
-                  <div class="actions">
-                    <i class="fas fa-check"> </i>
-                    <i class="fas fa-trash"> </i>
-                  </div>
-                </li>
-                <li>
-                  <div class="time">
-                    <span> 10:00 - 11:00 </span>
-                  </div>
-                  <div class="student">
-                    <img src="resources/img/must.png" alt="avatar">
-                    <h4> Lorem, ipsum. </h4>
-                    <h4 class="complaint"> Lorem ipsum dolor sit amet. Lorem ipsum dolor sit. </h4>
-                  </div>
-                  <div class="actions">
-                    <i class="fas fa-check"> </i>
+                    <i class="fas fa-check" id="approve-btn"> </i>
                     <i class="fas fa-trash"> </i>
                   </div>
                 </li>
