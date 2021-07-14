@@ -392,18 +392,19 @@ main .header .notification-area i{
 
 .form-item{
   position: relative;
+  width: 100%;
   margin-bottom: 15px
 }
 
 .form-item input{
-  border-radius: .25rem;
+  border: none;
+  padding: 12px 15px;
+  margin: 8px 0;
+  width: 100%;
   outline: none;
-  width: 80%;
-  height: 36px;
-  background: transparent;
-  border: solid 1.5px rgb(0, 0, 0);
-  transition: all .3s ease;
-  padding: 0 12px
+  border-radius: 1rem;
+  background-color: #f8f8f8f3;
+  font-weight: 600;
 }
 
 .form-item input:focus{

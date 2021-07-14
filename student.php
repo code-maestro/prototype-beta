@@ -41,7 +41,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="css/fontawesome.min.css">
-    <link rel="stylesheet" href="css/student.css">
+    <link rel="stylesheet" href="css/STYLE.css">
 
   </head>
 
@@ -89,7 +89,7 @@
           <div class="left">
             <img src="resources/img/must.png" alt="" srcset="">
             <div class="user-info">
-              <span> Willkommen <?php echo $current_user['last_name']; ?> </span>
+              <span> Willkommen</span>
             </div>
           </div>
 
@@ -100,212 +100,132 @@
         </div>
       </section>
 
-      <section class="student-main">
+      <section class="appointments">
 
-        <div class="book-appointment">
-          <div class="booked">
-            <h3>
-              Booked Appointments
-            </h3>
-            <div class="container">
+        <!-- wrapper -->
+        <div class="wrapper">
+          <div class="communications"> 
+            <h2>
+              Communications
+            </h2>
+            <div class="carousel"> 
+              <i class="fas fa-chevron-left"></i>
+              <p>
+                Aliquid at deleniti iusto, suscipit maiores dolorem nesciunt odio unde illum doloribus consectetur rem molestias repellat, iure nemo minima. Amet eos animi eum cum odit tenetur id at maxime laboriosam nam architecto culpa, molestias fugiat.
+              </p>
+              <i class="fas fa-chevron-right"></i>
+            </div>
+
+          </div>
+
+          <!-- Appointments list -->
+          <div class="appointment-list">
+            <!-- List heading -->
+            <div class="list-header">
+              <h2> Your  Appointments </h2>
+              <ul>
+                <li class="pending">
+                  <h3> Pending </h3>
+                </li>
+                <li class="approved">
+                  <h3> Approved </h3>
+                </li>
+                <li class="finished">
+                  <h3> Completed </h3>
+                </li>
+                <li class="deleted">
+                  <h3> Deleted </h3>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Thee list -->
+            <div class="thee-list">
               <ul>
                 <li>
-                  <img src="resources/img/must.png" alt="Counsellor's Avatar" srcset="">
-                  <p>Lorem ipsum lorem ipsum </p>
-                  <span> 10:30 </span>
-                  <i class="fas fa-times"></i>
+                  <div class="time">
+                    <span> 10:00 - 11:00 </span>
+                  </div>
+                  <div class="student">
+                    <img src="resources/img/must.png" alt="avatar">
+                    <h4> Lorem, ipsum. </h4>
+                    <h4 class="complaint"> Lorem ipsum dolor sit amet. Lorem ipsum dolor sit. </h4>
+                  </div>
+                  <div class="actions">
+                    <i class="fas fa-check"> </i>
+                    <i class="fas fa-trash"> </i>
+                  </div>
                 </li>
                 <li>
-                  <img src="resources/img/must.png" alt="Counsellor's Avatar" srcset="">
-                  <p>Lorem ipsum lorem ipsum </p>
-                  <span> 10:30 </span>
-                  <i class="fas fa-times"></i>
+                  <div class="time">
+                    <span> 10:00 - 11:00 </span>
+                  </div>
+                  <div class="student">
+                    <img src="resources/img/must.png" alt="avatar">
+                    <h4> Lorem, ipsum. </h4>
+                    <h4 class="complaint"> Lorem ipsum dolor sit amet. Lorem ipsum dolor sit. </h4>
+                  </div>
+                  <div class="actions">
+                    <i class="fas fa-check"> </i>
+                    <i class="fas fa-trash"> </i>
+                  </div>
                 </li>
                 <li>
-                  <img src="resources/img/must.png" alt="Counsellor's Avatar" srcset="">
-                  <p>Lorem ipsum lorem ipsum </p>
-                  <span> 10:30 </span>
-                  <i class="fas fa-times"></i>
+                  <div class="time">
+                    <span> 10:00 - 11:00 </span>
+                  </div>
+                  <div class="student">
+                    <img src="resources/img/must.png" alt="avatar">
+                    <h4> Lorem, ipsum. </h4>
+                    <h4 class="complaint"> Lorem ipsum dolor sit amet. Lorem ipsum dolor sit. </h4>
+                  </div>
+                  <div class="actions">
+                    <i class="fas fa-check"> </i>
+                    <i class="fas fa-trash"> </i>
+                  </div>
                 </li>
                 <li>
-                  <img src="resources/img/must.png" alt="Counsellor's Avatar" srcset="">
-                  <p>Lorem ipsum lorem ipsum </p>
-                  <span> 10:30 </span>
-                  <i class="fas fa-times"></i>
-                </li>
-                <li>
-                  <img src="resources/img/must.png" alt="Counsellor's Avatar" srcset="">
-                  <p>Lorem ipsum lorem ipsum </p>
-                  <span> 10:30 </span>
-                  <i class="fas fa-times"></i>
+                  <div class="time">
+                    <span> 10:00 - 11:00 </span>
+                  </div>
+                  <div class="student">
+                    <img src="resources/img/must.png" alt="avatar">
+                    <h4> Lorem, ipsum. </h4>
+                    <h4 class="complaint"> Lorem ipsum dolor sit amet. Lorem ipsum dolor sit. </h4>
+                  </div>
+                  <div class="actions">
+                    <i class="fas fa-check"> </i>
+                    <i class="fas fa-trash"> </i>
+                  </div>
                 </li>
               </ul>
             </div>
           </div>
 
-          <div class="completed">
-            <h3>Completed</h3>
-            <ul>
-              <li>
-                <img src="resources/img/must.png" alt="Counsellor's Avatar" srcset="">
-                <p>Lorem ipsum lorem ipsum </p>
-                <span> 10:30 </span>
-                <i class="fas fa-times"></i>
-              </li>
-              <li>
-                <img src="resources/img/must.png" alt="Counsellor's Avatar" srcset="">
-                <p>Lorem ipsum lorem ipsum </p>
-                <span> 10:30 </span>
-                <i class="fas fa-times"></i>
-              </li>
-              <li>
-                <img src="resources/img/must.png" alt="Counsellor's Avatar" srcset="">
-                <p>Lorem ipsum lorem ipsum </p>
-                <span> 10:30 </span>
-                <i class="fas fa-times"></i>
-              </li>
-              <li>
-                <img src="resources/img/must.png" alt="Counsellor's Avatar" srcset="">
-                <p>Lorem ipsum lorem ipsum </p>
-                <span> 10:30 </span>
-                <i class="fas fa-times"></i>
-              </li>
-              <li>
-                <img src="resources/img/must.png" alt="Counsellor's Avatar" srcset="">
-                <p>Lorem ipsum lorem ipsum </p>
-                <span> 10:30 </span>
-                <i class="fas fa-times"></i>
-              </li>
-              <li>
-                <img src="resources/img/must.png" alt="Counsellor's Avatar" srcset="">
-                <p>Lorem ipsum lorem ipsum </p>
-                <span> 10:30 </span>
-                <i class="fas fa-times"></i>
-              </li>
-            </ul>
-          </div>
         </div>
 
-        <div class="chatting">
-          <h3>
-            Live chat Messaging
-          </h3>
-          <div class="chat-area">
-            <div class="admin-msg">
-              <p>
-                Lorem ipsum dolor sit amet consectetur
-              </p>
+        <!-- Student details -->
+        <div class="student-info">
+          <h2>
+            Make a Reservation
+          </h2>
+          <form action="" method="post">
+            <label for="date">Enter a suitable date </label>
+            <input type="date" name="select-date" id="select-date">
+            <label for="start-time"> Enter Start Time </label>
+            <input type="time" name="start-time" id="start-time"> 
+            <label for="end-time"> Enter End Time </label>
+            <input type="time" name="end-time" id="end-time">
+            <label for="complaint"> Enter your complaint </label>
+            <input type="text" name="complaint" id="complaint">
+            <label for="complaint"> Enter your complaint details </label>
+            <textarea name="complaint-detail" id="complaint-detail" placeholder="Elaborate more on your complaint/issue ..... " cols="30" rows="6"></textarea>
+            <div class="make-btn">
+              <input type="submit" name="make-btn" id="make-btn" value="Make A Reservation">
             </div>
-            <div class="student-msg">
-              <p>
-                Lorem ipsum dolor sit amet, consectetur 
-              </p>
-            </div>
-            <div class="admin-msg">
-              <p>
-                Lorem ipsum dolor sit amet consectetur 
-              </p>
-            </div>
-            <div class="student-msg">
-              <p>
-                Lorem ipsum dolor sit amet, consectetur 
-              </p>
-            </div>
-            <div class="admin-msg">
-              <p>
-                Lorem ipsum dolor sit amet consectetur 
-              </p>
-            </div>
-            <div class="student-msg">
-              <p>
-                Lorem ipsum dolor sit amet, consectetur 
-              </p>
-            </div>
-            <div class="admin-msg">
-              <p>
-                Lorem ipsum dolor sit amet consectetur 
-              </p>
-            </div>
-            <div class="student-msg">
-              <p>
-                Lorem ipsum dolor sit amet, 
-              </p>
-            </div>
-            <div class="admin-msg">
-              <p>
-                Lorem ipsum dolor sit amet consectetur 
-              </p>
-            </div>
-            <div class="student-msg">
-              <p>
-                Lorem ipsum dolor sit amet, 
-              </p>
-            </div>
-            <div class="admin-msg">
-              <p>
-                Lorem ipsum dolor sit amet consectetur 
-              </p>
-            </div>
-            <div class="student-msg">
-              <p>
-                Lorem ipsum dolor sit amet, 
-              </p>
-            </div>
-            <div class="admin-msg">
-              <p>
-                Lorem ipsum dolor sit amet consectetur 
-              </p>
-            </div>
-            <div class="student-msg">
-              <p>
-                Lorem ipsum dolor sit amet, 
-              </p>
-            </div>
-            <div class="admin-msg">
-              <p>
-                Lorem ipsum dolor sit amet consectetur 
-              </p>
-            </div>
-          </div>
-          <div class="chat-form">
-            <form action="#" method="post">
-              <input type="number" name="out-msg-id" id="out-msg-id" hidden>
-              <input type="text" name="out-msg" id="out-msg" placeholder="Enter Message .... ">
-              <input type="submit" value="SEND" name="send-btn">
-            </form>
-          </div>
+          </form>
         </div>
 
-        <!-- Section with class book-appointment  -->
-        <div class="appointments">
-          <div class="container">
-            <div class="row">
-              <h3> Make An Appointment </h3>
-            </div>
-            <div class="reservation-form">
-              <form action="" method="post">
-                <div class="form-item">
-                  <input type="date" name="select-date" id="select-date">
-                  <label for="date">Enter a suitable date </label>
-                </div>
-                <div class="form-item">
-                  <input type="time" name="start-time" id="start-time"> 
-                  <label for="start-time"> Enter Start Time </label>
-                </div>
-                <div class="form-item">
-                  <input type="time" name="end-time" id="end-time">
-                  <label for="end-time"> Enter End Time </label>
-                </div>
-                <div class="form-item">
-                  <input type="text" name="complaint" id="complaint">
-                  <label for="complaint"> Enter your complaint </label>
-                </div>
-                <textarea name="complaint-detail" id="complaint-detail" placeholder="Elaborate more on your complaint/issue ..... " cols="30" rows="10"></textarea>
-                <input type="submit" name="make-btn" value="MAKE A RESERVATION">
-              </form>
-            </div>
-          </div>
-        </div>
       </section>
 
     </main>
