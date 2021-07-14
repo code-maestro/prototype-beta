@@ -285,17 +285,21 @@
             <div class="reservation-form">
               <form action="" method="post">
                 <div class="form-item">
-                  <input type="text" id="username" autocomplete="off" required value="test">
-                  <label for="username">Username</label>
+                  <input type="date" name="select-date" id="select-date">
+                  <label for="date">Enter a suitable date </label>
                 </div>
                 <div class="form-item">
-                  <input type="password" id="password" autocomplete="off" required>
-                  <label for="password">Password</label>
+                  <input type="time" name="start-time" id="start-time"> 
+                  <label for="start-time"> Enter Start Time </label>
                 </div>
-                <input type="date" name="select-date" id="select-date" placeholder="Enter suitable date">
-                <input type="time" name="start-time" id="start-time" placeholder="Enter Start Time "> 
-                <input type="time" name="end-time" id="end-time" placeholder="Enter End TIme">
-                <input type="text" name="complaint" id="complaint" placeholder="Enter your reason ">
+                <div class="form-item">
+                  <input type="time" name="end-time" id="end-time">
+                  <label for="end-time"> Enter End Time </label>
+                </div>
+                <div class="form-item">
+                  <input type="text" name="complaint" id="complaint">
+                  <label for="complaint"> Enter your complaint </label>
+                </div>
                 <textarea name="complaint-detail" id="complaint-detail" placeholder="Elaborate more on your complaint/issue ..... " cols="30" rows="10"></textarea>
                 <input type="submit" name="make-btn" value="MAKE A RESERVATION">
               </form>

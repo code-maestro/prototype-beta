@@ -396,15 +396,14 @@ main .header .notification-area i{
 }
 
 .form-item input{
-  border-radius: 1rem;
+  border-radius: .25rem;
   outline: none;
-  display: block;
-  width: 400px;
-  height: 40px;
+  width: 80%;
+  height: 36px;
   background: transparent;
-  border: solid 1px #ccc;
+  border: solid 1.5px rgb(0, 0, 0);
   transition: all .3s ease;
-  padding: 0 15px
+  padding: 0 12px
 }
 
 .form-item input:focus{
@@ -421,7 +420,7 @@ main .header .notification-area i{
   font-weight: bold;
   background: #fff;
   padding: 0 10px;
-  color: #999;
+  color: rgb(0, 0, 0);
   transition: all .3s ease
 }
 
