@@ -33,9 +33,9 @@
     <title> MUST COUNSELLOR APP</title>
 
     <!-- CSS -->
+    <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="css/fontawesome.min.css">
-    <link rel="stylesheet" href="css/main.css">
 
   </head>
 
@@ -108,31 +108,31 @@
           <div class="count">
             <!-- Total Appointments -->
             <div class="total">
-              <i class="fas fa-hospital-user"></i>
+              <i class="fas fa-users"></i>
               <div class="total-numbers">
                 <h2> <?php echo $total_users; ?> </h2>
-                <span>Today's Appointments</span>
+                <span> Total Students </span>
               </div>
             </div>
             <div class="approved">
-              <i class="fas fa-users"></i>
+              <i class="fas fa-hospital-user"></i>
               <div class="total-numbers">
                 <h2> <?php echo $total_appointments; ?> </h2>
-                <span>Today's Appointments</span>
+                <span> Total Appointments </span>
               </div>
             </div>
             <div class="cancelled">
               <i class="fas fa-user-check"></i>
               <div class="total-numbers">
               <h2> <?php echo $total_approved; ?> </h2>
-                <span>Today's Appointments</span>
+                <span> Approved Appointments</span>
               </div>
             </div>
             <div class="total-patients">
               <i class="fas fa-user-times"></i>
               <div class="total-numbers">
               <h2> <?php echo $total_pending; ?> </h2>
-                <span>Today's Appointments</span>
+                <span> Cancelled Appointments</span>
               </div>
             </div>
           </div>
@@ -152,6 +152,9 @@
                 <li class="finished">
                   <h3> Completed </h3>
                 </li>
+                <li class="deleted">
+                  <h3> Deleted </h3>
+                </li>
               </ul>
             </div>
 
@@ -166,7 +169,6 @@
                     }
                   }
                 ?>
-
               </ul>
             </div>
           </div>

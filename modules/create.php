@@ -101,27 +101,26 @@
       for ($i=0; $i < $length; $i++) { 
 
         $new_num = rand(1,10000);
-        $num = $word . $new_num;
+        $new_random_id = $word . $new_num;
       }
 
-      return $num;
+      return $new_random_id;
 
     }
 
     // Functions to retrieve appointments from database.
     public function retrieveAppointments(){
 
-        $query = "SELECT * FROM users" ;
+      $sql = "SELECT * FROM users INNER JOIN roles WHERE role_id = '1' AND users.users_id = roles.users_uid;";
 
-        $DB = new DatabaseModule();
-        $appointments = $DB->readData($query);
+      $DB = new DatabaseModule();
+      $appointments = $DB->readData($sql);
 
-        if ($appointments) {
-          return $appointments;
-        }else {
-          return false;
-        }
+      if ($appointments) {
+        return $appointments;
+      }else {
+        return false;
+      }
     }
-
   }
 ?>

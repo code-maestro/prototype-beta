@@ -60,7 +60,7 @@
 
       <div class="logout">
         <i class="fas fa-sign-out-alt"></i>
-        <h3> Logout </h3>
+        <h3> <a href="logout.php"> Logout </a> </h3>
       </div>
     </header>
 
@@ -264,18 +264,14 @@
               <h3> Make An Appointment </h3>
             </div>
             <div class="reservation-form">
-              <form action="appointments.php" method="post">
+              <form action="" method="post">
                 <input type="text" name="regno" id="regno" placeholder="Enter your Registration Number">
                 <input type="text" name="name" id="name" placeholder="Enter your Firstname and lastname ">
-                <input type="datetime" name="dt" id="dt" placeholder="Enter suitable date ">
+                <input type="date" name="dt" id="dt" placeholder="Enter suitable date">
+                <input type="time" name="start_time" id="start_time" placeholder="Enter Start Time "> 
+                <input type="time" name="end_time" id="end_time" placeholder="Enter End TIme">
                 <input type="text" name="complaint" id="complaint" placeholder="Enter your reason ">
                 <textarea name="complaint-details" id="complaint-details" placeholder="Elaborate more on your complaint/issue ..... " cols="30" rows="10"></textarea>
-                <div class="choose-counsellor">
-                  <input type="checkbox" name="counsellor-one" value="cousellor-one" id="counsellor-one">
-                  <label for="counsellor-one">counsellor-one</label>
-                  <input type="checkbox" name="counsellor-two" value="cousellor-two" id="counsellor-two">
-                  <label for="counsellor-two">counsellor-two</label>
-                </div>
                 <input type="submit" value="MAKE A RESERVATION">
               </form>
             </div>
@@ -284,10 +280,6 @@
       </section>
 
     </main>
-
-    <footer>
-      <p> &copy Mbarara University of Science and Technology </p>
-    </footer>
 
     <script src="js/events.js"></script>
 

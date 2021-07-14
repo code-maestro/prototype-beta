@@ -5,6 +5,7 @@
   <div class="student">
     <img src="resources/img/must.png" alt="avatar">
     <h3> <?php echo $ROW['last_name'] . " " . $ROW['first_name']; ?> </h3>
+    <h3 class="complaint"> Lorem ipsum dolor sit amet. Lorem ipsum dolor sit. </h3>
   </div>
   <div class="actions">
     <i class="fas fa-check"> </i>
