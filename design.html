@@ -14,68 +14,17 @@
   <body>
 
     <main>
-      <div class="container" id="container">
-        <div class="form-container sign-up-container">
-          <form action="#">
-            <h1>Create Account</h1>
-            <div class="social-container">
-              <a href="#" class="student" id="student">STUDENT</a>
-              <a href="#" class="staff" id="staff">STAFF</a>
-            </div>
 
-              <div class="overlay-signup">
-                <div class="student-signup" id="student-signup">
-                  <input type="text" name="regno" id="regno" placeholder="Enter Registration Number">
-                  <input type="email" name="email" id="email" placeholder="Enter email">
-                  <input type="text" name="first_name" id="first_name" placeholder="Enter Firstname">
-                  <input type="text" name="last_name" id="last_name" placeholder="Enter Lastname">
-                  <input type="password" name="password" id="password" placeholder="Enter Password">
-                  <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm Password">
-                  <!-- SUBMIT / SIGN UP BUTTON -->
-                  <input type="submit" name="register" value="Sign up ">
-                </div>
-
-                <div class="staff-signup " id="staff-signup">
-                  <input type="email" name="email" id="email" placeholder="Enter email">
-                  <input type="text" name="first_name" id="first_name" placeholder="Enter Firstname">
-                  <input type="time" name="" id="">
-                  <input type="text" name="last_name" id="last_name" placeholder="Enter Lastname">
-                  <input type="password" name="password" id="password" placeholder="Enter Password">
-                  <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm Password">
-                  <!-- SUBMIT / SIGN UP BUTTON -->
-                  <input type="submit" name="register" value="Sign up ">
-                </div>
-              </div>
-
-          </form>
+        <div class="form-item">
+          <input type="text" id="username" autocomplete="off" required value="test">
+          <label for="username">Username</label>
         </div>
-        <div class="form-container sign-in-container">
-          <form action="#">
-            <h1>Log   in</h1>
-            <div class="social-container">
-
-            </div>
-            <input type="email" placeholder="Email" />
-            <input type="password" placeholder="Password" />
-            <a href="#">Forgot your password?</a>
-            <input id="login" type="submit" name="register" value="Sign up ">
-          </form>
+        
+        <div class="form-item">
+          <input type="password" id="password" autocomplete="off" required>
+          <label for="password">Password</label>
         </div>
-        <div class="overlay-container">
-          <div class="overlay">
-            <div class="overlay-panel overlay-left">
-              <h1>Welcome Back!</h1>
-              <p>To keep connected with us please login with your personal info</p>
-              <button class="ghost" id="signIn">Sign In</button>
-            </div>
-            <div class="overlay-panel overlay-right">
-              <h1>Hello, Friend!</h1>
-              <p>Enter your personal details and start journey with us</p>
-              <button class="ghost" id="signUp">Sign Up</button>
-            </div>
-          </div>
-        </div>
-      </div>
+        
     </main>
 
     <script src="js/delete.js"></script>

@@ -139,7 +139,7 @@
     
     <title> Student Welfare </title>
 
-    <link rel="stylesheet" href="css/design.css">
+    <link rel="stylesheet" href="css/style.css">
 
   </head>
 

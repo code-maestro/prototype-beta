@@ -284,6 +284,14 @@
             </div>
             <div class="reservation-form">
               <form action="" method="post">
+                <div class="form-item">
+                  <input type="text" id="username" autocomplete="off" required value="test">
+                  <label for="username">Username</label>
+                </div>
+                <div class="form-item">
+                  <input type="password" id="password" autocomplete="off" required>
+                  <label for="password">Password</label>
+                </div>
                 <input type="date" name="select-date" id="select-date" placeholder="Enter suitable date">
                 <input type="time" name="start-time" id="start-time" placeholder="Enter Start Time "> 
                 <input type="time" name="end-time" id="end-time" placeholder="Enter End TIme">
