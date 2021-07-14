@@ -285,7 +285,8 @@ main .appointments .wrapper .count i{
 
 /* Selected Appointment details */
 .student-info {
-  background-color: #f8f8f8;
+  background-color: #0e0e0e;
+  color: #fff;
   box-shadow: .4px 2px 3px rgb(0 0 0 / 20%);
   border-radius: 1rem;
   display: flex;
@@ -334,6 +335,7 @@ table{
   width: 100%;
   outline: none;
   border-collapse: collapse;
+  color: #000;
 }
 
 table tr {
@@ -351,6 +353,7 @@ table tr:nth-child(even) {
 table tr td{
   letter-spacing: 2px;
   padding: 1rem;
+  font-weight: bold;
 }
 
 .the-details .actions{
