@@ -7,3 +7,7 @@ const comp = document.getElementById("complaint").value;
 function viewData() {
 	alert(comp);
 }
+
+function viewData2() {
+	alert(comp);
+}

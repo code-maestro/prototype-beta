@@ -38,7 +38,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="css/fontawesome.min.css">
-    <link rel="stylesheet" href="css/STYLE.css">
+    <link rel="stylesheet" href="css/admin.css">
 
   </head>
 
@@ -166,48 +166,6 @@
                     }
                   }
                 ?>
-                <li>
-                  <div class="time">
-                    <span> 10:00 - 11:00 </span>
-                  </div>
-                  <div class="student">
-                    <img src="resources/img/must.png" alt="avatar">
-                    <h4> Lorem, ipsum. </h4>
-                    <h4 class="complaint"> Lorem ipsum dolor sit amet. Lorem ipsum dolor sit. </h4>
-                  </div>
-                  <div class="actions">
-                    <i class="fas fa-check"> </i>
-                    <i class="fas fa-trash"> </i>
-                  </div>
-                </li>
-                <li>
-                  <div class="time">
-                    <span> 10:00 - 11:00 </span>
-                  </div>
-                  <div class="student">
-                    <img src="resources/img/must.png" alt="avatar">
-                    <h4> Lorem, ipsum. </h4>
-                    <h4 class="complaint"> Lorem ipsum dolor sit amet. Lorem ipsum dolor sit. </h4>
-                  </div>
-                  <div class="actions">
-                    <i class="fas fa-check"> </i>
-                    <i class="fas fa-trash"> </i>
-                  </div>
-                </li>
-                <li>
-                  <div class="time">
-                    <span> 10:00 - 11:00 </span>
-                  </div>
-                  <div class="student">
-                    <img src="resources/img/must.png" alt="avatar">
-                    <h4> Lorem, ipsum. </h4>
-                    <h4 class="complaint"> Lorem ipsum dolor sit amet. Lorem ipsum dolor sit. </h4>
-                  </div>
-                  <div class="actions">
-                    <i class="fas fa-check"> </i>
-                    <i class="fas fa-trash"> </i>
-                  </div>
-                </li>
               </ul>
             </div>
           </div>
