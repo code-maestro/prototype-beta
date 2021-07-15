@@ -17,6 +17,7 @@ body{
   height: 100vh;
 }
 
+
 /* SCROLL BAR STYLING */
 body::-webkit-scrollbar{
   width: 0.30rem;
@@ -27,9 +28,36 @@ body::-webkit-scrollbar-track{
 }
 
 body::-webkit-scrollbar-thumb{
-  background: var(--bg);
+  border-radius: 25px;
+  background: var(--navbar-background-color);
+}
+
+ul::-webkit-scrollbar{
+  width: 0.30rem;
+}
+
+ul::-webkit-scrollbar-track{
+  background: var(--text-color);
+}
+
+ul::-webkit-scrollbar-thumb{
+  border-radius: 25px;
+  background: var(--navbar-background-color);
+}
+
+.chat-area::-webkit-scrollbar{
+  width: 0.30rem;
+}
+
+.chat-area::-webkit-scrollbar-track{
+  background: var(--text-color);
+}
+
+.chat-area::-webkit-scrollbar-thumb{
+  background: var(--navbar-background-color);
   border-radius: 25px;
 }
+
 
 /* The sidebar menu */
 header{
@@ -94,14 +122,6 @@ header .logout i{
   margin-right: 1rem;
 }
 
-header .logout a{
-  text-decoration: none;
-  color: var(--icon-color);
-}
-
-main {
-  margin-left: 250px;
-}
 
 /* FROM THE ALPHA */
 .main-navbar {
@@ -145,30 +165,71 @@ main {
   font-size: 1.2rem;
 }
 
+main {
+  margin-left: 250px;
+}
 
-/* Main Appointments sections with list and counter */
+
+/* MAIN SECTION WITH CONTENT */
+/* Main header section wit username counsellor's name in this case */
+main .header{
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--icon-color);
+  box-shadow: 0 1px 2.5px -0.5px rgb(0 0 0 / 20%);
+  position: sticky;
+}
+
+main .header .welcome-txt{
+  padding: 1.5rem 0 1rem 1rem;
+  margin-left: 2.5rem;
+}
+
+main .header .notification-area{
+  padding: 1rem;
+}
+
+h2{
+  margin: 0;
+}
+
+main .header .welcome-txt h2{
+  font-size: 2rem;
+}
+
+main .header .notification-area i{
+  padding: 1rem 2rem 0 0;
+  font-size: 2rem;
+}
+
+/* Main Appointments sections with list and communicationser */
 main .appointments{
   margin: 0;
   display: flex;
   justify-content: space-evenly;
+  height: 80%;
 }
 
 main .appointments .wrapper{
-  /* width: 900px; */
+  width: 100%;
   display: flex;
   flex-direction: column;
-  padding: 1rem .5rem 1rem .5rem;
+  padding: 1rem .5rem 1rem 1rem;
 }
 
-main .appointments .wrapper .count{
+.communications{
+  border-radius: 1rem;
   display: flex;
   padding: 1rem 0 1rem 0;
 }
 
-.count .total,
-.count .approved,
-.count .cancelled,
-.count .total-patients{
+.communications .total,
+.communications .approved,
+.communications .cancelled,
+.communications .total-patients{
+  width: 50%;
+  height: auto;
   background-color: var(--icon-color);
   box-shadow: 0 2px 3px rgba(0,0,0,.6);
   border-radius: 1rem;
@@ -177,11 +238,11 @@ main .appointments .wrapper .count{
   padding: 1rem;
 }
 
-.count .total-patients{
+.communications .total-patients{
   margin-right: 0;
 }
 
-main .appointments .wrapper .count i{
+main .appointments .wrapper .communications i{
   padding: 0 1rem 0 0;
   font-size: 1.5rem;
 }
@@ -205,13 +266,13 @@ main .appointments .wrapper .count i{
 /* List header */
 .list-header h2{
   font-size: 1.75rem;
-  margin: .5rem 0 0 0;
+  margin: 1rem 0 0 0;
   padding: 1rem;
 }
 
 .list-header ul{
  display: flex;
- margin-left: 1rem;
+ margin-left: 1.5rem;
  padding: 0 0 .5rem 0;
 }
 
@@ -236,7 +297,7 @@ main .appointments .wrapper .count i{
 
 /* Actual list styling */
 .thee-list ul {
-  height: 400px;
+  height: 450px;
   padding: .5rem;
   margin: 0 1rem 0 .5rem;
   overflow-y: auto;
@@ -256,13 +317,17 @@ main .appointments .wrapper .count i{
 }
 
 .thee-list ul li {
-  padding: .5rem;
+  padding: .25rem 1rem;
   margin-bottom: 1rem;
   display: flex;
   background-color: var(--icon-color);
   box-shadow: 0 1px 2px rgba(0,0,0,.6);
   border-radius: 1rem;
   align-items: center;
+}
+
+.thee-list ul li:hover {
+  cursor: pointer;
 }
 
 .thee-list ul li .time,
@@ -274,14 +339,15 @@ main .appointments .wrapper .count i{
 
 .thee-list ul li .time{
   font-weight: 600;
-  font-size: 1.2rem;
-  padding-left: 0.5rem;
+  font-size: 1rem;
+  padding-left: 0.2rem;
   margin: 0 1rem 0 0;
 }
 
 .thee-list ul li .student img{
-  width: 50px;
-  height: 50px;
+  padding: .2rem 0 0 0;
+  width: 40px;
+  height: 40px;
   object-fit: cover;
 }
 
@@ -300,10 +366,10 @@ main .appointments .wrapper .count i{
 .thee-list ul li .actions i{
   color: var(--nav-hover-color);
   border: 1px solid var(--nav-hover-color);
-  padding: .75rem;
-  border-radius: .75rem;
+  padding: .5rem;
+  border-radius: .55rem;
   margin: 0 0 0 1rem;
-  font-size: 1rem;
+  font-size: .75rem;
 }
 
 .thee-list ul li .actions i:hover{
@@ -312,107 +378,53 @@ main .appointments .wrapper .count i{
 }
 
 /* Selected Appointment details */
-.student-info {
-  background-color: #0e0e0e;
-  color: #fff;
-  box-shadow: .4px 2px 3px rgb(0 0 0 / 20%);
+main .appointments .student-info{
+  box-shadow: .4px 2px 3px rgb(0 0 0 / 10%);
   border-radius: 1rem;
+  margin: 1rem 1rem 0 1rem;
+  width: 50%;
+  height: 600px;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 1rem;
-  margin-top: 1rem;
-}
-
-.student-info .student-profile{
-  margin-top: 1rem;
-  display: flex;
-  flex-direction: column;
-  width: 300px;
-  justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
-.student-info .student-profile img{
-  width: 100px;
-  height: 100px;
+.student-info h2 {
+  margin: 1rem;
+}
+
+.student-info img {
+  width: 150px;
+  height: 150px;
   object-fit: cover;
+  margin-bottom: 1rem;
 }
 
-.student-info .student-profile h3{
-  font-size: 1.5rem;
-  margin: 1rem 0 0 0;
+.student-info table {
+  width: 80%;
 }
 
-/* MORE DETAILS SECTION */
-.student-info .the-details{
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
+.student-info table tr{
+  border: 0;
 }
 
-.student-info .the-details h3{
+.student-info table tr td{
   text-align: center;
-  margin-bottom: 0.5rem;
-}
-
-/* TABLE STYLING  */
-table{
-  width: 100%;
-  outline: none;
-  border-collapse: collapse;
-  color: #000;
-}
-
-table tr {
-  border-radius: 2rem;
-}
-
-table tr:nth-child(odd) {
-  background-color: #ffffffdc;
-}
-
-table tr:nth-child(even) {
-  background-color: #faf0f0;
-}
-
-table tr td{
-  letter-spacing: 2px;
   padding: 1rem;
-  font-weight: bold;
+  font-size: 1.2rem;
+  border: 0;
 }
 
-.the-details .actions{
-  display: flex;
+.student-info table tr td:nth-child(odd){
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
 }
 
-.the-details .actions i{
-  margin: 2rem .5rem;
-  color: var(--nav-hover-color);
-  background-color: var(--icon-color);
-  box-shadow: .4px 2px 3px rgb(0 0 0 / 20%);
-  padding: .75rem 2rem .75rem 2rem;
-  border-radius: .75rem;
-  font-size: 1.15rem;
+.student-info table tr td:nth-child(even){
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
 }
 
-.the-details .actions i:hover{
-  cursor: pointer;
-}
-
-.the-details .actions i:first-child:hover{
-  background-color: #000;
-  color: #fff;
-}
-
-.the-details .actions i:last-child:hover{
-  background-color: #000;
-  color: #fff;
-}
-
-/* On smaller screens */
-@media screen and (max-height: 450px) {
-  header {padding-top: 15px;}
+.student-info table tr:nth-child(odd) {
+  background-color: #ecececf4;
 }

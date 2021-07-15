@@ -33,18 +33,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> MUST COUNSELLOR APP</title>
+    <title>Student View </title>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="css/admin.css">
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="css/fontawesome.min.css">
+    <link rel="stylesheet" href="css/STYLE.css">
 
   </head>
 
   <body>
 
-    <!-- HEADER -->
     <header>
       <!-- Heading -->
       <div class="heading">
@@ -65,10 +64,6 @@
             <h3>Appointments</h3>
           </li>
           <li class="nav-item">
-            <i class="fas fa-user-graduate"></i>
-            <h3> Students </h3>
-          </li>
-          <li class="nav-item">
             <i class="fas fa-user-md"></i>
             <h3> Counsellors </h3>
           </li>
@@ -85,9 +80,7 @@
       </div>
     </header>
 
-    <!-- MAIN -->
     <main>
-      <!-- Header section for the main -->
       <section class="main-navbar">
         <div class="chat-title">
           <div class="left">
@@ -98,19 +91,18 @@
           </div>
 
           <div class="right">
+            <i class="fas fa-calendar" onclick="viewModal()"></i>
             <i class="fas fa-bell" onclick="viewModal()"></i>
           </div>
         </div>
       </section>
 
-      <!-- Appointments count -->
       <section class="appointments">
 
         <!-- wrapper -->
         <div class="wrapper">
 
-          <!-- COUNT & LIST -->
-          <div class="count">
+          <div class="communications">
             <!-- Total Appointments -->
             <div class="total">
               <i class="fas fa-users"></i>
@@ -129,24 +121,24 @@
             <div class="cancelled">
               <i class="fas fa-user-check"></i>
               <div class="total-numbers">
-              <h2> <?php echo $total_approved; ?> </h2>
+                <h2> <?php echo $total_approved; ?> </h2>
                 <span> Approved Appointments</span>
               </div>
             </div>
             <div class="total-patients">
               <i class="fas fa-user-times"></i>
               <div class="total-numbers">
-              <h2> <?php echo $total_pending; ?> </h2>
+                <h2> <?php echo $total_pending; ?> </h2>
                 <span> Cancelled Appointments</span>
               </div>
             </div>
           </div>
 
           <!-- Appointments list -->
-          <div class="appoitment-list">
+          <div class="appointment-list">
             <!-- List heading -->
             <div class="list-header">
-              <h2> Appointments </h2>
+              <h2> Your Appointments </h2>
               <ul>
                 <li class="pending">
                   <h3> Pending </h3>
@@ -166,7 +158,7 @@
             <!-- Thee list -->
             <div class="thee-list">
               <ul>
-              <!--  List for the appointments -->
+                <!--  List for the appointments -->
                 <?php
                   if ($list) {                 
                     foreach ($list as $ROW) {
@@ -174,6 +166,48 @@
                     }
                   }
                 ?>
+                <li>
+                  <div class="time">
+                    <span> 10:00 - 11:00 </span>
+                  </div>
+                  <div class="student">
+                    <img src="resources/img/must.png" alt="avatar">
+                    <h4> Lorem, ipsum. </h4>
+                    <h4 class="complaint"> Lorem ipsum dolor sit amet. Lorem ipsum dolor sit. </h4>
+                  </div>
+                  <div class="actions">
+                    <i class="fas fa-check"> </i>
+                    <i class="fas fa-trash"> </i>
+                  </div>
+                </li>
+                <li>
+                  <div class="time">
+                    <span> 10:00 - 11:00 </span>
+                  </div>
+                  <div class="student">
+                    <img src="resources/img/must.png" alt="avatar">
+                    <h4> Lorem, ipsum. </h4>
+                    <h4 class="complaint"> Lorem ipsum dolor sit amet. Lorem ipsum dolor sit. </h4>
+                  </div>
+                  <div class="actions">
+                    <i class="fas fa-check"> </i>
+                    <i class="fas fa-trash"> </i>
+                  </div>
+                </li>
+                <li>
+                  <div class="time">
+                    <span> 10:00 - 11:00 </span>
+                  </div>
+                  <div class="student">
+                    <img src="resources/img/must.png" alt="avatar">
+                    <h4> Lorem, ipsum. </h4>
+                    <h4 class="complaint"> Lorem ipsum dolor sit amet. Lorem ipsum dolor sit. </h4>
+                  </div>
+                  <div class="actions">
+                    <i class="fas fa-check"> </i>
+                    <i class="fas fa-trash"> </i>
+                  </div>
+                </li>
               </ul>
             </div>
           </div>
@@ -182,49 +216,40 @@
 
         <!-- Student details -->
         <div class="student-info">
-          <div class="student-profile">
-            <img src="resources/img/must.png" alt="avatar">
-            <h3>code-maestro</h3>
-          </div>
-          <div class="the-details">
-          
-            <h4> More Details </h4>
-
-            <table>
-              <tr>
-                <td>January</td>
-                <td>$100</td>
-              </tr>
-              <tr>
-                <td>January</td>
-                <td>$100</td>
-              </tr>
-              <tr>
-                <td>January</td>
-                <td>$100</td>
-              </tr>
-              <tr>
-                <td>January</td>
-                <td>$100</td>
-              </tr>
-              <tr>
-                <td>January</td>
-                <td>$100</td>
-              </tr>
-            </table>
+          <h2>
+            Student Information
+          </h2>
+          <img src="resources/img/must.png" alt="avatar">
+          <table>
+            <tr>
+              <td>January</td>
+              <td>$100</td>
+            </tr>
+            <tr>
+              <td>January</td>
+              <td>$100</td>
+            </tr>
+            <tr>
+              <td>January</td>
+              <td>$100</td>
+            </tr>
+            <tr>
+              <td>January</td>
+              <td>$100</td>
+            </tr>
+            <tr>
+              <td>January</td>
+              <td>$100</td>
+            </tr>
+          </table>
             
-            <div class="actions">
-              <i class="fas fa-backward"> </i>
-              <i class="fas fa-comment-dots"> Live Chat </i>
-              <i class="fas fa-forward"> </i>
-            </div>
-            
-          </div>
         </div>
 
       </section>
 
     </main>
+
+    <script src="js/events.js"></script>
 
   </body>
 
