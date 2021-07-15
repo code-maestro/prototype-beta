@@ -112,12 +112,18 @@
             <h2>
               Communications
             </h2>
-            <div class="carousel"> 
-              <i class="fas fa-chevron-left"></i>
-              <p>
-                Aliquid at deleniti iusto, <?php echo $user_id; ?>
-              </p>
-              <i class="fas fa-chevron-right"></i>
+            <div class="carousel">
+              <div class="carousel-item">
+                <i class="fas fa-chevron-left"></i>
+              </div>
+              <div class="carousel-item">
+                <p>
+                  Aliquid at deleniti iusto, <?php echo $user_id; ?>
+                </p>
+              </div>
+              <div class="carousel-item">
+                <i class="fas fa-chevron-right"></i>
+              </div>
             </div>
           </div>
 
@@ -150,7 +156,8 @@
                       }
                     }
                   ?>
-                <li>
+
+                <!-- <li>
                   <div class="time">
                     <span> 10:00 - 11:00 </span>
                   </div>
@@ -163,7 +170,7 @@
                     <i class="fas fa-check" id="approve-btn"> </i>
                     <i class="fas fa-trash"> </i>
                   </div>
-                </li>
+                </li> -->
               </ul>
             </div>
           </div>

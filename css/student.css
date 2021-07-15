@@ -180,40 +180,6 @@ main {
   margin-left: 250px;
 }
 
-
-/* MAIN SECTION WITH CONTENT */
-/* Main header section wit username counsellor's name in this case */
-main .header{
-  padding: 0;
-  display: flex;
-  justify-content: space-between;
-  background-color: var(--icon-color);
-  box-shadow: 0 1px 2.5px -0.5px rgb(0 0 0 / 20%);
-  position: sticky;
-}
-
-main .header .welcome-txt{
-  padding: 1.5rem 0 1rem 1rem;
-  margin-left: 2.5rem;
-}
-
-main .header .notification-area{
-  padding: 1rem;
-}
-
-h2{
-  margin: 0;
-}
-
-main .header .welcome-txt h2{
-  font-size: 2rem;
-}
-
-main .header .notification-area i{
-  padding: 1rem 2rem 0 0;
-  font-size: 2rem;
-}
-
 /* Main Appointments sections with list and counter */
 main .appointments{
   margin: 0;
@@ -250,11 +216,15 @@ main .appointments .wrapper{
   padding: 1rem 2rem;
 }
 
+.communications .carousel .carousel-item:last-child{
+  margin-right: auto;
+}
+
 /* Thee appointment list */
 .appointment-list {
   box-shadow: .4px 2px 3px rgb(0 0 0 / 20%);
   border-radius: 1rem;
-  height: 500px;
+  height: 550px;
   margin-top: 1rem;
 }
 
@@ -349,10 +319,12 @@ main .appointments .wrapper{
   object-fit: cover;
 }
 
-.thee-list ul li .student h4{
-  padding: 1rem;
-  margin-block-start: 0;
-  margin-block-end: 0;
+.thee-list ul li .student input {
+  text-align: center;
+  outline: none;
+  border: 0;
+  margin: 0;
+  font-weight: 600;
 }
 
 .thee-list ul li .actions{

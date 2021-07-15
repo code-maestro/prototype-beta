@@ -3,6 +3,7 @@ const approvebtn = document.getElementById("approve-btn");
 
 const comp = document.getElementById("complaint").value;
 
-approvebtn.addEventListener('click', () => {
-	alert(typeof(comp));
-});
+// Function to send data to the student info
+function viewData() {
+	alert(comp);
+}

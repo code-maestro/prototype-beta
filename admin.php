@@ -19,7 +19,7 @@
 
   //Retrieving appointments
   
-  $sql = "SELECT * FROM users INNER JOIN roles WHERE role_id = '1' AND users.users_id = roles.users_uid;";
+  $sql = "SELECT * FROM appointments INNER JOIN users WHERE users.users_id = appointments.users_uid;";
 
   $info = new Create();
   $list = $info->retrieveAppointments($sql);
@@ -88,16 +88,18 @@
     <!-- MAIN -->
     <main>
       <!-- Header section for the main -->
-      <section class="header">
-        <!-- Welcome txt -->
-        <div class="welcome-txt">
-          <span> Welcome back </span>  
-          <br>
-          <h2> <?php echo $current_user['last_name'] . " " . $current_user['first_name'] ; ?> </h2>
-        </div>
-        <!-- Notification icon -->
-        <div class="notification-area">
-          <i class="fas fa-bell"></i>
+      <section class="main-navbar">
+        <div class="chat-title">
+          <div class="left">
+            <img src="resources/img/must.png" alt="" srcset="">
+            <div class="user-info">
+              <span> Willkommen</span>
+            </div>
+          </div>
+
+          <div class="right">
+            <i class="fas fa-bell" onclick="viewModal()"></i>
+          </div>
         </div>
       </section>
 

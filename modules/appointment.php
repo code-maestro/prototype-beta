@@ -4,11 +4,11 @@
   </div>
   <div class="student">
     <img src="resources/img/must.png" alt="avatar">
-    <h4> <?php echo $ROW['first_name'] . " " . $ROW['last_name']; ?> </h4>
-    <h4 class="complaint"> <?php echo $ROW['complaint']?> </h4>
+    <input type="text" class="complaint" id="std-name" value="<?php echo $ROW['first_name'] . " " . $ROW['last_name']; ?>" > 
+    <input type="text" class="complaint" id="complaint" value="<?php echo $ROW['complaint']?>" > 
   </div>
   <div class="actions">
-    <i class="fas fa-check"> </i>
+    <i class="fas fa-check" id="approve-btn" onclick="viewData()"> </i>
     <i class="fas fa-trash"> </i>
   </div>
 </li>
