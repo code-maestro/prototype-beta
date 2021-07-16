@@ -180,24 +180,36 @@
           <img src="resources/img/must.png" alt="avatar">
           <table>
             <tr>
-              <td>January</td>
+              <td>Registration Number</td>
+              <td id="details-regno"></td>
+            </tr>
+            <tr>
+              <td>First name</td>
+              <td id="details-fname">$100</td>
+            </tr>
+            <tr>
+              <td>Last name</td>
+              <td id="details-lname" >$100</td>
+            </tr>
+            <tr>
+              <td>Email</td>
+              <td id="details-email" >$100</td>
+            </tr>
+            <tr>
+              <td>Appointment Date and time</td>
               <td>$100</td>
             </tr>
             <tr>
-              <td>January</td>
+              <td>Prevoius Appointment</td>
               <td>$100</td>
             </tr>
             <tr>
-              <td>January</td>
+              <td>Prevoius Issue</td>
               <td>$100</td>
             </tr>
             <tr>
-              <td>January</td>
-              <td>$100</td>
-            </tr>
-            <tr>
-              <td>January</td>
-              <td>$100</td>
+              <td>Total Appointment</td>
+              <td>100</td>
             </tr>
           </table>
             
