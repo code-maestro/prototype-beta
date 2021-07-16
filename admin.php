@@ -19,11 +19,43 @@
 
   //Retrieving appointments
   
-  $sql = "SELECT * FROM appointments INNER JOIN users WHERE users.users_id = appointments.users_uid;";
+  $sql = "SELECT complaint, date, start_time, end_time, users_id, first_name, last_name, reg_no, email 
+          FROM appointments INNER JOIN users INNER JOIN login 
+          WHERE users.users_id = appointments.users_uid 
+          AND appointments.users_uid = login.users_uid;";
 
   $info = new Create();
   $list = $info->retrieveAppointments($sql);
-       
+
+  $uid = "";
+  $complaint ="";
+  $date ="";
+  $time ="";
+  $stdname ="";
+  $reg_no = ""; 
+  $email = "";
+  $total = "";
+
+  if (isset($_POST['viewDetails'])) {
+
+    // print_r($_POST);
+    $uid = $_POST['uid'];
+    $complaint = $_POST['complaint'];
+    $date = $_POST['date'];
+    $time = $_POST['time'];
+    $stdname = $_POST['stdname'];
+    $reg_no =  $_POST['regno']; 
+    $email =  $_POST['email'];
+
+    $sql_count = "SELECT COUNT(id) FROM appointments WHERE users_uid ='$uid';";
+    $total = $user->getTotalUsers($sql_count);
+
+  }
+
+  if (isset($_POST['approve'])) {
+    echo '<script> alert("Fvck off") </script>';
+  }
+
 ?>
 
 <!DOCTYPE html>
@@ -111,7 +143,7 @@
                 <span> Total Students </span>
               </div>
             </div>
-            <div class="approved">
+            <div class="approved" onclick="viewDara()" >
               <i class="fas fa-hospital-user"></i>
               <div class="total-numbers">
                 <h2> <?php echo $total_appointments; ?> </h2>
@@ -175,41 +207,37 @@
         <!-- Student details -->
         <div class="student-info">
           <h2>
-            Student Information
+            Student Detialed Information
           </h2>
           <img src="resources/img/must.png" alt="avatar">
           <table>
             <tr>
               <td>Registration Number</td>
-              <td id="details-regno"></td>
+              <td id="details-regno"> <?php echo $reg_no; ?></td>
             </tr>
             <tr>
-              <td>First name</td>
-              <td id="details-fname">$100</td>
-            </tr>
-            <tr>
-              <td>Last name</td>
-              <td id="details-lname" >$100</td>
+              <td>Name</td>
+              <td id="details-name"><?php echo $stdname; ?></td>
             </tr>
             <tr>
               <td>Email</td>
-              <td id="details-email" >$100</td>
+              <td id="details-email" > <?php echo $email; ?></td>
             </tr>
             <tr>
-              <td>Appointment Date and time</td>
-              <td>$100</td>
+              <td>Appointment Date</td>
+              <td id="details-date" > <?php echo $date; ?></td>
             </tr>
             <tr>
-              <td>Prevoius Appointment</td>
-              <td>$100</td>
+              <td>Appointment Time </td>
+              <td id="details-time"> <?php echo $time; ?></td>
             </tr>
             <tr>
               <td>Prevoius Issue</td>
-              <td>$100</td>
+              <td id="details-complaint"> <?php echo $complaint; ?></td>
             </tr>
             <tr>
-              <td>Total Appointment</td>
-              <td>100</td>
+              <td>Total Appointments</td>
+              <td id="details-totals"> <?php echo $total; ?> </td>
             </tr>
           </table>
             

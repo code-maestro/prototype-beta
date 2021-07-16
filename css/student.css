@@ -319,6 +319,7 @@ main .appointments .wrapper{
   object-fit: cover;
 }
 
+.thee-list ul li .time input,
 .thee-list ul li .student input {
   text-align: center;
   outline: none;
@@ -327,8 +328,29 @@ main .appointments .wrapper{
   font-weight: 600;
 }
 
+.thee-list ul li .time input{
+  text-align: start;
+}
+
 .thee-list ul li .actions{
   margin-left: auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.thee-list ul li .actions #approve{
+  width: 1rem;
+  height: .3rem;
+}
+
+.thee-list ul li .actions #viewDetails,
+.thee-list ul li .actions #approve{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  font-weight: 600;
+  align-items: center;
 }
 
 .thee-list ul li .actions i{
@@ -340,10 +362,12 @@ main .appointments .wrapper{
   font-size: .75rem;
 }
 
-.thee-list ul li .actions i:hover{
+.thee-list ul li .actions i:hover,
+.thee-list ul li .actions input:hover{
   background-color: var(--navbar-background-color);
   color: var(--icon-color);
 }
+
 
 /* Selected Appointment details */
 main .appointments .student-info{

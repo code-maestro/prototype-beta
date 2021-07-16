@@ -366,6 +366,23 @@ main .appointments .wrapper .communications i{
 
 .thee-list ul li .actions{
   margin-left: auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.thee-list ul li .actions #approve{
+  width: 1rem;
+  height: .3rem;
+}
+
+.thee-list ul li .actions #viewDetails,
+.thee-list ul li .actions #approve{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  font-weight: 600;
+  align-items: center;
 }
 
 .thee-list ul li .actions i{
@@ -377,7 +394,8 @@ main .appointments .wrapper .communications i{
   font-size: .75rem;
 }
 
-.thee-list ul li .actions i:hover{
+.thee-list ul li .actions i:hover,
+.thee-list ul li .actions input:hover{
   background-color: var(--navbar-background-color);
   color: var(--icon-color);
 }
@@ -416,11 +434,12 @@ main .appointments .student-info{
 .student-info table tr td{
   text-align: end;
   padding: 1rem;
-  font-size: 1.2rem;
+  font-size: 1.040rem;
   border: 0;
 }
 
 .student-info table tr td:nth-child(odd){
+  width: 145px;
   font-weight: 600;
   border-top-left-radius: 1rem;
   border-bottom-left-radius: 1rem;
