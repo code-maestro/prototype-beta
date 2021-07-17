@@ -19,11 +19,43 @@
 
   //Retrieving appointments
   
-  $sql = "SELECT * FROM appointments INNER JOIN users WHERE users.users_id = appointments.users_uid;";
+  $sql = "SELECT complaint, date, start_time, end_time, users_id, first_name, last_name, reg_no, email 
+          FROM appointments INNER JOIN users INNER JOIN login 
+          WHERE users.users_id = appointments.users_uid 
+          AND appointments.users_uid = login.users_uid;";
 
   $info = new Create();
   $list = $info->retrieveAppointments($sql);
-       
+
+  $uid = "";
+  $complaint ="";
+  $date ="";
+  $time ="";
+  $stdname ="";
+  $reg_no = ""; 
+  $email = "";
+  $total = "";
+
+  if (isset($_POST['viewDetails'])) {
+
+    // print_r($_POST);
+    $uid = $_POST['uid'];
+    $complaint = $_POST['complaint'];
+    $date = $_POST['date'];
+    $time = $_POST['time'];
+    $stdname = $_POST['stdname'];
+    $reg_no =  $_POST['regno']; 
+    $email =  $_POST['email'];
+
+    $sql_count = "SELECT COUNT(id) FROM appointments WHERE users_uid ='$uid';";
+    $total = $user->getTotalUsers($sql_count);
+
+  }
+
+  if (isset($_POST['approve'])) {
+    echo '<script> alert("Fvck off") </script>';
+  }
+
 ?>
 
 <!DOCTYPE html>
@@ -33,18 +65,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> MUST COUNSELLOR APP</title>
+    <title>Student View </title>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="css/admin.css">
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="css/fontawesome.min.css">
+    <link rel="stylesheet" href="css/admin.css">
 
   </head>
 
   <body>
 
-    <!-- HEADER -->
     <header>
       <!-- Heading -->
       <div class="heading">
@@ -65,10 +96,6 @@
             <h3>Appointments</h3>
           </li>
           <li class="nav-item">
-            <i class="fas fa-user-graduate"></i>
-            <h3> Students </h3>
-          </li>
-          <li class="nav-item">
             <i class="fas fa-user-md"></i>
             <h3> Counsellors </h3>
           </li>
@@ -85,9 +112,7 @@
       </div>
     </header>
 
-    <!-- MAIN -->
     <main>
-      <!-- Header section for the main -->
       <section class="main-navbar">
         <div class="chat-title">
           <div class="left">
@@ -98,19 +123,18 @@
           </div>
 
           <div class="right">
+            <i class="fas fa-calendar" onclick="viewModal()"></i>
             <i class="fas fa-bell" onclick="viewModal()"></i>
           </div>
         </div>
       </section>
 
-      <!-- Appointments count -->
       <section class="appointments">
 
         <!-- wrapper -->
         <div class="wrapper">
 
-          <!-- COUNT & LIST -->
-          <div class="count">
+          <div class="communications">
             <!-- Total Appointments -->
             <div class="total">
               <i class="fas fa-users"></i>
@@ -119,7 +143,7 @@
                 <span> Total Students </span>
               </div>
             </div>
-            <div class="approved">
+            <div class="approved" onclick="viewDara()" >
               <i class="fas fa-hospital-user"></i>
               <div class="total-numbers">
                 <h2> <?php echo $total_appointments; ?> </h2>
@@ -129,24 +153,24 @@
             <div class="cancelled">
               <i class="fas fa-user-check"></i>
               <div class="total-numbers">
-              <h2> <?php echo $total_approved; ?> </h2>
+                <h2> <?php echo $total_approved; ?> </h2>
                 <span> Approved Appointments</span>
               </div>
             </div>
             <div class="total-patients">
               <i class="fas fa-user-times"></i>
               <div class="total-numbers">
-              <h2> <?php echo $total_pending; ?> </h2>
+                <h2> <?php echo $total_pending; ?> </h2>
                 <span> Cancelled Appointments</span>
               </div>
             </div>
           </div>
 
           <!-- Appointments list -->
-          <div class="appoitment-list">
+          <div class="appointment-list">
             <!-- List heading -->
             <div class="list-header">
-              <h2> Appointments </h2>
+              <h2> Your Appointments </h2>
               <ul>
                 <li class="pending">
                   <h3> Pending </h3>
@@ -166,7 +190,7 @@
             <!-- Thee list -->
             <div class="thee-list">
               <ul>
-              <!--  List for the appointments -->
+                <!--  List for the appointments -->
                 <?php
                   if ($list) {                 
                     foreach ($list as $ROW) {
@@ -182,49 +206,48 @@
 
         <!-- Student details -->
         <div class="student-info">
-          <div class="student-profile">
-            <img src="resources/img/must.png" alt="avatar">
-            <h3>code-maestro</h3>
-          </div>
-          <div class="the-details">
-          
-            <h4> More Details </h4>
-
-            <table>
-              <tr>
-                <td>January</td>
-                <td>$100</td>
-              </tr>
-              <tr>
-                <td>January</td>
-                <td>$100</td>
-              </tr>
-              <tr>
-                <td>January</td>
-                <td>$100</td>
-              </tr>
-              <tr>
-                <td>January</td>
-                <td>$100</td>
-              </tr>
-              <tr>
-                <td>January</td>
-                <td>$100</td>
-              </tr>
-            </table>
+          <h2>
+            Student Detialed Information
+          </h2>
+          <img src="resources/img/must.png" alt="avatar">
+          <table>
+            <tr>
+              <td>Registration Number</td>
+              <td id="details-regno"> <?php echo $reg_no; ?></td>
+            </tr>
+            <tr>
+              <td>Name</td>
+              <td id="details-name"><?php echo $stdname; ?></td>
+            </tr>
+            <tr>
+              <td>Email</td>
+              <td id="details-email" > <?php echo $email; ?></td>
+            </tr>
+            <tr>
+              <td>Appointment Date</td>
+              <td id="details-date" > <?php echo $date; ?></td>
+            </tr>
+            <tr>
+              <td>Appointment Time </td>
+              <td id="details-time"> <?php echo $time; ?></td>
+            </tr>
+            <tr>
+              <td>Prevoius Issue</td>
+              <td id="details-complaint"> <?php echo $complaint; ?></td>
+            </tr>
+            <tr>
+              <td>Total Appointments</td>
+              <td id="details-totals"> <?php echo $total; ?> </td>
+            </tr>
+          </table>
             
-            <div class="actions">
-              <i class="fas fa-backward"> </i>
-              <i class="fas fa-comment-dots"> Live Chat </i>
-              <i class="fas fa-forward"> </i>
-            </div>
-            
-          </div>
         </div>
 
       </section>
 
     </main>
+
+    <script src="js/events.js"></script>
 
   </body>
 

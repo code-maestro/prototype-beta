@@ -27,7 +27,7 @@
 
   //Retrieving appointments
 
-  $query = "SELECT * FROM appointments INNER JOIN users WHERE users_uid = '$user_id' AND appointments.users_uid = users.users_id;";
+  $query = "SELECT * FROM appointments INNER JOIN users INNER JOIN login WHERE appointments.users_uid = 'STD/7645' AND appointments.users_uid = users.users_id AND appointmentS.users_uid = login.users_uid;";
 
   $my_list = $new_appointment->retrieveAppointments($query);
 
