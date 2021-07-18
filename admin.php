@@ -19,10 +19,16 @@
 
   //Retrieving appointments
   
-  $sql = "SELECT complaint, date, start_time, end_time, users_id, first_name, last_name, reg_no, email 
+  $sql = "SELECT appointment_id, complaint, date, start_time, end_time, users_id, first_name, last_name, reg_no, email 
           FROM appointments INNER JOIN users INNER JOIN login 
           WHERE users.users_id = appointments.users_uid 
           AND appointments.users_uid = login.users_uid;";
+
+  $sql_pending = "SELECT appointment_id, complaint, date, start_time, end_time, users_id, first_name, last_name, reg_no, email 
+                  FROM appointments INNER JOIN users INNER JOIN login
+                  WHERE users.users_id = appointments.users_uid 
+                  AND appointments.users_uid = login.users_uid
+                  AND appointments.status = 1";
 
   $info = new Create();
   $list = $info->retrieveAppointments($sql);
@@ -52,10 +58,34 @@
 
   }
 
-  if (isset($_POST['approve'])) {
-    echo '<script> alert("Fvck off") </script>';
+  if (isset($_POST['approved'])) {
+    $list="";
+    $list = $info->retrieveAppointments($sql_pending);
   }
 
+  // Condition to approve appointments 
+  if (isset($_POST['approve-btn'])) {
+
+    $id = $_POST['id'];
+
+    $sqlstatus = "UPDATE appointments SET status = 1 WHERE appointments.appointment_id = '$id';";
+
+    $DB = new DatabaseModule();
+    $DB->saveData($sqlstatus);
+
+  }
+
+  // Condition to delete appointments 
+  if (isset($_POST['delete-btn'])) {
+
+    $id = $_POST['id'];
+
+    $sql_delete = "DELETE FROM appointments WHERE appointments.appointment_id = '$id';";
+
+    $DB = new DatabaseModule();
+    $DB->saveData($sql_delete);
+
+  }
 ?>
 
 <!DOCTYPE html>
@@ -170,21 +200,12 @@
           <div class="appointment-list">
             <!-- List heading -->
             <div class="list-header">
-              <h2> Your Appointments </h2>
-              <ul>
-                <li class="pending">
-                  <h3> Pending </h3>
-                </li>
-                <li class="approved">
-                  <h3> Approved </h3>
-                </li>
-                <li class="finished">
-                  <h3> Completed </h3>
-                </li>
-                <li class="deleted">
-                  <h3> Deleted </h3>
-                </li>
-              </ul>
+              <h2> Appointments </h2>
+              <form method="post">
+                <input type="submit" name="pending" value="Pending" class="pending">
+                <input type="submit" name="approved" value="Approved" class="approved">
+                <input type="submit" name="completed" value="Completed" class="finished">
+              </form>
             </div>
 
             <!-- Thee list -->
@@ -240,6 +261,9 @@
               <td id="details-totals"> <?php echo $total; ?> </td>
             </tr>
           </table>
+
+          <!-- RESPOND BUTTON -->
+          <button class="respond-btn" type="submit"> RESPOND </button>
             
         </div>
 
