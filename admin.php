@@ -263,10 +263,158 @@
           </table>
 
           <!-- RESPOND BUTTON -->
-          <button class="respond-btn" type="submit"> RESPOND </button>
+          <button class="respond-btn" id="respond-btn" onclick="test()" type="submit"> RESPOND </button>
             
         </div>
 
+      </section>
+
+      <section>
+      <!-- The Modal -->
+        <div id="myModal" class="modal">
+          <!-- Modal content -->
+          <div class="modal-content">
+            
+            <div class="modal-header">
+              <span class="close">&times;</span>
+              <h2> Reach out </h2>
+            </div>
+
+            <div class="modal-body">
+
+              <div class="options">
+                <div class="livechat" id="livechat">
+                  <i class="fas fa-comment"></i>
+                  <h4> START A LIVE CHAT </h4>
+                </div>
+                <div class="tollfree" id="tollfree">
+                  <i class="fas fa-phone"></i>
+                  <h4> PROVIDE A TOLL FREE NUMBER </h4>
+                </div>
+                <div class="zoom" id="zoomlink">
+                  <i class="fas fa-comment"></i>
+                  <h4> SCHEDULE A ZOOM MEETING  </h4>
+                </div>
+                <div class="email" id="sendEmail">
+                  <i class="fas fa-comment"></i>
+                  <h4> SEND AN EMAIL </h4>
+                </div>
+              </div>  
+
+              <div class="chat-wrap">
+                <section class="chat-area">
+                  <div class="chat-box">
+                    <div class="chat" id="chat">
+                      <div class="incoming">
+                        <div class="details">
+                          <p>Lorem ipsum dolor sit. Lorem ipsum dolor sit amet.</p>
+                        </div>
+                      </div>
+                      <div class="outgoing">
+                        <div class="details">
+                          <p>Lorem ipsum dolor sit. Lorem ipsum dolor sit.</p>
+                        </div>
+                      </div>
+                      <div class="incoming">
+                        <div class="details">
+                          <p>Lorem ipsum dolor sit. Lorem ipsum dolor sit amet.</p>
+                        </div>
+                      </div>
+                      <div class="outgoing">
+                        <div class="details">
+                          <p>Lorem ipsum dolor sit Lorem ipsum dolor sit..</p>
+                        </div>
+                      </div>
+                      <div class="incoming">
+                        <div class="details">
+                          <p>Lorem ipsum dolor sit. Lorem ipsum dolor sit amet.</p>
+                        </div>
+                      </div>
+                      <div class="outgoing">
+                        <div class="details">
+                          <p>Lorem ipsum dolor sit. Lorem ipsum dolor sit.</p>
+                        </div>
+                      </div>
+                      <div class="incoming">
+                        <div class="details">
+                          <p>Lorem ipsum dolor sit. Lorem ipsum dolor sit amet.</p>
+                        </div>
+                      </div>
+                      <div class="outgoing">
+                        <div class="details">
+                          <p>Lorem ipsum dolor sit. Lorem ipsum dolor sit.</p>
+                        </div>
+                      </div>
+                      <div class="incoming">
+                        <div class="details">
+                          <p>Lorem ipsum dolor sit. Lorem ipsum dolor sit amet.</p>
+                        </div>
+                      </div>
+                      <div class="outgoing">
+                        <div class="details">
+                          <p>Lorem ipsum dolor sit. Lorem ipsum dolor sit.</p>
+                        </div>
+                      </div>
+                      <div class="incoming">
+                        <div class="details">
+                          <p>Lorem ipsum dolor sit. Lorem ipsum dolor sit amet.</p>
+                        </div>
+                      </div>
+                      <div class="outgoing">
+                        <div class="details">
+                          <p>Lorem ipsum dolor sit.</p>
+                        </div>
+                      </div>
+                      <div class="incoming">
+                        <div class="details">
+                          <p>Lorem ipsum dolor sit. Lorem ipsum dolor sit amet.</p>
+                        </div>
+                      </div>
+                      <div class="outgoing">
+                        <div class="details">
+                          <p>Lorem ipsum dolor sit.</p>
+                        </div>
+                      </div>
+                      
+                    </div>
+
+                    <div class="tollfree" id="toll">
+                      <p>Lorem ipsum, dolor sit amet consectetur </p>
+                      <p>Lorem ipsum, dolor sit amet consectetur </p>
+                      <p>Lorem ipsum, dolor sit amet consectetur </p>
+                    </div>
+                    <div class="zoomlink" id="zoom">
+                      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam, non!</p>
+                      <p>Lorem ipsum, dolor sit amet consectetur </p>
+                      <p>Lorem ipsum, dolor sit amet consectetur </p>
+                      <p>Lorem ipsum, dolor sit amet consectetur </p>
+                      <p>Lorem ipsum, dolor sit amet consectetur </p>
+                    </div>
+                    <div class="mail" id="mail">
+                      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam, non! Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, ipsam!</p>
+                      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam, non! Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, ipsam!</p>
+                      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam, non! Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, ipsam!</p>
+                      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam, non! Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, ipsam!</p>
+                      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam, non! Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, ipsam!</p>
+                      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam, non! Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, ipsam!</p>
+                      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam, non! Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, ipsam!</p>
+                      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam, non! Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, ipsam!</p>
+                      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam, non! Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, ipsam!</p>
+                      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam, non! Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, ipsam!</p>
+                      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam, non! Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, ipsam!</p>
+                    </div>
+
+                    <form action="#" class="typing-area">
+                      <input type="text" class="incoming_id" name="incoming_id" hidden>
+                      <input type="text" name="message" id="message" class="input-field" placeholder="Send a message to the student..." autocomplete="off">
+                      <button><i class="fab fa-telegram-plane"></i></button>
+                    </form>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
     </main>
