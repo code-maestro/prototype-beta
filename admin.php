@@ -2,6 +2,7 @@
   
   include_once 'staff_header.php';
   include_once 'modules/create.php';
+  include_once 'zoom_config.php';
 
   $user = new User();
   $current_user = $user->getData($_SESSION['staff_id']);
@@ -9,7 +10,7 @@
   //Qeuries
   $query = "SELECT COUNT(id) FROM roles WHERE role_id = '1'; ";
   $query2 = "SELECT COUNT(id) FROM appointments; ";
-  $query3 = "SELECT COUNT(id) FROM approved_appointment; ";
+  $query3 = "SELECT COUNT(id) FROM appointments WHERE status = '1'; ";
   $query4 = "SELECT COUNT(id) FROM pending_appointment; ";
 
   $total_users = $user->getTotalUsers($query);
@@ -25,13 +26,18 @@
           AND appointments.users_uid = login.users_uid;";
 
   $sql_pending = "SELECT appointment_id, complaint, date, start_time, end_time, users_id, first_name, last_name, reg_no, email 
-                  FROM appointments INNER JOIN users INNER JOIN login
-                  WHERE users.users_id = appointments.users_uid 
-                  AND appointments.users_uid = login.users_uid
-                  AND appointments.status = 1";
+                   FROM appointments INNER JOIN users INNER JOIN login
+                   WHERE users.users_id = appointments.users_uid 
+                   AND appointments.users_uid = login.users_uid
+                   AND appointments.status = 0";
+  $sql_approved = "SELECT appointment_id, complaint, date, start_time, end_time, users_id, first_name, last_name, reg_no, email 
+                   FROM appointments INNER JOIN users INNER JOIN login
+                   WHERE users.users_id = appointments.users_uid 
+                   AND appointments.users_uid = login.users_uid
+                   AND appointments.status = 1";
 
   $info = new Create();
-  $list = $info->retrieveAppointments($sql);
+  $list = $info->retrieveAppointments($sql_pending);
 
   $uid = "";
   $complaint ="";
@@ -60,7 +66,7 @@
 
   if (isset($_POST['approved'])) {
     $list="";
-    $list = $info->retrieveAppointments($sql_pending);
+    $list = $info->retrieveAppointments($sql_approved);
   }
 
   // Condition to approve appointments 
@@ -86,6 +92,9 @@
     $DB->saveData($sql_delete);
 
   }
+
+  $url = "https://zoom.us/oauth/authorize?response_type=code&client_id=".CLIENT_ID."&redirect_uri=".REDIRECT_URI;
+
 ?>
 
 <!DOCTYPE html>
@@ -293,7 +302,7 @@
                 </div>
                 <div class="zoom" id="zoomlink">
                   <i class="fas fa-comment"></i>
-                  <h4> SCHEDULE A ZOOM MEETING  </h4>
+                  <a href="<?php echo $url; ?>"><h4> SCHEDULE A ZOOM MEETING  </h4></a>
                 </div>
                 <div class="email" id="sendEmail">
                   <i class="fas fa-comment"></i>

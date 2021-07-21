@@ -15,3 +15,8 @@ STYLE.css
 modules/acc_activation.php
 
 modules/zoom_link.php
+
+modules/createMeeting.php
+
+vendor
+
