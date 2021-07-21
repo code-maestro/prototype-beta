@@ -27,7 +27,16 @@
 
   //Retrieving appointments
 
-  $query = "SELECT * FROM appointments INNER JOIN users INNER JOIN login WHERE appointments.users_uid = 'STD/7645' AND appointments.users_uid = users.users_id AND appointmentS.users_uid = login.users_uid;";
+  $query = "SELECT * FROM appointments INNER JOIN users INNER JOIN login 
+            WHERE appointments.users_uid = '$user_id' 
+            AND appointments.users_uid = users.users_id 
+            AND appointmentS.users_uid = login.users_uid;";
+
+
+  $query_approved = "SELECT * FROM approved_appointment INNER JOIN users INNER JOIN login 
+                     WHERE approved_appointment.users_uid = '$user_id' 
+                     AND appointments.users_uid = users.users_id 
+                     AND appointmentS.users_uid = login.users_uid;";
 
   $my_list = $new_appointment->retrieveAppointments($query);
 
@@ -132,17 +141,11 @@
             <!-- List heading -->
             <div class="list-header">
               <h2> Your  Appointments </h2>
-              <ul>
-                <li class="pending">
-                  <h3> Scheduled </h3>
-                </li>
-                <li class="approved">
-                  <h3> Upcoming </h3>
-                </li>
-                <li class="finished">
-                  <h3> Completed </h3>
-                </li>
-              </ul>
+              <form>
+                <input name="scheduled" value="Scheduled" class="pending">
+                <input name="upcoming" value="Upcoming" class="approved">
+                <input name="completed" value="Completed" class="finished">
+              </form>
             </div>
 
             <!-- Thee list -->

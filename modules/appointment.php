@@ -5,6 +5,7 @@
   </div>
   <div class="student">
     <img src="resources/img/must.png" alt="avatar">
+    <input type="text" name="id" id="id" value="<?php echo $ROW['appointment_id'] ?>" hidden>
     <input type="text" name="uid" id="uid" value="<?php echo $ROW['users_id'] ?>" hidden>
     <input type="text" name="date" id="date" value="<?php echo $ROW['date'] ?>" hidden>
     <input type="text" name="time" id="time" value="<?php echo $ROW['start_time'] . " - " . $ROW['end_time']; ?>" hidden>
@@ -14,11 +15,10 @@
     <input type="text" name="complaint" class="complaint" id="complaint" value="<?php echo $ROW['complaint']?>" > 
   </div>
   <div class="actions">
-    <i>
-      <input id="viewDetails" name="viewDetails" value="view details" type="submit">
-    </i>
-    <i class="fas fa-check" id="approve-btn" onclick="viewData2()"></i>
-    <i class="fas fa-trash"> </i>
+    <input id="action-btn" name="viewDetails" value="view details" type="submit">
+    <input id="action-btn" name="approve-btn" value="approve" type="submit" >  
+    <input id="action-btn" name="delete-btn" value="delete" type="submit" >  
+    <!-- <i class="fas fa-trash" id="delete-btn"> </i> -->
   </div>
 </li>
 </form>

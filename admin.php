@@ -2,6 +2,7 @@
   
   include_once 'staff_header.php';
   include_once 'modules/create.php';
+  include_once 'zoom_config.php';
 
   $user = new User();
   $current_user = $user->getData($_SESSION['staff_id']);
@@ -9,7 +10,7 @@
   //Qeuries
   $query = "SELECT COUNT(id) FROM roles WHERE role_id = '1'; ";
   $query2 = "SELECT COUNT(id) FROM appointments; ";
-  $query3 = "SELECT COUNT(id) FROM approved_appointment; ";
+  $query3 = "SELECT COUNT(id) FROM appointments WHERE status = '1'; ";
   $query4 = "SELECT COUNT(id) FROM pending_appointment; ";
 
   $total_users = $user->getTotalUsers($query);
@@ -19,13 +20,24 @@
 
   //Retrieving appointments
   
-  $sql = "SELECT complaint, date, start_time, end_time, users_id, first_name, last_name, reg_no, email 
+  $sql = "SELECT appointment_id, complaint, date, start_time, end_time, users_id, first_name, last_name, reg_no, email 
           FROM appointments INNER JOIN users INNER JOIN login 
           WHERE users.users_id = appointments.users_uid 
           AND appointments.users_uid = login.users_uid;";
 
+  $sql_pending = "SELECT appointment_id, complaint, date, start_time, end_time, users_id, first_name, last_name, reg_no, email 
+                   FROM appointments INNER JOIN users INNER JOIN login
+                   WHERE users.users_id = appointments.users_uid 
+                   AND appointments.users_uid = login.users_uid
+                   AND appointments.status = 0";
+  $sql_approved = "SELECT appointment_id, complaint, date, start_time, end_time, users_id, first_name, last_name, reg_no, email 
+                   FROM appointments INNER JOIN users INNER JOIN login
+                   WHERE users.users_id = appointments.users_uid 
+                   AND appointments.users_uid = login.users_uid
+                   AND appointments.status = 1";
+
   $info = new Create();
-  $list = $info->retrieveAppointments($sql);
+  $list = $info->retrieveAppointments($sql_pending);
 
   $uid = "";
   $complaint ="";
@@ -52,9 +64,36 @@
 
   }
 
-  if (isset($_POST['approve'])) {
-    echo '<script> alert("Fvck off") </script>';
+  if (isset($_POST['approved'])) {
+    $list="";
+    $list = $info->retrieveAppointments($sql_approved);
   }
+
+  // Condition to approve appointments 
+  if (isset($_POST['approve-btn'])) {
+
+    $id = $_POST['id'];
+
+    $sqlstatus = "UPDATE appointments SET status = 1 WHERE appointments.appointment_id = '$id';";
+
+    $DB = new DatabaseModule();
+    $DB->saveData($sqlstatus);
+
+  }
+
+  // Condition to delete appointments 
+  if (isset($_POST['delete-btn'])) {
+
+    $id = $_POST['id'];
+
+    $sql_delete = "DELETE FROM appointments WHERE appointments.appointment_id = '$id';";
+
+    $DB = new DatabaseModule();
+    $DB->saveData($sql_delete);
+
+  }
+
+  $url = "https://zoom.us/oauth/authorize?response_type=code&client_id=".CLIENT_ID."&redirect_uri=".REDIRECT_URI;
 
 ?>
 
@@ -170,21 +209,12 @@
           <div class="appointment-list">
             <!-- List heading -->
             <div class="list-header">
-              <h2> Your Appointments </h2>
-              <ul>
-                <li class="pending">
-                  <h3> Pending </h3>
-                </li>
-                <li class="approved">
-                  <h3> Approved </h3>
-                </li>
-                <li class="finished">
-                  <h3> Completed </h3>
-                </li>
-                <li class="deleted">
-                  <h3> Deleted </h3>
-                </li>
-              </ul>
+              <h2> Appointments </h2>
+              <form method="post">
+                <input type="submit" name="pending" value="Pending" class="pending">
+                <input type="submit" name="approved" value="Approved" class="approved">
+                <input type="submit" name="completed" value="Completed" class="finished">
+              </form>
             </div>
 
             <!-- Thee list -->
@@ -240,9 +270,160 @@
               <td id="details-totals"> <?php echo $total; ?> </td>
             </tr>
           </table>
+
+          <!-- RESPOND BUTTON -->
+          <button class="respond-btn" id="respond-btn" onclick="test()" type="submit"> RESPOND </button>
             
         </div>
 
+      </section>
+
+      <section>
+      <!-- The Modal -->
+        <div id="myModal" class="modal">
+          <!-- Modal content -->
+          <div class="modal-content">
+            
+            <div class="modal-header">
+              <span class="close">&times;</span>
+              <h2> Reach out </h2>
+            </div>
+
+            <div class="modal-body">
+
+              <div class="options">
+                <div class="livechat" id="livechat">
+                  <i class="fas fa-comment"></i>
+                  <h4> START A LIVE CHAT </h4>
+                </div>
+                <div class="tollfree" id="tollfree">
+                  <i class="fas fa-phone"></i>
+                  <h4> PROVIDE A TOLL FREE NUMBER </h4>
+                </div>
+                <div class="zoom" id="zoomlink">
+                  <i class="fas fa-comment"></i>
+                  <a href="<?php echo $url; ?>"><h4> SCHEDULE A ZOOM MEETING  </h4></a>
+                </div>
+                <div class="email" id="sendEmail">
+                  <i class="fas fa-comment"></i>
+                  <h4> SEND AN EMAIL </h4>
+                </div>
+              </div>  
+
+              <div class="chat-wrap">
+                <section class="chat-area">
+                  <div class="chat-box">
+                    <div class="chat" id="chat">
+                      <div class="incoming">
+                        <div class="details">
+                          <p>Lorem ipsum dolor sit. Lorem ipsum dolor sit amet.</p>
+                        </div>
+                      </div>
+                      <div class="outgoing">
+                        <div class="details">
+                          <p>Lorem ipsum dolor sit. Lorem ipsum dolor sit.</p>
+                        </div>
+                      </div>
+                      <div class="incoming">
+                        <div class="details">
+                          <p>Lorem ipsum dolor sit. Lorem ipsum dolor sit amet.</p>
+                        </div>
+                      </div>
+                      <div class="outgoing">
+                        <div class="details">
+                          <p>Lorem ipsum dolor sit Lorem ipsum dolor sit..</p>
+                        </div>
+                      </div>
+                      <div class="incoming">
+                        <div class="details">
+                          <p>Lorem ipsum dolor sit. Lorem ipsum dolor sit amet.</p>
+                        </div>
+                      </div>
+                      <div class="outgoing">
+                        <div class="details">
+                          <p>Lorem ipsum dolor sit. Lorem ipsum dolor sit.</p>
+                        </div>
+                      </div>
+                      <div class="incoming">
+                        <div class="details">
+                          <p>Lorem ipsum dolor sit. Lorem ipsum dolor sit amet.</p>
+                        </div>
+                      </div>
+                      <div class="outgoing">
+                        <div class="details">
+                          <p>Lorem ipsum dolor sit. Lorem ipsum dolor sit.</p>
+                        </div>
+                      </div>
+                      <div class="incoming">
+                        <div class="details">
+                          <p>Lorem ipsum dolor sit. Lorem ipsum dolor sit amet.</p>
+                        </div>
+                      </div>
+                      <div class="outgoing">
+                        <div class="details">
+                          <p>Lorem ipsum dolor sit. Lorem ipsum dolor sit.</p>
+                        </div>
+                      </div>
+                      <div class="incoming">
+                        <div class="details">
+                          <p>Lorem ipsum dolor sit. Lorem ipsum dolor sit amet.</p>
+                        </div>
+                      </div>
+                      <div class="outgoing">
+                        <div class="details">
+                          <p>Lorem ipsum dolor sit.</p>
+                        </div>
+                      </div>
+                      <div class="incoming">
+                        <div class="details">
+                          <p>Lorem ipsum dolor sit. Lorem ipsum dolor sit amet.</p>
+                        </div>
+                      </div>
+                      <div class="outgoing">
+                        <div class="details">
+                          <p>Lorem ipsum dolor sit.</p>
+                        </div>
+                      </div>
+                      
+                    </div>
+
+                    <div class="tollfree" id="toll">
+                      <p>Lorem ipsum, dolor sit amet consectetur </p>
+                      <p>Lorem ipsum, dolor sit amet consectetur </p>
+                      <p>Lorem ipsum, dolor sit amet consectetur </p>
+                    </div>
+                    <div class="zoomlink" id="zoom">
+                      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam, non!</p>
+                      <p>Lorem ipsum, dolor sit amet consectetur </p>
+                      <p>Lorem ipsum, dolor sit amet consectetur </p>
+                      <p>Lorem ipsum, dolor sit amet consectetur </p>
+                      <p>Lorem ipsum, dolor sit amet consectetur </p>
+                    </div>
+                    <div class="mail" id="mail">
+                      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam, non! Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, ipsam!</p>
+                      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam, non! Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, ipsam!</p>
+                      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam, non! Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, ipsam!</p>
+                      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam, non! Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, ipsam!</p>
+                      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam, non! Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, ipsam!</p>
+                      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam, non! Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, ipsam!</p>
+                      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam, non! Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, ipsam!</p>
+                      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam, non! Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, ipsam!</p>
+                      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam, non! Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, ipsam!</p>
+                      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam, non! Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, ipsam!</p>
+                      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam, non! Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, ipsam!</p>
+                    </div>
+
+                    <form action="#" class="typing-area">
+                      <input type="text" class="incoming_id" name="incoming_id" hidden>
+                      <input type="text" name="message" id="message" class="input-field" placeholder="Send a message to the student..." autocomplete="off">
+                      <button><i class="fab fa-telegram-plane"></i></button>
+                    </form>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
     </main>

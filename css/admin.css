@@ -4,7 +4,8 @@
   --navbar-background-color: #000;
   --nav-hover-color: #2b2b2b;
   --main-background-color: #e3fde3;
-  --card-background-color: #66de51;
+  --action-color: #1cbc00;
+  --danger-color: #ef0000;
   font-size: 14px;
   font-family: 'Poppins', sans-serif;
 }
@@ -167,6 +168,7 @@ header .logout i{
 
 main {
   margin-left: 250px;
+  position: relative;
 }
 
 
@@ -268,31 +270,34 @@ main .appointments .wrapper .communications i{
   font-size: 1.75rem;
   margin: 0;
   padding: .5rem 1rem;
+  text-align: center;
 }
 
-.list-header ul{
- display: flex;
- padding: 0 0 .5rem 0;
- margin: 1rem 1rem 0 1rem;
+.list-header form{
+  display: flex;
+  padding: 0 0 .5rem 0;
+  margin: 1rem 1rem 0 1rem;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
 }
 
-.list-header ul li {
-  padding: 0 1rem .5rem 1rem;
+.list-header form input {
+  text-align: center;
+  outline: none;
+  border: 0;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: .5rem 2rem;
+  background: none;
   margin: 0;
 }
 
-.list-header ul li:hover{
+.list-header form input:hover{
   cursor: pointer;
   border-bottom: 2px solid rgb(157, 157, 157);
-}
-
-
-.list-header ul .pending{
-  padding-left: 0;
-}
-
-.list-header ul li h3{
-  margin: 0;
+  background-color: #cacaca;
+  border-radius: 1rem;
 }
 
 /* Actual list styling */
@@ -366,38 +371,36 @@ main .appointments .wrapper .communications i{
 
 .thee-list ul li .actions{
   margin-left: auto;
-  justify-content: center;
-  align-items: center;
 }
 
-.thee-list ul li .actions #approve{
-  width: 1rem;
-  height: .3rem;
-}
-
-.thee-list ul li .actions #viewDetails,
-.thee-list ul li .actions #approve{
+.thee-list ul li .actions #action-btn{
+  font-size: .9rem;
   margin: 0;
   padding: 0;
   border: 0;
   background: none;
   font-weight: 600;
-  align-items: center;
-}
-
-.thee-list ul li .actions i{
   color: var(--nav-hover-color);
   border: 1px solid var(--nav-hover-color);
-  padding: .5rem;
+  padding: .3rem;
   border-radius: .55rem;
-  margin: 0 0 0 1rem;
-  font-size: .75rem;
+  margin: 0 0 0 .5rem;
 }
 
-.thee-list ul li .actions i:hover,
-.thee-list ul li .actions input:hover{
+.thee-list ul li .actions #action-btn:hover{
   background-color: var(--navbar-background-color);
   color: var(--icon-color);
+  cursor: pointer;
+}
+
+.thee-list ul li .actions #action-btn:nth-child(even):hover{
+  background-color: var(--action-color);
+  border: 0;
+}
+
+.thee-list ul li .actions #action-btn:last-child:hover{
+  background-color: var(--danger-color);
+  border: 0;
 }
 
 /* Selected Appointment details */
@@ -406,7 +409,7 @@ main .appointments .student-info{
   border-radius: 1rem;
   margin: 1rem 1rem 0 1rem;
   width: 50%;
-  height: 600px;
+  height: 660px;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -453,3 +456,238 @@ main .appointments .student-info{
 .student-info table tr:nth-child(odd) {
   background-color: #ecececf4;
 }
+
+.student-info .respond-btn{
+  width: 80%;
+  height: auto;
+  background-color: var(--navbar-background-color);
+  color: var(--icon-color);
+  box-shadow: 0 2px 3px rgba(0,0,0,.2);
+  border: 1px solid var(--navbar-background-color);
+  border-radius: 1rem;
+  text-align: center;
+  font-weight: 600;
+  letter-spacing: 2px;
+  font-size: 20px;
+  margin-top: 3rem;
+  padding: .65rem;
+}
+
+.student-info .respond-btn:hover{
+  cursor: pointer;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: 5rem 25rem;
+  padding: 1rem;
+  border: 1px solid #888;
+  width: 50%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  animation-name: animatetop;
+  animation-duration: 0.3;
+  border-radius: 1rem;
+  color: #000;
+}
+
+/* Modal Header */
+.modal-header,
+.modal-body {
+  padding: .5rem;
+  color: black;
+}
+
+.modal-body {
+  display: flex;
+  margin: 1rem;
+  justify-content: space-around;
+}
+
+.modal-body .options{
+  margin: 2rem 0 0 0;
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-body .options h4,
+.modal-body .options i{
+  margin: 0 .5rem;
+}
+
+.modal-body .options h4:hover{
+  cursor: pointer;
+}
+
+.options .livechat,
+.options .tollfree,
+.options .zoom,
+.options .email{
+  width: 70%;
+  height: auto;
+  background-color: var(--icon-color);
+  box-shadow: 0 2px 3px rgba(0,0,0,.2);
+  border-radius: 1rem;
+  display: flex;
+  margin: 1rem .5rem;
+  padding: .75rem;
+}
+
+/* Add Animation */
+@keyframes animatetop {
+  from {top: -300px; opacity: 0}
+  to {top: 0; opacity: 1}
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.chat-wrap{
+  width: 60%;
+  border-radius: 16px;
+}
+
+.chat-box{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  height: 300px;
+  border-radius: 1rem;
+  overflow-y: auto;
+  padding: 1rem;
+}
+
+.chat-box .chat,
+.chat-box .tollfree,
+.chat-box .zoomlink,
+.chat-box .mail{
+  height: 280px;
+  padding: 0 .5rem 0 0;
+  overflow-y: auto;
+}
+
+.chat-box .tollfree,
+.chat-box .zoomlink,
+.chat-box .mail{
+  display: none;
+  position: absolute;
+  z-index: 2;
+}
+
+.chat-box .chat::-webkit-scrollbar{
+  width: .5rem;
+}
+
+.chat-box .chat::-webkit-scrollbar-track{
+  background: var(--text-color);
+}
+
+.chat-box .chat::-webkit-scrollbar-thumb{
+  background: var(--navbar-background-color);
+  border-radius: 25px;
+}
+
+.chat-box .outgoing,
+.chat-box .incoming{
+  display: flex;
+  margin: .5rem 0;
+}
+
+.chat-box .outgoing .details{
+  margin-left: auto;
+  max-width: calc(100% - 130px);
+}
+.outgoing .details p{
+  padding: .5rem;
+  margin: 0;
+  background: #333;
+  box-shadow: 0 2px 3px rgba(0,0,0,.35);
+  color: #fff;
+  border-radius: 18px 18px 0 18px;
+}
+.chat-box .incoming{
+  align-items: flex-end;
+}
+.chat-box .incoming img{
+  height: 35px;
+  width: 35px;
+}
+.chat-box .incoming .details{
+  word-wrap: break-word;
+  margin-right: auto;
+  margin-left: 10px;
+  max-width: calc(100% - 130px);
+}
+.incoming .details p{
+  margin: 0;
+  padding: .7rem;
+  background: #fff;
+  color: rgb(0, 0, 0);
+  border-radius: 18px 18px 18px 0;
+  box-shadow: 0 2px 3px rgba(0,0,0,.45);
+}
+
+.typing-area{
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+}
+.typing-area .input-field{
+  box-shadow: 0 2px 3px rgba(0,0,0,.45);
+  height: 36px;
+  width: calc(100% - 58px);
+  font-size: 16px;
+  padding: 0 8px;
+  border: none;
+  background: #eeeeee;
+  border-radius: 1rem 0 0 1rem;
+  outline: none;
+}
+
+.typing-area .input-field::placeholder{
+  font-weight: 600;
+}
+
+.typing-area button{
+  color: #fff;
+  width: 50px;
+  border: none;
+  outline: none;
+  background: rgb(17, 17, 17);
+  box-shadow: 0 2px 3px rgba(0,0,0,.45);
+  font-size: 19px;
+  cursor: pointer;
+  opacity: 0.7;
+  pointer-events: none;
+  border-radius: 0 1rem 1rem 0;
+  transition: all 0.3s ease;
+}
+

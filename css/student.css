@@ -4,7 +4,8 @@
   --navbar-background-color: #000;
   --nav-hover-color: #2b2b2b;
   --main-background-color: #e3fde3;
-  --card-background-color: #66de51;
+  --action-color: #1cbc00;
+  --danger-color: #ef0000;
   font-size: 14px;
   font-family: 'Poppins', sans-serif;
 }
@@ -216,8 +217,9 @@ main .appointments .wrapper{
   padding: 1rem 2rem;
 }
 
-.communications .carousel .carousel-item:last-child{
-  margin-right: auto;
+.communications .carousel .carousel-item:nth-child(even){
+  width: 100%;
+  text-align: center;
 }
 
 /* Thee appointment list */
@@ -237,34 +239,31 @@ main .appointments .wrapper{
   margin-bottom: 0;
 }
 
-.list-header ul{
- display: flex;
- align-self: center;
- justify-content: center;
- margin-left: 1rem;
- padding: 0 0 .5rem 0;
- margin-block-start: .2em;
- margin-block-end: .2em;;
+.list-header form{
+  display: flex;
+  padding: 0 0 .5rem 0;
+  margin: 1rem 1rem 0 1rem;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
 }
 
-.list-header ul li {
-  padding: 0.5rem 1rem;
-  align-items: center;
+.list-header form input {
+  text-align: center;
+  outline: none;
+  border: 0;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: .5rem;
+  background: none;
   margin: 0;
 }
 
-.list-header ul li:hover{
+.list-header form input:hover{
   cursor: pointer;
   border-bottom: 2px solid rgb(157, 157, 157);
-}
-
-
-.list-header ul .pending{
-  padding-left: 0;
-}
-
-.list-header ul li h3{
-  margin: 0;
+  background-color: #f3f3f3;
+  border-radius: 1rem;
 }
 
 /* Actual list styling */
@@ -338,28 +337,35 @@ main .appointments .wrapper{
   align-items: center;
 }
 
-.thee-list ul li .actions #approve{
-  width: 1rem;
-  height: .3rem;
-}
-
-.thee-list ul li .actions #viewDetails,
-.thee-list ul li .actions #approve{
+.thee-list ul li .actions #action-btn{
+  font-size: .9rem;
   margin: 0;
   padding: 0;
   border: 0;
   background: none;
   font-weight: 600;
   align-items: center;
-}
-
-.thee-list ul li .actions i{
   color: var(--nav-hover-color);
   border: 1px solid var(--nav-hover-color);
-  padding: .5rem;
+  padding: .25rem;
   border-radius: .55rem;
-  margin: 0 0 0 1rem;
-  font-size: .75rem;
+  margin: 0 0 0 .5rem;
+}
+
+.thee-list ul li .actions #action-btn:hover{
+  background-color: var(--navbar-background-color);
+  color: var(--icon-color);
+  cursor: pointer;
+}
+
+.thee-list ul li .actions #action-btn:nth-child(even):hover{
+  background-color: var(--action-color);
+  border: 0;
+}
+
+.thee-list ul li .actions #action-btn:last-child:hover{
+  background-color: var(--danger-color);
+  border: 0;
 }
 
 .thee-list ul li .actions i:hover,

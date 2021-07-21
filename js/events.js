@@ -1,23 +1,59 @@
-// Handling user events
-const approvebtn = document.getElementById("approve-btn");
+// Get the modal
+var modal = document.getElementById("myModal");
+var btn = document.getElementById("respond-btn");
+var span = document.getElementsByClassName("close")[0];
+var liveChat = document.getElementById("livechat");
+var phoneCall = document.getElementById("tollfree");
+var zoomLink = document.getElementById("zoomlink");
+var sendEmail = document.getElementById("sendEmail");
 
-var complaint, date, time, stdname, reg_no, email  = "";
 
-reg_no = document.getElementById("regno").value;
-stdname = document.getElementById("std-name").value;
-email = document.getElementById("email").value;
-complaint = document.getElementById("complaint").value;
-date = document.getElementById("date").value;
-time = document.getElementById("time").value;
+// When the user clicks on the button, open the modal
+btn.onclick = function() {
+  modal.style.display = "block";
+}
 
-// Function to send data to the student info
-function viewData() {
-	
-	document.getElementById("details-regno").innerHTML = reg_no;
-	document.getElementById("details-name").innerHTML = stdname;
-	document.getElementById("details-email").textContent = email;
-	document.getElementById("details-date").textContent = date;
-	document.getElementById("details-time").textContent = time;
-	document.getElementById("details-complaint").textContent = complaint;
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
 
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+// Click events
+liveChat.onclick = function() {
+  document.getElementById("chat").style.display = "block";
+  document.getElementById("chat").style.backgroundColor = "#c5c5c5";
+  document.getElementById("zoom").style.display = "none";
+  document.getElementById("toll").style.display = "none";
+  document.getElementById("mail").style.display = "none";
+}
+
+phoneCall.onclick = function() {
+  document.getElementById("chat").style.display = "none";
+  document.getElementById("zoom").style.display = "none";
+  document.getElementById("mail").style.display = "none";
+  document.getElementById("toll").style.display = "block";
+  document.getElementById("toll").style.backgroundColor = "#c5c5c5";
+}
+
+zoomLink.onclick = function() {
+  document.getElementById("chat").style.display = "none";
+  document.getElementById("mail").style.display = "none";
+  document.getElementById("toll").style.display = "none";
+  document.getElementById("zoom").style.display = "block";
+  document.getElementById("zoom").style.backgroundColor = "#c5c5c5";
+}
+
+sendEmail.onclick = function() {
+  document.getElementById("chat").style.display = "none";
+  document.getElementById("zoom").style.display = "none";
+  document.getElementById("toll").style.display = "none";
+  document.getElementById("mail").style.display = "block";
+  document.getElementById("mail").style.backgroundColor = "#c5c5c5";
 }
