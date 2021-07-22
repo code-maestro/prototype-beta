@@ -9,8 +9,6 @@ const staff_tag = document.getElementById('staff');
 const staff_signup = document.getElementById("staff-signup");
 const student_signup = document.getElementById("student-signup");
 
-const err_msg = document.getElementById("err-msg");
-
 signUpButton.addEventListener('click', () => {
 	container.classList.add("right-panel-active");
 });
@@ -39,8 +37,6 @@ staff_tag.addEventListener('click', () => {
 
 	student_tag.style.backgroundColor = "#f8f8f8";
 	student_tag.style.color = "#000000";
-
-	err_msg.style.width = "100%";
 
 });
 

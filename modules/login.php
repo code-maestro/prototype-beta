@@ -10,8 +10,8 @@
       $Password = md5($data['password2']);
             
     // QUERIES TO RETRIEVE THE  DATA 
-    $query = "SELECT * FROM login INNER JOIN roles WHERE email = '$email' 
-              AND roles.users_uid = login.users_uid LIMIT 1;";
+      $query = "SELECT * FROM login INNER JOIN roles WHERE email = '$email' 
+                AND roles.users_uid = login.users_uid LIMIT 1;";
 
       $DB = new DatabaseModule();
       $result = $DB->readData($query);
@@ -38,16 +38,18 @@
             $_SESSION['staff_id'] = $row['users_uid'];
             $_SESSION['email'] = $row['email'];
 
+            $this->error .= " YOU'VE LOGGED IN SUCCESSFULLY ";
+
             header("Location: admin.php");
 
           }
 
         }else {
-         $this->error .= $row['password'] . " " . "WRONG PASSWORD MAN TRY AGAIN";
+          $this->error .= " ** Wrong Login Details  ** ";
         }
 
       }else {
-        $this->error .= "WRONG REGISTRATION NUMBER MAN TRY AGAIN";
+        $this->error .= " *** Wrong Login Details *** ";
       }
 
       return $this->error;

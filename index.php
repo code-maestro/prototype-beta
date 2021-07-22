@@ -24,13 +24,11 @@
 
     if ($res === "") {
 
-      echo "<script> alert('😒'); </script>";
-
       die;
         
     }else {
 
-      echo $res;
+      $result = $res;
 
     }
 
@@ -44,7 +42,7 @@
 
     $email = $_POST['email'];
 
-    $query4 = "SELECT * FROM users WHERE email = '$email' LIMIT 1; ";
+    $query4 = "SELECT email FROM login WHERE email = '$email' LIMIT 1; ";
         
     $DB = new DatabaseModule();
 
@@ -80,7 +78,8 @@
           $result;
         }else {
           $result = "SUCCESS";
-      }
+      
+        }
     
     }
     
@@ -138,16 +137,18 @@
     
     <title> Student Welfare </title>
 
+    <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/index.css">
 
   </head>
 
   <body>
 
+    <!-- OFFICIAL ERROR MESSAGE FOR LOGIN  -->
+    <span id="err-msg2" > <?php echo $result; ?> </span>
+
     <main>
       <div class="container" id="container">
-      <span id="err-msg2" > </span>
-      
         <div class="form-container sign-up-container">
           <div class="form">
             <h1>Create Account</h1>
@@ -155,6 +156,7 @@
               <a href="#" class="student" id="student">STUDENT</a>
               <a href="#" class="staff" id="staff">STAFF</a>
             </div>
+
             <div class="overlay-signup">
               <!-- STUDENT SIGNUP CONTAINER -->
               <div class="student-signup" id="student-signup">                
@@ -193,13 +195,10 @@
         <div class="form-container sign-in-container">
           <form method="POST" class="form">
             <h1> Log in</h1>
-            <div class="social-container">
-              <span id="err-msg"> <?php echo $res; ?> </span>
-            </div>
             <input type="email" name="email2" placeholder=" Enter Email" value="<?php echo $email; ?>" />
             <input type="password" name="password2" placeholder=" Enter Password" />
             <a href="#">Forgot your password?</a>
-            <input id="login" type="submit" name="login" value="LOG IN">
+            <input id="login" type="submit" name="login" value="LOG IN" >
           </form>
         </div>
 
