@@ -56,8 +56,7 @@
 
       if ($email === $row['email']) {
         
-        echo "Email is already taken";
-        $result = "Email gone";  
+        $result = "EMAIL IS ALREADY TAKEN ";  
       
       }else {
 
