@@ -11,18 +11,33 @@
     // FUNCTION/METHOD TO INSTANTIATE THE CONNECTION TO THE DATABASE.
     private function connect(){
 
-      $this->server = "localhost";
-      $this->username = "root";
-      $this->password = "";
-      $this->dbname = "β-prototype";
+      // LOCAL DATABASE CONNECTION.
+      // $this->server = "localhost";
+      // $this->username = "root";
+      // $this->password = "";
+      // $this->dbname = "β-prototype";
+
+      // REMOTE DATABASE CONNECTION.
+      // $this->server = "eu-cdbr-west-01.cleardb.com";
+      // $this->username = "bafc4f34d0300d";
+      // $this->password = "e6689063";
+      // $this->dbname = "heroku_dc3ac1671ff9bcb";
+
+      $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+
+      $serva = $url["host"];
+      $uname = $url["user"];
+      $pass = $url["pass"];
+      $db = substr($url["path"], 1);
 
       try {
 
         $conn = new mysqli(
-          $this->server,
-          $this->username,
-          $this->password,
-          $this->dbname
+          $serva, $uname, $pass, $db
+          // $this->server,
+          // $this->username,
+          // $this->password,
+          // $this->dbname
         );
       } catch (Exception $e) {
 
@@ -75,26 +90,6 @@
         return true;
       }
     }
-
-    //function to enter data into the database  
-
-    // public function enterData($token){
-
-    //   $this->connect();
-        
-    //   $sql = "INSERT INTO zoom-token(access_token) VALUES('$token')";
-
-    //   $res = mysqli_query($conn, $sql);
-
-    //   if (!$res) {
-         
-    //     return false;
-
-    //     }else {
-    //       return true;
-    //     }
-    // }
-  
 
     // Check is table empty
     public function is_table_empty() {
