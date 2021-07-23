@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
 * {
+	margin: 0;
 	box-sizing: border-box;
 }
 
@@ -90,8 +91,19 @@ input {
   font-weight: 600;
 }
 
+#err-msg2 {
+	width: 750px;
+	border-radius: 10px;
+	text-align: center;
+	padding: .75rem;
+	margin: .75rem 0;
+	color: #e20000;
+	font-size: 1.2rem;
+	font-weight: 600;
+}
+
 main {
-  padding: 2rem;
+  padding: 1rem 2rem;
 }
 
 .container {
@@ -117,6 +129,10 @@ main {
 	left: 0;
 	width: 50%;
 	z-index: 2;
+}
+
+.sign-in-container .form h1 {
+	margin-bottom: 2rem;
 }
 
 .sign-in-container .form #login{
@@ -251,7 +267,6 @@ main {
   border-bottom-right-radius: 1.5rem;
 }
 
-
 .overlay-signup {
 	position: relative;
 	top: 0;
@@ -304,11 +319,4 @@ main {
 
 .staff-signup form{
 	padding: .25rem;
-}
-
-span {
-	color:#e22222;
-	width: 100%;
-	padding: .75rem;
-	font-weight: 600;
 }

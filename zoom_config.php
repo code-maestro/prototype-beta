@@ -7,7 +7,7 @@
   define('CLIENT_ID', 'C8RQbgUqTBucy5bL8FezNQ');
   // define('CLIENT_SECRET', 'BgoJaw4rJ6UExYdWy6jBkqdS42BJJMaA');
   define('CLIENT_SECRET', '3a6oOPGOnvtcsGJ6p3Sc1M3t3AudfNTQ');
-  define('REDIRECT_URI', 'https://37d15290008d.ngrok.io/prototype_beta/authorizeZoom.php');
+  define('REDIRECT_URI', 'https://must-counsellor.herokuapp.com/authorizeZoom.php');
 
   // define('CLIENT_ID', 'YOUR_CLIENT_ID');
   // define('CLIENT_SECRET', 'YOUR_CLIENT_SECRET');
