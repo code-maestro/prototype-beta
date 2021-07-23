@@ -3,10 +3,14 @@
   require_once 'vendor/autoload.php'; 
   require_once "database/db_module.php";
 
-  // define('CLIENT_ID', '9Fj0hg1cQ0yflfhja3PEdg');
-  define('CLIENT_ID', 'C8RQbgUqTBucy5bL8FezNQ');
-  // define('CLIENT_SECRET', 'BgoJaw4rJ6UExYdWy6jBkqdS42BJJMaA');
-  define('CLIENT_SECRET', '3a6oOPGOnvtcsGJ6p3Sc1M3t3AudfNTQ');
+  // DEV CREDITIALS
+  define('CLIENT_ID', '9Fj0hg1cQ0yflfhja3PEdg');
+  define('CLIENT_SECRET', 'BgoJaw4rJ6UExYdWy6jBkqdS42BJJMaA');
+  
+  // PRODUCTION CREDITIALS
+  // define('CLIENT_ID', 'C8RQbgUqTBucy5bL8FezNQ');
+  // define('CLIENT_SECRET', '3a6oOPGOnvtcsGJ6p3Sc1M3t3AudfNTQ');
+
   define('REDIRECT_URI', 'https://must-counsellor.herokuapp.com/authorizeZoom.php');
 
   // define('CLIENT_ID', 'YOUR_CLIENT_ID');
