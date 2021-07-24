@@ -11,7 +11,7 @@
           ],
           'form_params' => [
               "grant_type" => "authorization_code",
-              "code" => $_POST['code'],
+              "code" => $_GET['code'],
               "redirect_uri" => REDIRECT_URI
           ],
       ]);
