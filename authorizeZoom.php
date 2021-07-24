@@ -19,17 +19,17 @@
   
       $db = new DatabaseModule();
   
-      if($db->is_table_empty()) {
+    //   if($db->is_table_empty()) {
 
         $db->insert_access_token(json_encode($token));
         echo "Access token inserted successfully.";
 
-      }
+      //}
 
   } catch(Exception $e) {
       
     echo $e->getMessage();
-    
+
   }
 
 ?>
