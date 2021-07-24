@@ -10,7 +10,7 @@
               "Content-Type" =>	"application/x-www-form-urlencoded"
           ],
           'form_params' => [
-              "grant_type" => "authorization_code",
+              "grant_type" => "access_token",
               "code" => $_GET['code'],
               "redirect_uri" => REDIRECT_URI
           ],
