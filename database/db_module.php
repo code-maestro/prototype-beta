@@ -132,6 +132,26 @@
 
     }
 
+    // Function to insert access token to db
+    public function insert_access_token($access_token) {
+     
+      $this->connect();
+        
+      $sql = "INSERT INTO zoom-token(access-token) VALUES('$access_token')";
+
+      $res = mysqli_query($conn, $sql);
+
+      if (!$res) {
+        
+        return false;
+
+      }else {
+        return true;
+      }
+    }
+
+
+
     // Update access token
     public function update_access_token($token) {
 
