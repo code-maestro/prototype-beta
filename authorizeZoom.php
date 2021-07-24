@@ -4,7 +4,7 @@
   try {
       $client = new GuzzleHttp\Client(['base_uri' => 'https://zoom.us']);
   
-      $response = $client->request('POST', '/oauth', [
+      $response = $client->request('POST', '/oauth/token', [
           "headers" => [
               "Authorization" => "Basic ". base64_encode(CLIENT_ID.':'.CLIENT_SECRET),
               "Content-Type" =>	"application/x-www-form-urlencoded"
