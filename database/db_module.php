@@ -150,8 +150,6 @@
       }
     }
 
-
-
     // Update access token
     public function update_access_token($token) {
 

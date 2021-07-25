@@ -1,4 +1,3 @@
-
 <?php
 
   include 'database/db_module.php';
