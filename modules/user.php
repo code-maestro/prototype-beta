@@ -18,6 +18,25 @@
       }else {
         return false;      
       }
+
+    }
+
+    // Getting user Messages
+    public function getChatData() {
+
+      $query = " SELECT * FROM users ";
+
+      $DB = new DatabaseModule();
+      $result = $DB->readData($query);
+
+      if ($result) {
+
+        return $result; 
+
+      }else {
+        return false;      
+      }
+      
     }
 
     // Function to retrieve the total number of users

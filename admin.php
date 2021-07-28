@@ -111,6 +111,8 @@
     <link rel="stylesheet" href="css/fontawesome.min.css">
     <link rel="stylesheet" href="css/admin.css">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+
   </head>
 
   <body>
@@ -140,7 +142,7 @@
           </li>
           <li class="nav-item">
             <i class="fas fa-clipboard-list"></i>
-            <h3>FAQs</h3>
+            <h3>FAQs <?php echo $current_user['users_id']; ?> </h3>
           </li>
         </ul>
       </nav>
@@ -272,7 +274,7 @@
           </table>
 
           <!-- RESPOND BUTTON -->
-          <button class="respond-btn" id="respond-btn" onclick="test()" type="submit"> RESPOND </button>
+          <button class="respond-btn" id="respond-btn" type="submit"> RESPOND </button>
             
         </div>
 
@@ -339,52 +341,7 @@
                           <p>Lorem ipsum dolor sit. Lorem ipsum dolor sit amet.</p>
                         </div>
                       </div>
-                      <div class="outgoing">
-                        <div class="details">
-                          <p>Lorem ipsum dolor sit. Lorem ipsum dolor sit.</p>
-                        </div>
-                      </div>
-                      <div class="incoming">
-                        <div class="details">
-                          <p>Lorem ipsum dolor sit. Lorem ipsum dolor sit amet.</p>
-                        </div>
-                      </div>
-                      <div class="outgoing">
-                        <div class="details">
-                          <p>Lorem ipsum dolor sit. Lorem ipsum dolor sit.</p>
-                        </div>
-                      </div>
-                      <div class="incoming">
-                        <div class="details">
-                          <p>Lorem ipsum dolor sit. Lorem ipsum dolor sit amet.</p>
-                        </div>
-                      </div>
-                      <div class="outgoing">
-                        <div class="details">
-                          <p>Lorem ipsum dolor sit. Lorem ipsum dolor sit.</p>
-                        </div>
-                      </div>
-                      <div class="incoming">
-                        <div class="details">
-                          <p>Lorem ipsum dolor sit. Lorem ipsum dolor sit amet.</p>
-                        </div>
-                      </div>
-                      <div class="outgoing">
-                        <div class="details">
-                          <p>Lorem ipsum dolor sit.</p>
-                        </div>
-                      </div>
-                      <div class="incoming">
-                        <div class="details">
-                          <p>Lorem ipsum dolor sit. Lorem ipsum dolor sit amet.</p>
-                        </div>
-                      </div>
-                      <div class="outgoing">
-                        <div class="details">
-                          <p>Lorem ipsum dolor sit.</p>
-                        </div>
-                      </div>
-                      
+
                     </div>
 
                     <div class="tollfree" id="toll">
@@ -392,6 +349,7 @@
                       <p>Lorem ipsum, dolor sit amet consectetur </p>
                       <p>Lorem ipsum, dolor sit amet consectetur </p>
                     </div>
+
                     <div class="zoomlink" id="zoom">
                       <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam, non!</p>
                       <p>Lorem ipsum, dolor sit amet consectetur </p>
@@ -399,6 +357,7 @@
                       <p>Lorem ipsum, dolor sit amet consectetur </p>
                       <p>Lorem ipsum, dolor sit amet consectetur </p>
                     </div>
+                    
                     <div class="mail" id="mail">
                       <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam, non! Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, ipsam!</p>
                       <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam, non! Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, ipsam!</p>
@@ -413,11 +372,13 @@
                       <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam, non! Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, ipsam!</p>
                     </div>
 
-                    <form action="#" class="typing-area">
-                      <input type="text" class="incoming_id" name="incoming_id" hidden>
+                    <form action="#" method="POST" class="typing-area">
+                      <input type="text" class="incoming_id" name="incoming_id" value="<?php echo $current_user['uid']; ?>" hidden>
                       <input type="text" name="message" id="message" class="input-field" placeholder="Send a message to the student..." autocomplete="off">
-                      <button><i class="fab fa-telegram-plane"></i></button>
+                      <input id="sendMe" class="sendMe" name="sendMe" type="submit" value="S E N D">
+                      <!-- <button> <i class="fab fa-telegram"></i> </button> -->
                     </form>
+
                   </div>
                 </section>
               </div>
@@ -426,8 +387,9 @@
         </div>
       </section>
 
-    </main>
+    </main> 
 
+    <script src="js/chat.js"></script>
     <script src="js/events.js"></script>
 
   </body>

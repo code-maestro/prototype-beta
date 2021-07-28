@@ -16,7 +16,7 @@ sendBtn.onclick = ()=>{
   console.log(" clicked this motherfvcker");
 
   let xhr = new XMLHttpRequest();
-  xhr.open("POST", "chat.php", true);
+  xhr.open("POST", "newMessage.php", true);
   xhr.onload = () => {
     if(xhr.readyState === XMLHttpRequest.DONE){
         if(xhr.status === 200){

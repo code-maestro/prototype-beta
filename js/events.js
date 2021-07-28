@@ -7,15 +7,16 @@ var phoneCall = document.getElementById("tollfree");
 var zoomLink = document.getElementById("zoomlink");
 var sendEmail = document.getElementById("sendEmail");
 
-
 // When the user clicks on the button, open the modal
 btn.onclick = function() {
+  console.log("Button clicked.");
   modal.style.display = "block";
 }
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
   modal.style.display = "none";
+  console.log("Button clicked.");
 }
 
 // When the user clicks anywhere outside of the modal, close it
@@ -27,6 +28,7 @@ window.onclick = function(event) {
 
 // Click events
 liveChat.onclick = function() {
+  console.log("Button clicked......");
   document.getElementById("chat").style.display = "block";
   document.getElementById("chat").style.backgroundColor = "#c5c5c5";
   document.getElementById("zoom").style.display = "none";
