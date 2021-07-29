@@ -299,17 +299,17 @@
               <div class="options">
                 <div class="livechat" id="livechat">
                   <i class="fas fa-comment"></i>
-                  <h4> START A LIVE CHAT </h4>
+                  <h4> Start A Realtime Chat </h4>
                 </div>
 
                 <div class="zoom" id="zoomlink">
                   <i class="fas fa-comment"></i>
-                  <a href="<?php echo $url; ?>"><h4> SCHEDULE A ZOOM MEETING  </h4></a>
+                  <h4> Create a Zooom Meeting  </h4>
                 </div>
                 
                 <div class="email" id="sendEmail">
                   <i class="fas fa-comment"></i>
-                  <h4> SEND AN EMAIL </h4>
+                  <h4> Send Email </h4>
                 </div>
               </div>  
 
@@ -317,31 +317,6 @@
                 <section class="chat-area">
                   <div class="chat-box">
                     <div class="chat" id="chat">
-                      <div class="incoming">
-                        <div class="details">
-                          <p class="in-msg">Lorem ipsum dolor sit. Lorem ipsum dolor sit amet.</p>
-                        </div>
-                      </div>
-                      <div class="outgoing">
-                        <div class="details">
-                          <p class="out-msg" >Lorem </p>
-                        </div>
-                      </div>
-                      <div class="incoming">
-                        <div class="details">
-                          <p>Lorem ipsum dolor sit. Lorem ipsum dolor sit amet.</p>
-                        </div>
-                      </div>
-                      <div class="outgoing">
-                        <div class="details">
-                          <p>Lorem ipsum dolor sit Lorem ipsum dolor sit..</p>
-                        </div>
-                      </div>
-                      <div class="incoming">
-                        <div class="details">
-                          <p>Lorem ipsum dolor sit. Lorem ipsum dolor sit amet.</p>
-                        </div>
-                      </div>
 
                     </div>
 
@@ -352,32 +327,32 @@
                     </div>
 
                     <div class="zoomlink" id="zoom">
-                      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam, non!</p>
-                      <p>Lorem ipsum, dolor sit amet consectetur </p>
-                      <p>Lorem ipsum, dolor sit amet consectetur </p>
-                      <p>Lorem ipsum, dolor sit amet consectetur </p>
-                      <p>Lorem ipsum, dolor sit amet consectetur </p>
-                    </div>
-                    
-                    <div class="mail" id="mail">
-                      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam, non! Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, ipsam!</p>
-                      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam, non! Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, ipsam!</p>
-                      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam, non! Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, ipsam!</p>
-                      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam, non! Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, ipsam!</p>
-                      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam, non! Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, ipsam!</p>
-                      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam, non! Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, ipsam!</p>
-                      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam, non! Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, ipsam!</p>
-                      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam, non! Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, ipsam!</p>
-                      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam, non! Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, ipsam!</p>
-                      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam, non! Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, ipsam!</p>
-                      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam, non! Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, ipsam!</p>
+                      <form action="" method="post">
+                        <p>Meeting Details </p>
+                        <input name="meeting-title" value="" placeholder="Meeting Title ">
+                        <input name="meeting-id" value="" placeholder="Meeting ID ">
+                        <input name="meeting-password" value="" placeholder="Meeting Password ">
+                        <p> Send to student via </p>
+                        <div class="send-options">
+                          <button type="submit"> SMS </button>
+                          <button type="submit"> EMAIL </button>
+                          <button> CHAT </button>
+                        </div>
+                      </form>
                     </div>
 
-                    <form action="#" method="POST" class="typing-area">
+                    <div class="mail" id="mail">
+                      <form action="" method="post">
+                        <textarea name="mail-detail" id="mail-detail" placeholder="Compose your Email here ..... " cols="40" rows="6"></textarea>
+                        <button id="send-mail" type="submit"> SEND EMAIL </button>
+                      </form>
+                    </div>
+
+                    <form action="#" method="POST" id="typing-area" class="typing-area">
                       <input type="text" name="std_id" id="std_id" value="<?php echo $uid ?>" hidden>
                       <input type="text" class="incoming_id" name="incoming_id" value="<?php echo $current_user['users_id']; ?>" hidden>
                       <input type="text" name="message" id="message" class="input-field" placeholder="Send a message to the student..." autocomplete="off">
-                      <input id="sendMe" class="sendMe" name="sendMe" type="submit" value="S E N D">
+                      <input id="sendMe" class="sendMe" name="sendMe" type="submit" value="SEND">
                       <!-- <button> <i class="fab fa-telegram"></i> </button> -->
                     </form>
 
