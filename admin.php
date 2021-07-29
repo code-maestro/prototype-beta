@@ -248,7 +248,6 @@
               <td>Registration Number</td>
               <td id="details-regno">
                 <?php echo $reg_no; ?>
-                <input type="text" name="std_id" class="std_id" id="std_id" value="<?php echo $uid ?>" hidden>
               </td>
             </tr>
             <tr>
@@ -302,14 +301,12 @@
                   <i class="fas fa-comment"></i>
                   <h4> START A LIVE CHAT </h4>
                 </div>
-                <div class="tollfree" id="tollfree">
-                  <i class="fas fa-phone"></i>
-                  <h4> PROVIDE A TOLL FREE NUMBER </h4>
-                </div>
+
                 <div class="zoom" id="zoomlink">
                   <i class="fas fa-comment"></i>
                   <a href="<?php echo $url; ?>"><h4> SCHEDULE A ZOOM MEETING  </h4></a>
                 </div>
+                
                 <div class="email" id="sendEmail">
                   <i class="fas fa-comment"></i>
                   <h4> SEND AN EMAIL </h4>
@@ -322,12 +319,12 @@
                     <div class="chat" id="chat">
                       <div class="incoming">
                         <div class="details">
-                          <p>Lorem ipsum dolor sit. Lorem ipsum dolor sit amet.</p>
+                          <p class="in-msg">Lorem ipsum dolor sit. Lorem ipsum dolor sit amet.</p>
                         </div>
                       </div>
                       <div class="outgoing">
                         <div class="details">
-                          <p>Lorem ipsum dolor sit. Lorem ipsum dolor sit.</p>
+                          <p class="out-msg" >Lorem </p>
                         </div>
                       </div>
                       <div class="incoming">

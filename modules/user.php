@@ -22,12 +22,12 @@
     }
 
     // Getting user Messages
-    public function getChatData() {
+    public function getChatData($in_id, $out_id) {
 
-      $query = " SELECT * FROM users ";
+      $sql = "SELECT * FROM messages LEFT JOIN users ON users.users_id = messages.received_msg_id WHERE received_msg_id = 'STD/5902' AND sent_msg_id = 'STAFF/3893' OR received_msg_id = 'STD/5902' AND sent_msg_id = 'STAFF/3893' ORDER BY id;";
 
       $DB = new DatabaseModule();
-      $result = $DB->readData($query);
+      $result = $DB->readData($sql);
 
       if ($result) {
 

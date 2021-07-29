@@ -44,14 +44,6 @@ liveChat.onclick = function () {
   document.getElementById("mail").style.display = "none";
 }
 
-phoneCall.onclick = function () {
-  document.getElementById("chat").style.display = "none";
-  document.getElementById("zoom").style.display = "none";
-  document.getElementById("mail").style.display = "none";
-  document.getElementById("toll").style.display = "block";
-  document.getElementById("toll").style.backgroundColor = "#c5c5c5";
-}
-
 zoomLink.onclick = function () {
   document.getElementById("chat").style.display = "none";
   document.getElementById("mail").style.display = "none";

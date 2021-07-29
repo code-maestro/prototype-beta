@@ -1,9 +1,9 @@
 const form = document.querySelector(".typing-area"),
 incoming_id = form.querySelector(".incoming_id").value,
-std_id = form.querySelector(".std_id").value,
+std_id = form.querySelector(".std_id"),
 inputField = form.querySelector(".input-field"),
 sendBtn = form.querySelector(".sendMe"),
-chatBox = document.querySelector(".chat-box");
+chatBox = document.querySelector(".chat");
 
 form.onsubmit = (e)=>{
     e.preventDefault();
@@ -55,7 +55,9 @@ setInterval(() => {
         
         let data = xhttp.response;
 
-        console.log(data[0]);
+        chat.innerHTML = data;
+
+        console.log(data);
 
       }
     }
