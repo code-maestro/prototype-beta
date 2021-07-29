@@ -1,5 +1,6 @@
 const form = document.querySelector(".typing-area"),
 incoming_id = form.querySelector(".incoming_id").value,
+std_id = form.querySelector(".std_id").value,
 inputField = form.querySelector(".input-field"),
 sendBtn = form.querySelector(".sendMe"),
 chatBox = document.querySelector(".chat-box");
@@ -11,7 +12,7 @@ form.onsubmit = (e)=>{
 inputField.focus();
 
 //  Click event to send a message
-sendBtn.onclick = ()=>{
+sendBtn.onclick = () => {
 
   console.log(" clicked this motherfvcker");
 

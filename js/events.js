@@ -8,26 +8,34 @@ var zoomLink = document.getElementById("zoomlink");
 var sendEmail = document.getElementById("sendEmail");
 
 // When the user clicks on the button, open the modal
-btn.onclick = function() {
+btn.onclick = function () {
   console.log("Button clicked.");
-  modal.style.display = "block";
+  
+  if (document.getElementById("details-name").innerHTML.length == 0) {
+  // if (document.getElementById("detailsRegno").value.length == 0) {
+    alert("Please Select a student to respond to ! ")
+  }
+  else {
+    modal.style.display = "block";
+  }
+
 }
 
 // When the user clicks on <span> (x), close the modal
-span.onclick = function() {
+span.onclick = function () {
   modal.style.display = "none";
   console.log("Button clicked.");
 }
 
 // When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
+window.onclick = function (event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
 }
 
 // Click events
-liveChat.onclick = function() {
+liveChat.onclick = function () {
   console.log("Button clicked......");
   document.getElementById("chat").style.display = "block";
   document.getElementById("chat").style.backgroundColor = "#c5c5c5";
@@ -36,7 +44,7 @@ liveChat.onclick = function() {
   document.getElementById("mail").style.display = "none";
 }
 
-phoneCall.onclick = function() {
+phoneCall.onclick = function () {
   document.getElementById("chat").style.display = "none";
   document.getElementById("zoom").style.display = "none";
   document.getElementById("mail").style.display = "none";
@@ -44,7 +52,7 @@ phoneCall.onclick = function() {
   document.getElementById("toll").style.backgroundColor = "#c5c5c5";
 }
 
-zoomLink.onclick = function() {
+zoomLink.onclick = function () {
   document.getElementById("chat").style.display = "none";
   document.getElementById("mail").style.display = "none";
   document.getElementById("toll").style.display = "none";
@@ -52,7 +60,7 @@ zoomLink.onclick = function() {
   document.getElementById("zoom").style.backgroundColor = "#c5c5c5";
 }
 
-sendEmail.onclick = function() {
+sendEmail.onclick = function () {
   document.getElementById("chat").style.display = "none";
   document.getElementById("zoom").style.display = "none";
   document.getElementById("toll").style.display = "none";

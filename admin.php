@@ -30,6 +30,7 @@
                    WHERE users.users_id = appointments.users_uid 
                    AND appointments.users_uid = login.users_uid
                    AND appointments.status = 0";
+
   $sql_approved = "SELECT appointment_id, complaint, date, start_time, end_time, users_id, first_name, last_name, reg_no, email 
                    FROM appointments INNER JOIN users INNER JOIN login
                    WHERE users.users_id = appointments.users_uid 
@@ -37,7 +38,7 @@
                    AND appointments.status = 1";
 
   $info = new Create();
-  $list = $info->retrieveAppointments($sql_pending);
+  $list = $info->retrieveAppointments($sql);
 
   $uid = "";
   $complaint ="";
@@ -245,7 +246,10 @@
           <table>
             <tr>
               <td>Registration Number</td>
-              <td id="details-regno"> <?php echo $reg_no; ?></td>
+              <td id="details-regno">
+                <?php echo $reg_no; ?>
+                <input type="text" name="std_id" class="std_id" id="std_id" value="<?php echo $uid ?>" hidden>
+              </td>
             </tr>
             <tr>
               <td>Name</td>
@@ -373,7 +377,8 @@
                     </div>
 
                     <form action="#" method="POST" class="typing-area">
-                      <input type="text" class="incoming_id" name="incoming_id" value="<?php echo $current_user['uid']; ?>" hidden>
+                      <input type="text" name="std_id" id="std_id" value="<?php echo $uid ?>" hidden>
+                      <input type="text" class="incoming_id" name="incoming_id" value="<?php echo $current_user['users_id']; ?>" hidden>
                       <input type="text" name="message" id="message" class="input-field" placeholder="Send a message to the student..." autocomplete="off">
                       <input id="sendMe" class="sendMe" name="sendMe" type="submit" value="S E N D">
                       <!-- <button> <i class="fab fa-telegram"></i> </button> -->
