@@ -57,14 +57,13 @@ setInterval(() => {
 
         chat.innerHTML = data;
 
-        console.log(data);
-
       }
     }
   }
 
   // Send a request
-  xhttp.send();
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send("incoming_id="+incoming_id);
 
   // // // FETCH API ALTERNATIVE
   // fetch('getChat.php')
