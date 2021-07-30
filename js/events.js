@@ -7,6 +7,8 @@ var liveChat = document.getElementById("livechat");
 var zoomLink = document.getElementById("zoomlink");
 var sendEmail = document.getElementById("sendEmail");
 
+const notifications = document.getElementById("notification-btn");
+
 // When the user clicks on the button, open the modal
 btn.onclick = function () {
   console.log("Button clicked.");
@@ -24,6 +26,12 @@ btn.onclick = function () {
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
   modal.style.display = "none";
+}
+
+// When the user clicks on <span> (x), close the modal
+notifications.onclick = function() {
+  // document.querySelector(".badge").style.display = "block";
+  alert("Notifications are not supported yet!");
 }
 
 // When the user clicks anywhere outside of the modal, close it

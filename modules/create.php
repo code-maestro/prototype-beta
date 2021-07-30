@@ -23,7 +23,7 @@
                   VALUES ('$appointment_id', '$complaint', '$complaint_detail', '$date', '$start_time', '$end_time', '$uid')";
 
         $DB = new DatabaseModule();        
-        $this.DB->saveData($query);
+        $DB->saveData($query);
         
       }else {
         $this->error .= "Please enter all the required information </br> ";

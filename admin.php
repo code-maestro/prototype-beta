@@ -165,8 +165,14 @@
           </div>
 
           <div class="right">
-            <i class="fas fa-calendar" onclick="viewModal()"></i>
-            <i class="fas fa-bell" onclick="viewModal()"></i>
+            <div class="schedules">
+              <i class="fas fa-calendar" onclick="viewModal()"></i>
+            </div>
+
+            <div class="notifications">
+              <i class="far fa-bell" onclick="viewModal()"></i>
+              <span class="badge"> 4 </span>
+            </div>
           </div>
         </div>
       </section>
@@ -303,7 +309,7 @@
                 </div>
 
                 <div class="zoom" id="zoomlink">
-                  <i class="fas fa-comment"></i>
+                  <i class="fas fa-video"></i>
                   <h4> Create a Zooom Meeting  </h4>
                 </div>
                 

@@ -107,8 +107,15 @@
           </div>
 
           <div class="right">
-            <i class="fas fa-calendar" onclick="viewModal()"></i>
-            <i class="fas fa-bell" onclick="viewModal()"></i>
+            <div class="schedules">
+              <i class="far fa-calendar"></i>
+              <span class="badge"> 4 </span>
+            </div>
+
+            <div class="notifications">
+              <i class="far fa-bell" id="notification-btn" ></i>
+              <span class="badge"> 4 </span>
+            </div>
           </div>
         </div>
       </section>
@@ -159,23 +166,9 @@
                       }
                     }
                   ?>
-
-                <!-- <li>
-                  <div class="time">
-                    <span> 10:00 - 11:00 </span>
-                  </div>
-                  <div class="student">
-                    <img src="resources/img/must.png" alt="avatar">
-                    <h4> Lorem, ipsum. </h4>
-                    <input type="text" class="complaint" id="complaint" value="Lorem ipsum dolor sit amet." > 
-                  </div>
-                  <div class="actions">
-                    <i class="fas fa-check" id="approve-btn"> </i>
-                    <i class="fas fa-trash"> </i>
-                  </div>
-                </li> -->
               </ul>
             </div>
+
           </div>
 
         </div>
@@ -206,7 +199,7 @@
 
     </main>
 
-    <script src="js/events.js"></script>
+    <script src="js/studentEvents.js"></script>
 
   </body>
 

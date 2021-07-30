@@ -154,11 +154,28 @@ header .logout h3 a{
 
 .main-navbar .chat-title .right {
   margin-right: .5rem;
+  display: flex;
+}
+.main-navbar .chat-title .right div {
+  position: relative;
 }
 
-.main-navbar .chat-title i{
+.main-navbar .chat-title .right div .badge {
+  display: none;
+  font-size: 10px;
+  position: absolute;
+  padding: 2px 5px;
+  top: 5px;
+  right: 5px;
+  border-radius: 50%;
+  background: green;
+  font-weight: 700;
+  color: white;
+}
+
+.main-navbar .chat-title .right div i{
   padding: 1rem;
-  font-size: 1.5rem;
+  font-size: 1.75rem;
 }
 
 .main-navbar .chat-title img{
