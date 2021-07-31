@@ -171,7 +171,7 @@
             </div>
 
             <div class="notifications">
-              <i class="far fa-bell" onclick="viewModal()"></i>
+              <i class="far fa-bell"></i>
               <span class="badge"> 4 </span>
             </div>
           </div>

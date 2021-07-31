@@ -6,10 +6,6 @@
       include 'database/db_module.php';
       include 'modules/user.php';
 
-      // $user = new User();
-      // $current_user = $user->getData($_SESSION['staff_id']); 
-
-      // $in_id = $current_user['users_id'];
       $in_id = $_POST['incoming_id'];
       $out_id = $_SESSION['staff_id'];
 

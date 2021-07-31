@@ -1,7 +1,6 @@
 <?php
 
   include_once 'std_header.php';
-  include_once 'modules/user.php';
   include_once 'modules/create.php';
 
   $date = "";
@@ -268,8 +267,23 @@
         </div>
       </section>
 
-      <section class="notification-modal">
-      <div id="myModal" class="modal">
+      <div class="notifications-list">
+        <ul class="theList">
+          <li>
+            <span class="notification-title"> 23 </span>
+            <i class="fas fa-circle"></i>
+          </li>
+          <li>
+            <span class="notification-title"> 23 </span>
+            <i class="fas fa-circle"></i>
+          </li>      
+        </ul>
+
+      </div>
+
+      <section>
+      <!-- The Modal -->
+        <div id="myModal" class="modal">
           <!-- Modal content -->
           <div class="modal-content">
             
@@ -281,20 +295,7 @@
             <div class="modal-body">
 
               <div class="options">
-                <div class="livechat" id="livechat">
-                  <i class="fas fa-comment"></i>
-                  <h4> Start A Realtime Chat </h4>
-                </div>
-
-                <div class="zoom" id="zoomlink">
-                  <i class="fas fa-video"></i>
-                  <h4> Create a Zooom Meeting  </h4>
-                </div>
-                
-                <div class="email" id="sendEmail">
-                  <i class="fas fa-comment"></i>
-                  <h4> Send Email </h4>
-                </div>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut eum ratione distinctio corrupti id veniam facilis error quod consequatur. Mollitia blanditiis itaque eveniet reiciendis non, nam voluptatum porro accusantium obcaecati cupiditate officiis a! Blanditiis, ex quisquam est dolorum tenetur officia.
               </div>  
 
               <div class="chat-wrap">
@@ -347,7 +348,6 @@
           </div>
         </div>
       </section>
-
 
     </main>
 
