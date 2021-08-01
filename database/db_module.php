@@ -29,6 +29,7 @@
       try {
 
         $conn = new mysqli(
+          // REMOTE DEPLOYMENT
           $serva, 
           $uname, 
           $pass, 
@@ -39,6 +40,7 @@
           // $this->username,
           // $this->password,
           // $this->dbname
+
         );
       } catch (Exception $e) {
 
@@ -149,8 +151,6 @@
         return true;
       }
     }
-
-
 
     // Update access token
     public function update_access_token($token) {

@@ -23,7 +23,7 @@
                   VALUES ('$appointment_id', '$complaint', '$complaint_detail', '$date', '$start_time', '$end_time', '$uid')";
 
         $DB = new DatabaseModule();        
-        $this.DB->saveData($query);
+        $DB->saveData($query);
         
       }else {
         $this->error .= "Please enter all the required information </br> ";
@@ -77,24 +77,43 @@
     }
 
     // Function to create an issue 
-    public function createIssue($uid, $data){
-
-      $issue_id = rand(time(), 100000000);
+    public function createMessage($sent_id, $sent_msg){
       
-      if (!empty($data)) {
-        
-        $issue = addslashes($data);
+      if (!empty($sent_msg)) {
 
-        // SQL query to save thenissue to db
-        $query = "INSERT INTO issues_raised (issue_id, issue, userid) VALUES ('$issue_id', '$issue', '$uid')";
+        // SQL query to save messsage to db
+        $query = "INSERT INTO messages (sent_msg_id, received_msg_id, text_msg) 
+                  VALUES ('$sent_id', '$sent_msg')";
   
         $DB = new DatabaseModule();        
         $DB->saveData($query);
 
       }else {
+
         $this->error .= "Please enter something to send 😒😒 </br> ";
+        
       }
     }
+
+        // Function to create an issue 
+    public function createMsg($msg){
+  
+      if (!empty($msg)) {
+
+        // SQL query to save messsage to db
+        $query = "INSERT INTO message (message) 
+                  VALUES ('$msg')";
+  
+        $DB = new DatabaseModule();        
+        $DB->saveData($query);
+
+      }else {
+
+        $this->error .= "Please enter something to send 😒😒 </br> ";
+        
+      }
+    }
+    
 
     // Function creating new random IDs
     public function randomID($word){

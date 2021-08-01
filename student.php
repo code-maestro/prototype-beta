@@ -1,7 +1,6 @@
 <?php
 
   include_once 'std_header.php';
-  include_once 'modules/user.php';
   include_once 'modules/create.php';
 
   $date = "";
@@ -55,6 +54,7 @@
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="css/fontawesome.min.css">
     <link rel="stylesheet" href="css/student.css">
+    <link rel="stylesheet" href="css/global.css">
 
   </head>
 
@@ -71,19 +71,19 @@
       <!-- RIGHT SIDE NAVBAR -->
       <nav>
         <ul>
-          <li class="nav-item">
+          <li class="nav-item" id="overview">
             <i class="fas fa-layer-group"></i>
             <h3>Overview</h3>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" id="appointments">
             <i class="fas fa-calendar-check"></i>
             <h3>Appointments</h3>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" id="counselors">
             <i class="fas fa-user-md"></i>
             <h3> Counsellors </h3>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" id="faqs-btn">
             <i class="fas fa-clipboard-list"></i>
             <h3>FAQs</h3>
           </li>
@@ -107,8 +107,15 @@
           </div>
 
           <div class="right">
-            <i class="fas fa-calendar" onclick="viewModal()"></i>
-            <i class="fas fa-bell" onclick="viewModal()"></i>
+            <div class="schedules">
+              <i class="far fa-calendar"></i>
+              <span class="badge"> 4 </span>
+            </div>
+
+            <div class="notifications">
+              <i class="far fa-bell" id="notification-btn" ></i>
+              <span class="badge"> 4 </span>
+            </div>
           </div>
         </div>
       </section>
@@ -159,23 +166,9 @@
                       }
                     }
                   ?>
-
-                <!-- <li>
-                  <div class="time">
-                    <span> 10:00 - 11:00 </span>
-                  </div>
-                  <div class="student">
-                    <img src="resources/img/must.png" alt="avatar">
-                    <h4> Lorem, ipsum. </h4>
-                    <input type="text" class="complaint" id="complaint" value="Lorem ipsum dolor sit amet." > 
-                  </div>
-                  <div class="actions">
-                    <i class="fas fa-check" id="approve-btn"> </i>
-                    <i class="fas fa-trash"> </i>
-                  </div>
-                </li> -->
               </ul>
             </div>
+
           </div>
 
         </div>
@@ -204,9 +197,161 @@
 
       </section>
 
+      <section class="faqs">
+        <h2>
+          FAQs
+        </h2>
+
+        <div class="faqs-list">
+          <ul>
+            <li>
+              <h3> How do I book an appointment? </h3>
+              <p>
+                You can book an appointment by going to the <a href="appointments.php">Appointments</a> page.
+              </p>
+            </li>
+            <li>
+              <h3> How do I cancel an appointment? </h3>
+              <p>
+                You can cancel an appointment by going to the <a href="appointments.php">Appointments</a> page.
+              </p>
+            </li>
+            <li>
+              <h3> How do I cancel a session? </h3>
+              <p>
+                You can cancel a session by going to the <a href="appointments.php">Appointments</a> page.
+              </p>
+            </li>
+            <li>
+              <h3> How do I cancel a session? </h3>
+              <p>
+                You can cancel a session by going to the <a href="appointments.php">Appointments</a> page.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="counselors">
+        <h2>
+          FAQs
+        </h2>
+
+        <div class="faqs-list">
+          <ul>
+            <li>
+              <h3> How do I book an appointment? </h3>
+              <p>
+                You can book an appointment by going to the <a href="appointments.php">Appointments</a> page.
+              </p>
+            </li>
+            <li>
+              <h3> How do I cancel an appointment? </h3>
+              <p>
+                You can cancel an appointment by going to the <a href="appointments.php">Appointments</a> page.
+              </p>
+            </li>
+            <li>
+              <h3> How do I cancel a session? </h3>
+              <p>
+                You can cancel a session by going to the <a href="appointments.php">Appointments</a> page.
+              </p>
+            </li>
+            <li>
+              <h3> How do I cancel a session? </h3>
+              <p>
+                You can cancel a session by going to the <a href="appointments.php">Appointments</a> page.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <div class="notifications-list">
+        <ul class="theList">
+          <li>
+            <span class="notification-title"> 23 </span>
+            <i class="fas fa-circle"></i>
+          </li>
+          <li>
+            <span class="notification-title"> 23 </span>
+            <i class="fas fa-circle"></i>
+          </li>      
+        </ul>
+
+      </div>
+
+      <section>
+      <!-- The Modal -->
+        <div id="myModal" class="modal">
+          <!-- Modal content -->
+          <div class="modal-content">
+            
+            <div class="modal-header">
+              <span class="close">&times;</span>
+              <h2> Reach out </h2>
+            </div>
+
+            <div class="modal-body">
+
+              <div class="options">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut eum ratione distinctio corrupti id veniam facilis error quod consequatur. Mollitia blanditiis itaque eveniet reiciendis non, nam voluptatum porro accusantium obcaecati cupiditate officiis a! Blanditiis, ex quisquam est dolorum tenetur officia.
+              </div>  
+
+              <div class="chat-wrap">
+                <section class="chat-area">
+                  <div class="chat-box">
+                    <div class="chat" id="chat">
+
+                    </div>
+
+                    <div class="tollfree" id="toll">
+                      <p>Lorem ipsum, dolor sit amet consectetur </p>
+                      <p>Lorem ipsum, dolor sit amet consectetur </p>
+                      <p>Lorem ipsum, dolor sit amet consectetur </p>
+                    </div>
+
+                    <div class="zoomlink" id="zoom">
+                      <form action="" method="post">
+                        <p>Meeting Details </p>
+                        <input name="meeting-title" value="" placeholder="Meeting Title ">
+                        <input name="meeting-id" value="" placeholder="Meeting ID ">
+                        <input name="meeting-password" value="" placeholder="Meeting Password ">
+                        <p> Send to student via </p>
+                        <div class="send-options">
+                          <button type="submit"> SMS </button>
+                          <button type="submit"> EMAIL </button>
+                          <button> CHAT </button>
+                        </div>
+                      </form>
+                    </div>
+
+                    <div class="mail" id="mail">
+                      <form action="" method="post">
+                        <textarea name="mail-detail" id="mail-detail" placeholder="Compose your Email here ..... " cols="40" rows="6"></textarea>
+                        <button id="send-mail" type="submit"> SEND EMAIL </button>
+                      </form>
+                    </div>
+
+                    <form action="#" method="POST" id="typing-area" class="typing-area">
+                      <input type="text" name="std_id" id="std_id" value="<?php echo $uid ?>" hidden>
+                      <input type="text" class="incoming_id" name="incoming_id" value="<?php echo $current_user['users_id']; ?>" hidden>
+                      <input type="text" name="message" id="message" class="input-field" placeholder="Send a message to the student..." autocomplete="off">
+                      <input id="sendMe" class="sendMe" name="sendMe" type="submit" value="SEND">
+                      <!-- <button> <i class="fab fa-telegram"></i> </button> -->
+                    </form>
+
+                  </div>
+                </section>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
     </main>
 
-    <script src="js/events.js"></script>
+    <script src="js/studentEvents.js"></script>
 
   </body>
 
