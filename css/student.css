@@ -1,51 +1,3 @@
-:root{
-  --icon-color: #fff;
-  --text-color: #fbfbfbe3;
-  --navbar-background-color: #000;
-  --nav-hover-color: #2b2b2b;
-  --main-background-color: #e3fde3;
-  --action-color: #1cbc00;
-  --danger-color: #ef0000;
-  font-size: 14px;
-  font-family: 'Poppins', sans-serif;
-}
-
-body{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  text-decoration: none;
-  height: 100vh;
-}
-
-
-/* SCROLL BAR STYLING */
-body::-webkit-scrollbar{
-  width: 0.30rem;
-}
-
-body::-webkit-scrollbar-track{
-  background: var(--text-color);
-}
-
-body::-webkit-scrollbar-thumb{
-  border-radius: 25px;
-  background: var(--navbar-background-color);
-}
-
-ul::-webkit-scrollbar{
-  width: 0.30rem;
-}
-
-ul::-webkit-scrollbar-track{
-  background: var(--text-color);
-}
-
-ul::-webkit-scrollbar-thumb{
-  border-radius: 25px;
-  background: var(--navbar-background-color);
-}
-
 .chat-area::-webkit-scrollbar{
   width: 0.30rem;
 }
@@ -59,141 +11,15 @@ ul::-webkit-scrollbar-thumb{
   border-radius: 25px;
 }
 
-
-/* The sidebar menu */
-header{
-  height: 100%; 
-  width: 220px; 
-  position: fixed; 
-  z-index: 1;
-  top: 0; 
-  left: 0;
-  background-color: var(--navbar-background-color);
-  color: var(--text-color);
-  overflow-x: hidden; 
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-}
-
-header .heading,
-header .logout{
-  display: flex;
-  align-items: center;
-}
-
-header .heading img{
-  padding-right: 1rem;
-  width: 50px;
-  height: 50px;
-  object-fit: cover;
-}
-
-header nav ul {
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-
-ul li{
-  list-style: none;
-}
-
-header nav ul li{
-  padding-left: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-}
-
 header nav ul li:hover,
 .student-info form input:last-child:hover,
 header .logout:hover{
   cursor: pointer;
 }
 
-header nav ul li i{
-  color: #fff;
-  padding-right: 1rem;
-}
-
-header .logout{
-  padding: 0 0 2rem 1rem;
-  margin-top: auto;
-  align-items: center;
-  justify-content: flex-start;
-}
-
-header .logout i{
-  margin-right: 1rem;
-}
-
 header .logout h3 a{
   text-decoration: none;
   color: #fff;
-}
-
-
-/* FROM THE ALPHA */
-.main-navbar {
-  padding-top: 10px;
-  box-shadow: 0 2px 4px -.5px rgba(0, 0, 0, 0.2);  
-  padding: .5rem 1rem .5rem 1rem;
-  background-color: var(--icon-color);
-}
-
-.main-navbar .chat-title {
-  display: flex;
-  justify-content: space-between;
-}
-
-.main-navbar .chat-title .left {
-  display: flex;
-}
-
-.main-navbar .chat-title .right {
-  margin-right: .5rem;
-}
-
-.main-navbar .chat-title i{
-  padding: 1rem;
-  font-size: 1.5rem;
-}
-
-.main-navbar .chat-title img{
-  width: 40px;
-  height: 40px;
-  margin: 5px 15px 0 1rem;
-}
-
-.main-navbar .chat-title .user-info{
-  display: flex;
-  align-items: center;
-}
-
-.main-navbar .chat-title .user-info span{
-  font-weight: bold;
-  font-size: 1.2rem;
-}
-
-main {
-  margin-left: 250px;
-}
-
-/* Main Appointments sections with list and counter */
-main .appointments{
-  margin: 0;
-  display: flex;
-  justify-content: space-evenly;
-  height: 80%;
-}
-
-main .appointments .wrapper{
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  padding: 1rem .5rem 1rem 1rem;
 }
 
 .communications{
@@ -266,108 +92,6 @@ main .appointments .wrapper{
   border-radius: 1rem;
 }
 
-/* Actual list styling */
-.thee-list ul {
-  height: 450px;
-  padding: .5rem;
-  margin: 0 1rem 0 .5rem;
-  overflow-y: auto;
-}
-
-.thee-list ul::-webkit-scrollbar{
-  width: 0.30rem;
-}
-
-.thee-list ul::-webkit-scrollbar-track{
-  background: var(--text-color);
-}
-
-.thee-list ul::-webkit-scrollbar-thumb{
-  background: var(--bg);
-  border-radius: 25px;
-}
-
-.thee-list ul li {
-  padding: .25rem 1rem;
-  margin-bottom: 1rem;
-  display: flex;
-  background-color: var(--icon-color);
-  box-shadow: 0 1px 2px rgba(0,0,0,.6);
-  border-radius: 1rem;
-  align-items: center;
-}
-
-.thee-list ul li .time,
-.thee-list ul li .student,
-.thee-list ul li .actions{
-  margin: 0 0 0 1rem;
-  display: flex;
-}
-
-.thee-list ul li .time{
-  font-weight: 600;
-  font-size: 1rem;
-  padding-left: 0.2rem;
-  margin: 0 1rem 0 0;
-}
-
-.thee-list ul li .student img{
-  padding: .2rem 0 0 0;
-  width: 40px;
-  height: 40px;
-  object-fit: cover;
-}
-
-.thee-list ul li .time input,
-.thee-list ul li .student input {
-  text-align: center;
-  outline: none;
-  border: 0;
-  margin: 0;
-  font-weight: 600;
-}
-
-.thee-list ul li .time input{
-  text-align: start;
-}
-
-.thee-list ul li .actions{
-  margin-left: auto;
-  justify-content: center;
-  align-items: center;
-}
-
-.thee-list ul li .actions #action-btn{
-  font-size: .9rem;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  background: none;
-  font-weight: 600;
-  align-items: center;
-  color: var(--nav-hover-color);
-  border: 1px solid var(--nav-hover-color);
-  padding: .25rem;
-  border-radius: .55rem;
-  margin: 0 0 0 .5rem;
-}
-
-.thee-list ul li .actions #action-btn:hover{
-  background-color: var(--navbar-background-color);
-  color: var(--icon-color);
-  cursor: pointer;
-}
-
-.thee-list ul li .actions #action-btn:nth-child(even):hover{
-  background-color: var(--action-color);
-  border: 0;
-}
-
-.thee-list ul li .actions #action-btn:last-child:hover{
-  background-color: var(--danger-color);
-  border: 0;
-}
-
 .thee-list ul li .actions i:hover,
 .thee-list ul li .actions input:hover{
   background-color: var(--navbar-background-color);
@@ -428,4 +152,22 @@ h2 {
   background-color: var(--nav-hover-color);
   color: white;
   font-size: 1.1rem;
+}
+
+/* Notification pane */
+.notifications-list li {
+  width: 200px;
+  display: flex;
+  align-items: center;
+  margin: 1rem 0 ;
+} 
+
+.notifications-list li span {
+  font-size: 1rem;
+}
+
+.notifications-list li i{
+  margin-left: auto;
+  font-size: 5px;
+  color: green;
 }

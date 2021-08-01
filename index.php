@@ -194,8 +194,8 @@
         <div class="form-container sign-in-container">
           <form method="POST" class="form">
             <h1> Log in</h1>
-            <input type="email" name="email2" placeholder=" Enter Email" value="<?php echo $email; ?>" />
-            <input type="password" name="password2" placeholder=" Enter Password" />
+            <input type="email" name="email2" placeholder="Enter Email" value="<?php echo $email; ?>" />
+            <input type="password" name="password2" placeholder="Enter Password" />
             <a href="#">Forgot your password?</a>
             <input id="login" type="submit" name="login" value="LOG IN" >
           </form>

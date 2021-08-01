@@ -29,6 +29,7 @@
       try {
 
         $conn = new mysqli(
+          // REMOTE DEPLOYMENT
           $serva, 
           $uname, 
           $pass, 
@@ -39,6 +40,7 @@
           // $this->username,
           // $this->password,
           // $this->dbname
+
         );
       } catch (Exception $e) {
 

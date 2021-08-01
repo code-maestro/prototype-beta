@@ -18,6 +18,18 @@ vendor/psr
 
 vendor/ralouphie
 
-login.js
+=======
+config.php
+
+insert-chat.php
+
+insertMessage.php
+
+js/login.js
 
 login.php
+
+modules/chat.php
+
+modules/createMessage.php
+>>>>>>> 02f6e1b0e6df09cfc9b3c1eaf288cbf166b3e595

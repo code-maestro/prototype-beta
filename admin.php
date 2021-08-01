@@ -30,6 +30,7 @@
                    WHERE users.users_id = appointments.users_uid 
                    AND appointments.users_uid = login.users_uid
                    AND appointments.status = 0";
+
   $sql_approved = "SELECT appointment_id, complaint, date, start_time, end_time, users_id, first_name, last_name, reg_no, email 
                    FROM appointments INNER JOIN users INNER JOIN login
                    WHERE users.users_id = appointments.users_uid 
@@ -37,7 +38,7 @@
                    AND appointments.status = 1";
 
   $info = new Create();
-  $list = $info->retrieveAppointments($sql_pending);
+  $list = $info->retrieveAppointments($sql);
 
   $uid = "";
   $complaint ="";
@@ -109,7 +110,10 @@
     <!-- CSS -->
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="css/fontawesome.min.css">
+    <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/admin.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
 
   </head>
 
@@ -140,7 +144,7 @@
           </li>
           <li class="nav-item">
             <i class="fas fa-clipboard-list"></i>
-            <h3>FAQs</h3>
+            <h3>FAQs <?php echo $current_user['users_id']; ?> </h3>
           </li>
         </ul>
       </nav>
@@ -162,8 +166,14 @@
           </div>
 
           <div class="right">
-            <i class="fas fa-calendar" onclick="viewModal()"></i>
-            <i class="fas fa-bell" onclick="viewModal()"></i>
+            <div class="schedules">
+              <i class="fas fa-calendar" onclick="viewModal()"></i>
+            </div>
+
+            <div class="notifications">
+              <i class="far fa-bell"></i>
+              <span class="badge"> 4 </span>
+            </div>
           </div>
         </div>
       </section>
@@ -243,7 +253,9 @@
           <table>
             <tr>
               <td>Registration Number</td>
-              <td id="details-regno"> <?php echo $reg_no; ?></td>
+              <td id="details-regno">
+                <?php echo $reg_no; ?>
+              </td>
             </tr>
             <tr>
               <td>Name</td>
@@ -272,7 +284,7 @@
           </table>
 
           <!-- RESPOND BUTTON -->
-          <button class="respond-btn" id="respond-btn" onclick="test()" type="submit"> RESPOND </button>
+          <button class="respond-btn" id="respond-btn" type="submit"> RESPOND </button>
             
         </div>
 
@@ -294,19 +306,17 @@
               <div class="options">
                 <div class="livechat" id="livechat">
                   <i class="fas fa-comment"></i>
-                  <h4> START A LIVE CHAT </h4>
+                  <h4> Start A Realtime Chat </h4>
                 </div>
-                <div class="tollfree" id="tollfree">
-                  <i class="fas fa-phone"></i>
-                  <h4> PROVIDE A TOLL FREE NUMBER </h4>
-                </div>
+
                 <div class="zoom" id="zoomlink">
-                  <i class="fas fa-comment"></i>
-                  <a href="<?php echo $url; ?>"><h4> SCHEDULE A ZOOM MEETING  </h4></a>
+                  <i class="fas fa-video"></i>
+                  <h4> Create a Zooom Meeting  </h4>
                 </div>
+                
                 <div class="email" id="sendEmail">
                   <i class="fas fa-comment"></i>
-                  <h4> SEND AN EMAIL </h4>
+                  <h4> Send Email </h4>
                 </div>
               </div>  
 
@@ -314,77 +324,7 @@
                 <section class="chat-area">
                   <div class="chat-box">
                     <div class="chat" id="chat">
-                      <div class="incoming">
-                        <div class="details">
-                          <p>Lorem ipsum dolor sit. Lorem ipsum dolor sit amet.</p>
-                        </div>
-                      </div>
-                      <div class="outgoing">
-                        <div class="details">
-                          <p>Lorem ipsum dolor sit. Lorem ipsum dolor sit.</p>
-                        </div>
-                      </div>
-                      <div class="incoming">
-                        <div class="details">
-                          <p>Lorem ipsum dolor sit. Lorem ipsum dolor sit amet.</p>
-                        </div>
-                      </div>
-                      <div class="outgoing">
-                        <div class="details">
-                          <p>Lorem ipsum dolor sit Lorem ipsum dolor sit..</p>
-                        </div>
-                      </div>
-                      <div class="incoming">
-                        <div class="details">
-                          <p>Lorem ipsum dolor sit. Lorem ipsum dolor sit amet.</p>
-                        </div>
-                      </div>
-                      <div class="outgoing">
-                        <div class="details">
-                          <p>Lorem ipsum dolor sit. Lorem ipsum dolor sit.</p>
-                        </div>
-                      </div>
-                      <div class="incoming">
-                        <div class="details">
-                          <p>Lorem ipsum dolor sit. Lorem ipsum dolor sit amet.</p>
-                        </div>
-                      </div>
-                      <div class="outgoing">
-                        <div class="details">
-                          <p>Lorem ipsum dolor sit. Lorem ipsum dolor sit.</p>
-                        </div>
-                      </div>
-                      <div class="incoming">
-                        <div class="details">
-                          <p>Lorem ipsum dolor sit. Lorem ipsum dolor sit amet.</p>
-                        </div>
-                      </div>
-                      <div class="outgoing">
-                        <div class="details">
-                          <p>Lorem ipsum dolor sit. Lorem ipsum dolor sit.</p>
-                        </div>
-                      </div>
-                      <div class="incoming">
-                        <div class="details">
-                          <p>Lorem ipsum dolor sit. Lorem ipsum dolor sit amet.</p>
-                        </div>
-                      </div>
-                      <div class="outgoing">
-                        <div class="details">
-                          <p>Lorem ipsum dolor sit.</p>
-                        </div>
-                      </div>
-                      <div class="incoming">
-                        <div class="details">
-                          <p>Lorem ipsum dolor sit. Lorem ipsum dolor sit amet.</p>
-                        </div>
-                      </div>
-                      <div class="outgoing">
-                        <div class="details">
-                          <p>Lorem ipsum dolor sit.</p>
-                        </div>
-                      </div>
-                      
+
                     </div>
 
                     <div class="tollfree" id="toll">
@@ -392,32 +332,37 @@
                       <p>Lorem ipsum, dolor sit amet consectetur </p>
                       <p>Lorem ipsum, dolor sit amet consectetur </p>
                     </div>
+
                     <div class="zoomlink" id="zoom">
-                      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam, non!</p>
-                      <p>Lorem ipsum, dolor sit amet consectetur </p>
-                      <p>Lorem ipsum, dolor sit amet consectetur </p>
-                      <p>Lorem ipsum, dolor sit amet consectetur </p>
-                      <p>Lorem ipsum, dolor sit amet consectetur </p>
-                    </div>
-                    <div class="mail" id="mail">
-                      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam, non! Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, ipsam!</p>
-                      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam, non! Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, ipsam!</p>
-                      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam, non! Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, ipsam!</p>
-                      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam, non! Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, ipsam!</p>
-                      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam, non! Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, ipsam!</p>
-                      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam, non! Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, ipsam!</p>
-                      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam, non! Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, ipsam!</p>
-                      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam, non! Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, ipsam!</p>
-                      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam, non! Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, ipsam!</p>
-                      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam, non! Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, ipsam!</p>
-                      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam, non! Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, ipsam!</p>
+                      <form action="" method="post">
+                        <p>Meeting Details </p>
+                        <input name="meeting-title" value="" placeholder="Meeting Title ">
+                        <input name="meeting-id" value="" placeholder="Meeting ID ">
+                        <input name="meeting-password" value="" placeholder="Meeting Password ">
+                        <p> Send to student via </p>
+                        <div class="send-options">
+                          <button type="submit"> SMS </button>
+                          <button type="submit"> EMAIL </button>
+                          <button> CHAT </button>
+                        </div>
+                      </form>
                     </div>
 
-                    <form action="#" class="typing-area">
-                      <input type="text" class="incoming_id" name="incoming_id" hidden>
+                    <div class="mail" id="mail">
+                      <form action="" method="post">
+                        <textarea name="mail-detail" id="mail-detail" placeholder="Compose your Email here ..... " cols="40" rows="6"></textarea>
+                        <button id="send-mail" type="submit"> SEND EMAIL </button>
+                      </form>
+                    </div>
+
+                    <form action="#" method="POST" id="typing-area" class="typing-area">
+                      <input type="text" name="std_id" id="std_id" value="<?php echo $uid ?>" hidden>
+                      <input type="text" class="incoming_id" name="incoming_id" value="<?php echo $current_user['users_id']; ?>" hidden>
                       <input type="text" name="message" id="message" class="input-field" placeholder="Send a message to the student..." autocomplete="off">
-                      <button><i class="fab fa-telegram-plane"></i></button>
+                      <input id="sendMe" class="sendMe" name="sendMe" type="submit" value="SEND">
+                      <!-- <button> <i class="fab fa-telegram"></i> </button> -->
                     </form>
+
                   </div>
                 </section>
               </div>
@@ -426,8 +371,9 @@
         </div>
       </section>
 
-    </main>
+    </main> 
 
+    <script src="js/chat.js"></script>
     <script src="js/events.js"></script>
 
   </body>

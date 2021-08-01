@@ -2,15 +2,23 @@
 var modal = document.getElementById("myModal");
 var btn = document.getElementById("respond-btn");
 var span = document.getElementsByClassName("close")[0];
+
 var liveChat = document.getElementById("livechat");
-var phoneCall = document.getElementById("tollfree");
 var zoomLink = document.getElementById("zoomlink");
 var sendEmail = document.getElementById("sendEmail");
 
-
 // When the user clicks on the button, open the modal
-btn.onclick = function() {
-  modal.style.display = "block";
+btn.onclick = function () {
+  console.log("Button clicked.");
+  
+  if (document.getElementById("details-name").innerHTML.length == 0) {
+  // if (document.getElementById("detailsRegno").value.length == 0) {
+    alert("Please Select a student to respond to ! ")
+  }
+  else {
+    modal.style.display = "block";
+  }
+
 }
 
 // When the user clicks on <span> (x), close the modal
@@ -20,6 +28,7 @@ span.onclick = function() {
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
+
   if (event.target == modal) {
     modal.style.display = "none";
   }
@@ -27,33 +36,24 @@ window.onclick = function(event) {
 
 // Click events
 liveChat.onclick = function() {
+  document.getElementById("typing-area").style.display = "flex";
   document.getElementById("chat").style.display = "block";
-  document.getElementById("chat").style.backgroundColor = "#c5c5c5";
-  document.getElementById("zoom").style.display = "none";
-  document.getElementById("toll").style.display = "none";
-  document.getElementById("mail").style.display = "none";
-}
-
-phoneCall.onclick = function() {
-  document.getElementById("chat").style.display = "none";
   document.getElementById("zoom").style.display = "none";
   document.getElementById("mail").style.display = "none";
-  document.getElementById("toll").style.display = "block";
-  document.getElementById("toll").style.backgroundColor = "#c5c5c5";
 }
 
 zoomLink.onclick = function() {
   document.getElementById("chat").style.display = "none";
   document.getElementById("mail").style.display = "none";
-  document.getElementById("toll").style.display = "none";
+  document.getElementById("typing-area").style.display = "none";
   document.getElementById("zoom").style.display = "block";
-  document.getElementById("zoom").style.backgroundColor = "#c5c5c5";
+  document.getElementById("zoom").style.backgroundColor = "#background-color: #f3f3f3;";
 }
 
 sendEmail.onclick = function() {
+  document.getElementById("typing-area").style.display = "none";
   document.getElementById("chat").style.display = "none";
   document.getElementById("zoom").style.display = "none";
-  document.getElementById("toll").style.display = "none";
   document.getElementById("mail").style.display = "block";
-  document.getElementById("mail").style.backgroundColor = "#c5c5c5";
 }
+
