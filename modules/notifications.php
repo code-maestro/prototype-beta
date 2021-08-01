@@ -16,10 +16,7 @@
 
       print_r($the_id);
 
-      //$in_id = "";
-      $in_id = $the_id['received_msg_id'];
-
-      $output = $users->getChatData($in_id, $out_id);
+      $output = $users->getChatData($the_id, $out_id);
         
       $result = "";
 
