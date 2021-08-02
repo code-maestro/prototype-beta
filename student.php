@@ -99,6 +99,7 @@
     <main>
       <section class="main-navbar">
         <div class="chat-title">
+
           <div class="left">
             <img src="resources/img/must.png" alt="" srcset="">
             <div class="user-info">
@@ -112,11 +113,16 @@
               <span class="badge"> 4 </span>
             </div>
 
-            <div class="notifications">
+            <div class="notifications-list">
               <i class="far fa-bell" id="notification-btn" ></i>
               <span class="badge"> 4 </span>
+              <ul class="theList">
+                <p>new message </p>
+              </ul>
             </div>
+
           </div>
+
         </div>
       </section>
 
@@ -267,22 +273,8 @@
         </div>
       </section>
 
-      <div class="notifications-list">
-        <ul class="theList">
-          <li>
-            <span class="notification-title"> 23 </span>
-            <i class="fas fa-circle"></i>
-          </li>
-          <li>
-            <span class="notification-title"> 23 </span>
-            <i class="fas fa-circle"></i>
-          </li>      
-        </ul>
-
-      </div>
-
       <section>
-      <!-- The Modal -->
+        <!-- The Modal -->
         <div id="myModal" class="modal">
           <!-- Modal content -->
           <div class="modal-content">
