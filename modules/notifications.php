@@ -12,15 +12,9 @@
 
       $users = new User();
 
-      $the_id = $users->getChatID($out_id);  
-      
-      print_r($the_id);
-      
-      $in_id = $the_id[0];
+      $in_id = $users->getChatID($out_id);  
 
-      print_r($in_id);
-
-      $output = $users->getChatData($out_id, $in_id);
+      $output = $users->getChatData($out_id, $in_id['sent_msg_id']);
 
       if ($output) {                 
         foreach ($output as $ROW) {
@@ -29,7 +23,6 @@
 
             $result .= ' <li>
                             <span class="notification-title"> '. $ROW['text_msg'] .' </span>
-                            <i class="fas fa-circle"></i>
                           </li>';
 
           }

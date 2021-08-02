@@ -24,10 +24,10 @@
     }
 
     // Getting user Messages
-    public function getChatData($in_id, $out_id) {
+    public function getChatData($out_id, $in_id) {
 
       // $sql = "SELECT * FROM messages LEFT JOIN users ON users.users_id = messages.received_msg_id WHERE received_msg_id = '$in_id' AND sent_msg_id = '$out_id' OR received_msg_id = '$in_id' AND sent_msg_id = '$out_id' ORDERBY 1;";
-      $sql = "SELECT text_msg FROM messages WHERE received_msg_id = '$in_id' AND sent_msg_id = '$out_id' LIMIT 1;";
+      $sql = "SELECT * FROM messages WHERE received_msg_id = '$out_id' AND sent_msg_id = '$in_id';";
 
       $DB = new DatabaseModule();
       $result = $DB->readData($sql);
@@ -47,14 +47,16 @@
     // Getting user Messages
     public function getChatID($std_id) {
 
-      $sql = "SELECT received_msg_id FROM messages WHERE received_msg_id = '$std_id' LIMIT 1 ;";
+      $sql = "SELECT sent_msg_id FROM messages WHERE received_msg_id = '$std_id' LIMIT 1 ;";
 
       $DB = new DatabaseModule();
       $result = $DB->readData($sql);
 
       if ($result) {
 
-        return $result; 
+        $row = $result[0];
+
+        return $row; 
 
       }else {
 

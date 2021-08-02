@@ -99,6 +99,7 @@
     <main>
       <section class="main-navbar">
         <div class="chat-title">
+
           <div class="left">
             <img src="resources/img/must.png" alt="" srcset="">
             <div class="user-info">
@@ -112,26 +113,16 @@
               <span class="badge"> 4 </span>
             </div>
 
-            <div class="notifications">
-              <!-- <i class="far fa-bell" id="notification-btn" ></i>
-              <span class="badge"> 4 </span> -->
-              
-              <div class="notifications-list">
-                <i class="far fa-bell" id="notification-btn" ></i>
-                <ul class="theList">
-                  <li>
-                    <span class="notification-title"> 23 </span>
-                    <i class="fas fa-circle"></i>
-                  </li>
-                  <li>
-                    <span class="notification-title"> 23 </span>
-                    <i class="fas fa-circle"></i>
-                  </li>
-                </ul>
-              </div>
-
+            <div class="notifications-list">
+              <i class="far fa-bell" id="notification-btn" ></i>
+              <span class="badge"> 4 </span>
+              <ul class="theList">
+                <p>new message </p>
+              </ul>
             </div>
+
           </div>
+
         </div>
       </section>
 
@@ -278,14 +269,6 @@
                 You can cancel a session by going to the <a href="appointments.php">Appointments</a> page.
               </p>
             </li>
-          </ul>
-        </div>
-      </section>
-
-      <section>
-        <div class="notifications-list">
-          <ul class="theList">
-      
           </ul>
         </div>
       </section>
