@@ -6,19 +6,21 @@
       include 'user.php';
       include '../database/db_module.php';
 
-      $out_id = $_SESSION['std_id'];
+      $result = "";
 
-      print_r($out_id);
+      $out_id = $_SESSION['std_id'];
 
       $users = new User();
 
-      $the_id = $users->getChatID($out_id);
-
+      $the_id = $users->getChatID($out_id);  
+      
       print_r($the_id);
+      
+      $in_id = $the_id[0];
 
-      $output = $users->getChatData($the_id, $out_id);
-        
-      $result = "";
+      print_r($in_id);
+
+      $output = $users->getChatData($out_id, $in_id);
 
       if ($output) {                 
         foreach ($output as $ROW) {
@@ -26,7 +28,7 @@
           if($ROW['received_msg_id'] === $out_id){
 
             $result .= ' <li>
-                            <span class="notification-title"> 23 </span>
+                            <span class="notification-title"> '. $ROW['text_msg'] .' </span>
                             <i class="fas fa-circle"></i>
                           </li>';
 

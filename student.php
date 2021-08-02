@@ -113,8 +113,23 @@
             </div>
 
             <div class="notifications">
-              <i class="far fa-bell" id="notification-btn" ></i>
-              <span class="badge"> 4 </span>
+              <!-- <i class="far fa-bell" id="notification-btn" ></i>
+              <span class="badge"> 4 </span> -->
+              
+              <div class="notifications-list">
+                <i class="far fa-bell" id="notification-btn" ></i>
+                <ul class="theList">
+                  <li>
+                    <span class="notification-title"> 23 </span>
+                    <i class="fas fa-circle"></i>
+                  </li>
+                  <li>
+                    <span class="notification-title"> 23 </span>
+                    <i class="fas fa-circle"></i>
+                  </li>
+                </ul>
+              </div>
+
             </div>
           </div>
         </div>
@@ -269,16 +284,8 @@
 
       <div class="notifications-list">
         <ul class="theList">
-          <li>
-            <span class="notification-title"> 23 </span>
-            <i class="fas fa-circle"></i>
-          </li>
-          <li>
-            <span class="notification-title"> 23 </span>
-            <i class="fas fa-circle"></i>
-          </li>      
+    
         </ul>
-
       </div>
 
       <section>
