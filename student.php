@@ -282,14 +282,16 @@
         </div>
       </section>
 
-      <div class="notifications-list">
-        <ul class="theList">
-    
-        </ul>
-      </div>
+      <section>
+        <div class="notifications-list">
+          <ul class="theList">
+      
+          </ul>
+        </div>
+      </section>
 
       <section>
-      <!-- The Modal -->
+        <!-- The Modal -->
         <div id="myModal" class="modal">
           <!-- Modal content -->
           <div class="modal-content">

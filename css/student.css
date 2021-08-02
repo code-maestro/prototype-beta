@@ -155,13 +155,14 @@ h2 {
 }
 
 /* Notification pane */
-/* .notifications-list {
+main .notifications-list {
   position: relative;
-} */
+  display: inline-block;
+}
 
-.notifications-list .theList {
+main .notifications-list .theList {
   visibility: hidden;
-  width: 175px;
+  width: 100px;
   background-color: black;
   color: #fff;
   text-align: center;
@@ -177,7 +178,7 @@ h2 {
   padding-inline-start: 5px;
 }
 
-.notifications-list .theList::after {
+main .notifications-list .theList::after {
   content: "";
   position: absolute;
   bottom: 100%;
@@ -188,6 +189,6 @@ h2 {
   border-color: transparent transparent black transparent;
 }
 
-.notifications-list:hover .theList {
+main .notifications-list:hover .theList {
   visibility: visible;
 }
