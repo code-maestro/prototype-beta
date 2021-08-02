@@ -174,22 +174,31 @@ main .appointments .wrapper{
 }
 
 .main-navbar .chat-title .right .notifications-list .theList {
-  display: none;
+  visibility:hidden;
   font-size: 14px;
   width: 200px;
   position: absolute;
   z-index: 1;
-  padding: .5rem 1rem;
+  padding: .25rem;
   top: 30px;
   right: 5px;
   background: var(--navbar-background-color);
-  border-radius: 1rem;
+  border-radius: .25rem;
   font-weight: 500;
   color: var(--icon-color);
 }
 
+.main-navbar .chat-title .right .notifications-list .theList li{
+  padding: .35rem;
+  margin: .35rem;
+  border: none;
+  border-radius: .25rem;
+  background-color: var(--nav-hover-color);
+}
+
 .main-navbar .chat-title .right .notifications-list:hover .theList{
-  display: block;
+  /* display: block; */
+  visibility: visible;
 }
 
 .main-navbar .chat-title .right div i{
@@ -197,7 +206,8 @@ main .appointments .wrapper{
   font-size: 1.75rem;
 }
 
-.main-navbar .chat-title .right div i:hover{
+.main-navbar .chat-title .right div i:hover,
+.main-navbar .chat-title .right .notifications-list .theList li:hover{
   cursor: pointer;
 }
 

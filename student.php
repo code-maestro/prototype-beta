@@ -117,7 +117,9 @@
               <i class="far fa-bell" id="notification-btn" ></i>
               <span class="badge"> 4 </span>
               <ul class="theList">
-                <p>new message </p>
+                <li id="theenotification"> 
+                  <span class="notification-title"> '. $ROW['text_msg'] .' </span>
+                </li>
               </ul>
             </div>
 

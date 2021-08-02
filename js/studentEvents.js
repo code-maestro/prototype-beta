@@ -1,4 +1,4 @@
-const notifications = document.getElementById("notification-btn");
+//const notifications = document.getElementById("theenotification");
 
 const overviewBtn = document.getElementById("overview");
 const appointmentsBtn = document.getElementById("appointments");
@@ -8,10 +8,14 @@ const faqsBtn = document.getElementById("faqs-btn");
 var modal = document.getElementById("myModal");
 var span = document.getElementsByClassName("close")[0];
 
+var notifications = getElementsByClassName("notification-title");
+
 // Notifications button event
 notifications.onclick = function() {
-  modal.style.display = "block";
-  document.querySelector(".notifications .badge").style.display = "block";
+
+  //modal.style.display = "block";
+  alert("kfdflgjasdlf");
+  // document.querySelector(".notifications .badge").style.display = "block";
   // document.querySelector(".modal").style.display = "block";
 
 }
