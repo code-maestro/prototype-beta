@@ -289,7 +289,20 @@
             <div class="modal-body">
 
               <div class="options">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut eum ratione distinctio corrupti id veniam facilis error quod consequatur. Mollitia blanditiis itaque eveniet reiciendis non, nam voluptatum porro accusantium obcaecati cupiditate officiis a! Blanditiis, ex quisquam est dolorum tenetur officia.
+                <div class="livechat" id="livechat">
+                  <i class="fas fa-comment"></i>
+                  <h4> Start A Realtime Chat </h4>
+                </div>
+
+                <div class="zoom" id="zoomlink">
+                  <i class="fas fa-video"></i>
+                  <h4> Create a Zooom Meeting  </h4>
+                </div>
+                
+                <div class="email" id="sendEmail">
+                  <i class="fas fa-comment"></i>
+                  <h4> Send Email </h4>
+                </div>
               </div>  
 
               <div class="chat-wrap">
@@ -328,7 +341,7 @@
                     </div>
 
                     <form action="#" method="POST" id="typing-area" class="typing-area">
-                      <input type="text" name="std_id" id="std_id" value="<?php echo $uid ?>" hidden>
+                      <input type="text" class="std_id" name="std_id" id="std_id" value="<?php echo $uid ?>" hidden>
                       <input type="text" class="incoming_id" name="incoming_id" value="<?php echo $current_user['users_id']; ?>" hidden>
                       <input type="text" name="message" id="message" class="input-field" placeholder="Send a message to the student..." autocomplete="off">
                       <input id="sendMe" class="sendMe" name="sendMe" type="submit" value="SEND">

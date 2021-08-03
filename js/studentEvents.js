@@ -8,13 +8,12 @@ const faqsBtn = document.getElementById("faqs-btn");
 var modal = document.getElementById("myModal");
 var span = document.getElementsByClassName("close")[0];
 
-var notifications = getElementsByClassName("notification-title");
+var notifications = document.querySelector("#notification-btn");
 
 // Notifications button event
 notifications.onclick = function() {
 
-  //modal.style.display = "block";
-  alert("kfdflgjasdlf");
+  modal.style.display = "block";
   // document.querySelector(".notifications .badge").style.display = "block";
   // document.querySelector(".modal").style.display = "block";
 
@@ -55,13 +54,38 @@ faqsBtn.onclick = function() {
   document.querySelector(".appointments").style.display = "none";
 }
 
+//  Click event to send a message
+sendBtn.onclick = () => {
+
+  let xhr = new XMLHttpRequest();
+  xhr.open("POST", "newMessage.php", true);
+  xhr.onload = () => {
+    if(xhr.readyState === XMLHttpRequest.DONE){
+        if(xhr.status === 200){
+
+          console.log(inputField.value);
+
+          inputField.value = "";
+
+          scrollToBottom();
+
+        }
+    }
+  }
+
+  let formData = new FormData(form);
+
+  xhr.send(formData);
+
+}
+
 // Function retrieving messages
 setInterval(() => {
 
   // Create an XMLHttpRequest object
   const xhttp = new XMLHttpRequest();
 
-  xhttp.open("POST", "modules/notifications.php", true);
+  xhttp.open("POST", "std_getChat.php", true);
 
   // Define a callback function
   xhttp.onload = function() {

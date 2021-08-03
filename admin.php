@@ -7,8 +7,6 @@
   $user = new User();
   $current_user = $user->getData($_SESSION['staff_id']);
 
-  $std_id_chat = $user->getChatID($_SESSION['staff_id']);
-
   //Qeuries
   $query = "SELECT COUNT(id) FROM roles WHERE role_id = '1'; ";
   $query2 = "SELECT COUNT(id) FROM appointments; ";
@@ -293,7 +291,7 @@
       </section>
 
       <section>
-      <!-- The Modal -->
+        <!-- The Modal -->
         <div id="myModal" class="modal">
           <!-- Modal content -->
           <div class="modal-content">
