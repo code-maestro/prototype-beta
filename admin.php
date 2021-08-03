@@ -19,7 +19,6 @@
   $total_pending = $user->getTotalUsers($query4);
 
   //Retrieving appointments
-  
   $sql = "SELECT appointment_id, complaint, date, start_time, end_time, users_id, first_name, last_name, reg_no, email 
           FROM appointments INNER JOIN users INNER JOIN login 
           WHERE users.users_id = appointments.users_uid 
@@ -359,8 +358,8 @@
                       <input type="text" class="std_id" name="std_id" id="std_id" value="<?php echo $uid ?>" hidden>
                       <input type="text" class="incoming_id" name="incoming_id" value="<?php echo $current_user['users_id']; ?>" hidden>
                       <input type="text" name="message" id="message" class="input-field" placeholder="Send a message to the student..." autocomplete="off">
-                      <input id="sendMe" class="sendMe" name="sendMe" type="submit" value="SEND">
-                      <!-- <button> <i class="fab fa-telegram"></i> </button> -->
+                      <!-- <input id="sendMe" class="sendMe" name="sendMe" type="submit" value="SEND"> -->
+                      <button id="sendMe" class="sendMe" name="sendMe" type="submit"> SEND <i class="fab fa-telegram"></i> </button>
                     </form>
 
                   </div>

@@ -9,6 +9,9 @@
   $complaint = "";
   $complaint_detail = "";
 
+  $staff_id = new User();
+  //$current_staff =$staff_id->getChatID();
+
   $new_appointment = new Create();
 
   //  Student signup
@@ -25,7 +28,6 @@
   }
 
   //Retrieving appointments
-
   $query = "SELECT * FROM appointments INNER JOIN users INNER JOIN login 
             WHERE appointments.users_uid = '$user_id' 
             AND appointments.users_uid = users.users_id 
@@ -309,15 +311,17 @@
                 <section class="chat-area">
                   <div class="chat-box">
                     <div class="chat" id="chat">
+                      <div class="choose">
+                        <select name="male" id="male">
+                          <option value="Male">Male</option>
+                        </select>
+                        <select name="female" id="female">Females
+                          <option value="Female">Female</option>
+                        </select>
+                      </div>
 
                     </div>
-
-                    <div class="tollfree" id="toll">
-                      <p>Lorem ipsum, dolor sit amet consectetur </p>
-                      <p>Lorem ipsum, dolor sit amet consectetur </p>
-                      <p>Lorem ipsum, dolor sit amet consectetur </p>
-                    </div>
-
+                    
                     <div class="zoomlink" id="zoom">
                       <form action="" method="post">
                         <p>Meeting Details </p>
@@ -341,11 +345,10 @@
                     </div>
 
                     <form action="#" method="POST" id="typing-area" class="typing-area">
-                      <input type="text" class="std_id" name="std_id" id="std_id" value="<?php echo $uid ?>" hidden>
+                      <input type="text" class="std_id" name="std_id" id="std_id" value="STD/7645" hidden>
                       <input type="text" class="incoming_id" name="incoming_id" value="<?php echo $current_user['users_id']; ?>" hidden>
                       <input type="text" name="message" id="message" class="input-field" placeholder="Send a message to the student..." autocomplete="off">
-                      <input id="sendMe" class="sendMe" name="sendMe" type="submit" value="SEND">
-                      <!-- <button> <i class="fab fa-telegram"></i> </button> -->
+                      <button id="sending" class="sending" name="sending" type="submit">SEND</button>
                     </form>
 
                   </div>
