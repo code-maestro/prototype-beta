@@ -6,13 +6,13 @@
       include 'database/db_module.php';
       include 'modules/user.php';
 
-      $in_id = $_POST['incoming_id'];
+      $in_id = $_POST['std_id'];
       $out_id = $_SESSION['staff_id'];
 
       $users = new User();
 
       $output = $users->getChatData($in_id, $out_id);
-        
+
       $result = "";
 
       if ($output) {                 
@@ -30,7 +30,7 @@
 
             $result .= '<div class="incoming">
                           <div class="details">
-                            <p>Lorem ipsum dolor sit. Lorem ipsum dolor sit amet.</p>
+                          <p> ' . $ROW['text_msg'] . ' </p>
                           </div>
                         </div>';
 

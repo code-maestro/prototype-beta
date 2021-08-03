@@ -7,6 +7,8 @@
   $user = new User();
   $current_user = $user->getData($_SESSION['staff_id']);
 
+  $std_id_chat = $user->getChatID($_SESSION['staff_id']);
+
   //Qeuries
   $query = "SELECT COUNT(id) FROM roles WHERE role_id = '1'; ";
   $query2 = "SELECT COUNT(id) FROM appointments; ";
@@ -356,7 +358,7 @@
                     </div>
 
                     <form action="#" method="POST" id="typing-area" class="typing-area">
-                      <input type="text" name="std_id" id="std_id" value="<?php echo $uid ?>" hidden>
+                      <input type="text" class="std_id" name="std_id" id="std_id" value="<?php echo $uid ?>" hidden>
                       <input type="text" class="incoming_id" name="incoming_id" value="<?php echo $current_user['users_id']; ?>" hidden>
                       <input type="text" name="message" id="message" class="input-field" placeholder="Send a message to the student..." autocomplete="off">
                       <input id="sendMe" class="sendMe" name="sendMe" type="submit" value="SEND">
