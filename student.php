@@ -295,16 +295,15 @@
                     <p>Choose a counselor </p>  
                     <div class="choose">
                       <details>
-                      	<summary > Male </summary>
+                      	<summary class="males" > Male </summary>
                       	<ul class="listed">
-                      		<li id="first">Item 1</li>
-                      		<li>Item 2</li>
+                          <!-- PHP code  -->
                       	</ul>
                       </details>
 
                       <details>
-                      	<summary> Female </summary>
-                      	<ul>
+                      	<summary class="females"> Female </summary>
+                      	<ul class="females-listed">
                       		<li>Item 1</li>
                       		<li>Item 2</li>
                       		<li>Item 3</li>

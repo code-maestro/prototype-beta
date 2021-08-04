@@ -154,12 +154,12 @@ setInterval(() => {
 }, 1500);
 
 // click event to populate the list for counsellors in the dropdown
-document.querySelector("details summary").onclick = function() {
+document.querySelector("details .males").onclick = function() {
 
   // Create an XMLHttpRequest object
   const xhttp = new XMLHttpRequest();
 
-  xhttp.open("POST", "getCounsellor.php", true);
+  xhttp.open("POST", "getMaleCounsellor.php", true);
 
   // Define a callback function
   xhttp.onload = function() {
@@ -173,6 +173,37 @@ document.querySelector("details summary").onclick = function() {
         console.log(data);
 
         document.querySelector(".listed").innerHTML = data;
+
+      }
+    }
+  }
+
+  // Send a request
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send();
+
+}
+
+// click event to populate the list for counsellors in the dropdown
+document.querySelector("details .females").onclick = function() {
+
+  // Create an XMLHttpRequest object
+  const xhttp = new XMLHttpRequest();
+
+  xhttp.open("POST", "getFemaleCounsellor.php", true);
+
+  // Define a callback function
+  xhttp.onload = function() {
+    // Here you can use the Data
+    if(xhttp.readyState === XMLHttpRequest.DONE){
+      
+      if(xhttp.status === 200){
+        
+        let data = xhttp.response;
+
+        console.log(data);
+
+        document.querySelector(".females-listed").innerHTML = data;
 
       }
     }

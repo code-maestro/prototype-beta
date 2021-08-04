@@ -88,9 +88,7 @@
 
     }
 
-    public function getCounsellors () {
-
-      $query = " SELECT users_id FROM users WHERE users_id LIKE 'STAFF%';";
+    public function getCounsellors ($query) {
 
       $DB = new DatabaseModule();
       $result = $DB->readData($query);
