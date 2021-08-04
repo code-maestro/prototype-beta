@@ -598,7 +598,7 @@ main .appointments .wrapper{
   margin-left: auto;
 }
 
-.thee-list ul li .actions #action-btn{
+.thee-list ul li .actions .action-btn{
   font-size: .9rem;
   margin: 0;
   padding: 0;
@@ -612,18 +612,18 @@ main .appointments .wrapper{
   margin: 0 0 0 .5rem;
 }
 
-.thee-list ul li .actions #action-btn:hover{
+.thee-list ul li .actions .action-btn:hover{
   background-color: var(--navbar-background-color);
   color: var(--icon-color);
   cursor: pointer;
 }
 
-.thee-list ul li .actions #action-btn:nth-child(even):hover{
+.thee-list ul li .actions .action-btn:nth-child(even):hover{
   background-color: var(--action-color);
   border: 0;
 }
 
-.thee-list ul li .actions #action-btn:last-child:hover{
+.thee-list ul li .actions .action-btn:last-child:hover{
   background-color: var(--danger-color);
   border: 0;
 }

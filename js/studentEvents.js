@@ -145,8 +145,6 @@ setInterval(() => {
         
         let data = xhttp.response;
 
-        console.log(data);
-
         document.querySelector(".chat").innerHTML = data;
 
       }
@@ -180,6 +178,8 @@ document.querySelector("details .males").onclick = function() {
 
         document.querySelector(".listed").innerHTML = data;
 
+        console.log(document.querySelector(".listed .the-id").value);
+
       }
     }
   }
@@ -210,6 +210,8 @@ document.querySelector("details .females").onclick = function() {
         console.log(data);
 
         document.querySelector(".females-listed").innerHTML = data;
+
+        //console.log(document.querySelector(".females-listed input"));
 
       }
     }
