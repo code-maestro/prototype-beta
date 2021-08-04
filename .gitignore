@@ -8,10 +8,6 @@ STYLE.css
 
 style.js
 
-std_getChat.php
-
-std_newMessage.php
-
 modules/acc_activation.php
 
 modules/createMeeting.php

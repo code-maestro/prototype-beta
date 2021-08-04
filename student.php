@@ -295,11 +295,10 @@
                     <p>Choose a counselor </p>  
                     <div class="choose">
                       <details>
-                      	<summary> Male </summary>
-                      	<ul>
+                      	<summary > Male </summary>
+                      	<ul class="listed">
                       		<li id="first">Item 1</li>
                       		<li>Item 2</li>
-                      		<li>Item 3</li>
                       	</ul>
                       </details>
 

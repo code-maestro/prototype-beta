@@ -88,6 +88,25 @@
 
     }
 
+    public function getCounsellors () {
+
+      $query = " SELECT users_id FROM users WHERE users_id LIKE 'STAFF%';";
+
+      $DB = new DatabaseModule();
+      $result = $DB->readData($query);
+
+      if ($result) {
+
+        return $result; 
+
+      }else {
+
+        return false;      
+      
+      }
+
+    }
+
   }
 
 ?>

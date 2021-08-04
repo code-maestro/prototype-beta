@@ -153,7 +153,33 @@ setInterval(() => {
 
 }, 1500);
 
-document.querySelector("details ul #first").onclick = function() {
-  //alert with 😁😁😁
-  alert("😁😁😁");
+// click event to populate the list for counsellors in the dropdown
+document.querySelector("details summary").onclick = function() {
+
+  // Create an XMLHttpRequest object
+  const xhttp = new XMLHttpRequest();
+
+  xhttp.open("POST", "getCounsellor.php", true);
+
+  // Define a callback function
+  xhttp.onload = function() {
+    // Here you can use the Data
+    if(xhttp.readyState === XMLHttpRequest.DONE){
+      
+      if(xhttp.status === 200){
+        
+        let data = xhttp.response;
+
+        console.log(data);
+
+        document.querySelector(".listed").innerHTML = data;
+
+      }
+    }
+  }
+
+  // Send a request
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send();
+
 }
