@@ -247,33 +247,15 @@
           FAQs
         </h2>
 
-        <div class="faqs-list">
-          <ul>
-            <li>
-              <h3> How do I book an appointment? </h3>
-              <p>
-                You can book an appointment by going to the <a href="appointments.php">Appointments</a> page.
-              </p>
-            </li>
-            <li>
-              <h3> How do I cancel an appointment? </h3>
-              <p>
-                You can cancel an appointment by going to the <a href="appointments.php">Appointments</a> page.
-              </p>
-            </li>
-            <li>
-              <h3> How do I cancel a session? </h3>
-              <p>
-                You can cancel a session by going to the <a href="appointments.php">Appointments</a> page.
-              </p>
-            </li>
-            <li>
-              <h3> How do I cancel a session? </h3>
-              <p>
-                You can cancel a session by going to the <a href="appointments.php">Appointments</a> page.
-              </p>
-            </li>
-          </ul>
+        <div class="container-list">
+          <div>Lorem ipsum dolor sit amet.</div>
+          <div>Lorem ipsum dolor sit amet.</div>
+          <div>Lorem ipsum dolor sit amet.</div>
+          <div>Lorem ipsum dolor sit amet.</div>
+          <div>Lorem ipsum dolor sit amet.</div>
+          <div>Lorem ipsum dolor sit amet.</div>
+          <div>Lorem ipsum dolor sit amet.</div>
+          <div>Lorem ipsum dolor sit amet.</div>
         </div>
       </section>
 
@@ -310,15 +292,28 @@
               <div class="chat-wrap">
                 <section class="chat-area">
                   <div class="chat-box">
+                    <p>Choose a counselor </p>  
+                    <div class="choose">
+                      <details>
+                      	<summary> Male </summary>
+                      	<ul>
+                      		<li id="first">Item 1</li>
+                      		<li>Item 2</li>
+                      		<li>Item 3</li>
+                      	</ul>
+                      </details>
+
+                      <details>
+                      	<summary> Female </summary>
+                      	<ul>
+                      		<li>Item 1</li>
+                      		<li>Item 2</li>
+                      		<li>Item 3</li>
+                      	</ul>
+                      </details>
+                    </div>
+
                     <div class="chat" id="chat">
-                      <div class="choose">
-                        <select name="male" id="male">
-                          <option value="Male">Male</option>
-                        </select>
-                        <select name="female" id="female">Females
-                          <option value="Female">Female</option>
-                        </select>
-                      </div>
 
                     </div>
                     

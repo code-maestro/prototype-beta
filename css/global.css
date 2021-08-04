@@ -263,9 +263,14 @@ main .appointments .wrapper{
   color: black;
 }
 
+.modal-header h2 {
+  font-size: 1.5rem;
+  margin: 0 1rem;
+}
+
 .modal-body {
   display: flex;
-  margin: .5rem 1rem;
+  margin: 0 1rem;
   justify-content: space-around;
 }
 

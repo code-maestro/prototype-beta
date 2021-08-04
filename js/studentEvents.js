@@ -152,3 +152,8 @@ setInterval(() => {
   xhttp.send();
 
 }, 1500);
+
+document.querySelector("details ul #first").onclick = function() {
+  //alert with 😁😁😁
+  alert("😁😁😁");
+}
