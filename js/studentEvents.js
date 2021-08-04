@@ -75,6 +75,8 @@ faqsBtn.onclick = function() {
 
 // Click events
 liveChat.onclick = function() {
+  document.querySelector(".chat-box p").style.display = "block";
+  document.querySelector(".chat-box .choose").style.display = "flex";
   document.getElementById("typing-area").style.display = "flex";
   document.getElementById("chat").style.display = "block";
   document.getElementById("zoom").style.display = "none";
@@ -83,6 +85,8 @@ liveChat.onclick = function() {
 
 zoomLink.onclick = function() {
   document.getElementById("chat").style.display = "none";
+  document.querySelector(".chat-box p").style.display = "none";
+  document.querySelector(".chat-box .choose").style.display = "none";
   document.getElementById("mail").style.display = "none";
   document.getElementById("typing-area").style.display = "none";
   document.getElementById("zoom").style.display = "block";
@@ -90,6 +94,8 @@ zoomLink.onclick = function() {
 }
 
 sendEmail.onclick = function() {
+  document.querySelector(".chat-box p").style.display = "none";
+  document.querySelector(".chat-box .choose").style.display = "none";
   document.getElementById("typing-area").style.display = "none";
   document.getElementById("chat").style.display = "none";
   document.getElementById("zoom").style.display = "none";
