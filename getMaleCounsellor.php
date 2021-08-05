@@ -16,6 +16,9 @@
       $result .= '<li> ' . $ROW['first_name'] . ' ' . $ROW['last_name'] . ' </li>
                   <input class="the-id" value=' . $ROW['users_id'] . ' hidden>';
 
+      session_start();
+      $_SESSION['counsellor_id'] = $ROW['users_id'];
+
     }
   }  else{
 

@@ -33,6 +33,8 @@ sendBtn.onclick = () => {
 
   let formData = new FormData(form);
 
+  console.log(formData);
+
   xhr.send(formData);
 
 }
@@ -67,8 +69,7 @@ setInterval(() => {
 
 }, 500);
 
-
 function scrollToBottom(){
-    chatBox.scrollTop = chatBox.scrollHeight;
-  }
+  chatBox.scrollTop = chatBox.scrollHeight;
+}
   

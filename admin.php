@@ -326,12 +326,6 @@
 
                     </div>
 
-                    <div class="tollfree" id="toll">
-                      <p>Lorem ipsum, dolor sit amet consectetur </p>
-                      <p>Lorem ipsum, dolor sit amet consectetur </p>
-                      <p>Lorem ipsum, dolor sit amet consectetur </p>
-                    </div>
-
                     <div class="zoomlink" id="zoom">
                       <form action="" method="post">
                         <p>Meeting Details </p>

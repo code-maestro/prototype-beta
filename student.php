@@ -10,7 +10,7 @@
   $complaint_detail = "";
 
   $staff_id = new User();
-  //$current_staff =$staff_id->getChatID();
+  $current_staff =$staff_id->getChatID($_SESSION['std_id']);
 
   $new_appointment = new Create();
 
@@ -338,9 +338,11 @@
                     </div>
 
                     <form action="#" method="POST" id="typing-area" class="typing-area">
-                      <input type="text" class="std_id" name="std_id" id="std_id" value="STD/7645" hidden>
-                      <input type="text" class="incoming_id" name="incoming_id" value="<?php echo $current_user['users_id']; ?>" hidden>
-                      <input type="text" name="message" id="message" class="input-field" placeholder="Send a message to the student..." autocomplete="off">
+                      <!-- <input type="text" class="std_id" name="std_id" id="std_id" value="STD/7645" hidden> -->
+                      <!-- $current_staff'sent_msg_id' -->
+                      <input type="text" class="counsellor_id" name="counsellor_id" value="<?php if($_SESSION['counsellor_id']){echo $_SESSION['counsellor_id']; }else { echo ""; } ?>" hidden>
+                      <input type="text" class="incoming_id" name="incoming_id" value="<?php echo $_SESSION['std_id']; ?>" hidden>
+                      <input type="text" name="message" id="message" class="input-field" placeholder="Send a message to the student.." autocomplete="off">
                       <button id="sending" class="sending" name="sending" type="submit">SEND</button>
                     </form>
 

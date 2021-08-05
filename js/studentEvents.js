@@ -1,4 +1,3 @@
-//const notifications = document.getElementById("theenotification");
 const form = document.querySelector(".typing-area"),
 inputField = form.querySelector(".input-field"),
 formSend = document.querySelector("button");
@@ -15,18 +14,17 @@ var liveChat = document.getElementById("livechat");
 var zoomLink = document.getElementById("zoomlink");
 var sendEmail = document.getElementById("sendEmail");
 
-var std_id = document.getElementById("std_id");
+//var std_id = document.getElementById("std_id").value;
+
+var counsellorid = document.querySelector(".counsellor_id").value;
+var incoming_id = document.querySelector(".incoming_id").value;
 
 var notifications = document.querySelector("#notification-btn");
 const sendBtn = document.querySelector(".sending");
 
 // Notifications button event
 notifications.onclick = function() {
-
   modal.style.display = "block";
-  // document.querySelector(".notifications .badge").style.display = "block";
-  // document.querySelector(".modal").style.display = "block";
-
 }
 
 form.onsubmit = (e)=>{
@@ -102,60 +100,7 @@ sendEmail.onclick = function() {
   document.getElementById("mail").style.display = "block";
 }
 
-
-//  Click event to send a message
-sendBtn.onclick = () => {
-
-  let xhr = new XMLHttpRequest();
-  xhr.open("POST", "std_newMessage.php", true);
-  xhr.onload = () => {
-    if(xhr.readyState === XMLHttpRequest.DONE){
-        if(xhr.status === 200){
-
-          console.log(inputField.value);
-
-          inputField.value = "";
-
-          console.log(std_id);
-
-        }
-    }
-  }
-
-  let formData = new FormData(form);
-
-  xhr.send(formData);
-
-}
-
-// Function retrieving messages
-setInterval(() => {
-
-  // Create an XMLHttpRequest object
-  const xhttp = new XMLHttpRequest();
-
-  xhttp.open("POST", "std_getChat.php", true);
-
-  // Define a callback function
-  xhttp.onload = function() {
-    // Here you can use the Data
-    if(xhttp.readyState === XMLHttpRequest.DONE){
-      
-      if(xhttp.status === 200){
-        
-        let data = xhttp.response;
-
-        document.querySelector(".chat").innerHTML = data;
-
-      }
-    }
-  }
-
-  // Send a request
-  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  xhttp.send();
-
-}, 1500);
+var counsellors = "";
 
 // click event to populate the list for counsellors in the dropdown
 document.querySelector("details .males").onclick = function() {
@@ -178,7 +123,17 @@ document.querySelector("details .males").onclick = function() {
 
         document.querySelector(".listed").innerHTML = data;
 
-        console.log(document.querySelector(".listed .the-id").value);
+        document.querySelector(".listed li").onclick = function () {
+
+          var counsellor_id = document.querySelector(".listed .the-id").value;
+          //console.log(document.querySelector(".listed .the-id").value);
+
+          counsellors = counsellor_id;
+
+          console.log(counsellor_id);
+          console.log(incoming_id);
+
+        }
 
       }
     }
@@ -186,7 +141,9 @@ document.querySelector("details .males").onclick = function() {
 
   // Send a request
   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  xhttp.send();
+  // xhttp.send();
+
+  xhttp.send("counsellor_id="+counsellors);
 
 }
 
@@ -220,5 +177,57 @@ document.querySelector("details .females").onclick = function() {
   // Send a request
   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   xhttp.send();
+
+}
+
+// Function retrieving messages
+setInterval(() => {
+
+  // Create an XMLHttpRequest object
+  const xhttp = new XMLHttpRequest();
+
+  xhttp.open("POST", "std_getChat.php", true);
+
+  // Define a callback function
+  xhttp.onload = function() {
+    // Here you can use the Data
+    if(xhttp.readyState === XMLHttpRequest.DONE){
+      
+      if(xhttp.status === 200){
+        
+        let data = xhttp.response;
+
+        document.querySelector(".chat").innerHTML = data;
+
+      }
+    }
+  }
+
+  // Send a request
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send();
+
+}, 1500);
+
+//  Click event to send a message
+sendBtn.onclick = () => {
+
+  let xhr = new XMLHttpRequest();
+  xhr.open("POST", "std_newMessage.php", true);
+  xhr.onload = () => {
+    if(xhr.readyState === XMLHttpRequest.DONE){
+        if(xhr.status === 200){
+
+          console.log(inputField.value);
+
+          inputField.value = "";
+
+        }
+    }
+  }
+
+  let formData = new FormData(form);
+
+  xhr.send(formData);
 
 }
