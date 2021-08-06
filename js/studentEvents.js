@@ -25,6 +25,12 @@ const sendBtn = document.querySelector(".sending");
 // Notifications button event
 notifications.onclick = function() {
   modal.style.display = "block";
+
+  // Checking if the counsellor id is stored in session yet
+  if ( counsellorid == "") {
+    counsellorid.innerHTML = "";
+  }
+
 }
 
 form.onsubmit = (e)=>{
@@ -119,14 +125,11 @@ document.querySelector("details .males").onclick = function() {
         
         let data = xhttp.response;
 
-        console.log(data);
-
         document.querySelector(".listed").innerHTML = data;
 
         document.querySelector(".listed li").onclick = function () {
 
           var counsellor_id = document.querySelector(".listed .the-id").value;
-          //console.log(document.querySelector(".listed .the-id").value);
 
           counsellors = counsellor_id;
 

@@ -499,9 +499,12 @@ main .appointments .wrapper{
   padding: 1rem;
 }
 
+.mail form input,
 .mail form textarea{
   box-shadow: .4px 2px 3px rgb(0 0 0 / 10%);
-  padding: 1rem;
+  padding: .5rem;
+  width: auto;
+  margin-top: 1rem;
 	border: none;
   outline: none;
   border-radius: 1rem;

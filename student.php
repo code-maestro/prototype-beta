@@ -9,6 +9,8 @@
   $complaint = "";
   $complaint_detail = "";
 
+  $var = "";
+
   $staff_id = new User();
   $current_staff =$staff_id->getChatID($_SESSION['std_id']);
 
@@ -32,7 +34,6 @@
             WHERE appointments.users_uid = '$user_id' 
             AND appointments.users_uid = users.users_id 
             AND appointmentS.users_uid = login.users_uid;";
-
 
   $query_approved = "SELECT * FROM approved_appointment INNER JOIN users INNER JOIN login 
                      WHERE approved_appointment.users_uid = '$user_id' 
@@ -332,15 +333,25 @@
 
                     <div class="mail" id="mail">
                       <form action="" method="post">
+                        <input type="text" class="counsellor_mail" name="counsellor-mail">
                         <textarea name="mail-detail" id="mail-detail" placeholder="Compose your Email here ..... " cols="40" rows="6"></textarea>
                         <button id="send-mail" type="submit"> SEND EMAIL </button>
                       </form>
                     </div>
 
                     <form action="#" method="POST" id="typing-area" class="typing-area">
-                      <!-- <input type="text" class="std_id" name="std_id" id="std_id" value="STD/7645" hidden> -->
-                      <!-- $current_staff'sent_msg_id' -->
-                      <input type="text" class="counsellor_id" name="counsellor_id" value="<?php if($_SESSION['counsellor_id']){echo $_SESSION['counsellor_id']; }else { echo ""; } ?>" hidden>
+                      <?php
+
+                        // if (is_null($_SESSION['counsellor_id'])) {
+                        //   $var = '<input type="text" class="counsellor_id" name="counsellor_id" value="" hidden>';
+                        // } else {
+                        //   $var = '<input type="text" class="counsellor_id" name="counsellor_id" value=' . $_SESSION['counsellor_id'] . ' hidden>';                          
+                        // }
+
+                        // echo $var;
+
+                      ?>
+                      <input type="text" class="counsellor_id" name="counsellor_id" value="" hidden>;
                       <input type="text" class="incoming_id" name="incoming_id" value="<?php echo $_SESSION['std_id']; ?>" hidden>
                       <input type="text" name="message" id="message" class="input-field" placeholder="Send a message to the student.." autocomplete="off">
                       <button id="sending" class="sending" name="sending" type="submit">SEND</button>
