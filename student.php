@@ -59,6 +59,10 @@
     <link rel="stylesheet" href="css/student.css">
     <link rel="stylesheet" href="css/global.css">
 
+    <!-- JS  -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+
   </head>
 
   <body>
@@ -332,26 +336,25 @@
                     </div>
 
                     <div class="mail" id="mail">
-                      <form action="" method="post">
+                      <form action="#" method="post">
                         <input type="text" class="counsellor_mail" name="counsellor-mail">
-                        <textarea name="mail-detail" id="mail-detail" placeholder="Compose your Email here ..... " cols="40" rows="6"></textarea>
-                        <button id="send-mail" type="submit"> SEND EMAIL </button>
+                        <textarea name="mail-detail" id="mail-detail" placeholder="Compose your Email here ..... " cols="40" rows="6"></textarea> 
+                        <button id="send-mail" name="send-mail" type="submit"> SEND EMAIL </button>
                       </form>
                     </div>
 
                     <form action="#" method="POST" id="typing-area" class="typing-area">
                       <?php
 
-                        // if (is_null($_SESSION['counsellor_id'])) {
-                        //   $var = '<input type="text" class="counsellor_id" name="counsellor_id" value="" hidden>';
+                        // if (isset($_SESSION['counsellor_id'])) {
+                        //   echo '<input type="text" class="counsellor_id" name="counsellor_id" value=' . $_SESSION['counsellor_id'] . ' hidden>';                          
+                          
                         // } else {
-                        //   $var = '<input type="text" class="counsellor_id" name="counsellor_id" value=' . $_SESSION['counsellor_id'] . ' hidden>';                          
+                        //   echo '<input type="text" class="counsellor_id" name="counsellor_id" value="" hidden>';
                         // }
 
-                        // echo $var;
-
                       ?>
-                      <input type="text" class="counsellor_id" name="counsellor_id" value="" hidden>;
+
                       <input type="text" class="incoming_id" name="incoming_id" value="<?php echo $_SESSION['std_id']; ?>" hidden>
                       <input type="text" name="message" id="message" class="input-field" placeholder="Send a message to the student.." autocomplete="off">
                       <button id="sending" class="sending" name="sending" type="submit">SEND</button>

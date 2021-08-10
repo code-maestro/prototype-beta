@@ -6,7 +6,7 @@
       include 'database/db_module.php';
       include 'modules/user.php';
 
-      $in_id = "STAFF/3893";
+      $in_id = $_POST['counsellor_id'];
       $out_id = $_SESSION['std_id'];
 
       $users = new User();
@@ -38,7 +38,7 @@
         }
       }  else{
 
-        $result .= '<div class="text">No messages are available. Once you send message they will appear here.</div>';
+        $result .= '<div class="text"> SELECT A COUNSELLOR TO RETREIVE MESSAGES </div>';
       
       }
       

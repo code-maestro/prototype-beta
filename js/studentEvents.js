@@ -14,23 +14,29 @@ var liveChat = document.getElementById("livechat");
 var zoomLink = document.getElementById("zoomlink");
 var sendEmail = document.getElementById("sendEmail");
 
-//var std_id = document.getElementById("std_id").value;
-
-var counsellorid = document.querySelector(".counsellor_id").value;
+var counsellorid = document.querySelector(".counsellor_id");
 var incoming_id = document.querySelector(".incoming_id").value;
 
 var notifications = document.querySelector("#notification-btn");
 const sendBtn = document.querySelector(".sending");
 
+const mailForm = document.querySelector(".mail form"),
+sendMail = mailForm.querySelector('button'); 
+
+var mail = localStorage.getItem('selected-counsellor-id');
+
 // Notifications button event
 notifications.onclick = function() {
   modal.style.display = "block";
 
-  // Checking if the counsellor id is stored in session yet
-  if ( counsellorid == "") {
-    counsellorid.innerHTML = "";
-  }
+  //counsellorid.value = localStorage.getItem("selected-counsellor-id");
 
+  //counsellorid.innerHTML(localStorage.getItem("selected-counsellor-id"));
+  console.log(counsellorid);
+}
+
+mailForm.onsubmit = (e)=>{
+  e.preventDefault();
 }
 
 form.onsubmit = (e)=>{
@@ -106,8 +112,6 @@ sendEmail.onclick = function() {
   document.getElementById("mail").style.display = "block";
 }
 
-var counsellors = "";
-
 // click event to populate the list for counsellors in the dropdown
 document.querySelector("details .males").onclick = function() {
 
@@ -131,10 +135,11 @@ document.querySelector("details .males").onclick = function() {
 
           var counsellor_id = document.querySelector(".listed .the-id").value;
 
-          counsellors = counsellor_id;
+          localStorage.setItem("selected-counsellor-id", counsellor_id);
+
+          counsellorid = counsellor_id;
 
           console.log(counsellor_id);
-          console.log(incoming_id);
 
         }
 
@@ -144,9 +149,7 @@ document.querySelector("details .males").onclick = function() {
 
   // Send a request
   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  // xhttp.send();
-
-  xhttp.send("counsellor_id="+counsellors);
+  xhttp.send();
 
 }
 
@@ -199,7 +202,6 @@ setInterval(() => {
       if(xhttp.status === 200){
         
         let data = xhttp.response;
-
         document.querySelector(".chat").innerHTML = data;
 
       }
@@ -208,29 +210,14 @@ setInterval(() => {
 
   // Send a request
   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  xhttp.send();
+  
+  xhttp.send("counsellor_id="+counsellorid);
 
-}, 1500);
+}, 500);
 
-//  Click event to send a message
-sendBtn.onclick = () => {
-
-  let xhr = new XMLHttpRequest();
-  xhr.open("POST", "std_newMessage.php", true);
-  xhr.onload = () => {
-    if(xhr.readyState === XMLHttpRequest.DONE){
-        if(xhr.status === 200){
-
-          console.log(inputField.value);
-
-          inputField.value = "";
-
-        }
-    }
-  }
-
-  let formData = new FormData(form);
-
-  xhr.send(formData);
-
-}
+$( "#sending" ).click(function() {
+  $.post( "std_newMessage.php", { email: mail, incomingid: incoming_id, message: inputField.value} );
+  console.log(mail);
+  console.log(incoming_id);
+  console.log(inputField.value);
+});
