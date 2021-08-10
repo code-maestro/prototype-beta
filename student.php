@@ -342,17 +342,6 @@
                     </div>
 
                     <form action="#" method="POST" id="typing-area" class="typing-area">
-                      <?php
-
-                        // if (isset($_SESSION['counsellor_id'])) {
-                        //   echo '<input type="text" class="counsellor_id" name="counsellor_id" value=' . $_SESSION['counsellor_id'] . ' hidden>';                          
-                          
-                        // } else {
-                        //   echo '<input type="text" class="counsellor_id" name="counsellor_id" value="" hidden>';
-                        // }
-
-                      ?>
-
                       <input type="text" class="incoming_id" name="incoming_id" value="<?php echo $_SESSION['std_id']; ?>" hidden>
                       <input type="text" name="message" id="message" class="input-field" placeholder="Send a message to the student.." autocomplete="off">
                       <button id="sending" class="sending" name="sending" type="submit">SEND</button>

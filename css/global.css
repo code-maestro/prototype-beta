@@ -479,9 +479,10 @@ main .appointments .wrapper{
   font-weight: 400;
 }
 
-.typing-area input:last-child{
+.typing-area button{
   color: #fff;
-  width: 96px;
+  width: 95px;
+  height: 39px;
   border: none;
   outline: none;
   letter-spacing: 2px;

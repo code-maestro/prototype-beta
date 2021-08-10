@@ -28,11 +28,6 @@ var mail = localStorage.getItem('selected-female-counsellor-id');
 // Notifications button event
 notifications.onclick = function() {
   modal.style.display = "block";
-
-  //counsellorid.value = localStorage.getItem("selected-counsellor-id");
-
-  //counsellorid.innerHTML(localStorage.getItem("selected-counsellor-id"));
-  console.log(counsellorid);
 }
 
 mailForm.onsubmit = (e)=>{
@@ -224,7 +219,12 @@ setInterval(() => {
 }, 500);
 
 $( "#sending" ).click(function() {
-  $.post( "std_newMessage.php", { email: counsellorid, incomingid: incoming_id, message: inputField.value} );
+  if (inputField.value == "" ) {
+    alert("Enter a message to start a conversation ");
+  } else {
+    $.post( "std_newMessage.php", { email: counsellorid, incomingid: incoming_id, message: inputField.value} );    
+  }
+
   console.log(counsellorid);
   console.log(incoming_id);
   console.log(inputField.value);

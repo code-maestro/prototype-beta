@@ -27,7 +27,9 @@
     public function getChatData($in_id, $out_id) {
 
       // $sql = "SELECT * FROM messages LEFT JOIN users ON users.users_id = messages.received_msg_id WHERE received_msg_id = '$in_id' AND sent_msg_id = '$out_id' OR received_msg_id = '$in_id' AND sent_msg_id = '$out_id' ORDERBY 1;";
-      $sql = "SELECT * FROM messages WHERE received_msg_id = '$in_id' AND sent_msg_id = '$out_id' OR received_msg_id = '$out_id' AND sent_msg_id = '$in_id';";
+      $sql = "SELECT * FROM messages 
+              WHERE received_msg_id = '$in_id' AND sent_msg_id = '$out_id' 
+              OR received_msg_id = '$out_id' AND sent_msg_id = '$in_id';";
 
       $DB = new DatabaseModule();
       $result = $DB->readData($sql);
