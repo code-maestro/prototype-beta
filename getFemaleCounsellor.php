@@ -13,12 +13,13 @@
   if ($femaleOutput) {                 
     foreach ($femaleOutput as $ROW) {
 
-      $result .= ' <li> ' . $ROW['first_name'] . ' ' . $ROW['last_name'] .' </li>';
+      $result .= ' <li> ' . $ROW['first_name'] . ' ' . $ROW['last_name'] .' </li> 
+                  <input class="the-female-id" value=' . $ROW['users_id'] . ' hidden>';
 
     }
   }  else{
 
-    $result .= '<div class="text"> No messages are available. Once you send message they will appear here.</div>';
+    $result .= '<div class="text"> No Male Counsellors available .</div>';
   
   }
   

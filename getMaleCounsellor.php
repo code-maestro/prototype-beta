@@ -22,7 +22,7 @@
     }
   }  else{
 
-    $result .= '<div class="text"> No messages are available. Once you send message they will appear here.</div>';
+    $result .= '<div class="text"> No Female Counsellors available at the moment.</div>';
   
   }
 

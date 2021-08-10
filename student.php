@@ -309,9 +309,7 @@
                       <details>
                       	<summary class="females"> Female </summary>
                       	<ul class="females-listed">
-                      		<li>Item 1</li>
-                      		<li>Item 2</li>
-                      		<li>Item 3</li>
+                          <!-- PHP code  -->
                       	</ul>
                       </details>
                     </div>

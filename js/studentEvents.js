@@ -23,7 +23,7 @@ const sendBtn = document.querySelector(".sending");
 const mailForm = document.querySelector(".mail form"),
 sendMail = mailForm.querySelector('button'); 
 
-var mail = localStorage.getItem('selected-counsellor-id');
+var mail = localStorage.getItem('selected-female-counsellor-id');
 
 // Notifications button event
 notifications.onclick = function() {
@@ -135,7 +135,7 @@ document.querySelector("details .males").onclick = function() {
 
           var counsellor_id = document.querySelector(".listed .the-id").value;
 
-          localStorage.setItem("selected-counsellor-id", counsellor_id);
+          localStorage.setItem("selected-male-counsellor-id", counsellor_id);
 
           counsellorid = counsellor_id;
 
@@ -170,11 +170,19 @@ document.querySelector("details .females").onclick = function() {
         
         let data = xhttp.response;
 
-        console.log(data);
-
         document.querySelector(".females-listed").innerHTML = data;
 
-        //console.log(document.querySelector(".females-listed input"));
+        document.querySelector(".females-listed li").onclick = function () {
+
+          var female_counsellor_id = document.querySelector(".females-listed .the-female-id").value;
+
+          localStorage.setItem("selected-female-counsellor-id", female_counsellor_id);
+
+          counsellorid = female_counsellor_id;
+
+          console.log(female_counsellor_id);
+
+        }
 
       }
     }
@@ -216,8 +224,11 @@ setInterval(() => {
 }, 500);
 
 $( "#sending" ).click(function() {
-  $.post( "std_newMessage.php", { email: mail, incomingid: incoming_id, message: inputField.value} );
-  console.log(mail);
+  $.post( "std_newMessage.php", { email: counsellorid, incomingid: incoming_id, message: inputField.value} );
+  console.log(counsellorid);
   console.log(incoming_id);
   console.log(inputField.value);
+
+  inputField.value = " ";
+
 });
