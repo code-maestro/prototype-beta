@@ -8,12 +8,12 @@
 
   if(!empty($message)){
      
-     $sql = "INSERT INTO messages (sent_msg_id,	received_msg_id,	text_msg)
-              VALUES ('$incoming_id', '$received_id', '$message')";
+    $sql = "INSERT INTO messages (sent_msg_id,	received_msg_id,	text_msg)
+            VALUES ('$incoming_id', '$received_id', '$message')";
 
-      $insert = new DatabaseModule();
+    $insert = new DatabaseModule();
 
-      $insert->saveData($sql);
+    $insert->saveData($sql);
 
   }
     

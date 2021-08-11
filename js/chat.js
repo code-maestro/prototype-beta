@@ -1,9 +1,10 @@
 const form = document.querySelector(".typing-area"),
 incoming_id = form.querySelector(".incoming_id").value,
-std_id = form.querySelector(".std_id"),
+std_id = form.querySelector(".std_id").value,
 inputField = form.querySelector(".input-field"),
-sendBtn = form.querySelector(".sendMe"),
-chatBox = document.querySelector(".chat");
+sendBtn = form.querySelector(".sendMe");
+
+const chatBox = document.querySelector(".chat");
 
 form.onsubmit = (e)=>{
     e.preventDefault();
@@ -13,8 +14,6 @@ inputField.focus();
 
 //  Click event to send a message
 sendBtn.onclick = () => {
-
-  console.log(" clicked this motherfvcker");
 
   let xhr = new XMLHttpRequest();
   xhr.open("POST", "newMessage.php", true);
@@ -33,6 +32,8 @@ sendBtn.onclick = () => {
   }
 
   let formData = new FormData(form);
+
+  console.log(formData);
 
   xhr.send(formData);
 
@@ -55,7 +56,7 @@ setInterval(() => {
         
         let data = xhttp.response;
 
-        chat.innerHTML = data;
+        chatBox.innerHTML = data;
 
       }
     }
@@ -63,17 +64,12 @@ setInterval(() => {
 
   // Send a request
   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  xhttp.send("incoming_id="+incoming_id);
+  
+  xhttp.send("std_id="+std_id);
 
-  // // // FETCH API ALTERNATIVE
-  // fetch('getChat.php')
-  //   .then((res) => console.log(res))
-  //   .catch((error) => console.log(error));
-
-}, 1500);
-
+}, 500);
 
 function scrollToBottom(){
-    chatBox.scrollTop = chatBox.scrollHeight;
-  }
+  chatBox.scrollTop = chatBox.scrollHeight;
+}
   

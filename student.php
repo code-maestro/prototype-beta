@@ -9,6 +9,11 @@
   $complaint = "";
   $complaint_detail = "";
 
+  $var = "";
+
+  $staff_id = new User();
+  $current_staff =$staff_id->getChatID($_SESSION['std_id']);
+
   $new_appointment = new Create();
 
   //  Student signup
@@ -25,12 +30,10 @@
   }
 
   //Retrieving appointments
-
   $query = "SELECT * FROM appointments INNER JOIN users INNER JOIN login 
             WHERE appointments.users_uid = '$user_id' 
             AND appointments.users_uid = users.users_id 
             AND appointmentS.users_uid = login.users_uid;";
-
 
   $query_approved = "SELECT * FROM approved_appointment INNER JOIN users INNER JOIN login 
                      WHERE approved_appointment.users_uid = '$user_id' 
@@ -55,6 +58,10 @@
     <link rel="stylesheet" href="css/fontawesome.min.css">
     <link rel="stylesheet" href="css/student.css">
     <link rel="stylesheet" href="css/global.css">
+
+    <!-- JS  -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/jquery.min.js"></script>
 
   </head>
 
@@ -117,7 +124,9 @@
               <i class="far fa-bell" id="notification-btn" ></i>
               <span class="badge"> 4 </span>
               <ul class="theList">
-                <p>new message </p>
+                <li id="theenotification"> 
+                  <span class="notification-title"> '. $ROW['text_msg'] .' </span>
+                </li>
               </ul>
             </div>
 
@@ -243,33 +252,15 @@
           FAQs
         </h2>
 
-        <div class="faqs-list">
-          <ul>
-            <li>
-              <h3> How do I book an appointment? </h3>
-              <p>
-                You can book an appointment by going to the <a href="appointments.php">Appointments</a> page.
-              </p>
-            </li>
-            <li>
-              <h3> How do I cancel an appointment? </h3>
-              <p>
-                You can cancel an appointment by going to the <a href="appointments.php">Appointments</a> page.
-              </p>
-            </li>
-            <li>
-              <h3> How do I cancel a session? </h3>
-              <p>
-                You can cancel a session by going to the <a href="appointments.php">Appointments</a> page.
-              </p>
-            </li>
-            <li>
-              <h3> How do I cancel a session? </h3>
-              <p>
-                You can cancel a session by going to the <a href="appointments.php">Appointments</a> page.
-              </p>
-            </li>
-          </ul>
+        <div class="container-list">
+          <div>Lorem ipsum dolor sit amet.</div>
+          <div>Lorem ipsum dolor sit amet.</div>
+          <div>Lorem ipsum dolor sit amet.</div>
+          <div>Lorem ipsum dolor sit amet.</div>
+          <div>Lorem ipsum dolor sit amet.</div>
+          <div>Lorem ipsum dolor sit amet.</div>
+          <div>Lorem ipsum dolor sit amet.</div>
+          <div>Lorem ipsum dolor sit amet.</div>
         </div>
       </section>
 
@@ -287,22 +278,46 @@
             <div class="modal-body">
 
               <div class="options">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut eum ratione distinctio corrupti id veniam facilis error quod consequatur. Mollitia blanditiis itaque eveniet reiciendis non, nam voluptatum porro accusantium obcaecati cupiditate officiis a! Blanditiis, ex quisquam est dolorum tenetur officia.
+                <div class="livechat" id="livechat">
+                  <i class="fas fa-comment"></i>
+                  <h4> Start A Realtime Chat </h4>
+                </div>
+
+                <div class="zoom" id="zoomlink">
+                  <i class="fas fa-video"></i>
+                  <h4> Create a Zooom Meeting  </h4>
+                </div>
+                
+                <div class="email" id="sendEmail">
+                  <i class="fas fa-comment"></i>
+                  <h4> Send Email </h4>
+                </div>
               </div>  
 
               <div class="chat-wrap">
                 <section class="chat-area">
                   <div class="chat-box">
+                    <p>Choose a counselor </p>  
+                    <div class="choose">
+                      <details>
+                      	<summary class="males" > Male </summary>
+                      	<ul class="listed">
+                          <!-- PHP code  -->
+                      	</ul>
+                      </details>
+
+                      <details>
+                      	<summary class="females"> Female </summary>
+                      	<ul class="females-listed">
+                          <!-- PHP code  -->
+                      	</ul>
+                      </details>
+                    </div>
+
                     <div class="chat" id="chat">
 
                     </div>
-
-                    <div class="tollfree" id="toll">
-                      <p>Lorem ipsum, dolor sit amet consectetur </p>
-                      <p>Lorem ipsum, dolor sit amet consectetur </p>
-                      <p>Lorem ipsum, dolor sit amet consectetur </p>
-                    </div>
-
+                    
                     <div class="zoomlink" id="zoom">
                       <form action="" method="post">
                         <p>Meeting Details </p>
@@ -319,18 +334,17 @@
                     </div>
 
                     <div class="mail" id="mail">
-                      <form action="" method="post">
-                        <textarea name="mail-detail" id="mail-detail" placeholder="Compose your Email here ..... " cols="40" rows="6"></textarea>
-                        <button id="send-mail" type="submit"> SEND EMAIL </button>
+                      <form action="#" method="post">
+                        <input type="text" class="counsellor_mail" name="counsellor-mail">
+                        <textarea name="mail-detail" id="mail-detail" placeholder="Compose your Email here ..... " cols="40" rows="6"></textarea> 
+                        <button id="send-mail" name="send-mail" type="submit"> SEND EMAIL </button>
                       </form>
                     </div>
 
                     <form action="#" method="POST" id="typing-area" class="typing-area">
-                      <input type="text" name="std_id" id="std_id" value="<?php echo $uid ?>" hidden>
-                      <input type="text" class="incoming_id" name="incoming_id" value="<?php echo $current_user['users_id']; ?>" hidden>
-                      <input type="text" name="message" id="message" class="input-field" placeholder="Send a message to the student..." autocomplete="off">
-                      <input id="sendMe" class="sendMe" name="sendMe" type="submit" value="SEND">
-                      <!-- <button> <i class="fab fa-telegram"></i> </button> -->
+                      <input type="text" class="incoming_id" name="incoming_id" value="<?php echo $_SESSION['std_id']; ?>" hidden>
+                      <input type="text" name="message" id="message" class="input-field" placeholder="Send a message to the student.." autocomplete="off">
+                      <button id="sending" class="sending" name="sending" type="submit">SEND</button>
                     </form>
 
                   </div>

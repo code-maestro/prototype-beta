@@ -21,7 +21,7 @@
 
           if($ROW['received_msg_id'] === $out_id){
 
-            $result .= ' <li>
+            $result .= ' <li id="theenotification"> 
                             <span class="notification-title"> '. $ROW['text_msg'] .' </span>
                           </li>';
 

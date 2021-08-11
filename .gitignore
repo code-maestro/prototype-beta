@@ -6,6 +6,8 @@ STYLE.html
 
 STYLE.css
 
+style.js
+
 modules/acc_activation.php
 
 modules/createMeeting.php
@@ -31,5 +33,8 @@ login.php
 
 modules/chat.php
 
+modules/sendMail.php
+
+js/jquery.min.js
+
 modules/createMessage.php
->>>>>>> 02f6e1b0e6df09cfc9b3c1eaf288cbf166b3e595

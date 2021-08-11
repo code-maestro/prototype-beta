@@ -174,22 +174,31 @@ main .appointments .wrapper{
 }
 
 .main-navbar .chat-title .right .notifications-list .theList {
-  display: none;
+  visibility:hidden;
   font-size: 14px;
   width: 200px;
   position: absolute;
   z-index: 1;
-  padding: .5rem 1rem;
+  padding: .25rem;
   top: 30px;
   right: 5px;
   background: var(--navbar-background-color);
-  border-radius: 1rem;
+  border-radius: .25rem;
   font-weight: 500;
   color: var(--icon-color);
 }
 
+.main-navbar .chat-title .right .notifications-list .theList li{
+  padding: .35rem;
+  margin: .35rem;
+  border: none;
+  border-radius: .25rem;
+  background-color: var(--nav-hover-color);
+}
+
 .main-navbar .chat-title .right .notifications-list:hover .theList{
-  display: block;
+  /* display: block; */
+  visibility: visible;
 }
 
 .main-navbar .chat-title .right div i{
@@ -197,7 +206,8 @@ main .appointments .wrapper{
   font-size: 1.75rem;
 }
 
-.main-navbar .chat-title .right div i:hover{
+.main-navbar .chat-title .right div i:hover,
+.main-navbar .chat-title .right .notifications-list .theList li:hover{
   cursor: pointer;
 }
 
@@ -253,10 +263,50 @@ main .appointments .wrapper{
   color: black;
 }
 
+.modal-header h2 {
+  font-size: 1.5rem;
+  margin: 0 1rem;
+}
+
 .modal-body {
   display: flex;
-  margin: .5rem 1rem;
+  margin: 0 1rem;
   justify-content: space-around;
+}
+
+.modal-body .options{
+  margin: 2rem 0 0 0;
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-body .options h4,
+.modal-body .options i{
+  margin: 0 .5rem;
+}
+
+.modal-body .options h4:hover{
+  cursor: pointer;
+}
+
+.options .livechat,
+.options .zoom,
+.options .email{
+  width: 70%;
+  height: auto;
+  background-color: var(--icon-color);
+  box-shadow: 0 2px 3px rgba(0,0,0,.2);
+  border-radius: 1rem;
+  display: flex;
+  margin: 1rem .5rem;
+  padding: .75rem;
+}
+
+/* Add Animation */
+@keyframes animatetop {
+  from {top: -300px; opacity: 0}
+  to {top: 0; opacity: 1}
 }
 
 /* The Close Button */
@@ -274,6 +324,210 @@ main .appointments .wrapper{
   cursor: pointer;
 }
 
+.chat-wrap{
+  width: 60%;
+  border-radius: 16px;
+}
+
+.chat-box{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  height: 400px;
+  border-radius: 1rem;
+  overflow-y: auto;
+  padding: 1rem;
+}
+
+.chat-box .chat,
+.chat-box .tollfree,
+.chat-box .zoomlink,
+.chat-box .mail{
+  height: 380px;
+  padding: 0 .5rem 0 0;
+  overflow-y: auto;
+}
+
+.chat-box .zoomlink{
+  width: 90%;
+  border-radius: 1rem;
+}
+
+.chat-box .zoomlink form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.chat-box .zoomlink form input{
+  width: 70%;
+}
+
+.chat-box .zoomlink form input,
+.chat-box .zoomlink form button{
+  box-shadow: 0 2px 3px rgba(0,0,0,.15);
+  outline: none;
+  padding: .75rem;
+  margin: .75rem 0;
+  border: none;
+  border-radius: 1rem;
+}
+
+.chat-box .zoomlink form button,
+.chat-box .zoomlink form p {
+  font-weight: 600;
+}
+
+.chat-box .zoomlink form .send-options {
+  width: 80%;
+}
+
+.chat-box .zoomlink form .send-options button {
+  background-color: var(--navbar-background-color);
+  color: var(--icon-color);
+  letter-spacing: 1.5px;
+  margin: 0 .25rem;
+  width: 30%;
+}
+
+.chat-box .zoomlink form p:first-child {
+  margin: 0;
+}
+
+.chat-box .tollfree,
+.chat-box .zoomlink,
+.chat-box .mail{
+  display: none;
+  position: absolute;
+  z-index: 2;
+}
+
+.chat-box .chat::-webkit-scrollbar{
+  width: .5rem;
+}
+
+.chat-box .chat::-webkit-scrollbar-track{
+  background: var(--text-color);
+}
+
+.chat-box .chat::-webkit-scrollbar-thumb{
+  background: var(--navbar-background-color);
+  border-radius: 25px;
+}
+
+.chat-box .outgoing,
+.chat-box .incoming{
+  display: flex;
+  margin: 1rem 0;
+}
+
+.chat-box .outgoing .details{
+  margin-left: auto;
+  max-width: calc(100% - 130px);
+}
+.outgoing .details p{
+  padding: .5rem;
+  margin: 0;
+  background: #333;
+  box-shadow: 0 2px 3px rgba(0,0,0,.35);
+  color: #fff;
+  border-radius: 18px 18px 0 18px;
+}
+.chat-box .incoming{
+  align-items: flex-end;
+}
+.chat-box .incoming img{
+  height: 35px;
+  width: 35px;
+}
+.chat-box .incoming .details{
+  word-wrap: break-word;
+  margin-right: auto;
+  margin-left: 10px;
+  max-width: calc(100% - 130px);
+}
+.incoming .details p{
+  margin: 0;
+  padding: .7rem;
+  background: #fff;
+  color: rgb(0, 0, 0);
+  border-radius: 18px 18px 18px 0;
+  box-shadow: 0 2px 3px rgba(0,0,0,.45);
+}
+
+.typing-area{
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.typing-area .input-field{
+  box-shadow: 0 2px 3px rgba(0,0,0,.45);
+  height: 38px;
+  width: calc(100% - 58px);
+  font-size: 16px;
+  padding: 0 8px;
+  border: none;
+  background: #eeeeee;
+  border-radius: 1rem 0 0 1rem;
+  outline: none;
+}
+
+.typing-area .input-field::placeholder{
+  font-weight: 400;
+}
+
+.typing-area button{
+  color: #fff;
+  width: 95px;
+  height: 39px;
+  border: none;
+  outline: none;
+  letter-spacing: 2px;
+  background-color: var(--navbar-background-color);
+  box-shadow: 0 2px 3px rgba(0,0,0,.45);
+  font-size: 19px;
+  cursor: pointer;
+  font-weight: 600;
+  pointer-events: none;
+  border-radius: 0 1rem 1rem 0;
+  transition: all 0.3s ease;
+}
+
+.mail form {
+  padding: 1rem;
+}
+
+.mail form input,
+.mail form textarea{
+  box-shadow: .4px 2px 3px rgb(0 0 0 / 10%);
+  padding: .5rem;
+  width: auto;
+  margin-top: 1rem;
+	border: none;
+  outline: none;
+  border-radius: 1rem;
+  background-color: #f3f3f3;
+  font-weight: 600;
+}
+
+.mail form #send-mail{
+  width: 95%;
+  margin-top: 1rem;
+  height: auto;
+  outline: none;
+  border: none;
+  background-color: var(--navbar-background-color);
+  color: var(--icon-color);
+  border-radius: 1rem;
+  text-align: center;
+  font-weight: 600;
+  letter-spacing: 2px;
+  font-size: 20px;
+  padding: .65rem;
+}
 
 /* Actual list styling */
 .thee-list ul {
@@ -348,7 +602,7 @@ main .appointments .wrapper{
   margin-left: auto;
 }
 
-.thee-list ul li .actions #action-btn{
+.thee-list ul li .actions .action-btn{
   font-size: .9rem;
   margin: 0;
   padding: 0;
@@ -362,18 +616,18 @@ main .appointments .wrapper{
   margin: 0 0 0 .5rem;
 }
 
-.thee-list ul li .actions #action-btn:hover{
+.thee-list ul li .actions .action-btn:hover{
   background-color: var(--navbar-background-color);
   color: var(--icon-color);
   cursor: pointer;
 }
 
-.thee-list ul li .actions #action-btn:nth-child(even):hover{
+.thee-list ul li .actions .action-btn:nth-child(even):hover{
   background-color: var(--action-color);
   border: 0;
 }
 
-.thee-list ul li .actions #action-btn:last-child:hover{
+.thee-list ul li .actions .action-btn:last-child:hover{
   background-color: var(--danger-color);
   border: 0;
 }
