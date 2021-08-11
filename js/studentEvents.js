@@ -23,6 +23,8 @@ const sendBtn = document.querySelector(".sending");
 const mailForm = document.querySelector(".mail form"),
 sendMail = mailForm.querySelector('button'); 
 
+const appointmentForm = document.querySelector(".student-info form");
+
 var mail = localStorage.getItem('selected-female-counsellor-id');
 
 // Notifications button event
@@ -30,11 +32,15 @@ notifications.onclick = function() {
   modal.style.display = "block";
 }
 
-mailForm.onsubmit = (e)=>{
+mailForm.onsubmit = (e) => {
   e.preventDefault();
 }
 
-form.onsubmit = (e)=>{
+form.onsubmit = (e) => {
+  e.preventDefault();
+}
+
+appointmentForm.onsubmit = (e) => {
   e.preventDefault();
 }
 
