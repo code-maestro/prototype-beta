@@ -37,4 +37,6 @@ modules/sendMail.php
 
 js/jquery.min.js
 
+.vscode/
+
 modules/createMessage.php

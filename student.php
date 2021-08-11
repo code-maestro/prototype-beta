@@ -193,17 +193,17 @@
           <h2>
             Make a Reservation
           </h2>
-          <form action="" method="post">
+          <form action="" method="post" class="appointment-form">
             <label for="date">Enter a suitable date </label>
-            <input type="date" name="select-date" id="select-date">
+            <input type="date" name="select-date" id="select-date" required>
             <label for="start-time"> Enter Start Time </label>
-            <input type="time" name="start-time" id="start-time"> 
+            <input type="time" name="start-time" id="start-time" required> 
             <label for="end-time"> Enter End Time </label>
-            <input type="time" name="end-time" id="end-time">
+            <input type="time" name="end-time" id="end-time" required>
             <label for="complaint"> Enter your complaint </label>
-            <input type="text" name="complaint" id="complaint">
+            <input type="text" name="complaint" id="complaint" required>
             <label for="complaint"> Enter your complaint details </label>
-            <textarea name="complaint-detail" id="complaint-detail" placeholder="Elaborate more on your complaint/issue ..... " cols="30" rows="6"></textarea>
+            <textarea name="complaint-detail" id="complaint-detail" placeholder="Elaborate more on your complaint/issue ..... " cols="30" rows="6" required></textarea>
             <div class="make-btn">
               <input type="submit" name="make-btn" id="make-btn" value="Make A Reservation">
             </div>
