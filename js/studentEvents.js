@@ -21,11 +21,9 @@ var notifications = document.querySelector("#notification-btn");
 const sendBtn = document.querySelector(".sending");
 
 const mailForm = document.querySelector(".mail form"),
-sendMail = mailForm.querySelector('button'); 
+sendMail = mailForm.querySelector('button');
 
 const appointmentForm = document.querySelector(".student-info form");
-
-var mail = localStorage.getItem('selected-female-counsellor-id');
 
 // Notifications button event
 notifications.onclick = function() {
@@ -236,5 +234,26 @@ $( "#sending" ).click(function() {
   console.log(inputField.value);
 
   inputField.value = " ";
+
+});
+
+// Click event for make button to make an appointment
+$( "#make-btn" ).click(function() {
+
+  console.log("😪😪😪");
+  
+  var selectedDate = document.querySelector("#select-date").value;
+  var selectedStartTime = document.querySelector("#start-time").value;
+  var selectedEndTime = document.querySelector("#end-time").value;
+  var issue = document.querySelector("#complaint").value;
+  var complaintDetail = document.querySelector("#complaint-detail").value;
+  
+  console.log(selectedDate);
+  console.log(selectedStartTime);
+  console.log(selectedEndTime);
+  console.log( issue);
+  console.log(complaintDetail);
+
+  $.post( "modules/std_newAppointment.php", { selectDate: selectedDate, selectStart: selectedStartTime, selectEnd: selectedEndTime, complaint: issue, complaint_detail: complaintDetail } );    
 
 });

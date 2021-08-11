@@ -16,19 +16,6 @@
 
   $new_appointment = new Create();
 
-  //  Student signup
-  if (isset($_POST['make-btn'])) {
-
-    $new_appointment->createAppointment($user_id, $_POST);
-
-    $date = $_POST['select-date'];
-    $start_time = $_POST['start-time'];
-    $end_time = $_POST['end-time'];
-    $complaint = $_POST['complaint'];
-    $complaint_detail = $_POST['complaint-detail'];
-  
-  }
-
   //Retrieving appointments
   $query = "SELECT * FROM appointments INNER JOIN users INNER JOIN login 
             WHERE appointments.users_uid = '$user_id' 
@@ -193,7 +180,7 @@
           <h2>
             Make a Reservation
           </h2>
-          <form action="" method="post" class="appointment-form">
+          <form action="" method="post">
             <label for="date">Enter a suitable date </label>
             <input type="date" name="select-date" id="select-date" required>
             <label for="start-time"> Enter Start Time </label>
@@ -203,7 +190,7 @@
             <label for="complaint"> Enter your complaint </label>
             <input type="text" name="complaint" id="complaint" required>
             <label for="complaint"> Enter your complaint details </label>
-            <textarea name="complaint-detail" id="complaint-detail" placeholder="Elaborate more on your complaint/issue ..... " cols="30" rows="6" required></textarea>
+            <textarea name="complaint-detail" id="complaint-detail" placeholder="Elaborate more on your complaint/issue ..... " cols="30" rows="6"></textarea>
             <div class="make-btn">
               <input type="submit" name="make-btn" id="make-btn" value="Make A Reservation">
             </div>
