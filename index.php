@@ -136,7 +136,6 @@
     
     <title> Student Welfare </title>
 
-    <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/index.css">
 
   </head>
