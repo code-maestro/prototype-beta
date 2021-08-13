@@ -316,8 +316,9 @@
                 <a class="email" id="sendEmail" href="mailto:<?php echo $email; ?>">
                   <i class="fas fa-comment"></i>
                   <h4> Send Email </h4>
-                </div>
                 </a>  
+                
+              </div>
 
               <div class="chat-wrap">
                 <section class="chat-area">
