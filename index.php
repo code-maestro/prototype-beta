@@ -109,7 +109,7 @@
       $result = $signup->evaluate($_POST);
 
       if ($result != "") {
-          $result = "ENTER DATA IN ALL FIELDS";
+          $result .= "ENTER DATA IN ALL FIELDS";
       }else {
           $result = "SUCCESS";
       }
@@ -136,7 +136,6 @@
     
     <title> Student Welfare </title>
 
-    <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/index.css">
 
   </head>
@@ -180,8 +179,8 @@
                   <input type="email" name="email" id="email" placeholder="Enter email" required>
                   <input type="text" name="first_name" id="first_name" placeholder="Enter Firstname" required>
                   <input type="text" name="last_name" id="last_name" placeholder="Enter Lastname" required>
-                  <input type="password" name="password" id="password" placeholder="Enter Password" required>
-                  <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm Password" required>
+                  <input type="password" name="password" id="password2" placeholder="Enter Password" required>
+                  <input type="password" name="confirm_password" id="confirm_password2" placeholder="Confirm Password" required>
                   <!-- SUBMIT / SIGN UP BUTTON -->
                   <input type="submit" name="staff_register" value="Sign up ">
                 </form>

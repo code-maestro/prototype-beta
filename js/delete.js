@@ -46,13 +46,13 @@ function verifyPassword() {
 	var confirm_password = document.getElementById("confirm_password").value;
 
 	//minimum password length validation  
-	if (password.length < 5) {
+	if (password.length < 5 || confirm_password.length < 5) {
 		document.getElementById("err-msg2").innerHTML = "**Password is too short ";
 		alert(" too short ");
 		return false;
 	}
 
-	if (password != confirm_password) {
+	if (password !== confirm_password) {
 		document.getElementById("err-msg2").innerHTML = "**Password mismatch ";
 		alert(" MISMATCH  ");
 		return false;
@@ -62,8 +62,8 @@ function verifyPassword() {
 
 // PASSWORD COMPARISION
 function verifyStaffPassword() {
-	var password = document.getElementById("password").value;
-	var confirm_password = document.getElementById("confirm_password").value;
+	var password = document.getElementById("password2").value;
+	var confirm_password = document.getElementById("confirm_password2").value;
 
 	//minimum password length validation  
 	if (password.length < 5) {

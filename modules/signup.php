@@ -17,10 +17,10 @@ include 'create.php';
           
         }
 
-        if ($key == "email") {
+        if ($key == "email") { 
 
-          if (!preg_match("/([\w\-]+\@[\w\-]+\.[\w\-]+)/", $value)) {
-            
+          if (!preg_match('|@must.ac.ug$|', $value)){
+
             $this->error = $this->error . " INVALID EMAIL ADDRESS ! <br> ";
           
           }
