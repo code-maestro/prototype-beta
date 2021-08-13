@@ -7,7 +7,7 @@
     <img src="resources/img/must.png" alt="avatar">
     <input type="text" name="id" value="<?php echo $ROW['appointment_id'] ?>" hidden>
     <input type="text" name="uid"  value="<?php echo $ROW['users_id'] ?>" hidden>
-    <input type="text" name="date" value="<?php echo $ROW['date'] ?>" hidden>
+    <input type="text" name="date" value="<?php echo $ROW['appointment_date'] ?>" hidden>
     <input type="text" name="time" value="<?php echo $ROW['start_time'] . " - " . $ROW['end_time']; ?>" hidden>
     <input type="text" name="regno" value="<?php echo $ROW['reg_no'] ?>" hidden>
     <input type="text" name="email" value="<?php echo $ROW['email'] ?>" hidden>

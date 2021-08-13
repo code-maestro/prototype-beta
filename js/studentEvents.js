@@ -21,11 +21,9 @@ var notifications = document.querySelector("#notification-btn");
 const sendBtn = document.querySelector(".sending");
 
 const mailForm = document.querySelector(".mail form"),
-sendMail = mailForm.querySelector('button'); 
+sendMail = mailForm.querySelector('button');
 
 const appointmentForm = document.querySelector(".student-info form");
-
-var mail = localStorage.getItem('selected-female-counsellor-id');
 
 // Notifications button event
 notifications.onclick = function() {
@@ -236,5 +234,61 @@ $( "#sending" ).click(function() {
   console.log(inputField.value);
 
   inputField.value = " ";
+
+});
+
+// Click event for make button to make an appointment
+$( "#make-btn" ).click(function() {
+
+  console.log("😪😪😪");
+  
+  var selectedDate = document.querySelector("#select-date").value;
+  var selectedStartTime = document.querySelector("#start-time").value;
+  var selectedEndTime = document.querySelector("#end-time").value;
+  var issue = document.querySelector("#complaint").value;
+  var complaintDetail = document.querySelector("#complaint-detail").value;
+
+  let currentDate = new Date();
+  let dateSelected = new Date(selectedDate);
+  let startTimeSelected = new Date(selectedStartTime);
+  let endTimeSelected = new Date(selectedEndTime);
+
+  if (dateSelected < currentDate) {
+    alert("you entered a wrong date");
+  }
+
+  if ( selectedEndTime < selectedStartTime) {
+    
+    alert("you entered a wrong time "); 
+    
+  }else{
+    
+    console.log(selectedDate);
+    console.log(selectedStartTime);
+    console.log(selectedEndTime);
+    console.log(issue);
+    console.log(complaintDetail);
+
+    $.post( "modules/std_newAppointment.php", { selectDate: selectedDate, selectStart: selectedStartTime, selectEnd: selectedEndTime, complaint: issue, complaint_detail: complaintDetail } );    
+
+  }
+
+  // if (startTimeSelected.getHours() < endTimeSelected.getHours()) {
+  //   console.log(startTimeSelected.getHours());
+  //   console.log(currentDate.getHours());
+  //   console.log(currentDate.getMinutes());
+  // } else {
+  //   alert("you entered a wrong time "); 
+  // }
+
+  // else {
+  //   console.log(selectedDate);
+  // }
+
+  selectedDate = "";
+  selectedStartTime = ""; 
+  selectedEndTime = ""; 
+  issue = ""; 
+  complaintDetail = ""; 
 
 });

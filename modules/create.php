@@ -4,31 +4,31 @@
 
     private $error = "";
 
-    // Function to create an appointment
-    public function createAppointment($uid, $data){
+    // // Function to create an appointment
+    // public function createAppointment($uid, $data){
 
-      $random = new Create();
-      $appointment_id = $random->randomID("A-");
+    //   $random = new Create();
+    //   $appointment_id = $random->randomID("A-");
       
-      if (!empty($data)) {
+    //   if (!empty($data)) {
         
-        $complaint = addslashes($data['complaint']);
-        $complaint_detail = addslashes($data['complaint-detail']);
-        $date = $data['select-date'];
-        $start_time = $data['start-time'];
-        $end_time = $data['end-time'];
+        // $date = $data['select-date'];
+        // $start_time = $data['start-time'];
+        // $end_time = $data['end-time'];
+        // $complaint = addslashes($data['complaint']);
+        // $complaint_detail = addslashes($data['complaint-detail']);
 
-        // SQL query to save the appointment to db
-        $query = "INSERT INTO appointments (appointment_id, complaint, complaint_detail, date, start_time, end_time, users_uid) 
-                  VALUES ('$appointment_id', '$complaint', '$complaint_detail', '$date', '$start_time', '$end_time', '$uid')";
+    //     // SQL query to save the appointment to db
+    //     $query = "INSERT INTO appointments (appointment_id, complaint, complaint_detail, date, start_time, end_time, users_uid) 
+    //               VALUES ('$appointment_id', '$complaint', '$complaint_detail', '$date', '$start_time', '$end_time', '$uid')";
 
-        $DB = new DatabaseModule();        
-        $DB->saveData($query);
+    //     $DB = new DatabaseModule();        
+    //     $DB->saveData($query);
         
-      }else {
-        $this->error .= "Please enter all the required information </br> ";
-      }
-    }
+    //   }else {
+    //     $this->error .= "Please enter all the required information </br> ";
+    //   }
+    // }
 
   // Creating Pending appointment
     public function createPending($uid, $data){
