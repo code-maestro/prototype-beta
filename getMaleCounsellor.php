@@ -3,7 +3,9 @@
   include 'database/db_module.php';
   include 'modules/user.php';
 
-  $maleQuery = " SELECT * FROM users WHERE users_id LIKE 'STAFF%' AND gender = 'male';";
+  //$maleQuery = " SELECT * FROM users WHERE users_id LIKE 'STAFF%' AND gender = 'male';";
+
+  $maleQuery = 'SELECT users.users_id, users.first_name, users.last_name, login.email FROM users INNER JOIN login ON users.users_id = login.users_uid AND users.users_id LIKE "STAFF%" AND users.gender = "male";';
 
   $counsellors = new User();
   $maleOutput = $counsellors->getCounsellors($maleQuery);
@@ -16,7 +18,6 @@
       $result .= '<li> ' . $ROW['first_name'] . ' ' . $ROW['last_name'] . ' </li>
                   <input class="the-id" value=' . $ROW['users_id'] . ' hidden>';
 
-      session_start();
       $_SESSION['counsellor_id'] = $ROW['users_id'];
 
     }

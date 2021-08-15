@@ -193,6 +193,84 @@ document.querySelector("details .females").onclick = function() {
 
 }
 
+//Click event for the counsellor selector for sending email
+document.querySelector("details .male").onclick = function() {
+  
+  // alert("😂🤣");
+  
+  // Create an XMLHttpRequest object
+  const xhttp = new XMLHttpRequest();
+
+  xhttp.open("POST", "getMaleCounsellor.php", true);
+
+  // Define a callback function
+  xhttp.onload = function() {
+    // Here you can use the Data
+    if(xhttp.readyState === XMLHttpRequest.DONE){
+      
+      if(xhttp.status === 200){
+        
+        let data = xhttp.response;
+
+        console.log(data);
+
+        document.querySelector(".male-listed").innerHTML = data;
+
+        document.querySelector(".listed li").onclick = function () {
+
+          var counsellor_id = document.querySelector(".listed .the-id").value;
+
+          console.log(counsellor_id);
+
+        }
+
+      }
+    }
+  }
+
+  // Send a request
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send();
+
+}
+
+// click event to populate the list for counsellors in the dropdown
+document.querySelector("details .female").onclick = function() {
+
+  // Create an XMLHttpRequest object
+  const xhttp = new XMLHttpRequest();
+
+  xhttp.open("POST", "getFemaleCounsellor.php", true);
+
+  // Define a callback function
+  xhttp.onload = function() {
+    // Here you can use the Data
+    if(xhttp.readyState === XMLHttpRequest.DONE){
+      
+      if(xhttp.status === 200){
+        
+        let data = xhttp.response;
+
+        document.querySelector(".female-listed").innerHTML = data;
+
+        document.querySelector(".female-listed li").onclick = function () {
+
+          var female_counsellor_id = document.querySelector(".female-listed .the-female-id").value;
+
+          console.log(female_counsellor_id);
+
+        }
+
+      }
+    }
+  }
+
+  // Send a request
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send();
+
+}
+
 // Function retrieving messages
 setInterval(() => {
 
