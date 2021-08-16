@@ -212,16 +212,27 @@ document.querySelector("details .male").onclick = function() {
         
         let data = xhttp.response;
 
-        console.log(data);
+        const males = document.querySelector(".male-listed");
+        
+        males.innerHTML = data;
 
-        document.querySelector(".male-listed").innerHTML = data;
+        var clickedMales = males.getElementsByTagName("li");
 
-        document.querySelector(".listed li").onclick = function () {
+        for (const clickedMale of clickedMales) {
+          clickedMale.addEventListener('click', function(event) {
+            
+            const counsellor_email = clickedMale.getAttribute("id");
+            const counsellor_names = clickedMale.getAttribute("class");
+            const counsellor_lname = clickedMale.getAttribute("value");
 
-          var counsellor_id = document.querySelector(".listed .the-id").value;
+            document.querySelector("#selo").innerHTML = counsellor_names + " " + counsellor_lname;
+            document.querySelector("#selomail").innerHTML = counsellor_email;
 
-          console.log(counsellor_id);
+            console.log( counsellor_names + " " + counsellor_email);
 
+            clickedMales.
+
+          })
         }
 
       }
@@ -256,6 +267,8 @@ document.querySelector("details .female").onclick = function() {
         document.querySelector(".female-listed li").onclick = function () {
 
           var female_counsellor_id = document.querySelector(".female-listed .the-female-id").value;
+
+          document.querySelector("#selectedCounsellor").innerHTML = female_counsellor_id;
 
           console.log(female_counsellor_id);
 

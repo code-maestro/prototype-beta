@@ -322,7 +322,7 @@
                     </div>
 
                     <div class="mail" id="mail">
-                      <p>Choose a counselor </p>  
+                      <p>Choose a counselor to send an Email to </p>  
                       <div class="choose">
                         <details>
                           <summary class="male" > Male </summary>
@@ -339,8 +339,9 @@
                         </details>
                       </div>
                       <form action="#" method="post">
-                        <input type="text" class="counsellor_mail" name="counsellor-mail">
-                        <textarea name="mail-detail" id="mail-detail" placeholder="Compose your Email here ..... " cols="40" rows="6"></textarea> 
+                        <p class="names">You are about to send an email to :</p>
+                        <p id="selo"> </p>
+                        <p id="selomail"> </p>
                         <button id="send-mail" name="send-mail" type="submit"> SEND EMAIL </button>
                       </form>
                     </div>

@@ -68,32 +68,6 @@
       
     }
 
-    // Getting user Messages
-    public function getStaffEmail($std_id) {
-
-      $sql = 'SELECT users.first_name, users.last_name, login.email 
-              FROM users 
-              INNER JOIN login 
-              ON users.users_id = login.users_uid 
-              AND login.reg_no="";';
-
-      $DB = new DatabaseModule();
-      $result = $DB->readData($sql);
-
-      if ($result) {
-
-        $row = $result[0];
-
-        return $row; 
-
-      }else {
-
-        return false;      
-
-      }
-      
-    }
-
     // Function to retrieve the total number of users
     public function getTotalUsers($query) {
 
