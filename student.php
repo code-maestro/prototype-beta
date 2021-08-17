@@ -342,7 +342,7 @@
                         <p class="names">You are about to send an email to :</p>
                         <p id="selo"> </p>
                         <p id="selomail"> </p>
-                        <button id="send-mail" name="send-mail" type="submit"> SEND EMAIL </button>
+                        <button id="send-mail" name="send-mail"> SEND EMAIL </button> 
                       </form>
                     </div>
 

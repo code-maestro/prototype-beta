@@ -70,7 +70,6 @@ overviewBtn.onclick = function() {
 
 // COUNSELORS button event
 counselorsBtn.onclick = function() {
-  // document.querySelector(".faqs").style.display = "block";
   document.querySelector(".counselors").style.display = "block";
   document.querySelector(".appointments").style.display = "none";
 }
@@ -196,8 +195,6 @@ document.querySelector("details .females").onclick = function() {
 //Click event for the counsellor selector for sending email
 document.querySelector("details .male").onclick = function() {
   
-  // alert("😂🤣");
-  
   // Create an XMLHttpRequest object
   const xhttp = new XMLHttpRequest();
 
@@ -227,10 +224,6 @@ document.querySelector("details .male").onclick = function() {
 
             document.querySelector("#selo").innerHTML = counsellor_names + " " + counsellor_lname;
             document.querySelector("#selomail").innerHTML = counsellor_email;
-
-            console.log( counsellor_names + " " + counsellor_email);
-
-            clickedMales.
 
           })
         }
@@ -262,16 +255,23 @@ document.querySelector("details .female").onclick = function() {
         
         let data = xhttp.response;
 
-        document.querySelector(".female-listed").innerHTML = data;
+        const females = document.querySelector(".female-listed");
+        
+        females.innerHTML = data;
 
-        document.querySelector(".female-listed li").onclick = function () {
+        var clickedFemales = females.getElementsByTagName("li");
 
-          var female_counsellor_id = document.querySelector(".female-listed .the-female-id").value;
+        for (const clickedFemale of clickedFemales) {
+          clickedFemale.addEventListener('click', function(event) {
+            
+            const counsellor_email = clickedFemale.getAttribute("id");
+            const counsellor_names = clickedFemale.getAttribute("class");
+            const counsellor_lname = clickedFemale.getAttribute("value");
 
-          document.querySelector("#selectedCounsellor").innerHTML = female_counsellor_id;
+            document.querySelector("#selo").innerHTML = counsellor_names + " " + counsellor_lname;
+            document.querySelector("#selomail").innerHTML = counsellor_email;
 
-          console.log(female_counsellor_id);
-
+          })
         }
 
       }
@@ -320,18 +320,12 @@ $( "#sending" ).click(function() {
     $.post( "std_newMessage.php", { email: counsellorid, incomingid: incoming_id, message: inputField.value} );    
   }
 
-  console.log(counsellorid);
-  console.log(incoming_id);
-  console.log(inputField.value);
-
   inputField.value = " ";
 
 });
 
 // Click event for make button to make an appointment
 $( "#make-btn" ).click(function() {
-
-  console.log("😪😪😪");
   
   var selectedDate = document.querySelector("#select-date").value;
   var selectedStartTime = document.querySelector("#start-time").value;
@@ -341,8 +335,6 @@ $( "#make-btn" ).click(function() {
 
   let currentDate = new Date();
   let dateSelected = new Date(selectedDate);
-  let startTimeSelected = new Date(selectedStartTime);
-  let endTimeSelected = new Date(selectedEndTime);
 
   if (dateSelected < currentDate) {
     alert("you entered a wrong date");
@@ -353,28 +345,10 @@ $( "#make-btn" ).click(function() {
     alert("you entered a wrong time "); 
     
   }else{
-    
-    console.log(selectedDate);
-    console.log(selectedStartTime);
-    console.log(selectedEndTime);
-    console.log(issue);
-    console.log(complaintDetail);
 
     $.post( "modules/std_newAppointment.php", { selectDate: selectedDate, selectStart: selectedStartTime, selectEnd: selectedEndTime, complaint: issue, complaint_detail: complaintDetail } );    
 
   }
-
-  // if (startTimeSelected.getHours() < endTimeSelected.getHours()) {
-  //   console.log(startTimeSelected.getHours());
-  //   console.log(currentDate.getHours());
-  //   console.log(currentDate.getMinutes());
-  // } else {
-  //   alert("you entered a wrong time "); 
-  // }
-
-  // else {
-  //   console.log(selectedDate);
-  // }
 
   selectedDate = "";
   selectedStartTime = ""; 
@@ -382,4 +356,17 @@ $( "#make-btn" ).click(function() {
   issue = ""; 
   complaintDetail = ""; 
 
+});
+
+// Click function to send email
+$( "#send-mail" ).click(function() {
+
+  var selectedemail = document.querySelector("#selomail").innerHTML;  
+
+  if (selectedemail == "" ) {
+    alert(" Please Select a Counsellor to send an email to  ");
+  } else {
+    console.log(selectedemail);
+    window.location.href = "mailto:" + selectedemail;
+  }
 });

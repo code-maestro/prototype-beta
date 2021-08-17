@@ -3,7 +3,7 @@
   include 'database/db_module.php';
   include 'modules/user.php';
 
-  $femaleQuery = " SELECT * FROM users WHERE users_id LIKE 'STAFF%' AND gender = 'Female';";
+  $femaleQuery = 'SELECT users.users_id, users.first_name, users.last_name, login.email FROM users INNER JOIN login ON users.users_id = login.users_uid AND users.users_id LIKE "STAFF%" AND users.gender = "female";';
 
   $counsellors = new User();
   $femaleOutput = $counsellors->getCounsellors($femaleQuery);
@@ -13,8 +13,7 @@
   if ($femaleOutput) {                 
     foreach ($femaleOutput as $ROW) {
 
-      $result .= ' <li> ' . $ROW['first_name'] . ' ' . $ROW['last_name'] .' </li> 
-                  <input class="the-female-id" value=' . $ROW['users_id'] . ' hidden>';
+      $result .= '<li id=' . $ROW['email'] . ' class= ' . $ROW['first_name'] . ' value = ' . $ROW['last_name'] . ' > ' . $ROW['first_name'] . ' ' . $ROW['last_name'] . ' </li>';
 
     }
   }  else{
