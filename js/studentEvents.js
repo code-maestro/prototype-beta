@@ -70,7 +70,6 @@ overviewBtn.onclick = function() {
 
 // COUNSELORS button event
 counselorsBtn.onclick = function() {
-  // document.querySelector(".faqs").style.display = "block";
   document.querySelector(".counselors").style.display = "block";
   document.querySelector(".appointments").style.display = "none";
 }
@@ -193,6 +192,98 @@ document.querySelector("details .females").onclick = function() {
 
 }
 
+//Click event for the counsellor selector for sending email
+document.querySelector("details .male").onclick = function() {
+  
+  // Create an XMLHttpRequest object
+  const xhttp = new XMLHttpRequest();
+
+  xhttp.open("POST", "getMaleCounsellor.php", true);
+
+  // Define a callback function
+  xhttp.onload = function() {
+    // Here you can use the Data
+    if(xhttp.readyState === XMLHttpRequest.DONE){
+      
+      if(xhttp.status === 200){
+        
+        let data = xhttp.response;
+
+        const males = document.querySelector(".male-listed");
+        
+        males.innerHTML = data;
+
+        var clickedMales = males.getElementsByTagName("li");
+
+        for (const clickedMale of clickedMales) {
+          clickedMale.addEventListener('click', function(event) {
+            
+            const counsellor_email = clickedMale.getAttribute("id");
+            const counsellor_names = clickedMale.getAttribute("class");
+            const counsellor_lname = clickedMale.getAttribute("value");
+
+            document.querySelector("#selo").innerHTML = counsellor_names + " " + counsellor_lname;
+            document.querySelector("#selomail").innerHTML = counsellor_email;
+
+          })
+        }
+
+      }
+    }
+  }
+
+  // Send a request
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send();
+
+}
+
+// click event to populate the list for counsellors in the dropdown
+document.querySelector("details .female").onclick = function() {
+
+  // Create an XMLHttpRequest object
+  const xhttp = new XMLHttpRequest();
+
+  xhttp.open("POST", "getFemaleCounsellor.php", true);
+
+  // Define a callback function
+  xhttp.onload = function() {
+    // Here you can use the Data
+    if(xhttp.readyState === XMLHttpRequest.DONE){
+      
+      if(xhttp.status === 200){
+        
+        let data = xhttp.response;
+
+        const females = document.querySelector(".female-listed");
+        
+        females.innerHTML = data;
+
+        var clickedFemales = females.getElementsByTagName("li");
+
+        for (const clickedFemale of clickedFemales) {
+          clickedFemale.addEventListener('click', function(event) {
+            
+            const counsellor_email = clickedFemale.getAttribute("id");
+            const counsellor_names = clickedFemale.getAttribute("class");
+            const counsellor_lname = clickedFemale.getAttribute("value");
+
+            document.querySelector("#selo").innerHTML = counsellor_names + " " + counsellor_lname;
+            document.querySelector("#selomail").innerHTML = counsellor_email;
+
+          })
+        }
+
+      }
+    }
+  }
+
+  // Send a request
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send();
+
+}
+
 // Function retrieving messages
 setInterval(() => {
 
@@ -229,18 +320,12 @@ $( "#sending" ).click(function() {
     $.post( "std_newMessage.php", { email: counsellorid, incomingid: incoming_id, message: inputField.value} );    
   }
 
-  console.log(counsellorid);
-  console.log(incoming_id);
-  console.log(inputField.value);
-
   inputField.value = " ";
 
 });
 
 // Click event for make button to make an appointment
 $( "#make-btn" ).click(function() {
-
-  console.log("😪😪😪");
   
   var selectedDate = document.querySelector("#select-date").value;
   var selectedStartTime = document.querySelector("#start-time").value;
@@ -250,8 +335,6 @@ $( "#make-btn" ).click(function() {
 
   let currentDate = new Date();
   let dateSelected = new Date(selectedDate);
-  let startTimeSelected = new Date(selectedStartTime);
-  let endTimeSelected = new Date(selectedEndTime);
 
   if (dateSelected < currentDate) {
     alert("you entered a wrong date");
@@ -262,28 +345,10 @@ $( "#make-btn" ).click(function() {
     alert("you entered a wrong time "); 
     
   }else{
-    
-    console.log(selectedDate);
-    console.log(selectedStartTime);
-    console.log(selectedEndTime);
-    console.log(issue);
-    console.log(complaintDetail);
 
     $.post( "modules/std_newAppointment.php", { selectDate: selectedDate, selectStart: selectedStartTime, selectEnd: selectedEndTime, complaint: issue, complaint_detail: complaintDetail } );    
 
   }
-
-  // if (startTimeSelected.getHours() < endTimeSelected.getHours()) {
-  //   console.log(startTimeSelected.getHours());
-  //   console.log(currentDate.getHours());
-  //   console.log(currentDate.getMinutes());
-  // } else {
-  //   alert("you entered a wrong time "); 
-  // }
-
-  // else {
-  //   console.log(selectedDate);
-  // }
 
   selectedDate = "";
   selectedStartTime = ""; 
@@ -291,4 +356,17 @@ $( "#make-btn" ).click(function() {
   issue = ""; 
   complaintDetail = ""; 
 
+});
+
+// Click function to send email
+$( "#send-mail" ).click(function() {
+
+  var selectedemail = document.querySelector("#selomail").innerHTML;  
+
+  if (selectedemail == "" ) {
+    alert(" Please Select a Counsellor to send an email to  ");
+  } else {
+    console.log(selectedemail);
+    window.location.href = "mailto:" + selectedemail;
+  }
 });

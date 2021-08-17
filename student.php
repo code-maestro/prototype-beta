@@ -272,13 +272,14 @@
 
                 <div class="zoom" id="zoomlink">
                   <i class="fas fa-video"></i>
-                  <h4> Create a Zooom Meeting  </h4>
+                  <h4> Upcoming Zooom Meeting  </h4>
                 </div>
                 
-                <div class="email" id="sendEmail">
+                <div class="email" id="sendEmail" href="mailto:<?php echo $email; ?>">
                   <i class="fas fa-comment"></i>
                   <h4> Send Email </h4>
-                </div>
+                </div>  
+                
               </div>  
 
               <div class="chat-wrap">
@@ -321,10 +322,27 @@
                     </div>
 
                     <div class="mail" id="mail">
+                      <p>Choose a counselor to send an Email to </p>  
+                      <div class="choose">
+                        <details>
+                          <summary class="male" > Male </summary>
+                          <ul class="male-listed">
+                            <!-- PHP code  -->
+                          </ul>
+                        </details>
+
+                        <details>
+                          <summary class="female"> Female </summary>
+                          <ul class="female-listed">
+                            <!-- PHP code  -->
+                          </ul>
+                        </details>
+                      </div>
                       <form action="#" method="post">
-                        <input type="text" class="counsellor_mail" name="counsellor-mail">
-                        <textarea name="mail-detail" id="mail-detail" placeholder="Compose your Email here ..... " cols="40" rows="6"></textarea> 
-                        <button id="send-mail" name="send-mail" type="submit"> SEND EMAIL </button>
+                        <p class="names">You are about to send an email to :</p>
+                        <p id="selo"> </p>
+                        <p id="selomail"> </p>
+                        <button id="send-mail" name="send-mail"> SEND EMAIL </button> 
                       </form>
                     </div>
 
