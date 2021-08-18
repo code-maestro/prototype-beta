@@ -110,6 +110,13 @@ sendEmail.onclick = function() {
   document.getElementById("mail").style.display = "block";
 }
 
+document.querySelector("#update-btn").onclick = function() {
+  document.querySelector(".counselors").style.display = "none";
+  document.querySelector(".faqs").style.display = "none";
+  document.querySelector(".appointments").style.display = "none";
+  document.querySelector(".update-form").style.display = "block";
+}
+
 // click event to populate the list for counsellors in the dropdown
 document.querySelector("details .males").onclick = function() {
 

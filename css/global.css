@@ -637,3 +637,31 @@ main .appointments .wrapper{
 .notification-modal {
   display: none;
 }
+
+/* Styling for updating the user data */
+.update-form {
+  display: none;
+}
+
+.update-form form .row {
+  display: flex;
+  margin: 0 1rem;
+}
+
+.update-form form input,
+.update-form form button{
+  border: none;
+  padding: 12px 15px;
+  margin: 12px;
+  width: 50%;
+  outline: none;
+  border-radius: 1rem;
+  background-color: #f8f8f8f3;
+  font-weight: 600;
+}
+
+.update-form form button{
+  background-color: #000;
+  color: #f3f3f3;
+  width: 100%;
+}
