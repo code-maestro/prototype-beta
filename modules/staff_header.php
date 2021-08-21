@@ -3,7 +3,7 @@
     session_start();
 
     include 'database/db_module.php';
-    include 'modules/user.php';
+    include 'user.php';
     
     // Checking whether user is logged in 
     if (isset($_SESSION['staff_id'])) {
@@ -17,12 +17,12 @@
         // Checking if the logged in user exists in db
         if (!$user_details) {
           // Redirecting if use is not found
-          header("Location: ./index.php");
+          header("Location: ../index.php");
           die;
         }
 
     }else{
-      header("Location: ./index.php");
+      header("Location: ../index.php");
       die;
     } 
 

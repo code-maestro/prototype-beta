@@ -16,7 +16,7 @@ inputField.focus();
 sendBtn.onclick = () => {
 
   let xhr = new XMLHttpRequest();
-  xhr.open("POST", "newMessage.php", true);
+  xhr.open("POST", "modules/newMessage.php", true);
   xhr.onload = () => {
     if(xhr.readyState === XMLHttpRequest.DONE){
         if(xhr.status === 200){
@@ -45,7 +45,7 @@ setInterval(() => {
   // Create an XMLHttpRequest object
   const xhttp = new XMLHttpRequest();
 
-  xhttp.open("POST", "getChat.php", true);
+  xhttp.open("POST", "modules/getChat.php", true);
 
   // Define a callback function
   xhttp.onload = function() {

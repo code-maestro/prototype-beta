@@ -3,7 +3,7 @@
   session_start();
 
   include 'database/db_module.php';
-  include 'modules/user.php';
+  include 'user.php';
   
   // Checking whether user is logged in 
   if (isset($_SESSION['std_id'])) {

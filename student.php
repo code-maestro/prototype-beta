@@ -1,6 +1,6 @@
 <?php
 
-  include_once 'std_header.php';
+  include_once 'modules/std_header.php';
   include_once 'modules/create.php';
 
   $date = "";
@@ -90,7 +90,7 @@
 
       <div class="logout">
         <i class="fas fa-sign-out-alt"></i>
-        <h3> <a href="logout.php"> Logout </a> </h3>
+        <h3> <a href="modules/logout.php"> Logout </a> </h3>
       </div>
     </header>
 
@@ -244,6 +244,12 @@
         </h2>
 
         <form action="">
+
+          <div class="row">
+            <div class="profile-pic">
+              <img src="resources/img/must.png" alt="" srcset="">
+            </div>
+          </div>
 
           <div class="row">
             <input type="text" placeholder="First Name">

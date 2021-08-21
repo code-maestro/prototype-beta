@@ -3,8 +3,8 @@
 
     if(isset($_SESSION['staff_id'])){
 
-      include 'database/db_module.php';
-      include 'modules/user.php';
+      include '../database/db_module.php';
+      include 'user.php';
 
       $in_id = $_POST['std_id'];
       $out_id = $_SESSION['staff_id'];

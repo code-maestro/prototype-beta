@@ -56,4 +56,3 @@ sendEmail.onclick = function() {
   document.getElementById("zoom").style.display = "none";
   document.getElementById("mail").style.display = "block";
 }
-

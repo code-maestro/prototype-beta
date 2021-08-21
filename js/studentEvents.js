@@ -72,6 +72,7 @@ overviewBtn.onclick = function() {
 counselorsBtn.onclick = function() {
   document.querySelector(".counselors").style.display = "block";
   document.querySelector(".appointments").style.display = "none";
+  document.querySelector(".update-form").style.display = "none";
 }
 
 // Faqs button event
@@ -123,7 +124,7 @@ document.querySelector("details .males").onclick = function() {
   // Create an XMLHttpRequest object
   const xhttp = new XMLHttpRequest();
 
-  xhttp.open("POST", "getMaleCounsellor.php", true);
+  xhttp.open("POST", "modules/getMaleCounsellor.php", true);
 
   // Define a callback function
   xhttp.onload = function() {
@@ -164,7 +165,7 @@ document.querySelector("details .females").onclick = function() {
   // Create an XMLHttpRequest object
   const xhttp = new XMLHttpRequest();
 
-  xhttp.open("POST", "getFemaleCounsellor.php", true);
+  xhttp.open("POST", "modules/getFemaleCounsellor.php", true);
 
   // Define a callback function
   xhttp.onload = function() {
@@ -205,7 +206,7 @@ document.querySelector("details .male").onclick = function() {
   // Create an XMLHttpRequest object
   const xhttp = new XMLHttpRequest();
 
-  xhttp.open("POST", "getMaleCounsellor.php", true);
+  xhttp.open("POST", "modules/getMaleCounsellor.php", true);
 
   // Define a callback function
   xhttp.onload = function() {
@@ -251,7 +252,7 @@ document.querySelector("details .female").onclick = function() {
   // Create an XMLHttpRequest object
   const xhttp = new XMLHttpRequest();
 
-  xhttp.open("POST", "getFemaleCounsellor.php", true);
+  xhttp.open("POST", "modules/getFemaleCounsellor.php", true);
 
   // Define a callback function
   xhttp.onload = function() {
@@ -297,7 +298,7 @@ setInterval(() => {
   // Create an XMLHttpRequest object
   const xhttp = new XMLHttpRequest();
 
-  xhttp.open("POST", "std_getChat.php", true);
+  xhttp.open("POST", "modules/std_getChat.php", true);
 
   // Define a callback function
   xhttp.onload = function() {
@@ -324,7 +325,7 @@ $( "#sending" ).click(function() {
   if (inputField.value == "" ) {
     alert("Enter a message to start a conversation ");
   } else {
-    $.post( "std_newMessage.php", { email: counsellorid, incomingid: incoming_id, message: inputField.value} );    
+    $.post( "modules/std_newMessage.php", { email: counsellorid, incomingid: incoming_id, message: inputField.value} );    
   }
 
   inputField.value = " ";

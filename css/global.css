@@ -643,8 +643,13 @@ main .appointments .wrapper{
   display: none;
 }
 
+.update-form h2 {
+  text-align: center;
+}
+
 .update-form form .row {
   display: flex;
+  justify-content: center;
   margin: 0 1rem;
 }
 
@@ -664,4 +669,20 @@ main .appointments .wrapper{
   background-color: #000;
   color: #f3f3f3;
   width: 100%;
+}
+
+.update-form form .row .profile-pic{
+  display: flex;
+  align-items: center;
+  border: solid 10px #f3f3f3;
+  border-radius: 50%;  
+  width: 145px;
+  height: 145px;
+  background-color: #333;
+}
+
+.update-form form .row .profile-pic img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
