@@ -1,6 +1,6 @@
 <?php
 
-  include_once 'std_header.php';
+  include_once 'modules/std_header.php';
   include_once 'modules/create.php';
 
   $date = "";
@@ -75,7 +75,11 @@
           </li>
           <li class="nav-item" id="counselors">
             <i class="fas fa-user-md"></i>
-            <h3> Counsellors </h3>
+            <h3>Counsellors </h3>
+          </li>
+          <li class="nav-item" id="update-btn">
+            <i class="fas fa-user-edit"></i>
+            <h3>Update your data</h3>
           </li>
           <li class="nav-item" id="faqs-btn">
             <i class="fas fa-clipboard-list"></i>
@@ -86,7 +90,7 @@
 
       <div class="logout">
         <i class="fas fa-sign-out-alt"></i>
-        <h3> <a href="logout.php"> Logout </a> </h3>
+        <h3> <a href="modules/logout.php"> Logout </a> </h3>
       </div>
     </header>
 
@@ -232,6 +236,47 @@
             </li>
           </ul>
         </div>
+      </section>
+
+      <section class="update-form">
+        <h2>
+          UPDATE YOUR INFORMATION
+        </h2>
+
+        <form action="">
+
+          <div class="row">
+            <div class="profile-pic">
+              <img src="resources/img/must.png" alt="" srcset="">
+            </div>
+          </div>
+
+          <div class="row">
+            <input type="text" placeholder="First Name">
+            <input type="text" placeholder="Last Name">
+          </div>
+
+          <div class="row">
+            <input type="email" placeholder="Email">
+            <input type="text" placeholder="Registration Number">
+          </div>
+
+          <div class="row">
+            <input type="text" placeholder="Gender">
+            <input type="text" placeholder="Phone Number">
+          </div>
+
+          <div class="row">
+            <input type="password" placeholder="Password">
+            <input type="password" placeholder="Comfirm Password">
+          </div>
+
+          <div class="row">
+            <button type="submit" id="update"> UPDATE </button>
+          </div>
+
+        </form>
+
       </section>
 
       <section class="counselors">

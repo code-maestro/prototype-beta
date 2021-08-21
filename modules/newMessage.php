@@ -1,6 +1,6 @@
 <?php 
 
-  include_once "database/db_module.php";
+  include_once "../database/db_module.php";
 
   $incoming_id = $_POST['incoming_id'];
   $received_id = $_POST['std_id'];

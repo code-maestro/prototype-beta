@@ -1,7 +1,7 @@
 <?php 
   
-  include 'database/db_module.php';
-  include 'modules/user.php';
+  include '../database/db_module.php';
+  include 'user.php';
 
   $femaleQuery = 'SELECT users.users_id, users.first_name, users.last_name, login.email FROM users INNER JOIN login ON users.users_id = login.users_uid AND users.users_id LIKE "STAFF%" AND users.gender = "female";';
 
@@ -13,7 +13,8 @@
   if ($femaleOutput) {                 
     foreach ($femaleOutput as $ROW) {
 
-      $result .= '<li id=' . $ROW['email'] . ' class= ' . $ROW['first_name'] . ' value = ' . $ROW['last_name'] . ' > ' . $ROW['first_name'] . ' ' . $ROW['last_name'] . ' </li>';
+      $result .= '<li id=' . $ROW['email'] . ' class= ' . $ROW['first_name'] . ' value = ' . $ROW['last_name'] . ' > ' . $ROW['first_name'] . ' ' . $ROW['last_name'] . ' </li>' .
+                  '<input class="the-female-id" value = ' . $ROW['users_id'] . ' hidden> ';
 
     }
   }  else{

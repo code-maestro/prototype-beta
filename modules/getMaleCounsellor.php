@@ -1,7 +1,7 @@
 <?php 
   
-  include 'database/db_module.php';
-  include 'modules/user.php';
+  include '../database/db_module.php';
+  include 'user.php';
 
   //$maleQuery = " SELECT * FROM users WHERE users_id LIKE 'STAFF%' AND gender = 'male';";
 
@@ -15,7 +15,8 @@
   if ($maleOutput) {                 
     foreach ($maleOutput as $ROW) {
 
-      $result .= '<li id=' . $ROW['email'] . ' class= ' . $ROW['first_name'] . ' value = ' . $ROW['last_name'] . ' > ' . $ROW['first_name'] . ' ' . $ROW['last_name'] . ' </li>';
+      $result .= '<li id=' . $ROW['email'] . ' class= ' . $ROW['first_name'] . ' value = ' . $ROW['last_name'] . ' > ' . $ROW['first_name'] . ' ' . $ROW['last_name'] . ' </li>' .
+                  '<input class="the-id" value = ' . $ROW['users_id'] . ' hidden> ';
 
       $_SESSION['counsellor_id'] = $ROW['users_id'];
 

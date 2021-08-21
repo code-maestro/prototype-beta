@@ -1,8 +1,8 @@
 <?php
   
-  include_once 'staff_header.php';
+  include_once 'modules/staff_header.php';
   include_once 'modules/create.php';
-  include_once 'zoom_config.php';
+  include_once 'modules/zoom_config.php';
 
   $user = new User();
   $current_user = $user->getData($_SESSION['staff_id']);
@@ -150,7 +150,7 @@
 
       <div class="logout">
         <i class="fas fa-sign-out-alt"></i>
-        <h3> <a href="logout.php"> Logout </a> </h3>
+        <h3> <a href="modules/logout.php"> Logout </a> </h3>
       </div>
     </header>
 
