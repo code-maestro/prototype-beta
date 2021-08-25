@@ -251,24 +251,8 @@
             </div>
           </div>
 
-          <div class="row">
-            <input type="text" placeholder="First Name">
-            <input type="text" placeholder="Last Name">
-          </div>
-
-          <div class="row">
-            <input type="email" placeholder="Email">
-            <input type="text" placeholder="Registration Number">
-          </div>
-
-          <div class="row">
-            <input type="text" placeholder="Gender">
-            <input type="text" placeholder="Phone Number">
-          </div>
-
-          <div class="row">
-            <input type="password" placeholder="Password">
-            <input type="password" placeholder="Comfirm Password">
+          <div class="from_db">
+            
           </div>
 
           <div class="row">

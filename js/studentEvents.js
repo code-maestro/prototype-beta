@@ -116,6 +116,31 @@ document.querySelector("#update-btn").onclick = function() {
   document.querySelector(".faqs").style.display = "none";
   document.querySelector(".appointments").style.display = "none";
   document.querySelector(".update-form").style.display = "block";
+
+  // Create an XMLHttpRequest object
+  const xhttp = new XMLHttpRequest();
+
+  xhttp.open("POST", "modules/updateData.php", true);
+
+  // Define a callback function
+  xhttp.onload = function() {
+    // Here you can use the Data
+    if(xhttp.readyState === XMLHttpRequest.DONE){
+      
+      if(xhttp.status === 200){
+        
+        let data = xhttp.response;
+
+        document.querySelector(".from_db").innerHTML = data;
+
+      }
+    }
+  }
+
+  // Send a request
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send();
+
 }
 
 // click event to populate the list for counsellors in the dropdown
