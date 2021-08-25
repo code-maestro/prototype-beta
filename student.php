@@ -20,7 +20,9 @@
   $query = "SELECT * FROM appointments INNER JOIN users INNER JOIN login 
             WHERE appointments.users_uid = '$user_id' 
             AND appointments.users_uid = users.users_id 
-            AND appointmentS.users_uid = login.users_uid;";
+            AND appointments.users_uid = login.users_uid;";
+
+  $sqll = "SELECT * FROM appointments";
 
   $query_approved = "SELECT * FROM approved_appointment INNER JOIN users INNER JOIN login 
                      WHERE approved_appointment.users_uid = '$user_id' 
@@ -28,6 +30,32 @@
                      AND appointmentS.users_uid = login.users_uid;";
 
   $my_list = $new_appointment->retrieveAppointments($query);
+
+  $t = $new_appointment->retrieveAppointments($sqll);
+
+  foreach ($t as $value) {
+    
+    $das_array = $value['appointment_date']; 
+    $das_ray = $value['complaint']; 
+
+    echo json_encode($das_ray);
+    echo json_encode($das_array);
+
+    echo 
+    "
+      <script>
+
+        var das_array = [];
+
+        foreach ('json_encode($das_array)' as $value) {
+          console.log(das_array);
+          console.log(das_ray);
+        }
+
+      </script>
+    ";
+
+  }
 
 ?>
 
@@ -41,14 +69,19 @@
     <title>Student View </title>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="css/all.min.css">
-    <link rel="stylesheet" href="css/fontawesome.min.css">
     <link rel="stylesheet" href="css/student.css">
     <link rel="stylesheet" href="css/global.css">
 
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/fontawesome.min.css">
+    <link rel="stylesheet" href="css/calendar.min.css">
+
     <!-- JS  -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     <script src="js/jquery.min.js"></script>
+    <script src="js/calendar.min.js"></script>
+
 
   </head>
 

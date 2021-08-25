@@ -107,12 +107,16 @@
     <title>Student View </title>
 
     <!-- CSS -->
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/admin.css"> 
+
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="css/fontawesome.min.css">
-    <link rel="stylesheet" href="css/global.css">
-    <link rel="stylesheet" href="css/admin.css">
-
+    <link rel="stylesheet" href="css/calendar.min.css">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/calendar.min.js"></script>
 
   </head>
 
@@ -364,7 +368,15 @@
         </div>
       </section>
 
+      <!-- div with className calender-container -->
+      <div id="calendar"></div>
+
     </main> 
+
+    <script>
+
+
+    </script>
 
     <script src="js/chat.js"></script>
     <script src="js/events.js"></script>

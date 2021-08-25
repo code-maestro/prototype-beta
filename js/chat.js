@@ -72,4 +72,27 @@ setInterval(() => {
 function scrollToBottom(){
   chatBox.scrollTop = chatBox.scrollHeight;
 }
-  
+
+var sampleEvents = [
+  {
+    title: "Soulful sundays bay area" + document.getElementById("timing").value,
+    date: new Date().setDate(new Date().getDate() - 7),
+    link: "#"
+  },
+  {
+    title: "London Comicon",
+    date: new Date().getTime(), // today
+    link: "#"
+  },
+  {
+    title: "Youth Athletic Camp ",
+    date: new Date().setDate(new Date().getDate() + 31), // next month
+    link: "#"
+  }
+];
+
+
+$("#calendar").MEC({
+events: sampleEvents,
+from_monday:true
+});

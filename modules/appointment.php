@@ -1,7 +1,7 @@
 <form action="" method="post">
   <li id="list" name="list" >
   <div class="time">
-    <input type="text" value="<?php echo $ROW['start_time'] . " - " . $ROW['end_time']; ?>" >
+    <input type="text" id="timing" value="<?php echo $ROW['start_time'] . " - " . $ROW['end_time']; ?>" >
   </div>
   <div class="student">
     <img src="resources/img/must.png" alt="avatar">

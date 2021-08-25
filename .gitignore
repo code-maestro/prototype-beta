@@ -39,6 +39,8 @@ js/jquery.min.js
 
 js/calendar.min.js
 
+css/calendar.min.css
+
 .vscode/
 
 modules/createMessage.php
