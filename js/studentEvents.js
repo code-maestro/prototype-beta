@@ -42,10 +42,10 @@ appointmentForm.onsubmit = (e) => {
   e.preventDefault();
 }
 
-formSend.onclick = function() {
-  alert("😋🤣😂😂😂");
-  console.log(std_id);
-}
+// formSend.onclick = function() {
+//   alert("😋🤣😂😂😂");
+//   console.log(std_id);
+// }
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
@@ -120,7 +120,7 @@ document.querySelector("#update-btn").onclick = function() {
   // Create an XMLHttpRequest object
   const xhttp = new XMLHttpRequest();
 
-  xhttp.open("POST", "modules/updateData.php", true);
+  xhttp.open("POST", "modules/getUserData.php", true);
 
   // Define a callback function
   xhttp.onload = function() {
@@ -402,4 +402,35 @@ $( "#send-mail" ).click(function() {
     console.log(selectedemail);
     window.location.href = "mailto:" + selectedemail;
   }
+});
+
+document.querySelector('.update-form form').onsubmit= (e) => {
+  e.preventDefault();
+}
+
+// Function to update the user data
+$( "#update" ).click(function() {
+
+  var fname = document.querySelector('#update_first_name').value;
+  var lname = document.querySelector('#update_last_name').value;
+  var email = document.querySelector('#update_email').value;
+  var reg = document.querySelector('#update_reg_no').value;
+  var gender = document.querySelector('#update_gender').value;
+  var phone = document.querySelector('#update_phone').value;
+  var pass = document.querySelector('#update_pass').value;
+  var pass2 = document.querySelector('#update_pass2').value;
+
+  console.log(fname + " " + lname + " " + email + " " +  reg + " " + pass2 + "  " + gender + " " + phone + " " +  pass);
+
+  // $.post( "modules/updateUserData.php", 
+  // { 
+  //   fname: fname, 
+  //   lname: lname, 
+  //   email: email,
+  //   reg_no: reg,
+  //   gender: gender,
+  //   phone_number: phone,
+  //   password: pass,
+  //   password2: pass2
+  // });
 });

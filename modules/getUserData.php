@@ -22,23 +22,23 @@
           $result .= 
           '
             <div class="row">
-              <input type="text" placeholder="First Name" value=' . $value['first_name'] . '>
-              <input type="text" placeholder="Last Name" value=' . $value['last_name'] . '>
+              <input type="text" id="update_first_name" placeholder="First Name" value=' . $value['first_name'] . '>
+              <input type="text" id="update_last_name" placeholder="Last Name" value=' . $value['last_name'] . '>
             </div>
 
             <div class="row">
-              <input type="email" placeholder="Email" value=' . $value['email'] .'>
-              <input type="text" placeholder="Registration Number" value=' . $value['reg_no'] . '>
+              <input type="email" id="update_email" placeholder="Email" value=' . $value['email'] .'>
+              <input type="text" id="update_reg_no" placeholder="Registration Number" value=' . $value['reg_no'] . '>
             </div>
 
             <div class="row">
-              <input type="text" placeholder="Gender" value=' . $value['gender'] . '>
-              <input type="text" placeholder="Phone Number" value=' . $value['phone_number'] . '>
+              <input type="text" id="update_gender" placeholder="Gender" value=' . $value['gender'] . '>
+              <input type="text" id="update_phone" placeholder="Phone Number" value=' . $value['phone_number'] . '>
             </div>
 
             <div class="row">
-              <input type="password" placeholder="Password" value=' . $value['password'] . '>
-              <input type="password" placeholder="Comfirm Password" value=' . $value['password'] . '>
+              <input type="password" id="update_pass" placeholder="Password" value=' . $value['password'] . '>
+              <input type="password" id="update_pass2" placeholder="Comfirm Password" value=' . $value['password'] . '>
             </div>
 
           ';
