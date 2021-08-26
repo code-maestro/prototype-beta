@@ -350,7 +350,7 @@ $( "#sending" ).click(function() {
   if (inputField.value == "" ) {
     alert("Enter a message to start a conversation ");
   } else {
-    $.post( "modules/std_newMessage.php", { email: counsellorid, incomingid: incoming_id, message: inputField.value} );    
+    $.post( "modules/std_newMessage.php", { email: counsellorid, incomingid: incoming_id, message: inputField.value} );
   }
 
   inputField.value = " ";
@@ -419,8 +419,6 @@ $( "#update" ).click(function() {
   var phone = document.querySelector('#update_phone').value;
   var pass = document.querySelector('#update_pass').value;
   var pass2 = document.querySelector('#update_pass2').value;
-
-  console.log(fname + " " + lname + " " + email + " " +  reg + " " + pass2 + "  " + gender + " " + phone + " " +  pass);
 
   // $.post( "modules/updateUserData.php", 
   // { 
