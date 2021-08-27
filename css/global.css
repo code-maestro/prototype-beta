@@ -634,16 +634,15 @@ main .appointments .wrapper{
 
 .faqs,
 .counselors,
+.update-form,
 .notification-modal {
   display: none;
 }
 
-/* Styling for updating the user data */
-.update-form {
-  display: none;
-}
-
-.update-form h2 {
+/* STYLING THE UPDATE FORM SECTION */
+.update-form h2,
+.counselors h2 {
+  margin: 2rem 0;
   text-align: center;
 }
 
@@ -686,3 +685,15 @@ main .appointments .wrapper{
   height: 100%;
   object-fit: cover;
 }
+
+.container-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 300px;
+}
+
+.container-list div {
+  margin: 1rem;
+  background-color: yellowgreen;
+}
+

@@ -246,13 +246,4 @@ details ul li:last-child {
 	border-bottom: none;
 }
 
-.container-list {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: 300px;
-}
 
-.container-list div {
-  margin: 1rem;
-  background-color: yellowgreen;
-}
