@@ -113,6 +113,8 @@
     <link rel="stylesheet" href="css/admin.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    
+    <script src="js/jquery.min.js"></script>
 
   </head>
 
@@ -129,17 +131,21 @@
       <!-- RIGHT SIDE NAVBAR -->
       <nav>
         <ul>
-          <li class="nav-item">
+          <li class="nav-item" id="overview" >
             <i class="fas fa-layer-group"></i>
             <h3>Overview</h3>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" id="appointments" >
             <i class="fas fa-calendar-check"></i>
             <h3>Appointments</h3>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" id="counsellors" >
             <i class="fas fa-user-md"></i>
             <h3> Counsellors </h3>
+          </li>
+          <li class="nav-item" id="update-btn">
+            <i class="fas fa-user-edit"></i>
+            <h3>Update your data</h3>
           </li>
           <li class="nav-item">
             <i class="fas fa-clipboard-list"></i>
@@ -362,6 +368,83 @@
             </div>
           </div>
         </div>
+      </section>
+
+      <section class="faqs">
+        <h2>
+          FAQs
+        </h2>
+
+        <div class="faqs-list">
+          <ul>
+            <li>
+              <h3> How do I book an appointment? </h3>
+              <p>
+                You can book an appointment by going to the <a href="appointments.php">Appointments</a> page.
+              </p>
+            </li>
+            <li>
+              <h3> How do I cancel an appointment? </h3>
+              <p>
+                You can cancel an appointment by going to the <a href="appointments.php">Appointments</a> page.
+              </p>
+            </li>
+            <li>
+              <h3> How do I cancel a session? </h3>
+              <p>
+                You can cancel a session by going to the <a href="appointments.php">Appointments</a> page.
+              </p>
+            </li>
+            <li>
+              <h3> How do I cancel a session? </h3>
+              <p>
+                You can cancel a session by going to the <a href="appointments.php">Appointments</a> page.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="counselors">
+        <h2>
+          FAQs
+        </h2>
+
+        <div class="container-list">
+          <div>Lorem ipsum dolor sit amet.</div>
+          <div>Lorem ipsum dolor sit amet.</div>
+          <div>Lorem ipsum dolor sit amet.</div>
+          <div>Lorem ipsum dolor sit amet.</div>
+          <div>Lorem ipsum dolor sit amet.</div>
+          <div>Lorem ipsum dolor sit amet.</div>
+          <div>Lorem ipsum dolor sit amet.</div>
+          <div>Lorem ipsum dolor sit amet.</div>
+        </div>
+      </section>
+
+      <section class="update-form">
+        <h2>
+          UPDATE YOUR INFORMATION
+        </h2>
+
+        <form action="">
+
+          <div class="row">
+            <div class="profile-pic">
+              <img src="resources/img/must.png" alt="" srcset="">
+            </div>
+          </div>
+
+          <div class="from_db">
+
+          </div>
+
+          <div class="row">
+            <button type="submit" id="update-data"> UPDATE </button>
+          </div>
+
+        </form>
+
       </section>
 
     </main> 

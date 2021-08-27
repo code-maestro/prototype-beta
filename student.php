@@ -17,14 +17,14 @@
   $new_appointment = new Create();
 
   //Retrieving appointments
-  $query = "SELECT * FROM appointments INNER JOIN users INNER JOIN login 
-            WHERE appointments.users_uid = '$user_id' 
-            AND appointments.users_uid = users.users_id 
+  $query = "SELECT * FROM appointments INNER JOIN users INNER JOIN login
+            WHERE appointments.users_uid = '$user_id'
+            AND appointments.users_uid = users.users_id
             AND appointmentS.users_uid = login.users_uid;";
 
-  $query_approved = "SELECT * FROM approved_appointment INNER JOIN users INNER JOIN login 
-                     WHERE approved_appointment.users_uid = '$user_id' 
-                     AND appointments.users_uid = users.users_id 
+  $query_approved = "SELECT * FROM approved_appointment INNER JOIN users INNER JOIN login
+                     WHERE approved_appointment.users_uid = '$user_id'
+                     AND appointments.users_uid = users.users_id
                      AND appointmentS.users_uid = login.users_uid;";
 
   $my_list = $new_appointment->retrieveAppointments($query);
@@ -251,28 +251,12 @@
             </div>
           </div>
 
-          <div class="row">
-            <input type="text" placeholder="First Name">
-            <input type="text" placeholder="Last Name">
+          <div class="from_db">
+
           </div>
 
           <div class="row">
-            <input type="email" placeholder="Email">
-            <input type="text" placeholder="Registration Number">
-          </div>
-
-          <div class="row">
-            <input type="text" placeholder="Gender">
-            <input type="text" placeholder="Phone Number">
-          </div>
-
-          <div class="row">
-            <input type="password" placeholder="Password">
-            <input type="password" placeholder="Comfirm Password">
-          </div>
-
-          <div class="row">
-            <button type="submit" id="update"> UPDATE </button>
+            <button type="submit" id="update-data"> UPDATE </button>
           </div>
 
         </form>

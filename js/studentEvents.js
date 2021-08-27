@@ -42,10 +42,10 @@ appointmentForm.onsubmit = (e) => {
   e.preventDefault();
 }
 
-formSend.onclick = function() {
-  alert("😋🤣😂😂😂");
-  console.log(std_id);
-}
+// formSend.onclick = function() {
+//   alert("😋🤣😂😂😂");
+//   console.log(std_id);
+// }
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
@@ -116,6 +116,31 @@ document.querySelector("#update-btn").onclick = function() {
   document.querySelector(".faqs").style.display = "none";
   document.querySelector(".appointments").style.display = "none";
   document.querySelector(".update-form").style.display = "block";
+
+  // Create an XMLHttpRequest object
+  const xhttp = new XMLHttpRequest();
+
+  xhttp.open("POST", "modules/getUserData.php", true);
+
+  // Define a callback function
+  xhttp.onload = function() {
+    // Here you can use the Data
+    if(xhttp.readyState === XMLHttpRequest.DONE){
+      
+      if(xhttp.status === 200){
+        
+        let data = xhttp.response;
+
+        document.querySelector(".from_db").innerHTML = data;
+
+      }
+    }
+  }
+
+  // Send a request
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send();
+
 }
 
 // click event to populate the list for counsellors in the dropdown
@@ -325,7 +350,7 @@ $( "#sending" ).click(function() {
   if (inputField.value == "" ) {
     alert("Enter a message to start a conversation ");
   } else {
-    $.post( "modules/std_newMessage.php", { email: counsellorid, incomingid: incoming_id, message: inputField.value} );    
+    $.post( "modules/std_newMessage.php", { email: counsellorid, incomingid: incoming_id, message: inputField.value} );
   }
 
   inputField.value = " ";
@@ -377,4 +402,34 @@ $( "#send-mail" ).click(function() {
     console.log(selectedemail);
     window.location.href = "mailto:" + selectedemail;
   }
+});
+
+document.querySelector('.update-form form').onsubmit= (e) => {
+  e.preventDefault();
+}
+
+// Function to update the user data
+$( "#update-data" ).click(function() {
+
+  var fname = document.querySelector('#update_first_name').value;
+  var lname = document.querySelector('#update_last_name').value;
+  var email = document.querySelector('#update_email').value;
+  var reg = document.querySelector('#update_reg_no').value;
+  var gender = document.querySelector('#update_gender').value;
+  var phone = document.querySelector('#update_phone').value;
+  var pass = document.querySelector('#update_pass').value;
+  var pass2 = document.querySelector('#update_pass2').value;
+
+  $.post( "modules/updateUserData.php", 
+  { 
+    first_name: fname, 
+    last_name: lname, 
+    mail: email,
+    reg_no: reg,
+    gender: gender,
+    phone_number: phone,
+    password: pass,
+    password2: pass2
+  });
+  
 });
