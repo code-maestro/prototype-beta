@@ -409,7 +409,7 @@ document.querySelector('.update-form form').onsubmit= (e) => {
 }
 
 // Function to update the user data
-$( "#update" ).click(function() {
+$( "#update-data" ).click(function() {
 
   var fname = document.querySelector('#update_first_name').value;
   var lname = document.querySelector('#update_last_name').value;
@@ -420,15 +420,16 @@ $( "#update" ).click(function() {
   var pass = document.querySelector('#update_pass').value;
   var pass2 = document.querySelector('#update_pass2').value;
 
-  // $.post( "modules/updateUserData.php", 
-  // { 
-  //   fname: fname, 
-  //   lname: lname, 
-  //   email: email,
-  //   reg_no: reg,
-  //   gender: gender,
-  //   phone_number: phone,
-  //   password: pass,
-  //   password2: pass2
-  // });
+  $.post( "modules/updateUserData.php", 
+  { 
+    first_name: fname, 
+    last_name: lname, 
+    mail: email,
+    reg_no: reg,
+    gender: gender,
+    phone_number: phone,
+    password: pass,
+    password2: pass2
+  });
+  
 });

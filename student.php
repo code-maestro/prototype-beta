@@ -256,7 +256,7 @@
           </div>
 
           <div class="row">
-            <button type="submit" id="update"> UPDATE </button>
+            <button type="submit" id="update-data"> UPDATE </button>
           </div>
 
         </form>
