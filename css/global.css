@@ -173,6 +173,7 @@ main .appointments .wrapper{
   color: white;
 }
 
+.main-navbar .chat-title .right .schedules .cale,
 .main-navbar .chat-title .right .notifications-list .theList {
   visibility:hidden;
   font-size: 14px;
@@ -188,26 +189,30 @@ main .appointments .wrapper{
   color: var(--icon-color);
 }
 
+.main-navbar .chat-title .right .schedules .cale{
+  top: 45px;
+  width: 400px;
+}
+
 .main-navbar .chat-title .right .notifications-list .theList li{
   padding: .35rem;
-  margin: .35rem;
   border: none;
   border-radius: .25rem;
   background-color: var(--nav-hover-color);
 }
 
+.main-navbar .chat-title .right .schedules:hover .cale,
 .main-navbar .chat-title .right .notifications-list:hover .theList{
   /* display: block; */
   visibility: visible;
 }
 
-.main-navbar .chat-title .right div i{
+.main-navbar .chat-title .right i{
   padding: 1rem;
   font-size: 1.75rem;
 }
 
-.main-navbar .chat-title .right div i:hover,
-.main-navbar .chat-title .right .notifications-list .theList li:hover{
+.main-navbar .chat-title .right div i:hover{
   cursor: pointer;
 }
 

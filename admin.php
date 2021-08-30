@@ -36,8 +36,12 @@
                    AND appointments.users_uid = login.users_uid
                    AND appointments.status = 1";
 
+
+  $sqll = "SELECT * FROM appointments";
+
   $info = new Create();
   $list = $info->retrieveAppointments($sql);
+  $t = $info->retrieveAppointments($sqll);
 
   $uid = "";
   $complaint ="";
@@ -109,12 +113,14 @@
     <!-- CSS -->
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="css/fontawesome.min.css">
+    <link rel="stylesheet" href="css/calendar.min.css">
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/admin.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
     
     <script src="js/jquery.min.js"></script>
+    <script src="js/calendar.min.js"></script>
 
   </head>
 
@@ -172,14 +178,23 @@
 
           <div class="right">
             <div class="schedules">
-              <i class="fas fa-calendar" onclick="viewModal()"></i>
+              <i class="far fa-calendar"></i>
+              <span class="badge"> 4 </span>
+              <div class="cale" id="calendar"></div>
             </div>
 
-            <div class="notifications">
-              <i class="far fa-bell"></i>
+            <div class="notifications-list">
+              <i class="far fa-bell" id="notification-btn" ></i>
               <span class="badge"> 4 </span>
+              <ul class="theList">
+                <li id="theenotification"> 
+                  <span class="notification-title"> '. $ROW['text_msg'] .' </span>
+                </li>
+              </ul>
             </div>
+
           </div>
+
         </div>
       </section>
 
@@ -447,7 +462,64 @@
 
       </section>
 
-    </main> 
+    </main>
+
+      <?php
+
+        foreach ($t as $value) {
+          
+          $titles_array = $value['complaint'];
+      
+          $dates = $value['appointment_date'];
+      
+          print_r($dates);
+      
+          $formatted_date = DateTime::createFromFormat('Y-m-d', 
+        
+          $value['appointment_date']);
+        
+            if ($formatted_date === false) {
+            
+              echo "Incorrect date string";
+            
+            } else {
+            
+              $new_date = $formatted_date->getTimestamp();
+              
+              echo $new_date;
+            
+            }
+          
+            echo "
+              
+              <script>
+          
+                var heavy_fruits = [];
+                
+                myfruit = {};
+                
+                myfruit ['title'] = '$titles_array';
+                myfruit ['date'] = '$new_date'*1000;
+          
+                heavy_fruits.push(myfruit);
+          
+                heavy_fruits.forEach((entry) => {
+                  
+                  console.log(entry);
+                
+                });
+              
+                $('#calendar').MEC({
+                  events: heavy_fruits,
+                  from_monday:true
+                });
+              
+              </script>
+            ";
+              
+          }
+
+      ?>
 
     <script src="js/chat.js"></script>
     <script src="js/events.js"></script>

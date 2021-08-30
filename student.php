@@ -43,12 +43,14 @@
     <!-- CSS -->
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="css/fontawesome.min.css">
+    <link rel="stylesheet" href="css/calendar.min.css">
     <link rel="stylesheet" href="css/student.css">
     <link rel="stylesheet" href="css/global.css">
 
     <!-- JS  -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="js/jquery.min.js"></script>
+    <script src="js/calendar.min.js"></script>
 
   </head>
 
@@ -109,6 +111,7 @@
             <div class="schedules">
               <i class="far fa-calendar"></i>
               <span class="badge"> 4 </span>
+              <div class="cale" id="calendar"></div>
             </div>
 
             <div class="notifications-list">
@@ -390,6 +393,63 @@
       </section>
 
     </main>
+
+    <?php
+
+        foreach ($my_list as $value) {
+          
+          $titles_array = $value['complaint'];
+      
+          $dates = $value['appointment_date'];
+      
+          print_r($dates);
+      
+          $formatted_date = DateTime::createFromFormat('Y-m-d', 
+        
+          $value['appointment_date']);
+        
+            if ($formatted_date === false) {
+            
+              echo "Incorrect date string";
+            
+            } else {
+            
+              $new_date = $formatted_date->getTimestamp();
+              
+              echo $new_date;
+            
+            }
+          
+            echo "
+              
+              <script>
+          
+                var heavy_fruits = [];
+                
+                myfruit = {};
+                
+                myfruit ['title'] = '$titles_array';
+                myfruit ['date'] = '$new_date'*1000;
+          
+                heavy_fruits.push(myfruit);
+          
+                heavy_fruits.forEach((entry) => {
+                  
+                  console.log(entry);
+                
+                });
+              
+                $('#calendar').MEC({
+                  events: heavy_fruits,
+                  from_monday:true
+                });
+              
+              </script>
+            ";
+              
+          }
+
+      ?>
 
     <script src="js/studentEvents.js"></script>
 
