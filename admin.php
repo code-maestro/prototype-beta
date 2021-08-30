@@ -36,8 +36,13 @@
                    AND appointments.users_uid = login.users_uid
                    AND appointments.status = 1";
 
+
+  $sqll = "SELECT * FROM appointments";
+
   $info = new Create();
   $list = $info->retrieveAppointments($sql);
+
+  $t = $info->retrieveAppointments($sqll);
 
   $uid = "";
   $complaint ="";
@@ -164,7 +169,14 @@
           <div class="left">
             <img src="resources/img/must.png" alt="" srcset="">
             <div class="user-info">
-              <span> Willkommen</span>
+              <span> 
+                Willkommen
+                <?php
+                  $date1 = "2019-05-16 12:11:01";
+                  $timestamp1 = strtotime($date1);
+                  echo $timestamp1; //
+                ?>
+              </span>
             </div>
           </div>
 
@@ -369,14 +381,64 @@
       </section>
 
       <!-- div with className calender-container -->
-      <div id="calendar"></div>
+      <div class="letitgo" id="calendar"></div>
 
     </main> 
 
-    <script>
+    <?php
 
+      foreach ($t as $value) {
+        
+          $titles_array = $value['complaint'];
 
-    </script>
+          $dates = $value['appointment_date'];
+
+          print_r($dates);
+
+          $formatted_date = DateTime::createFromFormat('Y-m-d', $value['appointment_date']);
+
+          if ($formatted_date === false) {
+
+            echo "Incorrect date string";
+
+          } else {
+
+            $new_date = $formatted_date->getTimestamp();
+            
+            echo $new_date;
+
+          }
+
+          echo "
+            
+            <script>
+
+              var heavy_fruits = [];
+              
+              myfruit = {};
+              
+              myfruit ['title'] = '$titles_array';
+              myfruit ['date'] = '$new_date'*1000;
+
+              heavy_fruits.push(myfruit);
+
+              heavy_fruits.forEach((entry) => {
+                
+                console.log(entry);
+
+              });
+
+              $('#calendar').MEC({
+                events: heavy_fruits,
+                from_monday:true
+              });
+
+            </script>
+          ";
+
+        }
+
+      ?>
 
     <script src="js/chat.js"></script>
     <script src="js/events.js"></script>

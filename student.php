@@ -38,19 +38,23 @@
     $das_array = $value['appointment_date']; 
     $das_ray = $value['complaint']; 
 
-    echo json_encode($das_ray);
-    echo json_encode($das_array);
+    // echo json_encode($das_ray);
+    // echo json_encode($das_array);
 
-    echo 
-    "
+    echo "
+      
       <script>
 
-        var das_array = [];
+        var heavy_fruits = [];
+        
+        myfruit = {};
+        
+        myfruit ['title'] = '$das_ray';
+        myfruit ['weight'] = '$das_array';
 
-        foreach ('json_encode($das_array)' as $value) {
-          console.log(das_array);
-          console.log(das_ray);
-        }
+        heavy_fruits.push(myfruit);
+
+        console.log(heavy_fruits);
 
       </script>
     ";
