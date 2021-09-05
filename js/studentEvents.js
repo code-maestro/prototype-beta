@@ -433,3 +433,44 @@ $( "#update-data" ).click(function() {
   });
   
 });
+
+// array of random words
+// const words = ['fella', 'big', 'outa', 'neeed', 'me'];
+
+// //push words to an object
+// words.forEach(word => {
+//   const fruits = [
+//     {
+//       apple: word,
+//       orange: 17,
+//     }
+//   ];
+
+//   const values = Object.values(fruits)
+//   console.log(values)
+
+// });
+
+// var heavy_fruits = [];
+                
+
+
+// myfruit ['title'] = '$titles_array';
+// myfruit ['date'] = '$new_date'*1000;
+
+// heavy_fruits.push(myfruit);
+
+// heavy_fruits.forEach((entry) => {
+  
+//   console.log(entry);
+
+// });
+
+// ////////////////////////////////////////
+
+
+// const values = Object.values(fruits)
+//console.log(values)
+
+//create an array of random names
+

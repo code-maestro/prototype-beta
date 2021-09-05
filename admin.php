@@ -469,60 +469,53 @@
         foreach ($t as $value) {
           
           $titles_array = $value['complaint'];
-      
-          $dates = $value['appointment_date'];
-      
-          print_r($dates);
-      
-          $formatted_date = DateTime::createFromFormat('Y-m-d', 
-        
-          $value['appointment_date']);
-        
-            if ($formatted_date === false) {
-            
-              echo "Incorrect date string";
-            
-            } else {
-            
-              $new_date = $formatted_date->getTimestamp();
-              
-              echo $new_date;
-            
-            }
+
+          $formatted_date = DateTime::createFromFormat('Y-m-d', $value['appointment_date']);
+
+          if ($formatted_date === false) {
           
-            echo "
-              
-              <script>
+            echo "Incorrect date string";
           
-                var heavy_fruits = [];
-                
-                myfruit = {};
-                
-                myfruit ['title'] = '$titles_array';
-                myfruit ['date'] = '$new_date'*1000;
+          } else {
           
-                heavy_fruits.push(myfruit);
-          
-                heavy_fruits.forEach((entry) => {
-                  
-                  console.log(entry);
-                
-                });
-              
-                $('#calendar').MEC({
-                  events: heavy_fruits,
-                  from_monday:true
-                });
-              
-              </script>
-            ";
-              
+            $new_date = $formatted_date->getTimestamp();            
           }
 
+          echo "
+          
+            <p id='df'> $titles_array </p>
+            <p id='dfd'> $new_date </p>
+
+          ";
+        }
       ?>
 
     <script src="js/chat.js"></script>
     <script src="js/events.js"></script>
+
+    <script>
+
+      var titles = document.querySelectorAll("[id='df']");
+      var timestamps = document.querySelectorAll("[id='dfd']");
+
+      // POPULATING THE OBJECT FOR THE CALENDER
+      var objects = [];
+      
+      for(var i = 0; i < titles.length; i++){
+        objects[i] = {
+          title: titles[i].innerHTML,
+          date: timestamps[i].innerHTML
+        };
+      }
+
+      $('#calendar').MEC({
+        events: objects,
+        from_monday:true
+      });
+
+      console.log(objects);
+
+    </script>
 
   </body>
 
