@@ -415,43 +415,45 @@
             } else {
             
               $new_date = $formatted_date->getTimestamp();
-              
-              echo $new_date;
             
             }
-          
+
             echo "
-              
-              <script>
           
-                var heavy_fruits = [];
-                
-                myfruit = {};
-                
-                myfruit ['title'] = '$titles_array';
-                myfruit ['date'] = '$new_date'*1000;
-          
-                heavy_fruits.push(myfruit);
-          
-                heavy_fruits.forEach((entry) => {
-                  
-                  console.log(entry);
-                
-                });
-              
-                $('#calendar').MEC({
-                  events: heavy_fruits,
-                  from_monday:true
-                });
-              
-              </script>
-            ";
+            <p id='df'> $titles_array </p>
+            <p id='dfd'> $new_date </p>
+
+          ";
               
           }
 
       ?>
 
     <script src="js/studentEvents.js"></script>
+
+    <script>
+
+      var titles = document.querySelectorAll("[id='df']");
+      var timestamps = document.querySelectorAll("[id='dfd']");
+
+      // POPULATING THE OBJECT FOR THE CALENDER
+      var objects = [];
+
+      for(var i = 0; i < titles.length; i++){
+        objects[i] = {
+          title: titles[i].innerHTML,
+          date: parseInt(timestamps[i].innerHTML)*1000
+        };
+      }
+
+      $('#calendar').MEC({
+        events: objects,
+        from_monday:true
+      });
+
+      console.log(objects);
+
+</script>
 
   </body>
 
