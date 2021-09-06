@@ -504,7 +504,7 @@
       for(var i = 0; i < titles.length; i++){
         objects[i] = {
           title: titles[i].innerHTML,
-          date: timestamps[i].innerHTML
+          date: parseInt(timestamps[i].innerHTML)*1000
         };
       }
 
