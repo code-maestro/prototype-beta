@@ -702,3 +702,13 @@ main .appointments .wrapper{
   background-color: yellowgreen;
 }
 
+.aob{
+  /* display: none; */
+  background-color: #2b2b2b;
+}
+
+#df,
+#dfd{
+  display: none;
+}
+

@@ -392,42 +392,40 @@
         </div>
       </section>
 
-    </main>
+      <!-- SECTION FOR THE EVENTS -->
+      <section class="aob">
 
-    <?php
+        <?php
 
-        foreach ($my_list as $value) {
-          
-          $titles_array = $value['complaint'];
-      
-          $dates = $value['appointment_date'];
-      
-          print_r($dates);
-      
-          $formatted_date = DateTime::createFromFormat('Y-m-d', 
-        
-          $value['appointment_date']);
-        
-            if ($formatted_date === false) {
-            
-              echo "Incorrect date string";
-            
-            } else {
-            
-              $new_date = $formatted_date->getTimestamp();
-            
-            }
+          foreach ($my_list as $value) {
+                      
+            $titles_array = $value['complaint'];
 
-            echo "
-          
-            <p id='df'> $titles_array </p>
-            <p id='dfd'> $new_date </p>
+            $dates = $value['appointment_date'];
 
-          ";
+            $formatted_date = DateTime::createFromFormat('Y-m-d', $value['appointment_date']);
+
+              if ($formatted_date === false) {
               
-          }
+                echo "Incorrect date string";
+              
+              } else {
+              
+                $new_date = $formatted_date->getTimestamp();
+              
+              }
+        ?>
+              
+        <div class="aob_content">
+          <p id='df'> <?php echo $titles_array; ?> </p>
+          <p id='dfd'> <?php echo  $new_date; ?> </p>
+        </div>
 
-      ?>
+        <?php } ?>
+      
+      </scetion>
+
+    </main>
 
     <script src="js/studentEvents.js"></script>
 
@@ -435,6 +433,9 @@
 
       var titles = document.querySelectorAll("[id='df']");
       var timestamps = document.querySelectorAll("[id='dfd']");
+
+      // timestamps.style.display = "none";
+      // titles.style.display = "none";
 
       // POPULATING THE OBJECT FOR THE CALENDER
       var objects = [];
