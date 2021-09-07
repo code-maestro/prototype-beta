@@ -124,7 +124,6 @@ main .appointments{
   margin: 0;
   display: flex;
   justify-content: space-evenly;
-  height: 80%;
 }
 
 main .appointments .wrapper{
@@ -536,7 +535,7 @@ main .appointments .wrapper{
 
 /* Actual list styling */
 .thee-list ul {
-  height: 420px;
+  height: 400px;
   padding: .5rem;
   margin: 0 1rem 0 .5rem;
   overflow-y: auto;

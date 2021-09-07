@@ -434,9 +434,6 @@
       var titles = document.querySelectorAll("[id='df']");
       var timestamps = document.querySelectorAll("[id='dfd']");
 
-      // timestamps.style.display = "none";
-      // titles.style.display = "none";
-
       // POPULATING THE OBJECT FOR THE CALENDER
       var objects = [];
 
@@ -454,7 +451,7 @@
 
       console.log(objects);
 
-</script>
+    </script>
 
   </body>
 

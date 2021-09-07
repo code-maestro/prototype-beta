@@ -52,7 +52,7 @@ header .logout h3 a{
 .appointment-list {
   box-shadow: .4px 2px 3px rgb(0 0 0 / 20%);
   border-radius: 1rem;
-  height: 550px;
+  height: 500px;
   margin-top: 1rem;
 }
 
