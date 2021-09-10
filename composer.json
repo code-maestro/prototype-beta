@@ -1,5 +1,7 @@
 {
     "require": {
-        "guzzlehttp/guzzle": "^7.3"
+        "guzzlehttp/guzzle": "^7.3",
+        "twilio/sdk": "^6.28",
+        "messagebird/php-rest-api": "^2.0"
     }
 }

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "002d6feed5d26a2f36c60c9227e70bb7",
+    "content-hash": "4ca06791c16c95e767782512adb07876",
     "packages": [
         {
             "name": "guzzlehttp/guzzle",
@@ -245,6 +245,54 @@
             "time": "2021-06-30T20:03:07+00:00"
         },
         {
+            "name": "messagebird/php-rest-api",
+            "version": "v2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/messagebird/php-rest-api.git",
+                "reference": "128c781855638f3fe42e346f4df4dc165378d3c0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/messagebird/php-rest-api/zipball/128c781855638f3fe42e346f4df4dc165378d3c0",
+                "reference": "128c781855638f3fe42e346f4df4dc165378d3c0",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "php": ">=7.3|^8.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^8.0|^9.0",
+                "vimeo/psalm": "^4.6"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "MessageBird\\": "src/MessageBird/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-2-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "MessageBird",
+                    "email": "info@messagebird.com"
+                }
+            ],
+            "description": "MessageBird REST API client for PHP",
+            "homepage": "https://github.com/messagebird/php-rest-api",
+            "support": {
+                "docs": "https://developers.messagebird.com/api",
+                "issues": "https://github.com/messagebird/php-rest-api/issues",
+                "source": "https://github.com/messagebird/php-rest-api"
+            },
+            "time": "2021-06-30T08:02:59+00:00"
+        },
+        {
             "name": "psr/http-client",
             "version": "1.0.1",
             "source": {
@@ -447,6 +495,60 @@
                 "source": "https://github.com/ralouphie/getallheaders/tree/develop"
             },
             "time": "2019-03-08T08:55:37+00:00"
+        },
+        {
+            "name": "twilio/sdk",
+            "version": "6.28.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/twilio/twilio-php.git",
+                "reference": "530be7f621fc8fb1d2af5ba5a70e278f262e048f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/twilio/twilio-php/zipball/530be7f621fc8fb1d2af5ba5a70e278f262e048f",
+                "reference": "530be7f621fc8fb1d2af5ba5a70e278f262e048f",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1.0"
+            },
+            "require-dev": {
+                "guzzlehttp/guzzle": "^6.3 || ^7.0",
+                "phpunit/phpunit": ">=4.5",
+                "theseer/phpdox": "^0.12.0"
+            },
+            "suggest": {
+                "guzzlehttp/guzzle": "An HTTP client to execute the API requests"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Twilio\\": "src/Twilio/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Twilio API Team",
+                    "email": "api@twilio.com"
+                }
+            ],
+            "description": "A PHP wrapper for Twilio's API",
+            "homepage": "http://github.com/twilio/twilio-php",
+            "keywords": [
+                "api",
+                "sms",
+                "twilio"
+            ],
+            "support": {
+                "issues": "https://github.com/twilio/twilio-php/issues",
+                "source": "https://github.com/twilio/twilio-php/tree/6.28.2"
+            },
+            "time": "2021-09-08T19:54:49+00:00"
         }
     ],
     "packages-dev": [],
