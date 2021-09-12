@@ -26,9 +26,6 @@ vendor/twilio
 
 vendor/messagebird
 
-=======
-config.php
-
 insert-chat.php
 
 insertMessage.php
@@ -50,3 +47,5 @@ js/calendar.min.js
 modules/createMessage.php
 
 twilio.env
+
+zoom/index.php

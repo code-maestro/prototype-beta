@@ -7,7 +7,7 @@ sendBtn = form.querySelector(".sendMe");
 const chatBox = document.querySelector(".chat");
 
 form.onsubmit = (e)=>{
-    e.preventDefault();
+  e.preventDefault();
 }
 
 inputField.focus();
