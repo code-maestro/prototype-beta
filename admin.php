@@ -2,7 +2,6 @@
   
   include_once 'modules/staff_header.php';
   include_once 'modules/create.php';
-  include_once 'modules/zoom_config.php';
 
   $user = new User();
   $current_user = $user->getData($_SESSION['staff_id']);
@@ -45,9 +44,9 @@
 
   $uid = "";
   $complaint ="";
-  $date ="";
-  $time ="";
-  $stdname ="";
+  $date = "";
+  $time = "";
+  $stdname = "";
   $reg_no = ""; 
   $email = "";
   $total = "";
@@ -97,7 +96,7 @@
 
   }
 
-  $url = "https://zoom.us/oauth/authorize?response_type=code&client_id=".CLIENT_ID."&redirect_uri=".REDIRECT_URI;
+  // $url = "https://zoom.us/oauth/authorize?response_type=code&client_id=".CLIENT_ID."&redirect_uri=".REDIRECT_URI;
 
 ?>
 
@@ -331,7 +330,7 @@
 
                 <div class="zoom" id="zoomlink">
                   <i class="fas fa-video"></i>
-                  <h4> Create a Zooom Meeting  </h4>
+                  <h4> Create a Zooom Meeting </h4>
                 </div>
                 
                 <a class="email" id="sendEmail" href="mailto:<?php echo $email; ?>">
@@ -349,8 +348,9 @@
                     </div>
 
                     <div class="zoomlink" id="zoom">
-                      <form action="" method="post">
-                        <p>Meeting Details </p>
+                      <form action="" method="post" id="zoom-form">
+                        <!-- <p>Meeting Details </p> -->
+                        <button class="get-meeting"> Get Meeting Details </button>
                         <input name="meeting-title" value="" placeholder="Meeting Title ">
                         <input name="meeting-id" value="" placeholder="Meeting ID ">
                         <input name="meeting-password" value="" placeholder="Meeting Password ">

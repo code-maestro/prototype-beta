@@ -47,7 +47,7 @@ zoomLink.onclick = function() {
   document.getElementById("mail").style.display = "none";
   document.getElementById("typing-area").style.display = "none";
   document.getElementById("zoom").style.display = "block";
-  document.getElementById("zoom").style.backgroundColor = "#background-color: #f3f3f3;";
+  // document.getElementById("zoom").style.backgroundColor = "#background-color: #f3f3f3;"
 }
 
 sendEmail.onclick = function() {
@@ -60,6 +60,35 @@ sendEmail.onclick = function() {
 // document.querySelector('.update-form form').onsubmit= (e) => {
 //   e.preventDefault();
 // }
+
+document.querySelector('#zoom form').onsubmit= (e) => {
+  e.preventDefault();
+}
+
+document.querySelector('.get-meeting').onclick = () => {
+  
+  console.log("enter her dms ");
+
+  // Create an XMLHttpRequest object
+  const xhttp = new XMLHttpRequest();
+
+  xhttp.open("POST", "zoom/index.php", true);
+
+  // Define a callback function
+  xhttp.onload = function() {
+    // Here you can use the Data
+    if(xhttp.readyState === XMLHttpRequest.DONE){
+      
+      if(xhttp.status === 200){
+        
+        let data = xhttp.response;
+
+        console.log("data");
+
+      }
+    }
+  }
+}
 
 // Overview button event
 document.getElementById("overview").onclick = function() {
