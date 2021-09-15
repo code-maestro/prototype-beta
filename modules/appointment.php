@@ -18,7 +18,6 @@
     <input class="action-btn" name="viewDetails" value="view details" type="submit">
     <input class="action-btn" name="approve-btn" value="approve" type="submit" >  
     <input class="action-btn" name="delete-btn" value="delete" type="submit" >  
-    <!-- <i class="fas fa-trash" id="delete-btn"> </i> -->
   </div>
 </li>
 </form>

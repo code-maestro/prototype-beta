@@ -61,7 +61,7 @@ sendEmail.onclick = function() {
 //   e.preventDefault();
 // }
 
-document.querySelector('#zoom form').onsubmit= (e) => {
+document.querySelector('#zoom form').onsubmit = (e) => {
   e.preventDefault();
 }
 
@@ -72,7 +72,7 @@ document.querySelector('.get-meeting').onclick = () => {
   // Create an XMLHttpRequest object
   const xhttp = new XMLHttpRequest();
 
-  xhttp.open("POST", "zoom/index.php", true);
+  xhttp.open("POST", "../zoom/zooom.php", true);
 
   // Define a callback function
   xhttp.onload = function() {
@@ -85,9 +85,18 @@ document.querySelector('.get-meeting').onclick = () => {
 
         console.log("data");
 
+        console.log(data);
+
+        document.querySelector(".meeting-things").innerHTML = data;
+
       }
     }
   }
+}
+
+// Preventing form resubmit for the view details, approve and delete
+document.querySelector('.list-header form').onsubmit = (e) => {
+  e.preventDefault();
 }
 
 // Overview button event

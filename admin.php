@@ -348,19 +348,23 @@
                     </div>
 
                     <div class="zoomlink" id="zoom">
-                      <form action="" method="post" id="zoom-form">
-                        <!-- <p>Meeting Details </p> -->
-                        <button class="get-meeting"> Get Meeting Details </button>
-                        <input name="meeting-title" value="" placeholder="Meeting Title ">
-                        <input name="meeting-id" value="" placeholder="Meeting ID ">
-                        <input name="meeting-password" value="" placeholder="Meeting Password ">
+                      <!-- Div from the zoom file -->
+                      <div id="zoom-form">
+                        <button class="get-meeting">Get Meeting Details</button>
+                        <div class="ssd">
+                          <input id="meeting-id" name="meeting-id" value="" placeholder="Meeting ID ">
+                          <input name="meeting-password" value="" placeholder="Meeting Password ">
+	                        <input name="meeting-link" value="" placeholder="Meeting Link ">
+	                        <input name="meeting-time" value="" placeholder="Meeting Time ">
+                        </div>
+                        
                         <p> Send to student via </p>
                         <div class="send-options">
                           <button type="submit"> SMS </button>
                           <button type="submit"> EMAIL </button>
                           <button> CHAT </button>
                         </div>
-                      </form>
+                      </div>
                     </div>
 
                     <div class="mail" id="mail">
@@ -464,6 +468,7 @@
 
     </main>
 
+    <!-- Function to loop throught the events and dates and populate and convert them to a list -->
       <?php
 
         foreach ($t as $value) {
@@ -473,11 +478,8 @@
           $formatted_date = DateTime::createFromFormat('Y-m-d', $value['appointment_date']);
 
           if ($formatted_date === false) {
-          
             echo "Incorrect date string";
-          
           } else {
-          
             $new_date = $formatted_date->getTimestamp();            
           }
 
@@ -492,13 +494,13 @@
 
     <script src="js/chat.js"></script>
     <script src="js/events.js"></script>
-
     <script>
 
       var titles = document.querySelectorAll("[id='df']");
       var timestamps = document.querySelectorAll("[id='dfd']");
 
       // POPULATING THE OBJECT FOR THE CALENDER
+      // Took me 2 fvcking weeks to get this hack working
       var objects = [];
       
       for(var i = 0; i < titles.length; i++){
@@ -514,6 +516,17 @@
       });
 
       console.log(objects);
+
+      // Function to get meeting details
+      async function getText(file) {
+        let x = await fetch(file);
+        let y = await x.json();
+
+        document.querySelector(".ssd").innerHTML = y;
+        
+      }
+
+      getText("./zoom/zooom.php");
 
     </script>
 

@@ -357,38 +357,44 @@ main .appointments .wrapper{
   border-radius: 1rem;
 }
 
-.chat-box .zoomlink form {
+.chat-box .zoomlink #zoom-form,
+.chat-box .zoomlink #zoom-form .ssd {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1rem 0;
+  padding: 0 0 1rem 0;
 }
 
-.chat-box .zoomlink form input{
+.chat-box .zoomlink #zoom-form .ssd input{
   width: 70%;
 }
 
-.chat-box .zoomlink form input,
-.chat-box .zoomlink form button{
+.chat-box .zoomlink #zoom-form .ssd input,
+.chat-box .zoomlink #zoom-form button{
   box-shadow: 0 2px 3px rgba(0,0,0,.15);
   outline: none;
   padding: .75rem;
-  margin: .75rem 0;
+  margin: .45rem 0;
   border: none;
   border-radius: 1rem;
 }
 
-.chat-box .zoomlink form button,
-.chat-box .zoomlink form p {
+.chat-box .zoomlink #zoom-form button,
+.chat-box .zoomlink #zoom-form p {
   font-weight: 600;
 }
 
-.chat-box .zoomlink form .send-options {
+.chat-box .zoomlink .get-meeting{
+  width: 75%;
+  margin: 0 0 .25rem 0;
+}
+
+.chat-box .zoomlink #zoom-form .send-options {
   width: 80%;
 }
 
-.chat-box .zoomlink form .send-options button {
+.chat-box .zoomlink #zoom-form .send-options button {
   background-color: var(--navbar-background-color);
   color: var(--icon-color);
   letter-spacing: 1.5px;
@@ -396,7 +402,7 @@ main .appointments .wrapper{
   width: 30%;
 }
 
-.chat-box .zoomlink form p:first-child {
+.chat-box .zoomlink #zoom-form p:first-child {
   margin: 0;
 }
 
