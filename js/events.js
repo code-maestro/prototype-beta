@@ -9,14 +9,36 @@ var sendEmail = document.getElementById("sendEmail");
 
 // When the user clicks on the button, open the modal
 btn.onclick = function () {
-  console.log("Button clicked.");
   
   if (document.getElementById("details-name").innerHTML.length == 0) {
-  // if (document.getElementById("detailsRegno").value.length == 0) {
-    alert("Please Select a student to respond to ! ")
+    alert("Please Select a student to respond to ! ");
   }
   else {
+
     modal.style.display = "block";
+
+    var title = document.querySelector("#details-complaint").innerHTML;
+    var time = document.querySelector("#details-time").innerHTML;
+
+    console.log(title + time);
+  
+    // let currentDate = new Date();
+    // let dateSelected = new Date(selectedDate);
+  
+    // if (dateSelected < currentDate) {
+    //   alert("you entered a wrong date");
+    // }
+  
+    // if ( selectedEndTime < selectedStartTime) {
+      
+    //   alert("you entered a wrong time "); 
+      
+    // }else{
+  
+    //   $.post( "modules/std_newAppointment.php", { selectDate: selectedDate, selectStart: selectedStartTime, selectEnd: selectedEndTime, complaint: issue, complaint_detail: complaintDetail } );    
+  
+    // }
+
   }
 
 }
@@ -28,7 +50,6 @@ span.onclick = function() {
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
-
   if (event.target == modal) {
     modal.style.display = "none";
   }
@@ -48,6 +69,18 @@ zoomLink.onclick = function() {
   document.getElementById("typing-area").style.display = "none";
   document.getElementById("zoom").style.display = "block";
   // document.getElementById("zoom").style.backgroundColor = "#background-color: #f3f3f3;"
+
+  // Function to get meeting details
+  async function getText(file) {
+    let x = await fetch(file);
+    let y = await x.json();
+
+    document.querySelector(".ssd").innerHTML = y;
+    
+  }
+
+  getText("./zoom/zooom.php");
+
 }
 
 sendEmail.onclick = function() {
@@ -57,9 +90,9 @@ sendEmail.onclick = function() {
   document.getElementById("mail").style.display = "block";
 }
 
-// document.querySelector('.update-form form').onsubmit= (e) => {
-//   e.preventDefault();
-// }
+document.querySelector('.update-form form').onsubmit= (e) => {
+  e.preventDefault();
+}
 
 document.querySelector('#zoom form').onsubmit = (e) => {
   e.preventDefault();

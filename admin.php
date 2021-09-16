@@ -293,7 +293,7 @@
               <td id="details-time"> <?php echo $time; ?></td>
             </tr>
             <tr>
-              <td>Prevoius Issue</td>
+              <td>Mental Issue</td>
               <td id="details-complaint"> <?php echo $complaint; ?></td>
             </tr>
             <tr>
@@ -350,15 +350,9 @@
                     <div class="zoomlink" id="zoom">
                       <!-- Div from the zoom file -->
                       <div id="zoom-form">
-                        <button class="get-meeting">Get Meeting Details</button>
-                        <div class="ssd">
-                          <input id="meeting-id" name="meeting-id" value="" placeholder="Meeting ID ">
-                          <input name="meeting-password" value="" placeholder="Meeting Password ">
-	                        <input name="meeting-link" value="" placeholder="Meeting Link ">
-	                        <input name="meeting-time" value="" placeholder="Meeting Time ">
-                        </div>
-                        
-                        <p> Send to student via </p>
+                        <!-- <button class="get-meeting">Get Meeting Details</button> -->
+                        <div class="ssd"></div>
+                        <span> Send to student via </span>
                         <div class="send-options">
                           <button type="submit"> SMS </button>
                           <button type="submit"> EMAIL </button>
@@ -514,19 +508,7 @@
         events: objects,
         from_monday:true
       });
-
       console.log(objects);
-
-      // Function to get meeting details
-      async function getText(file) {
-        let x = await fetch(file);
-        let y = await x.json();
-
-        document.querySelector(".ssd").innerHTML = y;
-        
-      }
-
-      getText("./zoom/zooom.php");
 
     </script>
 
