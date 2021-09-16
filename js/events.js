@@ -98,35 +98,6 @@ document.querySelector('#zoom form').onsubmit = (e) => {
   e.preventDefault();
 }
 
-document.querySelector('.get-meeting').onclick = () => {
-  
-  console.log("enter her dms ");
-
-  // Create an XMLHttpRequest object
-  const xhttp = new XMLHttpRequest();
-
-  xhttp.open("POST", "../zoom/zooom.php", true);
-
-  // Define a callback function
-  xhttp.onload = function() {
-    // Here you can use the Data
-    if(xhttp.readyState === XMLHttpRequest.DONE){
-      
-      if(xhttp.status === 200){
-        
-        let data = xhttp.response;
-
-        console.log("data");
-
-        console.log(data);
-
-        document.querySelector(".meeting-things").innerHTML = data;
-
-      }
-    }
-  }
-}
-
 // Preventing form resubmit for the view details, approve and delete
 document.querySelector('.list-header form').onsubmit = (e) => {
   e.preventDefault();
