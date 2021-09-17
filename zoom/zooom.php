@@ -9,15 +9,19 @@
 		// $arr['password']='MUST';
 		// $arr['type']='2';
 
+		$ip = $_POST['time'];
+		$iparr = str_split($ip, 8); 
+		//print "$iparr[0]";
+
 		$arr['topic'] = $_POST['complaint'];
-		$arr['start_date']=date($_POST['date'].$_POST['time']);
+		$arr['start_date']=date($_POST['date'].$iparr[0]);
 		$arr['duration']=30;
-		//$arr['password']='MUST';
+		$arr['password']='MUST';
 		$arr['type']='2';
 
-		$complaint = $_POST['complaint'];
-    $date = $_POST['date'];
-    $time = $_POST['time'];
+		// $complaint = $_POST['complaint'];
+    // $date = $_POST['date'];
+    // $time = $_POST['time'];
 		
 	// 	$result=createMeeting($arr);
 
