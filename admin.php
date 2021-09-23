@@ -53,7 +53,6 @@
 
   if (isset($_POST['viewDetails'])) {
 
-    // print_r($_POST);
     $uid = $_POST['uid'];
     $complaint = $_POST['complaint'];
     $date = $_POST['date'];
@@ -61,6 +60,10 @@
     $stdname = $_POST['stdname'];
     $reg_no =  $_POST['regno']; 
     $email =  $_POST['email'];
+
+    $_SESSION['issue'] = $complaint;
+    $_SESSION['dd'] = $date;
+    $_SESSION['tt'] = $time;
 
     $sql_count = "SELECT COUNT(id) FROM appointments WHERE users_uid ='$uid';";
     $total = $user->getTotalUsers($sql_count);
@@ -93,6 +96,26 @@
 
     $DB = new DatabaseModule();
     $DB->saveData($sql_delete);
+
+  }
+
+  $approved = "";
+
+  // Condition to delete appointments 
+  if (isset($_POST['sub'])) {
+
+    $mail = $_POST['mail'];
+    
+    $sql_select= "SELECT users_id FROM users INNER JOIN login WHERE users.users_id = login.users_uid AND login.email = '$mail' LIMIT 1";
+
+    $DB = new DatabaseModule();
+    $std_id = $DB->readData($sql_select);
+
+    $_POST['phone'] = $std_id;
+
+    $_SESSION['std'] = $std_id;
+
+    $approved = $_SESSION['std'];
 
   }
 
@@ -336,7 +359,7 @@
                 <a class="email" id="sendEmail" href="mailto:<?php echo $email; ?>">
                   <i class="fas fa-comment"></i>
                   <h4> Send Email </h4>
-                </a>  
+                </a>
                 
               </div>
 
@@ -350,8 +373,10 @@
                     <div class="zoomlink" id="zoom">
                       <!-- Div from the zoom file -->
                       <div id="zoom-form">
-                        <!-- <button class="get-meeting">Get Meeting Details</button> -->
+                        <button class="get-meeting">Get Meeting Details </button>
+                        
                         <div class="ssd"></div>
+
                         <span> Send to student via </span>
                         <div class="send-options">
                           <button type="submit"> SMS </button>

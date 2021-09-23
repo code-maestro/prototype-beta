@@ -4,40 +4,19 @@ var btn = document.getElementById("respond-btn");
 var span = document.getElementsByClassName("close")[0];
 
 var liveChat = document.getElementById("livechat");
-var zoomLink = document.getElementById("zoomlink");
+var zoomLink = document.querySelector("#zoomlink");
 var sendEmail = document.getElementById("sendEmail");
 
 // When the user clicks on the button, open the modal
 btn.onclick = function () {
   
   if (document.getElementById("details-name").innerHTML.length == 0) {
+    
     alert("Please Select a student to respond to ! ");
-  }
-  else {
+
+  } else {
 
     modal.style.display = "block";
-
-    var title = document.querySelector("#details-complaint").innerHTML;
-    var time = document.querySelector("#details-time").innerHTML;
-
-    console.log(title + time);
-  
-    // let currentDate = new Date();
-    // let dateSelected = new Date(selectedDate);
-  
-    // if (dateSelected < currentDate) {
-    //   alert("you entered a wrong date");
-    // }
-  
-    // if ( selectedEndTime < selectedStartTime) {
-      
-    //   alert("you entered a wrong time "); 
-      
-    // }else{
-  
-    //   $.post( "modules/std_newAppointment.php", { selectDate: selectedDate, selectStart: selectedStartTime, selectEnd: selectedEndTime, complaint: issue, complaint_detail: complaintDetail } );    
-  
-    // }
 
   }
 
@@ -70,16 +49,16 @@ zoomLink.onclick = function() {
   document.getElementById("zoom").style.display = "block";
   // document.getElementById("zoom").style.backgroundColor = "#background-color: #f3f3f3;"
 
-  // Function to get meeting details
+    // Function to get meeting details
   async function getText(file) {
     let x = await fetch(file);
-    let y = await x.json();
+    let y = await x.text();
 
     document.querySelector(".ssd").innerHTML = y;
     
   }
 
-  getText("./zoom/zooom.php");
+  getText("./zoom/zoom.php");
 
 }
 
@@ -94,9 +73,9 @@ document.querySelector('.update-form form').onsubmit= (e) => {
   e.preventDefault();
 }
 
-document.querySelector('#zoom form').onsubmit = (e) => {
-  e.preventDefault();
-}
+// document.querySelector('#zoom form').onsubmit = (e) => {
+//   e.preventDefault();
+// }
 
 // Preventing form resubmit for the view details, approve and delete
 document.querySelector('.list-header form').onsubmit = (e) => {
