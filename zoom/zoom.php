@@ -19,12 +19,22 @@
 
   $res = array();
 
-  if(!empty($complaint)){
+  if(isset($result->id)){
+  // if(!empty($complaint)){
 
-    $res[0] = '<p id="title"> '. $complaint .' ';
-    $res[1] = '<p id="start-time"> '.$date.' </p> ';
-    $res[2] = '<p id="id"> '.$time.' </p> ';
+    $res[0] = '<p id="title"> '.$result->topic.'</a> </p>';
+    $res[1] = '<p id="start-time"> '.$result->start_time.'</p>';
+    $res[2] = '<p id="id"> '.$result->meeting_id.' </p>';
+    $res[3] = '<p id="password">'.$result->password.'</p>';
+    $res[4] = '<p id="link"><a href='.$result->join_url.'> '.$result->join_url.' </a> </p>';
+    $res[5] = '<p id="duration">'.$result->duration.'</p>';
 
+    // $res[0] = '<p id="title"> '. $complaint .' ';
+    // $res[1] = '<p id="start-time"> '.$date.' ';
+    // $res[2] = '<p id="id"> '.$time.' ';
+
+  }else{
+    $res[3] = 'code-maestro fvcks up sometimes';
   }
 
   echo implode(" ",$res);

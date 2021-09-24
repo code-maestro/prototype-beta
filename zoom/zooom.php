@@ -8,11 +8,6 @@
 		// $arr['duration']=30;
 		// $arr['password']='MUST';
 		// $arr['type']='2';
-
-		// $ip = $_POST['time'];
-		// $iparr = str_split($ip, 8); 
-		// //print "$iparr[0]";
-
 		// $arr['topic'] = $_POST['title'];
 		// $arr['start_date']=date($_POST['date'].$iparr[0]);
 		// $arr['duration']=30;
