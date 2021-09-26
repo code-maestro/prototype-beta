@@ -22,19 +22,16 @@
   if(isset($result->id)){
   // if(!empty($complaint)){
 
-    $res[0] = '<p id="title"> '.$result->topic.'</a> </p>';
-    $res[1] = '<p id="start-time"> '.$result->start_time.'</p>';
-    $res[2] = '<p id="id"> '.$result->meeting_id.' </p>';
-    $res[3] = '<p id="password">'.$result->password.'</p>';
-    $res[4] = '<p id="link"><a href='.$result->join_url.'> '.$result->join_url.' </a> </p>';
-    $res[5] = '<p id="duration">'.$result->duration.'</p>';
+    $_SESSION['meeting_link'] = $result->join_url;
 
-    // $res[0] = '<p id="title"> '. $complaint .' ';
-    // $res[1] = '<p id="start-time"> '.$date.' ';
-    // $res[2] = '<p id="id"> '.$time.' ';
+    $res[0] = '<p id="title"> <strong>TITLE: </strong> '.$result->topic.'</a> </p>';
+    $res[1] = '<p id="start-time"><strong>START TIME: </strong> '.$result->start_time.'</p>';
+    $res[2] = '<p id="password"> <strong>PASSWORD: </strong>'.$result->password.'</p>';
+    $res[3] = '<p id="link"> <strong>LINK: </strong><a href='.$result->join_url.'> '.$result->join_url.' </a> </p>';
+    $res[4] = '<p id="duration"> <strong>DURATION: </strong>'.$result->duration.'</p>';
 
   }else{
-    $res[3] = 'code-maestro fvcks up sometimes';
+    $res[5] = ' <p> code-maestro fvcks up sometimes </p>';
   }
 
   echo implode(" ",$res);

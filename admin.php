@@ -373,15 +373,15 @@
                     <div class="zoomlink" id="zoom">
                       <!-- Div from the zoom file -->
                       <div id="zoom-form">
-                        <button class="get-meeting">Get Meeting Details </button>
                         
                         <div class="ssd"></div>
 
                         <span> Send to student via </span>
                         <div class="send-options">
-                          <button type="submit"> SMS </button>
-                          <button type="submit"> EMAIL </button>
-                          <button> CHAT </button>
+                          <button id="sms-send"> SMS </button>
+                          <button id="mail-send"> EMAIL </button>
+                          <button id="live-send"> CHAT </button>
+                          <button id="whastapp-send"> WHATSAPP </button>
                         </div>
                       </div>
                     </div>
