@@ -26,6 +26,15 @@ vendor/twilio
 
 vendor/messagebird
 
+vendor/laminas/
+
+vendor/lcobucci/
+
+vendor/nexmo/
+
+vendor/vonage/
+
+
 insert-chat.php
 
 insertMessage.php
