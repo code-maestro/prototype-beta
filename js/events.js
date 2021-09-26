@@ -129,6 +129,22 @@ document.querySelector("#update-btn").onclick = function() {
 
 }
 
+document.getElementById("sms-send").onclick = function() {
+  console.log("🤗😰");
+}
+
+document.getElementById("mail-send").onclick = function() {
+  console.log("🤗😰");
+}
+
+document.getElementById("live-send").onclick = function() {
+  console.log("🤗😰");
+}
+
+document.getElementById("whatsapp-send").onclick = function() {
+  console.log("🤗😰");
+}
+
 // Function to update the user data
 $("#update-data").click(function() {
 
