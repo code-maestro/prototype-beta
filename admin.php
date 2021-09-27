@@ -367,7 +367,7 @@
                 <section class="chat-area">
                   <div class="chat-box">
                     <div class="chat" id="chat">
-
+                      
                     </div>
 
                     <div class="zoomlink" id="zoom">
@@ -376,12 +376,12 @@
                         
                         <div class="ssd"></div>
 
+                        <p class="broken"></p>
                         <span> Send to student via </span>
                         <div class="send-options">
                           <button id="sms-send"> SMS </button>
-                          <button id="mail-send"> EMAIL </button>
                           <button id="live-send"> CHAT </button>
-                          <button id="whastapp-send"> WHATSAPP </button>
+                          <button id="whatsapp-send"> WHATSAPP </button>
                         </div>
                       </div>
                     </div>

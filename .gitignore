@@ -14,6 +14,8 @@ modules/acc_activation.php
 
 modules/createMeeting.php
 
+modules/wrap.php
+
 vendor/composer
 
 vendor/guzzlehttp
@@ -33,7 +35,6 @@ vendor/lcobucci/
 vendor/nexmo/
 
 vendor/vonage/
-
 
 insert-chat.php
 

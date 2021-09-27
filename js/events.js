@@ -40,6 +40,7 @@ liveChat.onclick = function() {
   document.getElementById("chat").style.display = "block";
   document.getElementById("zoom").style.display = "none";
   document.getElementById("mail").style.display = "none";
+
 }
 
 zoomLink.onclick = function() {
@@ -130,19 +131,39 @@ document.querySelector("#update-btn").onclick = function() {
 }
 
 document.getElementById("sms-send").onclick = function() {
+
+  document.querySelector(".broken").style.display = "block";
+
+  $.ajax({
+    method: "POST",
+    url: "./modules/send-sms.php",
+  })
+  .done(function( response ) {
+  
+    $("p.broken").html(response);
+
+  });
+
   console.log("🤗😰");
+
 }
 
 document.getElementById("mail-send").onclick = function() {
+  
   console.log("🤗😰");
+
 }
 
 document.getElementById("live-send").onclick = function() {
+  
   console.log("🤗😰");
+
 }
 
 document.getElementById("whatsapp-send").onclick = function() {
+  
   console.log("🤗😰");
+
 }
 
 // Function to update the user data

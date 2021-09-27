@@ -199,6 +199,6 @@ main .appointments .student-info{
   cursor: pointer;
 }
 
-/* .zoom .tested {
+.broken {
   display: none;
-} */
+}
