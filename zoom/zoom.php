@@ -31,7 +31,7 @@
     $res[4] = '<p id="duration"> <strong>DURATION: </strong>'.$result->duration.'</p>';
 
   }else{
-    $res[5] = ' <p> code-maestro fvcks up sometimes </p>';
+    $res[5] = ' <h3> code-maestro fvcks up sometimes </h3>';
   }
 
   echo implode(" ",$res);
