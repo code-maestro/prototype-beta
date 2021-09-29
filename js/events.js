@@ -129,6 +129,7 @@ document.querySelector("#update-btn").onclick = function() {
 
 }
 
+// Click event to send the meeting link through sms
 document.getElementById("sms-send").onclick = function() {
 
   document.querySelector(".broken").style.display = "block";
@@ -143,10 +144,9 @@ document.getElementById("sms-send").onclick = function() {
 
   });
 
-  console.log("🤗😰");
-
 }
 
+// Click event to send the meeting link through live chat
 document.getElementById("live-send").onclick = function() {
   
   document.querySelector(".broken").style.display = "block";
@@ -166,13 +166,23 @@ document.getElementById("live-send").onclick = function() {
 
   });
 
-  console.log("🤗😰");
-
 }
 
+// Click event to send the meeting link through whatsapp
 document.getElementById("whatsapp-send").onclick = function() {
   
-  console.log("🤗😰");
+  document.querySelector(".broken").style.display = "block";
+
+  $.ajax({
+    method: "POST",
+    url: "./modules/send-whatsapp.php",
+  })
+  .done(function( response ) {
+  
+    $("p.broken").html(response);
+
+  });
+
 
 }
 
