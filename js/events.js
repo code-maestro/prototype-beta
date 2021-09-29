@@ -162,7 +162,7 @@ document.getElementById("live-send").onclick = function() {
     document.getElementById("zoom").style.display = "none";
     document.getElementById("mail").style.display = "none";
     
-    $("p.broken").html(response);
+    document.getElementById("message").value = response;
 
   });
 
