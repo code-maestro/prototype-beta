@@ -396,8 +396,10 @@
                     <form action="#" method="POST" id="typing-area" class="typing-area">
                       <input type="text" class="std_id" name="std_id" id="std_id" value="<?php echo $uid ?>" hidden>
                       <input type="text" class="incoming_id" name="incoming_id" value="<?php echo $current_user['users_id']; ?>" hidden>
-                      <input type="text" name="message" id="message" class="input-field" placeholder="Send a message to the student..." autocomplete="off">
-                      <button id="sendMe" class="sendMe" name="sendMe" type="submit"> SEND </button>
+                      <input type="text" name="message" id="message" class="input-field" placeholder="Send a message..." autocomplete="off">
+                      <div class="livesend">
+                        <button id="sendMe" class="sendMe" type="submit"> SEND </button>
+                      </div>
                     </form>
 
                   </div>

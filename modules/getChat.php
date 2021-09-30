@@ -15,7 +15,8 @@
 
       $result = "";
 
-      if ($output) {                 
+      if ($output) {    
+                     
         foreach ($output as $ROW) {
 
           if($ROW['sent_msg_id'] === $out_id){
