@@ -14,6 +14,8 @@ modules/acc_activation.php
 
 modules/createMeeting.php
 
+modules/wrap.php
+
 vendor/composer
 
 vendor/guzzlehttp
@@ -26,8 +28,13 @@ vendor/twilio
 
 vendor/messagebird
 
-=======
-config.php
+vendor/laminas/
+
+vendor/lcobucci/
+
+vendor/nexmo/
+
+vendor/vonage/
 
 insert-chat.php
 
@@ -50,3 +57,5 @@ js/calendar.min.js
 modules/createMessage.php
 
 twilio.env
+
+zoom/index.php

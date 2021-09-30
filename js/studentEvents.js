@@ -42,11 +42,6 @@ appointmentForm.onsubmit = (e) => {
   e.preventDefault();
 }
 
-// formSend.onclick = function() {
-//   alert("😋🤣😂😂😂");
-//   console.log(std_id);
-// }
-
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
   modal.style.display = "none";

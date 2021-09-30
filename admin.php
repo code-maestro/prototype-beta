@@ -2,7 +2,6 @@
   
   include_once 'modules/staff_header.php';
   include_once 'modules/create.php';
-  include_once 'modules/zoom_config.php';
 
   $user = new User();
   $current_user = $user->getData($_SESSION['staff_id']);
@@ -45,16 +44,15 @@
 
   $uid = "";
   $complaint ="";
-  $date ="";
-  $time ="";
-  $stdname ="";
+  $date = "";
+  $time = "";
+  $stdname = "";
   $reg_no = ""; 
   $email = "";
   $total = "";
 
   if (isset($_POST['viewDetails'])) {
 
-    // print_r($_POST);
     $uid = $_POST['uid'];
     $complaint = $_POST['complaint'];
     $date = $_POST['date'];
@@ -62,6 +60,10 @@
     $stdname = $_POST['stdname'];
     $reg_no =  $_POST['regno']; 
     $email =  $_POST['email'];
+
+    $_SESSION['issue'] = $complaint;
+    $_SESSION['dd'] = $date;
+    $_SESSION['tt'] = $time;
 
     $sql_count = "SELECT COUNT(id) FROM appointments WHERE users_uid ='$uid';";
     $total = $user->getTotalUsers($sql_count);
@@ -97,7 +99,27 @@
 
   }
 
-  $url = "https://zoom.us/oauth/authorize?response_type=code&client_id=".CLIENT_ID."&redirect_uri=".REDIRECT_URI;
+  $approved = "";
+
+  // Condition to delete appointments 
+  if (isset($_POST['sub'])) {
+
+    $mail = $_POST['mail'];
+    
+    $sql_select= "SELECT users_id FROM users INNER JOIN login WHERE users.users_id = login.users_uid AND login.email = '$mail' LIMIT 1";
+
+    $DB = new DatabaseModule();
+    $std_id = $DB->readData($sql_select);
+
+    $_POST['phone'] = $std_id;
+
+    $_SESSION['std'] = $std_id;
+
+    $approved = $_SESSION['std'];
+
+  }
+
+  // $url = "https://zoom.us/oauth/authorize?response_type=code&client_id=".CLIENT_ID."&redirect_uri=".REDIRECT_URI;
 
 ?>
 
@@ -294,7 +316,7 @@
               <td id="details-time"> <?php echo $time; ?></td>
             </tr>
             <tr>
-              <td>Prevoius Issue</td>
+              <td>Mental Issue</td>
               <td id="details-complaint"> <?php echo $complaint; ?></td>
             </tr>
             <tr>
@@ -331,13 +353,13 @@
 
                 <div class="zoom" id="zoomlink">
                   <i class="fas fa-video"></i>
-                  <h4> Create a Zooom Meeting  </h4>
+                  <h4> Create a Zooom Meeting </h4>
                 </div>
                 
                 <a class="email" id="sendEmail" href="mailto:<?php echo $email; ?>">
                   <i class="fas fa-comment"></i>
                   <h4> Send Email </h4>
-                </a>  
+                </a>
                 
               </div>
 
@@ -345,22 +367,23 @@
                 <section class="chat-area">
                   <div class="chat-box">
                     <div class="chat" id="chat">
-
+                      
                     </div>
 
                     <div class="zoomlink" id="zoom">
-                      <form action="" method="post">
-                        <p>Meeting Details </p>
-                        <input name="meeting-title" value="" placeholder="Meeting Title ">
-                        <input name="meeting-id" value="" placeholder="Meeting ID ">
-                        <input name="meeting-password" value="" placeholder="Meeting Password ">
-                        <p> Send to student via </p>
+                      <!-- Div from the zoom file -->
+                      <div id="zoom-form">
+                        
+                        <div class="ssd"></div>
+
+                        <p class="broken"></p>
+                        <span> Send to student via </span>
                         <div class="send-options">
-                          <button type="submit"> SMS </button>
-                          <button type="submit"> EMAIL </button>
-                          <button> CHAT </button>
+                          <button id="sms-send"> SMS </button>
+                          <button id="live-send"> CHAT </button>
+                          <button id="whatsapp-send"> WHATSAPP </button>
                         </div>
-                      </form>
+                      </div>
                     </div>
 
                     <div class="mail" id="mail">
@@ -373,8 +396,10 @@
                     <form action="#" method="POST" id="typing-area" class="typing-area">
                       <input type="text" class="std_id" name="std_id" id="std_id" value="<?php echo $uid ?>" hidden>
                       <input type="text" class="incoming_id" name="incoming_id" value="<?php echo $current_user['users_id']; ?>" hidden>
-                      <input type="text" name="message" id="message" class="input-field" placeholder="Send a message to the student..." autocomplete="off">
-                      <button id="sendMe" class="sendMe" name="sendMe" type="submit"> SEND </button>
+                      <input type="text" name="message" id="message" class="input-field" placeholder="Send a message..." autocomplete="off">
+                      <div class="livesend">
+                        <button id="sendMe" class="sendMe" type="submit"> SEND </button>
+                      </div>
                     </form>
 
                   </div>
@@ -464,6 +489,7 @@
 
     </main>
 
+    <!-- Function to loop throught the events and dates and populate and convert them to a list -->
       <?php
 
         foreach ($t as $value) {
@@ -473,11 +499,8 @@
           $formatted_date = DateTime::createFromFormat('Y-m-d', $value['appointment_date']);
 
           if ($formatted_date === false) {
-          
             echo "Incorrect date string";
-          
           } else {
-          
             $new_date = $formatted_date->getTimestamp();            
           }
 
@@ -492,13 +515,13 @@
 
     <script src="js/chat.js"></script>
     <script src="js/events.js"></script>
-
     <script>
 
       var titles = document.querySelectorAll("[id='df']");
       var timestamps = document.querySelectorAll("[id='dfd']");
 
       // POPULATING THE OBJECT FOR THE CALENDER
+      // Took me 2 fvcking weeks to get this hack working
       var objects = [];
       
       for(var i = 0; i < titles.length; i++){
@@ -512,7 +535,6 @@
         events: objects,
         from_monday:true
       });
-
       console.log(objects);
 
     </script>

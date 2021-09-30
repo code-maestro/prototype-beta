@@ -2,6 +2,7 @@
     "require": {
         "guzzlehttp/guzzle": "^7.3",
         "twilio/sdk": "^6.28",
-        "messagebird/php-rest-api": "^2.0"
+        "messagebird/php-rest-api": "^2.0",
+        "nexmo/client": "^2.4"
     }
 }

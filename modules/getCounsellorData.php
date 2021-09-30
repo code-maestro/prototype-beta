@@ -41,7 +41,8 @@
               <input type="password" id="update_pass2" placeholder="Comfirm Password" value=' . $value['password'] . '>
             </div>
 
-          ';
+          '
+          ;
 
         }
        

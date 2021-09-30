@@ -4,16 +4,18 @@ std_id = form.querySelector(".std_id").value,
 inputField = form.querySelector(".input-field"),
 sendBtn = form.querySelector(".sendMe");
 
+const liveSend = document.querySelector(".livesend");
+
 const chatBox = document.querySelector(".chat");
 
 form.onsubmit = (e)=>{
-    e.preventDefault();
+  e.preventDefault();
 }
 
 inputField.focus();
 
 //  Click event to send a message
-sendBtn.onclick = () => {
+liveSend.onclick = () => {
 
   let xhr = new XMLHttpRequest();
   xhr.open("POST", "modules/newMessage.php", true);

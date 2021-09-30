@@ -4,19 +4,20 @@ var btn = document.getElementById("respond-btn");
 var span = document.getElementsByClassName("close")[0];
 
 var liveChat = document.getElementById("livechat");
-var zoomLink = document.getElementById("zoomlink");
+var zoomLink = document.querySelector("#zoomlink");
 var sendEmail = document.getElementById("sendEmail");
 
 // When the user clicks on the button, open the modal
 btn.onclick = function () {
-  console.log("Button clicked.");
   
   if (document.getElementById("details-name").innerHTML.length == 0) {
-  // if (document.getElementById("detailsRegno").value.length == 0) {
-    alert("Please Select a student to respond to ! ")
-  }
-  else {
+    
+    alert("Please Select a student to respond to ! ");
+
+  } else {
+
     modal.style.display = "block";
+
   }
 
 }
@@ -28,7 +29,6 @@ span.onclick = function() {
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
-
   if (event.target == modal) {
     modal.style.display = "none";
   }
@@ -47,7 +47,19 @@ zoomLink.onclick = function() {
   document.getElementById("mail").style.display = "none";
   document.getElementById("typing-area").style.display = "none";
   document.getElementById("zoom").style.display = "block";
-  document.getElementById("zoom").style.backgroundColor = "#background-color: #f3f3f3;";
+  // document.getElementById("zoom").style.backgroundColor = "#background-color: #f3f3f3;"
+
+    // Function to get meeting details
+  async function getText(file) {
+    let x = await fetch(file);
+    let y = await x.text();
+
+    document.querySelector(".ssd").innerHTML = y;
+    
+  }
+
+  getText("./zoom/zoom.php");
+
 }
 
 sendEmail.onclick = function() {
@@ -57,9 +69,18 @@ sendEmail.onclick = function() {
   document.getElementById("mail").style.display = "block";
 }
 
-// document.querySelector('.update-form form').onsubmit= (e) => {
+document.querySelector('.update-form form').onsubmit= (e) => {
+  e.preventDefault();
+}
+
+// document.querySelector('#zoom form').onsubmit = (e) => {
 //   e.preventDefault();
 // }
+
+// Preventing form resubmit for the view details, approve and delete
+document.querySelector('.list-header form').onsubmit = (e) => {
+  e.preventDefault();
+}
 
 // Overview button event
 document.getElementById("overview").onclick = function() {
@@ -105,6 +126,63 @@ document.querySelector("#update-btn").onclick = function() {
   // Send a request
   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   xhttp.send();
+
+}
+
+// Click event to send the meeting link through sms
+document.getElementById("sms-send").onclick = function() {
+
+  document.querySelector(".broken").style.display = "block";
+
+  $.ajax({
+    method: "POST",
+    url: "./modules/send-sms.php",
+  })
+  .done(function( response ) {
+  
+    $("p.broken").html(response);
+
+  });
+
+}
+
+// Click event to send the meeting link through live chat
+document.getElementById("live-send").onclick = function() {
+  
+  document.querySelector(".broken").style.display = "block";
+
+  $.ajax({
+    method: "POST",
+    url: "./modules/send-chat.php",
+  })
+  .done(function( response ) {
+  
+    document.getElementById("typing-area").style.display = "flex";
+    document.getElementById("chat").style.display = "block";
+    document.getElementById("zoom").style.display = "none";
+    document.getElementById("mail").style.display = "none";
+    
+    document.getElementById("message").value = response;
+
+  });
+
+}
+
+// Click event to send the meeting link through whatsapp
+document.getElementById("whatsapp-send").onclick = function() {
+  
+  document.querySelector(".broken").style.display = "block";
+
+  $.ajax({
+    method: "POST",
+    url: "./modules/send-whatsapp.php",
+  })
+  .done(function( response ) {
+  
+    $("p.broken").html(response);
+
+  });
+
 
 }
 
