@@ -3,6 +3,9 @@
   include_once 'modules/staff_header.php';
   include_once 'modules/create.php';
 
+  // Error message
+  $message_var = "";
+
   $user = new User();
   $current_user = $user->getData($_SESSION['staff_id']);
 
@@ -87,17 +90,17 @@
 
   }
 
-  // Condition to delete appointments 
-  if (isset($_POST['delete-btn'])) {
+  // // Condition to delete appointments 
+  // if (isset($_POST['delete-btn'])) {
 
-    $id = $_POST['id'];
+  //   $id = $_POST['id'];
 
-    $sql_delete = "DELETE FROM appointments WHERE appointments.appointment_id = '$id';";
+  //   $sql_delete = "DELETE FROM appointments WHERE appointments.appointment_id = '$id';";
 
-    $DB = new DatabaseModule();
-    $DB->saveData($sql_delete);
+  //   $DB = new DatabaseModule();
+  //   $DB->saveData($sql_delete);
 
-  }
+  // }
 
   $approved = "";
 
@@ -174,10 +177,6 @@
           <li class="nav-item" id="update-btn">
             <i class="fas fa-user-edit"></i>
             <h3>Update your data</h3>
-          </li>
-          <li class="nav-item">
-            <i class="fas fa-clipboard-list"></i>
-            <h3>FAQs <?php echo $current_user['users_id']; ?> </h3>
           </li>
         </ul>
       </nav>
@@ -262,9 +261,9 @@
             <!-- List heading -->
             <div class="list-header">
               <h2> Appointments </h2>
-              <form method="post">
+              <form method="post" id="catergory-btns">
                 <input type="submit" name="pending" value="Pending" class="pending">
-                <input type="submit" name="approved" value="Approved" class="approved">
+                <input type="submit" name="approved" value="Approved" class="checked">
                 <input type="submit" name="completed" value="Completed" class="finished">
               </form>
             </div>
@@ -536,6 +535,54 @@
         from_monday:true
       });
       console.log(objects);
+
+    </script>
+
+    <script>
+
+      function fetchcall() {
+
+        var data = new URLSearchParams();
+          
+        data.append('notid', document.getElementById("appointment_id").value);
+        
+        var todelete = document.querySelectorAll("[id='deleting-btn']");
+        
+        for(var i = 0; i < todelete.length; i++){
+        
+          fetch("modules/delete-appointment.php", {
+
+            method: 'post',
+            body: data
+
+          }).then(function (response) {
+
+            
+
+            return response.text();
+
+          });
+
+          return false;
+
+        }
+
+      }
+
+    //   function fetchcall() {
+    //   // (B1) GET FORM DATA
+    //   var data = new FormData();
+    //   data.append('notid', document.getElementById("appointment_id").value);
+
+    //   // (B2) AJAX CALL
+    //   var xhr = new XMLHttpRequest();
+    //   xhr.open('POST', "modules/delete-appointment.php");
+    //   xhr.onload = function () {
+    //     console.log(this.response);
+    //   };
+    //   xhr.send(data);
+    //   return false;
+    // }
 
     </script>
 
