@@ -397,7 +397,12 @@
 
         <?php
 
-          foreach ($my_list as $value) {
+        // for ($i=0; $i < $my_list.count ; $i++) { 
+        //   # code...
+        // }
+        if ($my_list) {        
+
+          foreach ($my_list as $key => $value) {
                       
             $titles_array = $value['complaint'];
 
@@ -421,7 +426,13 @@
           <p id='dfd'> <?php echo  $new_date; ?> </p>
         </div>
 
-        <?php } ?>
+        <?php 
+      
+      } 
+
+    }
+      
+      ?>
       
       </scetion>
 
