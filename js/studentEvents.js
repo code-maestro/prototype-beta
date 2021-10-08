@@ -341,7 +341,7 @@ setInterval(() => {
 
 }, 500);
 
-// Function retrieving messages
+// Function retrieving appointments
 setInterval(() => {
 
   // Create an XMLHttpRequest object
@@ -366,7 +366,7 @@ setInterval(() => {
   // Send a request
   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   
-  xhttp.send("counsellor_id="+counsellorid);
+  xhttp.send();
 
 }, 500);
 

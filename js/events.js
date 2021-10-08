@@ -230,6 +230,35 @@ $("#update-data").click(function() {
 
 });
 
+// Function retrieving appointments
+setInterval(() => {
+
+  // Create an XMLHttpRequest object
+  const xhttp = new XMLHttpRequest();
+
+  xhttp.open("POST", "modules/appointment-admin.php", true);
+
+  // Define a callback function
+  xhttp.onload = function() {
+    // Here you can use the Data
+    if(xhttp.readyState === XMLHttpRequest.DONE){
+      
+      if(xhttp.status === 200){
+        
+        let data = xhttp.response;
+        document.querySelector(".new-list").innerHTML = data;
+
+      }
+    }
+  }
+
+  // Send a request
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  
+  xhttp.send();
+
+}, 500);
+
 // // Click event to delete an appointment
 // $("#deleting-btn").click(function() {
 

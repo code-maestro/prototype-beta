@@ -20,31 +20,6 @@
   $total_approved = $user->getTotalUsers($query3);
   $total_pending = $user->getTotalUsers($query4);
 
-  //Retrieving appointments
-  $sql = "SELECT appointment_id, complaint, appointment_date, start_time, end_time, users_id, first_name, last_name, reg_no, email 
-          FROM appointments INNER JOIN users INNER JOIN login 
-          WHERE users.users_id = appointments.users_uid 
-          AND appointments.users_uid = login.users_uid ORDER BY appointments.id DESC";
-
-  $sql_pending = "SELECT appointment_id, complaint, appointment_date, start_time, end_time, users_id, first_name, last_name, reg_no, email 
-                   FROM appointments INNER JOIN users INNER JOIN login
-                   WHERE users.users_id = appointments.users_uid 
-                   AND appointments.users_uid = login.users_uid
-                   AND appointments.status = 0";
-
-  $sql_approved = "SELECT appointment_id, complaint, appointment_date, start_time, end_time, users_id, first_name, last_name, reg_no, email 
-                   FROM appointments INNER JOIN users INNER JOIN login
-                   WHERE users.users_id = appointments.users_uid 
-                   AND appointments.users_uid = login.users_uid
-                   AND appointments.status = 1";
-
-
-  $sqll = "SELECT * FROM appointments";
-
-  $info = new Create();
-  $list = $info->retrieveAppointments($sql);
-  $t = $info->retrieveAppointments($sqll);
-
   $uid = "";
   $complaint ="";
   $date = "";
@@ -270,15 +245,10 @@
 
             <!-- Thee list -->
             <div class="thee-list">
-              <ul>
+              <ul class="new-list">
+                
                 <!--  List for the appointments -->
-                <?php
-                  if ($list) {                 
-                    foreach ($list as $ROW) {
-                      include 'modules/appointment.php';
-                    }
-                  }
-                ?>
+
               </ul>
             </div>
           </div>
@@ -491,6 +461,11 @@
     <!-- Function to loop throught the events and dates and populate and convert them to a list -->
       <?php
 
+        $sqll = "SELECT * FROM appointments";
+        
+        $info = new Create();
+        $t = $info->retrieveAppointments($sqll);
+        
         foreach ($t as $value) {
           
           $titles_array = $value['complaint'];
