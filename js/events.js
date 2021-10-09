@@ -27,9 +27,9 @@ document.querySelector(".finished").onclick = function() {
   console.log("clicked");
 }
 
-// document.querySelector('form').onsubmit = (e) => {
-//   e.preventDefault();
-// }
+document.querySelector('form').onsubmit = (e) => {
+  e.preventDefault();
+}
 
 // When the user clicks on the button, open the modal
 btn.onclick = function () {
@@ -236,7 +236,7 @@ setInterval(() => {
   // Create an XMLHttpRequest object
   const xhttp = new XMLHttpRequest();
 
-  xhttp.open("POST", "modules/appointment-admin.php", true);
+  xhttp.open("POST", "modules/appointments-admin.php", true);
 
   // Define a callback function
   xhttp.onload = function() {
@@ -259,28 +259,3 @@ setInterval(() => {
 
 }, 500);
 
-// // Click event to delete an appointment
-// $("#deleting-btn").click(function() {
-
-//     var student_id = document.querySelector('#appointment_id').value;
-
-//     console.log(student_id);
-
-//     // $.post( "modules/delete-appointment.php", {
-//     //   stud_id: student_id
-//     // });
-
-//     $.ajax({
-//       method: "POST",
-//       url: "./modules/delete-appointment.php",
-//     });
-
-//     // done(function( response ) {
-    
-//     //   // $("p.broken").html(response);
-      
-//     //   alert(response);
-
-//     // })
-  
-// });

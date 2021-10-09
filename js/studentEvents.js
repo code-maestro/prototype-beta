@@ -347,7 +347,7 @@ setInterval(() => {
   // Create an XMLHttpRequest object
   const xhttp = new XMLHttpRequest();
 
-  xhttp.open("POST", "modules/appointment.php", true);
+  xhttp.open("POST", "modules/appointments-student.php", true);
 
   // Define a callback function
   xhttp.onload = function() {

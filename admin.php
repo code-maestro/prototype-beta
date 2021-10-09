@@ -65,17 +65,22 @@
 
   }
 
-  // // Condition to delete appointments 
-  // if (isset($_POST['delete-btn'])) {
+  // Condition to delete appointments 
+  if (isset($_POST['delete-btn'])) {
 
-  //   $id = $_POST['id'];
+    $id = $_POST['id'];
 
-  //   $sql_delete = "DELETE FROM appointments WHERE appointments.appointment_id = '$id';";
+    $sql_delete = "DELETE FROM appointments WHERE appointments.appointment_id = '$id';";
 
-  //   $DB = new DatabaseModule();
-  //   $DB->saveData($sql_delete);
+    $DB = new DatabaseModule();
 
-  // }
+    if($DB->saveData($sql_delete)){
+      $message_var = " APPOINTMENT ". $_POST[''] . " ";
+    }else {
+      # code...
+    }
+
+  }
 
   $approved = "";
 
@@ -510,54 +515,6 @@
         from_monday:true
       });
       console.log(objects);
-
-    </script>
-
-    <script>
-
-      function fetchcall() {
-
-        var data = new URLSearchParams();
-          
-        data.append('notid', document.getElementById("appointment_id").value);
-        
-        var todelete = document.querySelectorAll("[id='deleting-btn']");
-        
-        for(var i = 0; i < todelete.length; i++){
-        
-          fetch("modules/delete-appointment.php", {
-
-            method: 'post',
-            body: data
-
-          }).then(function (response) {
-
-            console.log(response);
-
-            return response.text();
-
-          });
-
-          return false;
-
-        }
-
-      }
-
-    //   function fetchcall() {
-    //   // (B1) GET FORM DATA
-    //   var data = new FormData();
-    //   data.append('notid', document.getElementById("appointment_id").value);
-
-    //   // (B2) AJAX CALL
-    //   var xhr = new XMLHttpRequest();
-    //   xhr.open('POST', "modules/delete-appointment.php");
-    //   xhr.onload = function () {
-    //     console.log(this.response);
-    //   };
-    //   xhr.send(data);
-    //   return false;
-    // }
 
     </script>
 
