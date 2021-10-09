@@ -7,6 +7,30 @@ var liveChat = document.getElementById("livechat");
 var zoomLink = document.querySelector("#zoomlink");
 var sendEmail = document.getElementById("sendEmail");
 
+//Preventing the form resubmit
+document.querySelector('#catergory-btns').onsubmit = (e) => {
+  e.preventDefault();
+}
+
+// Click event to view the Approved appointments
+document.querySelector(".checked").onclick = function() {
+  console.log(" Approved clicked");
+}
+
+// Click event to view the pending appointments
+document.querySelector(".pending").onclick = function() {
+  console.log(" Pending clicked");
+}
+
+// Click event to view the finished appointments
+document.querySelector(".finished").onclick = function() {
+  console.log("clicked");
+}
+
+// document.querySelector('form').onsubmit = (e) => {
+//   e.preventDefault();
+// }
+
 // When the user clicks on the button, open the modal
 btn.onclick = function () {
   
@@ -72,10 +96,6 @@ sendEmail.onclick = function() {
 document.querySelector('.update-form form').onsubmit= (e) => {
   e.preventDefault();
 }
-
-// document.querySelector('#zoom form').onsubmit = (e) => {
-//   e.preventDefault();
-// }
 
 // Preventing form resubmit for the view details, approve and delete
 document.querySelector('.list-header form').onsubmit = (e) => {
@@ -209,3 +229,58 @@ $("#update-data").click(function() {
   });
 
 });
+
+// Function retrieving appointments
+setInterval(() => {
+
+  // Create an XMLHttpRequest object
+  const xhttp = new XMLHttpRequest();
+
+  xhttp.open("POST", "modules/appointment-admin.php", true);
+
+  // Define a callback function
+  xhttp.onload = function() {
+    // Here you can use the Data
+    if(xhttp.readyState === XMLHttpRequest.DONE){
+      
+      if(xhttp.status === 200){
+        
+        let data = xhttp.response;
+        document.querySelector(".new-list").innerHTML = data;
+
+      }
+    }
+  }
+
+  // Send a request
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  
+  xhttp.send();
+
+}, 500);
+
+// // Click event to delete an appointment
+// $("#deleting-btn").click(function() {
+
+//     var student_id = document.querySelector('#appointment_id').value;
+
+//     console.log(student_id);
+
+//     // $.post( "modules/delete-appointment.php", {
+//     //   stud_id: student_id
+//     // });
+
+//     $.ajax({
+//       method: "POST",
+//       url: "./modules/delete-appointment.php",
+//     });
+
+//     // done(function( response ) {
+    
+//     //   // $("p.broken").html(response);
+      
+//     //   alert(response);
+
+//     // })
+  
+// });

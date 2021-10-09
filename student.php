@@ -11,24 +11,6 @@
 
   $var = "";
 
-  $staff_id = new User();
-  $current_staff =$staff_id->getChatID($_SESSION['std_id']);
-
-  $new_appointment = new Create();
-
-  //Retrieving appointments
-  $query = "SELECT * FROM appointments INNER JOIN users INNER JOIN login
-            WHERE appointments.users_uid = '$user_id'
-            AND appointments.users_uid = users.users_id
-            AND appointmentS.users_uid = login.users_uid;";
-
-  $query_approved = "SELECT * FROM approved_appointment INNER JOIN users INNER JOIN login
-                     WHERE approved_appointment.users_uid = '$user_id'
-                     AND appointments.users_uid = users.users_id
-                     AND appointmentS.users_uid = login.users_uid;";
-
-  $my_list = $new_appointment->retrieveAppointments($query);
-
 ?>
 
 <!DOCTYPE html>
@@ -166,15 +148,10 @@
 
             <!-- Thee list -->
             <div class="thee-list">
-              <ul>
-              <!--  List for the appointments -->
-                <?php
-                    if ($my_list) {                 
-                      foreach ($my_list as $ROW) {
-                        include 'modules/appointment.php';
-                      }
-                    }
-                  ?>
+              <ul class="new-list">
+
+                <!--  List for the appointments -->
+
               </ul>
             </div>
 
@@ -397,31 +374,57 @@
 
         <?php
 
-          foreach ($my_list as $value) {
-                      
-            $titles_array = $value['complaint'];
+          $new_appointment = new Create();
 
-            $dates = $value['appointment_date'];
+          //Retrieving appointments
+          $query = "SELECT * FROM appointments INNER JOIN users INNER JOIN login
+                    WHERE appointments.users_uid = '$user_id'
+                    AND appointments.users_uid = users.users_id
+                    AND appointmentS.users_uid = login.users_uid;";
 
-            $formatted_date = DateTime::createFromFormat('Y-m-d', $value['appointment_date']);
+          $query_approved = "SELECT * FROM approved_appointment INNER JOIN users INNER JOIN login
+                            WHERE approved_appointment.users_uid = '$user_id'
+                            AND appointments.users_uid = users.users_id
+                            AND appointmentS.users_uid = login.users_uid;";
 
-              if ($formatted_date === false) {
-              
-                echo "Incorrect date string";
-              
-              } else {
-              
-                $new_date = $formatted_date->getTimestamp();
-              
-              }
+          $my_list = $new_appointment->retrieveAppointments($query);
+
+          // for ($i=0; $i < $my_list.count ; $i++) { 
+          //   # code...
+          // }
+          if ($my_list) {        
+
+            foreach ($my_list as $key => $value) {
+                        
+              $titles_array = $value['complaint'];
+
+              $dates = $value['appointment_date'];
+
+              $formatted_date = DateTime::createFromFormat('Y-m-d', $value['appointment_date']);
+
+                if ($formatted_date === false) {
+                
+                  echo "Incorrect date string";
+                
+                } else {
+                
+                  $new_date = $formatted_date->getTimestamp();
+                
+                }
         ?>
               
-        <div class="aob_content">
-          <p id='df'> <?php echo $titles_array; ?> </p>
-          <p id='dfd'> <?php echo  $new_date; ?> </p>
-        </div>
+          <div class="aob_content">
+            <p id='df'> <?php echo $titles_array; ?> </p>
+            <p id='dfd'> <?php echo  $new_date; ?> </p>
+          </div>
 
-        <?php } ?>
+          <?php 
+      
+          }
+
+        }
+      
+      ?>
       
       </scetion>
 

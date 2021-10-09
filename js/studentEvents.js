@@ -341,11 +341,46 @@ setInterval(() => {
 
 }, 500);
 
+// Function retrieving appointments
+setInterval(() => {
+
+  // Create an XMLHttpRequest object
+  const xhttp = new XMLHttpRequest();
+
+  xhttp.open("POST", "modules/appointment.php", true);
+
+  // Define a callback function
+  xhttp.onload = function() {
+    // Here you can use the Data
+    if(xhttp.readyState === XMLHttpRequest.DONE){
+      
+      if(xhttp.status === 200){
+        
+        let data = xhttp.response;
+        document.querySelector(".new-list").innerHTML = data;
+
+      }
+    }
+  }
+
+  // Send a request
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  
+  xhttp.send();
+
+}, 500);
+
+
 $( "#sending" ).click(function() {
+
   if (inputField.value == "" ) {
+
     alert("Enter a message to start a conversation ");
+
   } else {
+
     $.post( "modules/std_newMessage.php", { email: counsellorid, incomingid: incoming_id, message: inputField.value} );
+
   }
 
   inputField.value = " ";
@@ -365,7 +400,9 @@ $( "#make-btn" ).click(function() {
   let dateSelected = new Date(selectedDate);
 
   if (dateSelected < currentDate) {
+
     alert("you entered a wrong date");
+
   }
 
   if ( selectedEndTime < selectedStartTime) {
@@ -374,15 +411,17 @@ $( "#make-btn" ).click(function() {
     
   }else{
 
-    $.post( "modules/std_newAppointment.php", { selectDate: selectedDate, selectStart: selectedStartTime, selectEnd: selectedEndTime, complaint: issue, complaint_detail: complaintDetail } );    
+    $.post( "modules/std_newAppointment.php", { selectDate: selectedDate, selectStart: selectedStartTime, selectEnd: selectedEndTime, complaint: issue, complaint_detail: complaintDetail } );
+
+    alert(" Your appointment has been recorded. you will be helped soon "); 
+
+    document.querySelector("#select-date").value = "";
+    document.querySelector("#start-time").value = "";
+    document.querySelector("#end-time").value = "";
+    document.querySelector("#complaint").value = "";
+    document.querySelector("#complaint-detail").value = "";
 
   }
-
-  selectedDate = "";
-  selectedStartTime = ""; 
-  selectedEndTime = ""; 
-  issue = ""; 
-  complaintDetail = ""; 
 
 });
 
@@ -428,44 +467,4 @@ $( "#update-data" ).click(function() {
   });
   
 });
-
-// array of random words
-// const words = ['fella', 'big', 'outa', 'neeed', 'me'];
-
-// //push words to an object
-// words.forEach(word => {
-//   const fruits = [
-//     {
-//       apple: word,
-//       orange: 17,
-//     }
-//   ];
-
-//   const values = Object.values(fruits)
-//   console.log(values)
-
-// });
-
-// var heavy_fruits = [];
-                
-
-
-// myfruit ['title'] = '$titles_array';
-// myfruit ['date'] = '$new_date'*1000;
-
-// heavy_fruits.push(myfruit);
-
-// heavy_fruits.forEach((entry) => {
-  
-//   console.log(entry);
-
-// });
-
-// ////////////////////////////////////////
-
-
-// const values = Object.values(fruits)
-//console.log(values)
-
-//create an array of random names
 

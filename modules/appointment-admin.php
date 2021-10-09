@@ -2,35 +2,36 @@
   
   include_once '../database/db_module.php';
   include_once 'create.php';
-  include_once 'user.php';
-
-  session_start();
-
-  $user_id = $_SESSION['std_id'];
-
-  $staff_id = new User();
-  $current_staff =$staff_id->getChatID($user_id);
-
-  $new_appointment = new Create();
 
   //Retrieving appointments
-  $query = "SELECT * FROM appointments INNER JOIN users INNER JOIN login
-            WHERE appointments.users_uid = '$user_id'
-            AND appointments.users_uid = users.users_id
-            AND appointmentS.users_uid = login.users_uid;";
+  $sql = "SELECT appointment_id, complaint, appointment_date, start_time, end_time, users_id, first_name, last_name, reg_no, email 
+          FROM appointments INNER JOIN users INNER JOIN login 
+          WHERE users.users_id = appointments.users_uid 
+          AND appointments.users_uid = login.users_uid ORDER BY appointments.id DESC";
 
-  $query_approved = "SELECT * FROM approved_appointment INNER JOIN users INNER JOIN login
-                     WHERE approved_appointment.users_uid = '$user_id'
-                     AND appointments.users_uid = users.users_id
-                     AND appointmentS.users_uid = login.users_uid;";
+  $sql_pending = "SELECT appointment_id, complaint, appointment_date, start_time, end_time, users_id, first_name, last_name, reg_no, email 
+                  FROM appointments INNER JOIN users INNER JOIN login
+                  WHERE users.users_id = appointments.users_uid 
+                  AND appointments.users_uid = login.users_uid
+                  AND appointments.status = 0";
 
-  $my_list = $new_appointment->retrieveAppointments($query);
+  $sql_approved = " SELECT appointment_id, complaint, appointment_date, start_time, end_time, users_id, first_name, last_name, reg_no, email 
+                    FROM appointments INNER JOIN users INNER JOIN login
+                    WHERE users.users_id = appointments.users_uid 
+                    AND appointments.users_uid = login.users_uid
+                    AND appointments.status = 1";
 
-  if ($my_list) {
 
-    foreach ($my_list as $ROW) {
+  $sqll = "SELECT * FROM appointments";
 
-      ?>
+  $info = new Create();
+  $list = $info->retrieveAppointments($sql);
+  
+  $t = $info->retrieveAppointments($sqll);
+
+  if ($list) {
+
+    foreach ($list as $ROW) {  ?>
 
       <form onsubmit="return fetchcall()" id="appointment-forms">
         <li id="list" name="list" >

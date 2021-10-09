@@ -10,7 +10,8 @@
 
   $result = "";
 
-  if ($femaleOutput) {                 
+  if ($femaleOutput) {
+
     foreach ($femaleOutput as $ROW) {
 
       $result .= '<li id=' . $ROW['email'] . ' class= ' . $ROW['first_name'] . ' value = ' . $ROW['last_name'] . ' > ' . $ROW['first_name'] . ' ' . $ROW['last_name'] . ' </li>' .
