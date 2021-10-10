@@ -74,8 +74,8 @@
 
     $DB = new DatabaseModule();
 
-    if($DB->saveData($sql_delete)){
-      $message_var = " APPOINTMENT ". $_POST[''] . " ";
+    if($DB->saveData($sql_delete)) {
+      // $message_var = ' <script> alert("APPOINTMENT . $_POST . ") </script> ';
     }else {
       # code...
     }
@@ -113,19 +113,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student View </title>
+    <title> COUNSELLOR'S VIEW </title>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="css/all.min.css">
-    <link rel="stylesheet" href="css/fontawesome.min.css">
-    <link rel="stylesheet" href="css/calendar.min.css">
+    <link rel="stylesheet" href="css/static/all.min.css">
+    <link rel="stylesheet" href="css/static/fontawesome.min.css">
+    <link rel="stylesheet" href="css/static/calendar.min.css">
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/admin.css">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/> -->
     
-    <script src="js/jquery.min.js"></script>
-    <script src="js/calendar.min.js"></script>
+    <script src="js/static/jquery.min.js"></script>
+    <script src="js/static/calendar.min.js"></script>
 
   </head>
 
@@ -173,7 +173,7 @@
           <div class="left">
             <img src="resources/img/must.png" alt="" srcset="">
             <div class="user-info">
-              <span> Willkommen</span>
+              <span> Willkommen <?php echo $message_var; ?> </span>
             </div>
           </div>
 
@@ -250,7 +250,14 @@
 
             <!-- Thee list -->
             <div class="thee-list">
+
               <ul class="new-list">
+                
+                <!--  List for the appointments -->
+
+              </ul>
+
+              <ul class="approved-list">
                 
                 <!--  List for the appointments -->
 

@@ -12,19 +12,145 @@ document.querySelector('#catergory-btns').onsubmit = (e) => {
   e.preventDefault();
 }
 
-// Click event to view the Approved appointments
-document.querySelector(".checked").onclick = function() {
-  console.log(" Approved clicked");
+// Loading the pending appointments on screen page load
+$(window).on('load', function() {
+  // Create an XMLHttpRequest object
+  const xhttp = new XMLHttpRequest();
+
+  xhttp.open("POST", "modules/admin-pending-appointments.php", true);
+
+  // Define a callback function
+  xhttp.onload = function() {
+    // Here you can use the Data
+    if(xhttp.readyState === XMLHttpRequest.DONE){
+      
+      if(xhttp.status === 200){
+        
+        let data = xhttp.response;
+        document.querySelector(".new-list").innerHTML = data;
+        
+        document.getElementById("deleting-btn").onclick = function() {
+          
+          console.log(" Clicked to increment the counter ");
+          
+        }
+
+      }
+    }
+  }
+
+  // Send a request
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  
+  xhttp.send();
+});
+
+// Click event to view the pending appointment
+document.querySelector(".pending").onclick = function() {
+
+  // Create an XMLHttpRequest object
+  const xhttp = new XMLHttpRequest();
+
+  xhttp.open("POST", "modules/admin-pending-appointments.php", true);
+
+  // Define a callback function
+  xhttp.onload = function() {
+    // Here you can use the Data
+    if(xhttp.readyState === XMLHttpRequest.DONE){
+      
+      if(xhttp.status === 200){
+        
+        let data = xhttp.response;
+        document.querySelector(".new-list").innerHTML = data;
+        
+        document.getElementById("deleting-btn").onclick = function() {
+          
+          console.log(" Clicked to increment the counter ");
+          
+        }
+
+      }
+    }
+  }
+
+  // Send a request
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  
+  xhttp.send();
+
 }
 
-// Click event to view the pending appointments
-document.querySelector(".pending").onclick = function() {
-  console.log(" Pending clicked");
+// Click event to view the Approved appointments
+document.querySelector(".checked").onclick = function() {
+
+  // Create an XMLHttpRequest object
+  const xhttp = new XMLHttpRequest();
+
+  xhttp.open("POST", "modules/admin-approved-appointments.php", true);
+
+  // Define a callback function
+  xhttp.onload = function() {
+    // Here you can use the Data
+    if(xhttp.readyState === XMLHttpRequest.DONE){
+      
+      if(xhttp.status === 200){
+        
+        let data = xhttp.response;
+        document.querySelector(".new-list").innerHTML = data;
+
+        document.getElementById("approving-btn").value = " CANCEL ";
+        
+        document.getElementById("deleting-btn").onclick = function() {
+          
+          console.log(" Clicked to increment the counter ");
+          
+        }
+
+      }
+    }
+  }
+
+  // Send a request
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  
+  xhttp.send();
+
 }
 
 // Click event to view the finished appointments
 document.querySelector(".finished").onclick = function() {
-  console.log("clicked");
+  
+  // Create an XMLHttpRequest object
+  const xhttp = new XMLHttpRequest();
+
+  xhttp.open("POST", "modules/admin-pending-appointments.php", true);
+
+  // Define a callback function
+  xhttp.onload = function() {
+    // Here you can use the Data
+    if(xhttp.readyState === XMLHttpRequest.DONE){
+      
+      if(xhttp.status === 200){
+        
+        let data = xhttp.response;
+
+        document.querySelector(".new-list").innerHTML = data;
+        
+        document.getElementById("viewDetailsbtn").style.display = "none";
+
+        document.getElementById("approving-btn").style.display = "none";
+
+        document.getElementById("deleting-btn").style.display = "none";
+
+      }
+    }
+  }
+
+  // Send a request
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  
+  xhttp.send();
+
 }
 
 document.querySelector('form').onsubmit = (e) => {
@@ -229,33 +355,3 @@ $("#update-data").click(function() {
   });
 
 });
-
-// Function retrieving appointments
-setInterval(() => {
-
-  // Create an XMLHttpRequest object
-  const xhttp = new XMLHttpRequest();
-
-  xhttp.open("POST", "modules/appointments-admin.php", true);
-
-  // Define a callback function
-  xhttp.onload = function() {
-    // Here you can use the Data
-    if(xhttp.readyState === XMLHttpRequest.DONE){
-      
-      if(xhttp.status === 200){
-        
-        let data = xhttp.response;
-        document.querySelector(".new-list").innerHTML = data;
-
-      }
-    }
-  }
-
-  // Send a request
-  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  
-  xhttp.send();
-
-}, 500);
-
