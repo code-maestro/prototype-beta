@@ -30,6 +30,10 @@ notifications.onclick = function() {
   modal.style.display = "block";
 }
 
+document.querySelector('form').onsubmit = (e) => {
+  e.preventDefault();
+}
+
 mailForm.onsubmit = (e) => {
   e.preventDefault();
 }
@@ -75,6 +79,135 @@ faqsBtn.onclick = function() {
   document.querySelector(".faqs").style.display = "block";
   document.querySelector(".counselors").style.display = "none";
   document.querySelector(".appointments").style.display = "none";
+}
+
+// Loading the pending appointments on screen page load
+$(window).on('load', function() {
+  // Create an XMLHttpRequest object
+  const xhttp = new XMLHttpRequest();
+
+  xhttp.open("POST", "modules/student-pending-appointments.php", true);
+
+  // Define a callback function
+  xhttp.onload = function() {
+    // Here you can use the Data
+    if(xhttp.readyState === XMLHttpRequest.DONE){
+      
+      if(xhttp.status === 200){
+        
+        let data = xhttp.response;
+        document.querySelector(".new-list").innerHTML = data;
+        
+        document.getElementById("deleting-btn").onclick = function() {
+          
+          console.log(" Clicked to increment the counter ");
+          
+        }
+
+      }
+    }
+  }
+
+  // Send a request
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  
+  xhttp.send();
+
+});
+
+// Retrieivng pending appointments with a click event to a button
+document.querySelector(".pending").onclick = function() {
+
+  // Create an XMLHttpRequest object
+  const xhttp = new XMLHttpRequest();
+
+  xhttp.open("POST", "modules/student-pending-appointments.php", true);
+
+  // Define a callback function
+  xhttp.onload = function() {
+    // Here you can use the Data
+    if(xhttp.readyState === XMLHttpRequest.DONE){
+      
+      if(xhttp.status === 200){
+        
+        let data = xhttp.response;
+
+        document.querySelector(".new-list").innerHTML = data;
+
+      }
+    }
+  }
+
+  // Send a request
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  
+  xhttp.send();
+
+}
+
+// Retrieivng approved appointments with a click event to a button
+document.querySelector(".checked").onclick = function() {
+
+  // Create an XMLHttpRequest object
+  const xhttp = new XMLHttpRequest();
+
+  xhttp.open("POST", "modules/student-upcoming-appointments.php", true);
+
+  // Define a callback function
+  xhttp.onload = function() {
+    // Here you can use the Data
+    if(xhttp.readyState === XMLHttpRequest.DONE){
+      
+      if(xhttp.status === 200){
+        
+        let data = xhttp.response;
+
+        document.querySelector(".new-list").innerHTML = data;
+
+      }
+    }
+  }
+
+  // Send a request
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  
+  xhttp.send();
+
+}
+
+document.querySelector(".finished").onclick = function() {
+
+  // Create an XMLHttpRequest object
+  const xhttp = new XMLHttpRequest();
+
+  xhttp.open("POST", "modules/.php", true);
+
+  // Define a callback function
+  xhttp.onload = function() {
+    // Here you can use the Data
+    if(xhttp.readyState === XMLHttpRequest.DONE){
+      
+      if(xhttp.status === 200){
+        
+        let data = xhttp.response;
+
+        document.querySelector(".new-list").innerHTML = data;
+        
+        document.getElementById("viewDetailsbtn").style.display = "none";
+
+        document.getElementById("approving-btn").style.display = "none";
+
+        document.getElementById("deleting-btn").style.display = "none";
+
+      }
+    }
+  }
+
+  // Send a request
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  
+  xhttp.send();
+
 }
 
 // Click events
@@ -341,36 +474,7 @@ setInterval(() => {
 
 }, 500);
 
-// Function retrieving appointments
-setInterval(() => {
-
-  // Create an XMLHttpRequest object
-  const xhttp = new XMLHttpRequest();
-
-  xhttp.open("POST", "modules/appointments-student.php", true);
-
-  // Define a callback function
-  xhttp.onload = function() {
-    // Here you can use the Data
-    if(xhttp.readyState === XMLHttpRequest.DONE){
-      
-      if(xhttp.status === 200){
-        
-        let data = xhttp.response;
-        document.querySelector(".new-list").innerHTML = data;
-
-      }
-    }
-  }
-
-  // Send a request
-  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  
-  xhttp.send();
-
-}, 500);
-
-
+// Sending a text message with live chat feature with click event
 $( "#sending" ).click(function() {
 
   if (inputField.value == "" ) {
