@@ -20,19 +20,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student View </title>
+    <title> Student's View </title>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="css/all.min.css">
-    <link rel="stylesheet" href="css/fontawesome.min.css">
-    <link rel="stylesheet" href="css/calendar.min.css">
+    <link rel="stylesheet" href="css/static/all.min.css">
+    <link rel="stylesheet" href="css/static/fontawesome.min.css">
+    <link rel="stylesheet" href="css/static/calendar.min.css">
     <link rel="stylesheet" href="css/student.css">
     <link rel="stylesheet" href="css/global.css">
 
     <!-- JS  -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="js/jquery.min.js"></script>
-    <script src="js/calendar.min.js"></script>
+    <script src="js/static/jquery.min.js"></script>
+    <script src="js/static/calendar.min.js"></script>
 
   </head>
 
@@ -112,7 +112,6 @@
       </section>
 
       <section class="appointments">
-
         <!-- wrapper -->
         <div class="wrapper">
           <div class="communications"> 
@@ -138,13 +137,14 @@
           <div class="appointment-list">
             <!-- List heading -->
             <div class="list-header">
-              <h2> Your  Appointments </h2>
-              <form>
-                <input name="scheduled" value="Scheduled" class="pending">
-                <input name="upcoming" value="Upcoming" class="approved">
-                <input name="completed" value="Completed" class="finished">
+              <h2> Appointments </h2>
+              <form method="post" id="catergory-btns">
+                <input type="submit" name="pending" value="Pending" class="pending">
+                <input type="submit" name="approved" value="Approved" class="checked">
+                <input type="submit" name="completed" value="Completed" class="finished">
               </form>
             </div>
+
 
             <!-- Thee list -->
             <div class="thee-list">

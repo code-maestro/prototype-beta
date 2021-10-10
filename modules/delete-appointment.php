@@ -1,16 +1,19 @@
 <?php
 
-    include_once "../database/db_module.php";
+    // include_once "../database/db_module.php";
 
-    $id = $_POST['notid'];
+    // $id = $_POST['notid'];
 
-    echo $id;
+    // echo $id;
 
-    $sql_delete = "DELETE FROM appointments WHERE appointments.appointment_id = '$id';";
+    // $sql_delete = "DELETE FROM appointments WHERE appointments.appointment_id = '$id';";
 
-    $DB = new DatabaseModule();
+    // $DB = new DatabaseModule();
 
-    $DB->saveData($sql_delete);
+    // $DB->saveData($sql_delete);
+
+    echo "HELLO WOORLD";
+
 
   // } else {
     

@@ -65,17 +65,22 @@
 
   }
 
-  // // Condition to delete appointments 
-  // if (isset($_POST['delete-btn'])) {
+  // Condition to delete appointments 
+  if (isset($_POST['delete-btn'])) {
 
-  //   $id = $_POST['id'];
+    $id = $_POST['id'];
 
-  //   $sql_delete = "DELETE FROM appointments WHERE appointments.appointment_id = '$id';";
+    $sql_delete = "DELETE FROM appointments WHERE appointments.appointment_id = '$id';";
 
-  //   $DB = new DatabaseModule();
-  //   $DB->saveData($sql_delete);
+    $DB = new DatabaseModule();
 
-  // }
+    if($DB->saveData($sql_delete)) {
+      // $message_var = ' <script> alert("APPOINTMENT . $_POST . ") </script> ';
+    }else {
+      # code...
+    }
+
+  }
 
   $approved = "";
 
@@ -108,19 +113,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student View </title>
+    <title> COUNSELLOR'S VIEW </title>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="css/all.min.css">
-    <link rel="stylesheet" href="css/fontawesome.min.css">
-    <link rel="stylesheet" href="css/calendar.min.css">
+    <link rel="stylesheet" href="css/static/all.min.css">
+    <link rel="stylesheet" href="css/static/fontawesome.min.css">
+    <link rel="stylesheet" href="css/static/calendar.min.css">
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/admin.css">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/> -->
     
-    <script src="js/jquery.min.js"></script>
-    <script src="js/calendar.min.js"></script>
+    <script src="js/static/jquery.min.js"></script>
+    <script src="js/static/calendar.min.js"></script>
 
   </head>
 
@@ -168,7 +173,7 @@
           <div class="left">
             <img src="resources/img/must.png" alt="" srcset="">
             <div class="user-info">
-              <span> Willkommen</span>
+              <span> Willkommen <?php echo $message_var; ?> </span>
             </div>
           </div>
 
@@ -245,7 +250,14 @@
 
             <!-- Thee list -->
             <div class="thee-list">
+
               <ul class="new-list">
+                
+                <!--  List for the appointments -->
+
+              </ul>
+
+              <ul class="approved-list">
                 
                 <!--  List for the appointments -->
 
@@ -510,54 +522,6 @@
         from_monday:true
       });
       console.log(objects);
-
-    </script>
-
-    <script>
-
-      function fetchcall() {
-
-        var data = new URLSearchParams();
-          
-        data.append('notid', document.getElementById("appointment_id").value);
-        
-        var todelete = document.querySelectorAll("[id='deleting-btn']");
-        
-        for(var i = 0; i < todelete.length; i++){
-        
-          fetch("modules/delete-appointment.php", {
-
-            method: 'post',
-            body: data
-
-          }).then(function (response) {
-
-            console.log(response);
-
-            return response.text();
-
-          });
-
-          return false;
-
-        }
-
-      }
-
-    //   function fetchcall() {
-    //   // (B1) GET FORM DATA
-    //   var data = new FormData();
-    //   data.append('notid', document.getElementById("appointment_id").value);
-
-    //   // (B2) AJAX CALL
-    //   var xhr = new XMLHttpRequest();
-    //   xhr.open('POST', "modules/delete-appointment.php");
-    //   xhr.onload = function () {
-    //     console.log(this.response);
-    //   };
-    //   xhr.send(data);
-    //   return false;
-    // }
 
     </script>
 

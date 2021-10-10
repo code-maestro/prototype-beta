@@ -90,41 +90,6 @@ main .appointments .wrapper .communications i{
   margin-top: 1rem;
 }
 
-/* List header */
-.list-header h2{
-  font-size: 1.75rem;
-  margin: 0;
-  padding: .5rem 1rem;
-  text-align: center;
-}
-
-.list-header form{
-  display: flex;
-  padding: 0 0 .5rem 0;
-  margin: 1rem 1rem 0 1rem;
-  width: 100%;
-  align-items: center;
-  justify-content: center;
-}
-
-.list-header form input {
-  text-align: center;
-  outline: none;
-  border: 0;
-  font-weight: 600;
-  font-size: 1rem;
-  padding: .5rem 2rem;
-  background: none;
-  margin: 0;
-}
-
-.list-header form input:hover{
-  cursor: pointer;
-  border-bottom: 2px solid rgb(157, 157, 157);
-  background-color: #cacaca;
-  border-radius: 1rem;
-}
-
 /* Selected Appointment details */
 main .appointments .student-info{
   box-shadow: .4px 2px 3px rgb(0 0 0 / 10%);
