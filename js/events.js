@@ -123,7 +123,7 @@ document.querySelector(".finished").onclick = function() {
   // Create an XMLHttpRequest object
   const xhttp = new XMLHttpRequest();
 
-  xhttp.open("POST", "modules/admin-pending-appointments.php", true);
+  xhttp.open("POST", "modules/admin-completed-appointments.php", true);
 
   // Define a callback function
   xhttp.onload = function() {
@@ -135,12 +135,6 @@ document.querySelector(".finished").onclick = function() {
         let data = xhttp.response;
 
         document.querySelector(".new-list").innerHTML = data;
-        
-        document.getElementById("viewDetailsbtn").style.display = "none";
-
-        document.getElementById("approving-btn").style.display = "none";
-
-        document.getElementById("deleting-btn").style.display = "none";
 
       }
     }
