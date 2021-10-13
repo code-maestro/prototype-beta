@@ -114,9 +114,41 @@
       <section class="appointments">
         <!-- wrapper -->
         <div class="wrapper">
-          <div class="communications"> 
+
+          <div class="get-help-container">
             <h2>
-              Communications
+              GET HELP 
+            </h2>
+
+            <div class="get-help">
+
+              <div class="call">
+                <i class="fas fa-hospital-user"></i>
+                <p>Lorem ipsum dolor sit.</p>
+              </div>
+
+              <div class="sms">
+                <i class="fas fa-hospital-user"></i>
+                <p>Lorem ipsum dolor sit.</p>
+              </div>
+
+              <div class="whatsapp">
+                <i class="fas fa-hospital-user"></i>
+                <p>Lorem ipsum dolor sit.</p>
+              </div>
+
+              <div class="reachout-mail">
+                <i class="fas fa-hospital-user"></i>
+                <p>Lorem ipsum dolor sit.</p>
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="communications">
+            <h2>
+            Communications
             </h2>
             <div class="carousel">
               <div class="carousel-item">
