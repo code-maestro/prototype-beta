@@ -18,7 +18,7 @@
 
     foreach ($list as $ROW) {
 
-      include 'appointment-list-admin.php';
+      include 'admin-appointments-list.php';
   
     }
   }

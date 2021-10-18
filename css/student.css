@@ -1,3 +1,14 @@
+:root {
+  --primary-light: #8abdff;
+  --primary: #6d5dfc;
+  --primary-dark: #5b0eeb;
+  --white: #FFFFFF;
+  --greyLight-1: #f6f8fb;
+  --greyLight-2: #c8d0e7;
+  --greyLight-3: #bec8e4;
+  --greyDark: #9baacf;
+}
+
 .chat-area::-webkit-scrollbar{
   width: 0.30rem;
 }
@@ -25,20 +36,62 @@ header .logout h3 a{
 .communications{
   box-shadow: .4px 2px 3px rgb(0 0 0 / 10%);
   border-radius: 1rem;
+  margin: .75rem 0;
 }
 
-.communications h2 {
+.communications h2,
+.get-help-container h2{
   font-size: 1.75rem;
   text-align: center;
   margin-bottom: 0;
 }
 
-.communications .carousel{ 
+.communications .carousel,
+.get-help-container .get-help {
   display: flex;
-  align-items: center;
+  justify-content: center;
   margin-bottom: 1rem;
 }
- 
+
+.get-help-container .get-help {
+  justify-content: space-evenly;
+}
+
+.get-help-container .get-help .call,
+.get-help-container .get-help .sms,
+.get-help-container .get-help .whatsapp,
+.get-help-container .get-help .reachout-mail {
+  margin: 0 1rem;
+  width: 17rem;
+  height: 6rem;
+  border-radius: 1rem;
+  box-shadow: 0.3rem 0.3rem 0.6rem rgb(233, 227, 227), -0.2rem -0.2rem 0.5rem var(--white);
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+}
+
+.get-help-container .get-help div i{
+  width: 3rem;
+  height: 3rem;
+  border-radius: 1rem;
+  margin: 0 .45rem;
+  display: flex;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+          align-items: center;
+  font-size: 1.8rem;
+}
+
+.get-help-container .get-help .call p,
+.get-help-container .get-help .sms p,
+.get-help-container .get-help .whatsapp p,
+.get-help-container .get-help .reachout-mail p {
+  font-size: .9rem;
+  color: var(--greyDark);
+}
+
 .communications .carousel i{
   padding: 1rem 2rem;
 }
