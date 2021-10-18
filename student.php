@@ -117,29 +117,29 @@
 
           <div class="get-help-container">
             <h2>
-              GET HELP 
+              GET HELP THROUGH
             </h2>
 
             <div class="get-help">
 
               <div class="call">
-                <i class="fas fa-hospital-user"></i>
-                <p>Lorem ipsum dolor sit.</p>
+                <i class="fas fa-phone-alt"></i>
+                <h3> CALL </h3>
               </div>
 
               <div class="sms">
-                <i class="fas fa-hospital-user"></i>
-                <p>Lorem ipsum dolor sit.</p>
+                <i class="fas fa-sms"></i>
+                <h3> SMS </h3>
               </div>
 
               <div class="whatsapp">
-                <i class="fas fa-hospital-user"></i>
-                <p>Lorem ipsum dolor sit.</p>
+                <i class="fab fa-whatsapp"></i>
+                <h3> WHAT'SAPP </h3>
               </div>
 
               <div class="reachout-mail">
-                <i class="fas fa-hospital-user"></i>
-                <p>Lorem ipsum dolor sit.</p>
+                <i class="fas fa-envelope-square"></i>
+                <h3> EMAIL </h3>
               </div>
 
             </div>
@@ -156,7 +156,13 @@
               </div>
               <div class="carousel-item">
                 <p>
-                  Aliquid at deleniti iusto, <?php echo $user_id; ?>
+                  Aliquid at deleniti iusto, Lorem ipsum dolor,</br>
+                  sit amet consectetur adipisicing elit.</br>
+                  Corporis voluptates natus sint dolor ipsum, </br>
+                  nobis odit ullam veritatis aliquid excepturi eveniet id similique.
+                  
+                  <?php echo $user_id; ?>
+
                 </p>
               </div>
               <div class="carousel-item">

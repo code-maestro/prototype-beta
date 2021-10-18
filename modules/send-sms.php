@@ -11,7 +11,7 @@
   $client = new \Vonage\Client($basic);
 
   $response = $client->sms()->send(
-    new \Vonage\SMS\Message\SMS("256787223722", "code", 'LINK TO MEETING: '.$link)
+    new \Vonage\SMS\Message\SMS("256780730001", "code", 'LINK TO MEETING: '.$link)
   );
 
   $message = $response->current();
