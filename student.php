@@ -121,6 +121,11 @@
             </h2>
 
             <div class="get-help">
+              
+              <div class="reachout-mail">
+                <i class="fas fa-comments"></i>
+                <h3> LIVE CHAT </h3>
+              </div>
 
               <div class="call">
                 <i class="fas fa-phone-alt"></i>
@@ -135,11 +140,6 @@
               <div class="whatsapp">
                 <i class="fab fa-whatsapp"></i>
                 <h3> WHAT'SAPP </h3>
-              </div>
-
-              <div class="reachout-mail">
-                <i class="fas fa-envelope-square"></i>
-                <h3> EMAIL </h3>
               </div>
 
             </div>
@@ -228,6 +228,61 @@
 
         <div class="faqs-list">
           <ul>
+            <li>
+              <h3> What is mental health? </h3>
+              <p>
+                Mental health refers to your emotional and psychological well-being.</br>
+                Having good mental health helps you lead a relatively happy and healthy life. </br>
+                It helps you demonstrate resilience and the ability to cope in the face of life’s adversities.</br>
+                Your mental health can be influenced by a variety of factors, including life events or even your genetics.
+              </p>
+            </li>
+            <li>
+              <h3> What is mental illness ? </h3>
+              <p>
+                A mental illness is a broad term which encompasses a wide variety of conditions which affect the way you feel and think. </br>
+                It can also affect your ability to get through day-to-day life.
+              </p>
+            </li>
+
+            <li>
+              <h3> What influences Mental illnesses ? </h3>
+              <p>
+                Genetics </br>
+                Environment </br>
+                Daily habits </br>
+                Biology </br>
+              </p>
+            </li>
+
+            <li>
+              <h3> What are some of the common Mental Health disorders/Illnesses ? </h3>
+              <p>
+                Bipolar disorder. </br>
+                Persistent depressive disorder. </br>
+                Generalized anxiety disorder. </br>
+                Major depressive disorder. </br>
+                Obsessive-compulsive disorder. </br>
+                Post-traumatic stress disorder (PTSD) </br>
+                Schizophrenia. </br>
+                Social anxiety disorder. </br>
+              </p>
+            </li>
+            
+            <li>
+              <h3>How can I can keep good mental health ? </h3>
+              <p>
+                keeping a positive attitude </br>
+                staying physically active </br>
+                helping other people </br>
+                getting enough sleep </br>
+                eating a healthy diet </br>
+                asking for professional help with your mental health if you need it </br>
+                socializing with people whom you enjoy spending time with </br>
+                forming and using effective coping skills to deal with your problems </br>
+              </p>
+            </li>
+
             <li>
               <h3> How do I book an appointment? </h3>
               <p>

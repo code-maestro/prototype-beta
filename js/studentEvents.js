@@ -547,6 +547,7 @@ document.querySelector('.update-form form').onsubmit= (e) => {
 }
 
 // Function to update the user data
+
 $( "#update-data" ).click(function() {
 
   var fname = document.querySelector('#update_first_name').value;
@@ -558,8 +559,7 @@ $( "#update-data" ).click(function() {
   var pass = document.querySelector('#update_pass').value;
   var pass2 = document.querySelector('#update_pass2').value;
 
-  $.post( "modules/updateUserData.php", 
-  { 
+  if ( $.post( "modules/updateUserData.php", {
     first_name: fname, 
     last_name: lname, 
     mail: email,
@@ -568,7 +568,21 @@ $( "#update-data" ).click(function() {
     phone_number: phone,
     password: pass,
     password2: pass2
-  });
+  })) {
+
+    alert(" DATA HAS BEEN UPDATED ");
   
+} else {
+  
+  alert(" DATA HAS NOT BEEN UPDATED ");
+
+}
+
 });
 
+document.querySelector(".reachout-mail").onclick = function() {
+  console.log("delete");
+
+  modal.style.display = "block";
+  
+}
