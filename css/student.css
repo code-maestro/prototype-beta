@@ -218,6 +218,11 @@ h2 {
   justify-content: center;
 }
 
+.chat .text {
+  margin: 2rem 0 2rem 4rem;
+  font-size: 1.5rem;
+}
+
 details {
 	position: relative;
 	width: 150px;
@@ -288,7 +293,6 @@ details ul li {
 	margin: 0;
   padding: .25rem;
   text-align: justify;
-  background-color: yellowgreen;
 }
 
 details ul li:first-child {

@@ -69,9 +69,9 @@ overviewBtn.onclick = function() {
 
 // COUNSELORS button event
 counselorsBtn.onclick = function() {
-  document.querySelector(".counselors").style.display = "block";
-  document.querySelector(".appointments").style.display = "none";
-  document.querySelector(".update-form").style.display = "none";
+  // document.querySelector(".counselors").style.display = "block";
+  // document.querySelector(".appointments").style.display = "none";
+  // document.querySelector(".update-form").style.display = "none";
 }
 
 // Faqs button event
@@ -547,7 +547,6 @@ document.querySelector('.update-form form').onsubmit= (e) => {
 }
 
 // Function to update the user data
-
 $( "#update-data" ).click(function() {
 
   var fname = document.querySelector('#update_first_name').value;
@@ -586,3 +585,35 @@ document.querySelector(".reachout-mail").onclick = function() {
   modal.style.display = "block";
   
 }
+
+// Function retrieving messages
+setInterval(() => {
+
+  // Create an XMLHttpRequest object
+  const xhttp = new XMLHttpRequest();
+
+  xhttp.open("POST", "modules/std_latest_message.php", true);
+
+  // Define a callback function
+  xhttp.onload = function() {
+    // Here you can use the Data
+    if(xhttp.readyState === XMLHttpRequest.DONE){
+      
+      if(xhttp.status === 200){
+        
+        let data = xhttp.response;
+
+        document.querySelector(".notification-title").innerHTML = data;
+
+        document.querySelector(".badge").style.display = "block";
+
+      }
+    }
+  }
+
+  // Send a request
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  
+  xhttp.send("counsellor_id="+counsellorid);
+
+}, 500);

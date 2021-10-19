@@ -92,16 +92,16 @@
           <div class="right">
             <div class="schedules">
               <i class="far fa-calendar"></i>
-              <span class="badge"> 4 </span>
+              <!-- <span class="badge"> 4 </span> -->
               <div class="cale" id="calendar"></div>
             </div>
 
             <div class="notifications-list">
               <i class="far fa-bell" id="notification-btn" ></i>
-              <span class="badge"> 4 </span>
+              <span class="badge"> </span>
               <ul class="theList">
                 <li id="theenotification"> 
-                  <span class="notification-title"> '. $ROW['text_msg'] .' </span>
+                  <span class="notification-title">  </span>
                 </li>
               </ul>
             </div>
