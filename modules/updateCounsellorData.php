@@ -18,9 +18,9 @@
 
     $theQuery = " UPDATE users INNER JOIN login ON users.users_id = login.users_uid
                   AND users.users_id = '$user_id'
-                  SET users.first_name = '$fname', users.last_name = '$lname', 
-                  users.phone_number = '$phone_number', 
-                  login.reg_no = '$reg_no', login.password = '$password', 
+                  SET users.first_name = '$fname', users.last_name = '$lname',
+                  users.phone_number = '$phone_number', users.gender = '$gender',
+                  login.reg_no = '$reg_no', login.password = '$password',
                   login.email = '$email' ";
 
     $insert = new DatabaseModule();

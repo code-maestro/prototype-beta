@@ -377,7 +377,7 @@ document.querySelector("details .male").onclick = function() {
         var clickedMales = males.getElementsByTagName("li");
 
         for (const clickedMale of clickedMales) {
-          clickedMale.addEventListener('click', function(event) {
+          clickedMale.addEventListener('click', function() {
             
             const counsellor_email = clickedMale.getAttribute("id");
             const counsellor_names = clickedMale.getAttribute("class");

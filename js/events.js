@@ -237,6 +237,8 @@ document.getElementById("counsellors").onclick = function() {
   document.querySelector(".update-form").style.display = "none";
 }
 
+
+// UPDATE SECTION
 document.querySelector("#update-btn").onclick = function() {
   document.querySelector(".faqs").style.display = "none";
   document.querySelector(".counselors").style.display = "none";
@@ -337,15 +339,22 @@ $("#update-data").click(function() {
   var pass = document.querySelector('#update_pass').value;
   var pass2 = document.querySelector('#update_pass2').value;
 
-  $.post( "modules/updateCounsellorData.php", 
-  { 
-    first_name: fname, 
-    last_name: lname, 
-    mail: email,
-    gender: gender,
-    phone_number: phone,
-    password: pass,
-    password2: pass2
-  });
+  if ( $.post( "modules/updateCounsellorData.php", { 
+      first_name: fname, 
+      last_name: lname, 
+      mail: email,
+      gender: gender,
+      phone_number: phone,
+      password: pass,
+      password2: pass2
+    })) {
+
+      alert(" DATA HAS BEEN UPDATED ");
+    
+  } else {
+    
+    alert(" DATA HAS NOT BEEN UPDATED ");
+
+  }
 
 });

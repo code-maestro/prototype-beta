@@ -97,6 +97,10 @@ header nav ul li i{
   padding-right: 1rem;
 }
 
+.nav-item:hover {
+  cursor: pointer;
+}
+
 a{
   text-decoration: none;
   color: inherit;
@@ -722,6 +726,10 @@ main .appointments .wrapper{
   background-color: #000;
   color: #f3f3f3;
   width: 100%;
+}
+
+#update-data:hover {
+  cursor: pointer;
 }
 
 .update-form form .row .profile-pic{

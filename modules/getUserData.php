@@ -22,8 +22,8 @@
           $result .= 
           '
             <div class="row">
-              <input type="text" id="update_first_name" placeholder="First Name" value=' . $value['first_name'] . '>
-              <input type="text" id="update_last_name" placeholder="Last Name" value=' . $value['last_name'] . '>
+              <input type="text" name="fname" id="update_first_name" placeholder="First Name" value=' . $value['first_name'] . '>
+              <input type="text" name="lname" id="update_last_name" placeholder="Last Name" value=' . $value['last_name'] . '>
             </div>
 
             <div class="row">

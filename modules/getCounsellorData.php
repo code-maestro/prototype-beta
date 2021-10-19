@@ -32,7 +32,7 @@
             </div>
 
             <div class="row">
-              <input type="text" id="update_gender" placeholder="Gender" value=' . $value['gender'] . '>
+              <input type="text" id="update_gender" name="gender" placeholder="Gender" value=' . $value['gender'] . '>
               <input type="text" id="update_phone" placeholder="Phone Number" value=' . $value['phone_number'] . '>
             </div>
 
