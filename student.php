@@ -427,9 +427,6 @@
 
           $my_list = $new_appointment->retrieveAppointments($query);
 
-          // for ($i=0; $i < $my_list.count ; $i++) { 
-          //   # code...
-          // }
           if ($my_list) {        
 
             foreach ($my_list as $key => $value) {
@@ -449,7 +446,7 @@
                   $new_date = $formatted_date->getTimestamp();
                 
                 }
-        ?>
+          ?>
               
           <div class="aob_content">
             <p id='df'> <?php echo $titles_array; ?> </p>
@@ -462,7 +459,7 @@
 
         }
       
-      ?>
+        ?>
       
       </scetion>
 

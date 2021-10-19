@@ -6,9 +6,9 @@
 
   $user_id = $_SESSION['std_id'];
 
-  $fname = $_POST['fname'];
-  $lname = $_POST['lname'];
-  $email = $_POST['email'];
+  $fname = $_POST['first_name'];
+  $lname = $_POST['last_name'];
+  $email = $_POST['mail'];
   $reg_no = $_POST['reg_no'];
   $gender = $_POST['gender'];
   $phone_number = $_POST['phone_number'];

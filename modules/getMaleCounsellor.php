@@ -5,7 +5,9 @@
 
   //$maleQuery = " SELECT * FROM users WHERE users_id LIKE 'STAFF%' AND gender = 'male';";
 
-  $maleQuery = 'SELECT users.users_id, users.first_name, users.last_name, login.email FROM users INNER JOIN login ON users.users_id = login.users_uid AND users.users_id LIKE "STAFF%" AND users.gender = "male";';
+  $maleQuery = 'SELECT users.users_id, users.first_name, users.last_name, 
+                login.email FROM users INNER JOIN login ON users.users_id = login.users_uid
+                AND users.users_id LIKE "STAFF%" AND users.gender = "male";';
 
   $counsellors = new User();
   $maleOutput = $counsellors->getCounsellors($maleQuery);
