@@ -7,6 +7,11 @@ var liveChat = document.getElementById("livechat");
 var zoomLink = document.querySelector("#zoomlink");
 var sendEmail = document.getElementById("sendEmail");
 
+// Notifications button event
+document.querySelector("#notification-btn").onclick = function() {
+  document.querySelector(".modal").style.display = "block";
+}
+
 //Preventing the form resubmit
 document.querySelector('#catergory-btns').onsubmit = (e) => {
   e.preventDefault();
@@ -236,7 +241,6 @@ document.getElementById("counsellors").onclick = function() {
   document.querySelector(".appointments").style.display = "none";
   document.querySelector(".update-form").style.display = "none";
 }
-
 
 // UPDATE SECTION
 document.querySelector("#update-btn").onclick = function() {
