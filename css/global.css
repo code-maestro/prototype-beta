@@ -18,7 +18,6 @@ body{
   height: 100vh;
 }
 
-
 /* SCROLL BAR STYLING */
 body::-webkit-scrollbar{
   width: 0.30rem;
@@ -203,9 +202,9 @@ main .appointments .wrapper{
   display: none;
   font-size: 10px;
   position: absolute;
-  padding: 2px 5px;
-  top: 5px;
-  right: 5px;
+  padding: 5px;
+  top: 8px;
+  right: 11px;
   border-radius: 50%;
   background: green;
   font-weight: 700;
@@ -222,7 +221,6 @@ main .appointments .wrapper{
   padding: .25rem;
   top: 30px;
   right: 5px;
-  background: var(--navbar-background-color);
   border-radius: .25rem;
   font-weight: 500;
   color: var(--icon-color);
@@ -237,7 +235,8 @@ main .appointments .wrapper{
   padding: .35rem;
   border: none;
   border-radius: .25rem;
-  background-color: var(--nav-hover-color);
+  background-color: var(--main-background-color);
+  color: #000;
 }
 
 .main-navbar .chat-title .right .schedules:hover .cale,

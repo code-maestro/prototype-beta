@@ -69,9 +69,9 @@ overviewBtn.onclick = function() {
 
 // COUNSELORS button event
 counselorsBtn.onclick = function() {
-  document.querySelector(".counselors").style.display = "block";
-  document.querySelector(".appointments").style.display = "none";
-  document.querySelector(".update-form").style.display = "none";
+  // document.querySelector(".counselors").style.display = "block";
+  // document.querySelector(".appointments").style.display = "none";
+  // document.querySelector(".update-form").style.display = "none";
 }
 
 // Faqs button event
@@ -558,8 +558,7 @@ $( "#update-data" ).click(function() {
   var pass = document.querySelector('#update_pass').value;
   var pass2 = document.querySelector('#update_pass2').value;
 
-  $.post( "modules/updateUserData.php", 
-  { 
+  if ( $.post( "modules/updateUserData.php", {
     first_name: fname, 
     last_name: lname, 
     mail: email,
@@ -568,7 +567,53 @@ $( "#update-data" ).click(function() {
     phone_number: phone,
     password: pass,
     password2: pass2
-  });
+  })) {
+
+    alert(" DATA HAS BEEN UPDATED ");
   
+} else {
+  
+  alert(" DATA HAS NOT BEEN UPDATED ");
+
+}
+
 });
 
+document.querySelector(".reachout-mail").onclick = function() {
+  console.log("delete");
+
+  modal.style.display = "block";
+  
+}
+
+// Function retrieving messages
+setInterval(() => {
+
+  // Create an XMLHttpRequest object
+  const xhttp = new XMLHttpRequest();
+
+  xhttp.open("POST", "modules/std_latest_message.php", true);
+
+  // Define a callback function
+  xhttp.onload = function() {
+    // Here you can use the Data
+    if(xhttp.readyState === XMLHttpRequest.DONE){
+      
+      if(xhttp.status === 200){
+        
+        let data = xhttp.response;
+
+        document.querySelector(".notification-title").innerHTML = data;
+
+        document.querySelector(".badge").style.display = "block";
+
+      }
+    }
+  }
+
+  // Send a request
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  
+  xhttp.send("counsellor_id="+counsellorid);
+
+}, 500);
