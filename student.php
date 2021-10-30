@@ -42,7 +42,7 @@
       <!-- Heading -->
       <div class="heading">
         <img src="resources/img/must.png" alt="">
-        <h3> COUNSELLOR APP </h3>
+        <h3> REMOTE STUDENT-COUNSELLOR APP </h3>
       </div>
       <!-- /Heading -->
 
@@ -85,7 +85,7 @@
           <div class="left">
             <img src="resources/img/must.png" alt="" srcset="">
             <div class="user-info">
-              <span> Willkommen</span>
+              <span> Welcome <?php echo $_SESSION['student_names']; ?> </span>
             </div>
           </div>
 
