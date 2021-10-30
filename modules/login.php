@@ -10,8 +10,8 @@
       $Password = md5($data['password2']);
             
     // QUERIES TO RETRIEVE THE  DATA 
-      $query = "SELECT * FROM login INNER JOIN roles WHERE email = '$email' 
-                AND roles.users_uid = login.users_uid LIMIT 1;";
+      $query = " SELECT * FROM login INNER JOIN roles INNER JOIN users WHERE login.email = '$email' 
+                 AND roles.users_uid = login.users_uid AND login.users_uid = users.users_id LIMIT 1;";
 
       $DB = new DatabaseModule();
       $result = $DB->readData($query);
@@ -29,6 +29,7 @@
             //SESSION DATA CREATION
             $_SESSION['std_id'] = $row['users_uid'];
             $_SESSION['regno'] = $row['email'];
+            $_SESSION['student_names'] = $row['first_name'] ." ". $row['last_name'];
   
             header("Location: student.php");
   
@@ -37,6 +38,7 @@
             //SESSION DATA CREATION
             $_SESSION['staff_id'] = $row['users_uid'];
             $_SESSION['email'] = $row['email'];
+            $_SESSION['counsellor_names'] = $row['first_name'] ." ". $row['last_name'];
 
             $this->error .= " YOU'VE LOGGED IN SUCCESSFULLY ";
 

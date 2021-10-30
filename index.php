@@ -152,7 +152,7 @@
             <h1>Create Account</h1>
             <div class="social-container">
               <a href="#" class="student" id="student">STUDENT</a>
-              <a href="#" class="staff" id="staff">STAFF</a>
+              <a href="#" class="staff" id="staff">COUNSELLOR</a>
             </div>
 
             <div class="overlay-signup">
@@ -204,12 +204,12 @@
           <div class="overlay">
             <div class="overlay-panel overlay-left">
               <h1>Welcome Back!</h1>
-              <p>To keep connected with us please login with your personal info</p>
+              <p>To get help and get connected to professional Counsellors, Please login with your personal info</p>
               <button class="ghost" id="signIn">Log In</button>
             </div>
             <div class="overlay-panel overlay-right">
               <h1>Hello, Friend!</h1>
-              <p>Enter your personal details and start journey with us</p>
+              <p>Enter your personal details and start journey Mental Health Wellness with us</p>
               <button class="ghost" id="signUp">Sign Up</button>
             </div>
           </div>
