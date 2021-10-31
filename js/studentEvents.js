@@ -62,6 +62,7 @@ window.onclick = function(event) {
 
 // Overview button event
 overviewBtn.onclick = function() {
+  document.querySelector(".update-form").style.display = "none";
   document.querySelector(".counselors").style.display = "none";
   document.querySelector(".faqs").style.display = "none";
   document.querySelector(".appointments").style.display = "flex";
