@@ -231,8 +231,8 @@ document.querySelector('.list-header form').onsubmit = (e) => {
 document.getElementById("overview").onclick = function() {
   document.querySelector(".counselors").style.display = "none";
   document.querySelector(".faqs").style.display = "none";
-  document.querySelector(".update-form").style.display = "none";
   document.querySelector(".appointments").style.display = "flex";
+  document.querySelector(".update-form").style.display = "none";
 }
 
 // COUNSELORS button event
