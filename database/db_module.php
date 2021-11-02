@@ -11,35 +11,35 @@
     // FUNCTION/METHOD TO INSTANTIATE THE CONNECTION TO THE DATABASE.
     private function connect(){
 
-      //LOCAL DATABASE CONNECTION.
-      $this->server = "localhost";
-      $this->username = "root";
-      $this->password = "";
-      $this->dbname = "db";
+      // //LOCAL DATABASE CONNECTION.
+      // $this->server = "localhost";
+      // $this->username = "root";
+      // $this->password = "";
+      // $this->dbname = "db";
 
 
-      // // REMOTE DATABASE CONECTION
-      // $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+      // REMOTE PRODUCTION DATABASE CONECTION
+      $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 
-      // $serva = $url["host"];
-      // $uname = $url["user"];
-      // $pass = $url["pass"];
-      // $db = substr($url["path"], 1);
+      $serva = $url["host"];
+      $uname = $url["user"];
+      $pass = $url["pass"];
+      $db = substr($url["path"], 1);
 
       try {
 
         $conn = new mysqli(
-          // // REMOTE DEPLOYMENT
-          // $serva, 
-          // $uname, 
-          // $pass, 
-          // $db
+          // REMOTE PRODUCTION DEPLOYMENT
+          $serva, 
+          $uname, 
+          $pass, 
+          $db
 
-          // Local development
-          $this->server,
-          $this->username,
-          $this->password,
-          $this->dbname
+          // // Local development
+          // $this->server,
+          // $this->username,
+          // $this->password,
+          // $this->dbname
 
         );
       } catch (Exception $e) {
