@@ -28,18 +28,14 @@
       try {
 
         $conn = new mysqli(
-          // // REMOTE PRODUCTION DEPLOYMENT
-          // $serva, 
-          // $uname, 
-          // $pass, 
-          // $db
+   
           $this->server,
           $this->username,
           $this->password,
           $this->dbname
 
         );
-        
+
       } catch (Exception $e) {
 
         echo "connection to the database failed " . $e->getMessage();
@@ -88,8 +84,11 @@
         return false;
 
       }else {
+
         return true;
+        
       }
+      
     }
 
   }

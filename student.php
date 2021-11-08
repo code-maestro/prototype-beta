@@ -128,8 +128,10 @@
               </div>
 
               <div class="call">
-                <i class="fas fa-phone-alt"></i>
-                <h3> CALL </h3>
+                <a href="tel:+123456890">
+                  <i class="fas fa-phone-alt"></i>
+                  <h3> CALL </h3>
+                </a>
               </div>
 
               <div class="sms">
