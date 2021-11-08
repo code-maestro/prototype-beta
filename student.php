@@ -127,12 +127,12 @@
                 <h3> LIVE CHAT </h3>
               </div>
 
-              <div class="call">
-                <a href="tel:+123456890">
+              <a href="tel:+123456890">
+                <div class="call">
                   <i class="fas fa-phone-alt"></i>
                   <h3> CALL </h3>
-                </a>
-              </div>
+                </div>
+              </a>
 
               <div class="sms">
                 <i class="fas fa-sms"></i>
