@@ -134,7 +134,7 @@
 
               <div class="sms">
                 <i class="fas fa-sms"></i>
-                <h3> SMS </h3>
+                <a href="sms:+256780730001"><h3> SMS </h3></a>
               </div>
 
               <div class="whatsapp">
