@@ -18,6 +18,7 @@
         if (!$user_details) {
           // Redirecting if use is not found
           header("Location: ../index.php");
+          
           die;
         }
 
