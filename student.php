@@ -81,7 +81,7 @@
         <div class="chat-title">
 
           <div class="left">
-            <img src="resources/img/twotone_small.png" alt="" srcset="">
+            <img src="<?php echo "./resources/".$_SESSION['profile']; ?>" alt=" UPLOAD IMAGE ">
             <div class="user-info">
               <span> Welcome <?php echo $_SESSION['student_names']; ?> </span>
             </div>
