@@ -2,6 +2,7 @@
 
   include 'database/db_module.php';
   include 'modules/signup.php';
+  include 'modules/std_signup.php';
   include 'modules/login.php';
 
   $role = "";
@@ -57,7 +58,7 @@
       
       }else {
 
-        $signup = new Signup();
+        $signup = new StdSignup();
         $result = $signup->evaluate($_POST);
 
         if ($result != "") {
@@ -70,7 +71,7 @@
 
     }else {
 
-        $signup = new Signup();
+        $signup = new StdSignup();
         $result = $signup->evaluate($_POST);
 
         if ($result != "") {
