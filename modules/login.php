@@ -10,7 +10,7 @@
       $Password = md5($data['password2']);
             
     // QUERIES TO RETRIEVE THE  DATA 
-      $query = " SELECT * FROM login INNER JOIN roles INNER JOIN users WHERE login.email = '$email' 
+      $query = " SELECT login.id, login.users_uid, login.email, login.password, roles.role_id, users.first_name, users.last_name  FROM login INNER JOIN roles INNER JOIN users WHERE login.email = '$email' 
                  AND roles.users_uid = login.users_uid AND login.users_uid = users.users_id LIMIT 1;";
 
       $DB = new DatabaseModule();
@@ -30,6 +30,14 @@
             $_SESSION['std_id'] = $row['users_uid'];
             $_SESSION['regno'] = $row['email'];
             $_SESSION['student_names'] = $row['first_name'] ." ". $row['last_name'];
+
+            $UUID = $_SESSION['std_id'];
+            $LOG = $row['id'];
+
+            $log_query = "INSERT INTO login_logs (users_uid, login_id, snapshot) VALUES ('$UUID', '$LOG', NOW())";
+            $post_login_query = "INSERT INTO post_login (users_uid, login_id, snapshot, status) VALUES ('$UUID', '$LOG', NOW(), 'ON')";
+            $DB->saveData($log_query);
+            $DB->saveData($post_login_query);
   
             header("Location: student.php");
   
@@ -39,6 +47,14 @@
             $_SESSION['staff_id'] = $row['users_uid'];
             $_SESSION['email'] = $row['email'];
             $_SESSION['counsellor_names'] = $row['first_name'] ." ". $row['last_name'];
+            
+            $STAFFUUID = $_SESSION['staff_id'];
+            $STAFFLOG = $row['id'];
+
+            $staff_log_query = "INSERT INTO login_logs (users_uid, login_id, snapshot) VALUES ('$STAFFUUID', '$STAFFLOG', NOW())";
+            $post_log_query = "INSERT INTO post_login (users_uid, login_id, snapshot, status) VALUES ('$STAFFUUID', '$STAFFLOG', NOW(), 'ON' )";
+            $DB->saveData($staff_log_query);
+            $DB->saveData($post_log_query);
 
             $this->error .= " YOU'VE LOGGED IN SUCCESSFULLY ";
 
