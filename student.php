@@ -55,10 +55,6 @@
             <i class="fas fa-layer-group"></i>
             <h3>Overview</h3>
           </li>
-          <li class="nav-item" id="appointments">
-            <i class="fas fa-calendar-check"></i>
-            <h3>Appointments</h3>
-          </li>
           <li class="nav-item" id="counselors">
             <i class="fas fa-user-md"></i>
             <h3>Counsellors </h3>
@@ -139,9 +135,9 @@
                 <a href="sms:+256780730001"><h3> SMS </h3></a>
               </div>
 
-              <div class="whatsapp">
-                <i class="fab fa-whatsapp"></i>
-                <h3> WHAT'SAPP </h3>
+              <div class="whatsapp" id="theFaqs">
+                <i class="fas fa-question-circle"></i>
+                <h3> FAQs </h3>
               </div>
 
             </div>
