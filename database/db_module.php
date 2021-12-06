@@ -11,19 +11,19 @@
     // FUNCTION/METHOD TO INSTANTIATE THE CONNECTION TO THE DATABASE.
     private function connect(){
 
-      //LOCAL DATABASE CONNECTION.
-      $this->server = "localhost";
-      $this->username = "root";
-      $this->password = "";
-      $this->dbname = "counsellor";
+      // //LOCAL DATABASE CONNECTION.
+      // $this->server = "localhost";
+      // $this->username = "root";
+      // $this->password = "";
+      // $this->dbname = "counsellor";
 
-      // // REMOTE PRODUCTION DATABASE CONECTION
-      // $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+      // REMOTE PRODUCTION DATABASE CONECTION
+      $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 
-      // $this->server = $url["host"];
-      // $this->username = $url["user"];
-      // $this->password = $url["pass"];
-      // $this->dbname = substr($url["path"], 1);
+      $this->server = $url["host"];
+      $this->username = $url["user"];
+      $this->password = $url["pass"];
+      $this->dbname = substr($url["path"], 1);
 
       try {
 
