@@ -30,27 +30,27 @@
     //   }
     // }
 
-  // Creating Pending appointment
-    public function createPending($uid, $data){
+  // // Creating Pending appointment
+  //   public function createPending($uid, $data){
 
-      $pending_id = rand(time(), 1000000);
+  //     $pending_id = rand(time(), 1000000);
       
-      if (!empty($data)) {
+  //     if (!empty($data)) {
         
-        $reason = addslashes($data['reason']);
-        $pdate = addslashes($data['select-date']);
+  //       $reason = addslashes($data['reason']);
+  //       $pdate = addslashes($data['select-date']);
 
-        // SQL query to save pending to db
-        $query = "INSERT INTO pending_appointments (pending_id, reason, date, user_id) 
-                  VALUES ('$pending_id', '$reason', '$pdate', '$pending_time', '$uid')";
+  //       // SQL query to save pending to db
+  //       $query = "INSERT INTO pending_appointments (pending_id, reason, date, user_id) 
+  //                 VALUES ('$pending_id', '$reason', '$pdate', '$pending_time', '$uid')";
 
-        $DB = new DatabaseModule();        
-        $DB->saveData($query);
+  //       $DB = new DatabaseModule();        
+  //       $DB->saveData($query);
         
-      }else {
-        $this->error .= "Please enter something to send 😒😒 </br> ";
-      }
-    }
+  //     }else {
+  //       $this->error .= "Please enter something to send 😒😒 </br> ";
+  //     }
+  //   }
 
     // Function for creating a communication text
     public function createCommunication($uid, $data){
@@ -141,57 +141,6 @@
       }else {
         return false;
       }
-    }
-
-    // Function to retrieve zoom access token from db
-    public function isTableEmpty(){
-
-      $checkingQuery = "SELECT id FROM zoom-token";
-
-      $DB = new DatabaseModule();        
-
-      $result = $DB->readData($checkingQuery);
-
-      if ($result->num_rows) {
-        return false;
-      }else {
-        return true;
-      }
-
-    }
-
-    // Function to retrieve zoom access token from db
-    public function getAcessToken($user_id){
-
-      $tokenQuery = "SELECT acess-token FROM zoom-token WHERE users_uid = '$user_id'; ";
-
-      $DB = new DatabaseModule();        
-
-      $result = $DB->readData($tokenQuery);
-
-      if ($result) {
-        return json_decode($result['access-token']);
-      }else {
-        return $this.error . " Nothing no zoom access token received 😒 ";
-      }
-
-    }
-
-     // Function to update zoom access token from db
-    public function updateAcessToken($newToken){
-
-      $newTokenQuery = "INSERT INTO zoom-token (access-token) VALUES '$newToken';";
-
-      $updateTokenQuery = "UPDATE zoom-token SET access-token = '$newToken' WHERE users_uid = '$user_id'; ";
-
-      $DB = new DatabaseModule();        
-
-      if (isTableEmpty()) {
-        $DB->saveData($newTokenQuery);
-      }else {
-        $DB->saveData($updateTokenQuery);
-      }
-
     }
 
   }

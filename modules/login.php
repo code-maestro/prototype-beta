@@ -33,7 +33,7 @@
   
             header("Location: student.php");
   
-          }else {
+          } else {
 
             //SESSION DATA CREATION
             $_SESSION['staff_id'] = $row['users_uid'];
