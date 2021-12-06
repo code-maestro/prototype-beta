@@ -115,7 +115,6 @@ function getAllCounsellors() {
 
 }
 
-
 // Loading the pending appointments on screen page load
 $(window).on('load', function() {
   // Create an XMLHttpRequest object
@@ -304,6 +303,16 @@ document.querySelector("#update-btn").onclick = function() {
   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   xhttp.send();
 
+}
+
+document.querySelector("#theFaqs").onclick = function() {
+
+  console.log("LOLO");
+
+  document.querySelector(".faqs").style.display = "block";
+  document.querySelector(".update-form").style.display = "none";
+  document.querySelector(".counselors").style.display = "none";
+  document.querySelector(".appointments").style.display = "none";
 }
 
 // click event to populate the list for counsellors in the dropdown
