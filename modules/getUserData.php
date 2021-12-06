@@ -27,18 +27,18 @@
             </div>
 
             <div class="row">
-              <input type="email" id="update_email" placeholder="Email" value=' . $value['email'] .'>
-              <input type="text" id="update_reg_no" placeholder="Registration Number" value=' . $value['reg_no'] . '>
+              <input type="email" name="mail" id="update_email" placeholder="Email" value=' . $value['email'] .'>
+              <input type="text" name="reg_no" id="update_reg_no" placeholder="Registration Number" value=' . $value['reg_no'] . '>
             </div>
 
             <div class="row">
-              <input type="text" id="update_gender" placeholder="Gender" value=' . $value['gender'] . '>
-              <input type="text" id="update_phone" placeholder="Phone Number" value=' . $value['phone_number'] . '>
+              <input type="text" name="gender" id="update_gender" placeholder="Gender" value=' . $value['gender'] . '>
+              <input type="text" name="phone_number" id="update_phone" placeholder="Phone Number" value=' . $value['phone_number'] . '>
             </div>
 
             <div class="row">
-              <input type="password" id="update_pass" placeholder="Password" value=' . $value['password'] . '>
-              <input type="password" id="update_pass2" placeholder="Comfirm Password" value=' . $value['password'] . '>
+              <input type="password" name="password" id="update_pass" placeholder="Password" value=' . $value['password'] . '>
+              <input type="password" name="password2" id="update_pass2" placeholder="Comfirm Password" value=' . $value['password'] . '>
             </div>
 
           ';
