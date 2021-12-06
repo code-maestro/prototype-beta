@@ -28,6 +28,8 @@
     <link rel="stylesheet" href="css/static/calendar.min.css">
     <link rel="stylesheet" href="css/student.css">
     <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/profile.css">
+    <link rel="stylesheet" href="css/lala.css">
 
     <!-- JS  -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -338,18 +340,47 @@
 
       <section class="counselors">
         <h2>
-          FAQs
+          CONSELLORS AVAILABLE
         </h2>
 
         <div class="container-list">
-          <div>Lorem ipsum dolor sit amet.</div>
-          <div>Lorem ipsum dolor sit amet.</div>
-          <div>Lorem ipsum dolor sit amet.</div>
-          <div>Lorem ipsum dolor sit amet.</div>
-          <div>Lorem ipsum dolor sit amet.</div>
-          <div>Lorem ipsum dolor sit amet.</div>
-          <div>Lorem ipsum dolor sit amet.</div>
-          <div>Lorem ipsum dolor sit amet.</div>
+          
+          <div class="wrapped">
+            <img src="https://cdn.vox-cdn.com/thumbor/KmUSGKjWbKxOCahy4yZkw17HZ64=/0x0:2370x1574/920x613/filters:focal(996x598:1374x976):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/68870438/Screen_Shot_2020_07_21_at_9.38.25_AM.0.png" alt="">
+            <article>
+              <h2><a href="https://www.twitter.com/random_studio" target="_blank" >@random_studio</a> mentioned you</h2>
+              <p>
+                How would you like to intern with us this summer?
+              </p>
+            </article>
+          </div>
+
+          <div class="wrapped">
+            <img src="https://cdn.vox-cdn.com/thumbor/KmUSGKjWbKxOCahy4yZkw17HZ64=/0x0:2370x1574/920x613/filters:focal(996x598:1374x976):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/68870438/Screen_Shot_2020_07_21_at_9.38.25_AM.0.png" alt="">
+            <article>
+              <h2><a href="https://www.twitter.com/random_studio" target="_blank" >@random_studio</a> mentioned you</h2>
+              <p>
+                How would you like to intern with us this summer?
+              </p>
+            </article>
+          </div>
+
+          <div class="wrapped">
+            <img src="https://cdn.vox-cdn.com/thumbor/KmUSGKjWbKxOCahy4yZkw17HZ64=/0x0:2370x1574/920x613/filters:focal(996x598:1374x976):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/68870438/Screen_Shot_2020_07_21_at_9.38.25_AM.0.png" alt="">
+            <h2> entioned you</h2>
+            <h2> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro, numquam? </h2>
+          </div>
+
+          <div class="wrapped">
+            <img src="https://cdn.vox-cdn.com/thumbor/KmUSGKjWbKxOCahy4yZkw17HZ64=/0x0:2370x1574/920x613/filters:focal(996x598:1374x976):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/68870438/Screen_Shot_2020_07_21_at_9.38.25_AM.0.png" alt="">
+            <article>
+              <h2><a href="https://www.twitter.com/random_studio" target="_blank" >@random_studio</a> mentioned you</h2>
+              <p>
+                How would you like to intern with us this summer?
+              </p>
+            </article>
+          </div>
+          
         </div>
       </section>
 
