@@ -1,0 +1,64 @@
+.wrapped {
+    margin: 50px auto;
+    width: 375px;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #ddd;
+    overflow: hidden;
+  }
+  
+  img {
+    float: left;
+    width: 125px;
+    height: 125px;
+    border-right: 1px solid #eee;
+  }
+  
+  article {
+    float: right;
+    padding: 14px 14px 20px;
+    width: 221px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  h2 {
+    margin: 1px 0 7px;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  p {
+    font-size: 1.1rem;
+    line-height: 1.5rem;
+  }
+  
+  nav {
+    float: right;
+    margin: 14px;
+    width: 221px;
+  }
+  
+  nav ul li {
+    float: right;
+    display: inline-block;
+  }
+  
+  nav ul li a {
+    margin: 0 8px;
+    font-size: 1.2rem;
+  }
+  
+  nav ul li .fontawesome-retweet, nav ul li .fontawesome-reply {
+    color: #aaa;
+  }
+  
+  nav ul li .fontawesome-star {
+    color: #4099FF;
+  }
+  
+  nav li.time {
+    float: left;
+    color: #aaa;
+  }
+  

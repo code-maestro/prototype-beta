@@ -70,17 +70,51 @@ overviewBtn.onclick = function() {
 
 // COUNSELORS button event
 counselorsBtn.onclick = function() {
-  // document.querySelector(".counselors").style.display = "block";
-  // document.querySelector(".appointments").style.display = "none";
-  // document.querySelector(".update-form").style.display = "none";
+  document.querySelector(".counselors").style.display = "block";
+  document.querySelector(".appointments").style.display = "none";
+  document.querySelector(".update-form").style.display = "none";
+  document.querySelector(".faqs").style.display = "none";
+
+  getAllCounsellors();
+
 }
 
 // Faqs button event
 faqsBtn.onclick = function() {
   document.querySelector(".faqs").style.display = "block";
+  document.querySelector(".update-form").style.display = "none";
   document.querySelector(".counselors").style.display = "none";
   document.querySelector(".appointments").style.display = "none";
 }
+
+// Function to retrieve all the counsellors registered with the app
+function getAllCounsellors() {
+  // Create an XMLHttpRequest object
+  const xhttp = new XMLHttpRequest();
+
+  xhttp.open("POST", "modules/getCounsellors.php", true);
+
+  // Define a callback function
+  xhttp.onload = function() {
+    // Here you can use the Data
+    if(xhttp.readyState === XMLHttpRequest.DONE){
+      
+      if(xhttp.status === 200){
+        
+        let data = xhttp.response;
+
+        document.querySelector(".container-list").innerHTML = data;
+
+      }
+    }
+  }
+
+  // Send a request
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send();
+
+}
+
 
 // Loading the pending appointments on screen page load
 $(window).on('load', function() {
