@@ -305,6 +305,7 @@ $( "#send-comm" ).click(function() {
     data: comm_data
   })) {
     alert(" COMMUNICATION HAS BEEN SENT ! ");
+    document.querySelector('#commun').value = "";
   } else {
     alert(" COMMUNICATION HAS NOT BEEN SENT ! ");
   }

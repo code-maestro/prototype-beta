@@ -175,7 +175,7 @@
       <section class="main-navbar">
         <div class="chat-title">
           <div class="left">
-            <img src="<?php if (isset($_SESSION['profile'])) {echo "./resources/".$_SESSION['profile']; } else { echo "UPLOAD AN IMAGE"; } ?> " alt=" UPLOAD IMAGE ">
+            <img src="<?php if (isset($_SESSION['staff-profile'])) {echo "./resources/".$_SESSION['staff-profile']; } else { echo "UPLOAD AN IMAGE"; } ?> " alt=" UPLOAD IMAGE ">
             <div class="user-info">
               <span> Welcome <?php echo $_SESSION['counsellor_names']; ?> </span>
             </div>

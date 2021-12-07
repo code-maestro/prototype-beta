@@ -6,11 +6,11 @@
 
     if (isset($_SESSION['staff_id'])) {
 
-        $user_id = $_SESSION['staff_id'];
+        $user = $_SESSION['staff_id'];
 
         $info = $_POST['data'];
 
-        $sql = " INSERT INTO communications (comm, users_uid) VALUES ('$info', '$user_id') ";
+        $sql = " INSERT INTO communications (comm, users_uid) VALUES ('$info', '$user') ";
     
         $insert = new DatabaseModule();
         $insert->saveData($sql);
