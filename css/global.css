@@ -692,6 +692,7 @@ main .appointments .wrapper{
 .faqs,
 .counselors,
 .update-form,
+.communication-form,
 .notification-modal {
   display: none;
 }
@@ -703,12 +704,16 @@ main .appointments .wrapper{
   text-align: center;
 }
 
+.communication-form form .row,
 .update-form form .row {
   display: flex;
   justify-content: center;
   margin: 0 1rem;
 }
 
+.communication-form form input,
+.communication-form form textarea,
+.communication-form form button,
 .update-form form input,
 .update-form form button{
   border: none;
@@ -721,11 +726,20 @@ main .appointments .wrapper{
   font-weight: 600;
 }
 
+.communication-form form button,
+.communication-form form textarea,
 .update-form form button{
   background-color: #000;
   color: #f3f3f3;
   width: 100%;
 }
+
+.communication-form form textarea{
+  background-color: #f8f8f8f3;
+  color: #000000;
+  width: 100%;
+}
+
 
 #update-data:hover {
   cursor: pointer;

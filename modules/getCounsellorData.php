@@ -22,23 +22,23 @@
           $result .= 
           '
             <div class="row">
-              <input type="text" id="update_first_name" placeholder="First Name" value=' . $value['first_name'] . '>
-              <input type="text" id="update_last_name" placeholder="Last Name" value=' . $value['last_name'] . '>
+              <input type="text" name="fname" id="update_first_name" placeholder="First Name" value=' . $value['first_name'] . '>
+              <input type="text" name="lname" id="update_last_name" placeholder="Last Name" value=' . $value['last_name'] . '>
             </div>
 
             <div class="row">
-              <input type="email" id="update_email" placeholder="Email" value=' . $value['email'] .'>
-              <input type="email" id="update_email" placeholder="Email" value=' . $value['email'] .'>
+              <input type="email" name="mail" id="update_email" placeholder="Email" value=' . $value['email'] .'>
+              <input type="text" name="genda" id="update_gender" placeholder="Gender" value=' . $value['gender'] . '>
             </div>
 
             <div class="row">
-              <input type="text" id="update_gender" name="gender" placeholder="Gender" value=' . $value['gender'] . '>
-              <input type="text" id="update_phone" placeholder="Phone Number" value=' . $value['phone_number'] . '>
+              <input type="password" name="password" id="update_pass" placeholder="Password" value=' . $value['password'] . '>
+              <input type="password" name="password2" id="update_pass2" placeholder="Comfirm Password" value=' . $value['password'] . '>
             </div>
 
             <div class="row">
-              <input type="password" id="update_pass" placeholder="Password" value=' . $value['password'] . '>
-              <input type="password" id="update_pass2" placeholder="Comfirm Password" value=' . $value['password'] . '>
+              <input type="text" name="pno" id="update_phone" placeholder="Phone Number" value=' . $value['phone_number'] . '>
+              <input type="file" name="file" placeholder="UPLOAD AN IMAGE" id="post-img">
             </div>
 
           '

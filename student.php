@@ -81,7 +81,7 @@
         <div class="chat-title">
 
           <div class="left">
-            <img src="<?php echo "./resources/".$_SESSION['profile']; ?>" alt=" UPLOAD IMAGE ">
+            <img src="<?php if (isset($_SESSION['profile'])) {echo "./resources/".$_SESSION['profile']; } ?> " alt=" UPLOAD IMAGE ">
             <div class="user-info">
               <span> Welcome <?php echo $_SESSION['student_names']; ?> </span>
             </div>
@@ -327,8 +327,7 @@
           </div>
 
           <div class="row">
-            <!-- <input type="file" name="file" placeholder="UPLOAD AN IMAGE" id="post-img" accept="image/*"> -->
-            <input type="file" name="file" placeholder="UPLOAD AN IMAGE" id="post-img">
+            <input type="file" name="file" placeholder="UPLOAD AN IMAGE" id="post-img" accept="image/*">            
           </div>
 
           <div class="row">

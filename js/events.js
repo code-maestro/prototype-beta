@@ -218,10 +218,6 @@ sendEmail.onclick = function() {
   document.getElementById("mail").style.display = "block";
 }
 
-document.querySelector('.update-form form').onsubmit= (e) => {
-  e.preventDefault();
-}
-
 // Preventing form resubmit for the view details, approve and delete
 document.querySelector('.list-header form').onsubmit = (e) => {
   e.preventDefault();
@@ -233,13 +229,24 @@ document.getElementById("overview").onclick = function() {
   document.querySelector(".faqs").style.display = "none";
   document.querySelector(".appointments").style.display = "flex";
   document.querySelector(".update-form").style.display = "none";
+  document.querySelector(".communication-form").style.display = "none";
+}
+
+// Overview button event
+document.getElementById("cancel-comm").onclick = function() {
+  document.querySelector(".counselors").style.display = "none";
+  document.querySelector(".faqs").style.display = "none";
+  document.querySelector(".appointments").style.display = "flex";
+  document.querySelector(".update-form").style.display = "none";
+  document.querySelector(".communication-form").style.display = "none";
 }
 
 // COUNSELORS button event
-document.getElementById("counsellors").onclick = function() {
+document.getElementById("students").onclick = function() {
   document.querySelector(".counselors").style.display = "block";
   document.querySelector(".appointments").style.display = "none";
   document.querySelector(".update-form").style.display = "none";
+  document.querySelector(".communication-form").style.display = "none";
 }
 
 // UPDATE SECTION
@@ -248,6 +255,7 @@ document.querySelector("#update-btn").onclick = function() {
   document.querySelector(".counselors").style.display = "none";
   document.querySelector(".appointments").style.display = "none";
   document.querySelector(".update-form").style.display = "block";
+  document.querySelector(".communication-form").style.display = "none";
 
   // Create an XMLHttpRequest object
   const xhttp = new XMLHttpRequest();
@@ -274,6 +282,33 @@ document.querySelector("#update-btn").onclick = function() {
   xhttp.send();
 
 }
+
+// UPDATE SECTION
+document.querySelector("#communicate-btn").onclick = function() {
+  document.querySelector(".faqs").style.display = "none";
+  document.querySelector(".counselors").style.display = "none";
+  document.querySelector(".appointments").style.display = "none";
+  document.querySelector(".update-form").style.display = "none";
+  document.querySelector(".communication-form").style.display = "block";
+}
+
+document.querySelector('.communication-form form').onsubmit= (e) => {
+  e.preventDefault();
+}
+
+// Function to update the user data
+$( "#send-comm" ).click(function() {
+
+  var comm_data = document.querySelector('#commun').value;
+
+  if ( $.post( "modules/sendComm.php", {
+    data: comm_data
+  })) {
+    alert(" COMMUNICATION HAS BEEN SENT ! ");
+  } else {
+    alert(" COMMUNICATION HAS NOT BEEN SENT ! ");
+  }
+});
 
 // Click event to send the meeting link through sms
 document.getElementById("sms-send").onclick = function() {
@@ -313,55 +348,6 @@ document.getElementById("live-send").onclick = function() {
   });
 
 }
-
-// Click event to send the meeting link through whatsapp
-document.getElementById("whatsapp-send").onclick = function() {
-  
-  document.querySelector(".broken").style.display = "block";
-
-  $.ajax({
-    method: "POST",
-    url: "./modules/send-whatsapp.php",
-  })
-  .done(function( response ) {
-  
-    $("p.broken").html(response);
-
-  });
-
-
-}
-
-// Function to update the user data
-$("#update-data").click(function() {
-
-  var fname = document.querySelector('#update_first_name').value;
-  var lname = document.querySelector('#update_last_name').value;
-  var email = document.querySelector('#update_email').value;
-  var gender = document.querySelector('#update_gender').value;
-  var phone = document.querySelector('#update_phone').value;
-  var pass = document.querySelector('#update_pass').value;
-  var pass2 = document.querySelector('#update_pass2').value;
-
-  if ( $.post( "modules/updateCounsellorData.php", { 
-      first_name: fname, 
-      last_name: lname, 
-      mail: email,
-      gender: gender,
-      phone_number: phone,
-      password: pass,
-      password2: pass2
-    })) {
-
-      alert(" DATA HAS BEEN UPDATED ");
-    
-  } else {
-    
-    alert(" DATA HAS NOT BEEN UPDATED ");
-
-  }
-
-});
 
 // Function retrieving messages
 setInterval(() => {

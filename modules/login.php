@@ -48,6 +48,7 @@
             $_SESSION['staff_id'] = $row['users_uid'];
             $_SESSION['email'] = $row['email'];
             $_SESSION['counsellor_names'] = $row['first_name'] ." ". $row['last_name'];
+            $_SESSION['staff-profile'] = $row['profile_img_url'];
             
             $STAFFUUID = $_SESSION['staff_id'];
             $STAFFLOG = $row['id'];

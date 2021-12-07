@@ -146,18 +146,22 @@
             <i class="fas fa-layer-group"></i>
             <h3>Overview</h3>
           </li>
-          <li class="nav-item" id="appointments" >
-            <i class="fas fa-calendar-check"></i>
-            <h3>Appointments</h3>
-          </li>
-          <li class="nav-item" id="counsellors" >
+          
+          <li class="nav-item" id="students" >
             <i class="fas fa-user-md"></i>
-            <h3> Counsellors </h3>
+            <h3> Students </h3>
           </li>
+
           <li class="nav-item" id="update-btn">
             <i class="fas fa-user-edit"></i>
             <h3>Update your data</h3>
           </li>
+
+          <li class="nav-item" id="communicate-btn">
+            <i class="fas fa-broadcast-tower"></i>
+            <h3> Send Communication </h3>
+          </li>
+
         </ul>
       </nav>
 
@@ -171,7 +175,7 @@
       <section class="main-navbar">
         <div class="chat-title">
           <div class="left">
-            <img src="resources/img/must.png" alt="" srcset="">
+            <img src="<?php if (isset($_SESSION['profile'])) {echo "./resources/".$_SESSION['profile']; } else { echo "UPLOAD AN IMAGE"; } ?> " alt=" UPLOAD IMAGE ">
             <div class="user-info">
               <span> Welcome <?php echo $_SESSION['counsellor_names']; ?> </span>
             </div>
@@ -428,7 +432,7 @@
 
       <section class="counselors">
         <h2>
-          FAQs
+          STUDENTS
         </h2>
 
         <div class="container-list">
@@ -441,6 +445,7 @@
           <div>Lorem ipsum dolor sit amet.</div>
           <div>Lorem ipsum dolor sit amet.</div>
         </div>
+
       </section>
 
       <section class="update-form">
@@ -448,11 +453,11 @@
           UPDATE YOUR INFORMATION
         </h2>
 
-        <form action="">
+        <form method="POST" action="modules/updateCounsellorData.php" enctype="multipart/form-data">
 
           <div class="row">
             <div class="profile-pic">
-              <img src="resources/img/must.png" alt="" srcset="">
+              <img src="resources/img/twotone_account.png" alt="" srcset="">
             </div>
           </div>
 
@@ -461,7 +466,33 @@
           </div>
 
           <div class="row">
-            <button type="submit" id="update-data"> UPDATE </button>
+            <button type="submit" name="staff_up" id="update-data"> UPDATE </button>
+          </div>
+
+        </form>
+
+      </section>
+
+      <section class="communication-form">
+        
+        <br><br>
+
+        <h2>
+        &nbsp;&nbsp;&nbsp;&nbsp; SEND OUT A COMMUNICATION TO ALL STUDENTS
+        </h2>
+
+        <form action="">
+
+          <div class="row">
+            <textarea id="commun" name="commun" rows="4" cols="50" placeholder="Write Information Here ...."></textarea>
+          </div>
+
+          <div class="row">
+            <button type="submit" name="comm_up" id="send-comm"> SEND COMMMUNICATION </button>
+          </div>
+
+          <div class="row">
+            <button type="button" id="cancel-comm"> CANCEL </button>
           </div>
 
         </form>
@@ -477,6 +508,8 @@
         
         $info = new Create();
         $t = $info->retrieveAppointments($sqll);
+
+        // $events = array($t);
         
         foreach ($t as $value) {
           
