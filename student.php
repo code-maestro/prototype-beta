@@ -43,7 +43,7 @@
     <header>
       <!-- Heading -->
       <div class="heading">
-        <img src="resources/img/must.png" alt="">
+        <img src="resources/img/psycho.png" alt="">
         <h3> REMOTE STUDENT-COUNSELLOR APP </h3>
       </div>
       <!-- /Heading -->
@@ -81,7 +81,7 @@
         <div class="chat-title">
 
           <div class="left">
-            <img src="resources/img/must.png" alt="" srcset="">
+            <img src="<?php echo "./resources/".$_SESSION['profile']; ?>" alt=" UPLOAD IMAGE ">
             <div class="user-info">
               <span> Welcome <?php echo $_SESSION['student_names']; ?> </span>
             </div>
@@ -314,11 +314,11 @@
           UPDATE YOUR INFORMATION
         </h2>
 
-        <form action="">
+        <form method="POST" action="modules/updateUserData.php" enctype="multipart/form-data">
 
           <div class="row">
             <div class="profile-pic">
-              <img src="resources/img/must.png" alt="" srcset="">
+              <img src="resources/img/twotone_account.png" alt="" srcset="">
             </div>
           </div>
 
@@ -327,7 +327,13 @@
           </div>
 
           <div class="row">
-            <button type="submit" id="update-data"> UPDATE </button>
+            <!-- <input type="file" name="file" placeholder="UPLOAD AN IMAGE" id="post-img" accept="image/*"> -->
+            <input type="file" name="file" placeholder="UPLOAD AN IMAGE" id="post-img">
+          </div>
+
+          <div class="row">
+            <!-- <input type="submit" name="updatedata" id="update-data" placeholder="update"> -->
+            <button type="submit" name="up" id="update-data"> UPDATE </button>
           </div>
 
         </form>

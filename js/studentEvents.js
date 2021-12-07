@@ -53,7 +53,6 @@ span.onclick = function() {
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
-
   if (event.target == modal) {
     modal.style.display = "none";
   }
@@ -586,42 +585,42 @@ $( "#send-mail" ).click(function() {
   }
 });
 
-document.querySelector('.update-form form').onsubmit= (e) => {
-  e.preventDefault();
-}
+// document.querySelector('.update-form form').onsubmit= (e) => {
+//   e.preventDefault();
+// }
 
-// Function to update the user data
-$( "#update-data" ).click(function() {
+// // Function to update the user data
+// $( "#update-data" ).click(function() {
 
-  var fname = document.querySelector('#update_first_name').value;
-  var lname = document.querySelector('#update_last_name').value;
-  var email = document.querySelector('#update_email').value;
-  var reg = document.querySelector('#update_reg_no').value;
-  var gender = document.querySelector('#update_gender').value;
-  var phone = document.querySelector('#update_phone').value;
-  var pass = document.querySelector('#update_pass').value;
-  var pass2 = document.querySelector('#update_pass2').value;
+//   var fname = document.querySelector('#update_first_name').value;
+//   var lname = document.querySelector('#update_last_name').value;
+//   var email = document.querySelector('#update_email').value;
+//   var reg = document.querySelector('#update_reg_no').value;
+//   var gender = document.querySelector('#update_gender').value;
+//   var phone = document.querySelector('#update_phone').value;
+//   var pass = document.querySelector('#update_pass').value;
+//   var pass2 = document.querySelector('#update_pass2').value;
 
-  if ( $.post( "modules/updateUserData.php", {
-    first_name: fname, 
-    last_name: lname, 
-    mail: email,
-    reg_no: reg,
-    gender: gender,
-    phone_number: phone,
-    password: pass,
-    password2: pass2
-  })) {
+//   if ( $.post( "modules/updateUserData.php", {
+//     first_name: fname, 
+//     last_name: lname, 
+//     mail: email,
+//     reg_no: reg,
+//     gender: gender,
+//     phone_number: phone,
+//     password: pass,
+//     password2: pass2
+//   })) {
 
-    alert(" DATA HAS BEEN UPDATED ");
+//     alert(" DATA HAS BEEN UPDATED ");
   
-} else {
+// } else {
   
-  alert(" DATA HAS NOT BEEN UPDATED ");
+//   alert(" DATA HAS NOT BEEN UPDATED ");
 
-}
+// }
 
-});
+// });
 
 document.querySelector(".reachout-mail").onclick = function() {
   console.log("delete");

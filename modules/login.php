@@ -10,7 +10,7 @@
       $Password = md5($data['password2']);
             
     // QUERIES TO RETRIEVE THE  DATA 
-      $query = " SELECT login.id, login.users_uid, login.email, login.password, roles.role_id, users.first_name, users.last_name  FROM login INNER JOIN roles INNER JOIN users WHERE login.email = '$email' 
+      $query = " SELECT login.id, login.users_uid, login.email, login.password, roles.role_id, users.first_name, users.last_name, users.profile_img_url FROM login INNER JOIN roles INNER JOIN users WHERE login.email = '$email' 
                  AND roles.users_uid = login.users_uid AND login.users_uid = users.users_id LIMIT 1;";
 
       $DB = new DatabaseModule();
@@ -30,6 +30,7 @@
             $_SESSION['std_id'] = $row['users_uid'];
             $_SESSION['regno'] = $row['email'];
             $_SESSION['student_names'] = $row['first_name'] ." ". $row['last_name'];
+            $_SESSION['profile'] = $row['profile_img_url'];
 
             $UUID = $_SESSION['std_id'];
             $LOG = $row['id'];
