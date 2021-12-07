@@ -7,7 +7,7 @@
   ' SELECT users.users_id, users.first_name, users.last_name, users.profile_img_url, login.email 
     FROM users INNER JOIN login 
     ON users.users_id = login.users_uid 
-    AND users.users_id LIKE "STAFF%"
+    AND users.users_id LIKE "STD%"
   ';
 
   $counsellors = new User();
@@ -30,7 +30,7 @@
         ';
     }
   }  else{
-    $result .= '<div class="text"> No Counsellors available .</div>';
+    $result .= '<div class="text"> No Students available .</div>';
   }
   
   echo $result;

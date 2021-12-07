@@ -2,6 +2,7 @@
 
   include_once 'modules/std_header.php';
   include_once 'modules/create.php';
+  include_once 'modules/getCommunications.php';
 
   $date = "";
   $start_time = "";
@@ -150,21 +151,11 @@
             </h2>
             <div class="carousel">
               <div class="carousel-item">
-                <i class="fas fa-chevron-left"></i>
-              </div>
-              <div class="carousel-item">
                 <p>
-                  Aliquid at deleniti iusto, Lorem ipsum dolor,</br>
-                  sit amet consectetur adipisicing elit.</br>
-                  Corporis voluptates natus sint dolor ipsum, </br>
-                  nobis odit ullam veritatis aliquid excepturi eveniet id similique.
                   
-                  <?php echo $user_id; ?>
+                  <?php echo $result; ?>
 
                 </p>
-              </div>
-              <div class="carousel-item">
-                <i class="fas fa-chevron-right"></i>
               </div>
             </div>
           </div>
@@ -341,48 +332,18 @@
 
       <section class="counselors">
         <h2>
-          CONSELLORS AVAILABLE
+          COUNSELLORS AVAILABLE
         </h2>
-
-        <div class="container-list">
-          
-          <div class="wrapped">
-            <img src="https://cdn.vox-cdn.com/thumbor/KmUSGKjWbKxOCahy4yZkw17HZ64=/0x0:2370x1574/920x613/filters:focal(996x598:1374x976):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/68870438/Screen_Shot_2020_07_21_at_9.38.25_AM.0.png" alt="">
-            <article>
-              <h2><a href="https://www.twitter.com/random_studio" target="_blank" >@random_studio</a> mentioned you</h2>
-              <p>
-                How would you like to intern with us this summer?
-              </p>
-            </article>
-          </div>
-
-          <div class="wrapped">
-            <img src="https://cdn.vox-cdn.com/thumbor/KmUSGKjWbKxOCahy4yZkw17HZ64=/0x0:2370x1574/920x613/filters:focal(996x598:1374x976):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/68870438/Screen_Shot_2020_07_21_at_9.38.25_AM.0.png" alt="">
-            <article>
-              <h2><a href="https://www.twitter.com/random_studio" target="_blank" >@random_studio</a> mentioned you</h2>
-              <p>
-                How would you like to intern with us this summer?
-              </p>
-            </article>
-          </div>
-
-          <div class="wrapped">
-            <img src="https://cdn.vox-cdn.com/thumbor/KmUSGKjWbKxOCahy4yZkw17HZ64=/0x0:2370x1574/920x613/filters:focal(996x598:1374x976):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/68870438/Screen_Shot_2020_07_21_at_9.38.25_AM.0.png" alt="">
-            <h2> entioned you</h2>
-            <h2> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro, numquam? </h2>
-          </div>
-
-          <div class="wrapped">
-            <img src="https://cdn.vox-cdn.com/thumbor/KmUSGKjWbKxOCahy4yZkw17HZ64=/0x0:2370x1574/920x613/filters:focal(996x598:1374x976):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/68870438/Screen_Shot_2020_07_21_at_9.38.25_AM.0.png" alt="">
-            <article>
-              <h2><a href="https://www.twitter.com/random_studio" target="_blank" >@random_studio</a> mentioned you</h2>
-              <p>
-                How would you like to intern with us this summer?
-              </p>
-            </article>
-          </div>
+        <h2>ONLINE</h2>
+        <div class="container-list" id="online-c">
           
         </div>
+
+        <h2>ALL COUNSELLORS</h2>
+        <div class="container-list" id="all-c">
+          
+        </div>
+
       </section>
 
       <section>

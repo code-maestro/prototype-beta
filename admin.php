@@ -121,6 +121,7 @@
     <link rel="stylesheet" href="css/static/calendar.min.css">
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="css/profile.css">
 
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/> -->
     
@@ -432,19 +433,10 @@
 
       <section class="counselors">
         <h2>
-          STUDENTS
+          STUDENTS AVAILABLE
         </h2>
 
-        <div class="container-list">
-          <div>Lorem ipsum dolor sit amet.</div>
-          <div>Lorem ipsum dolor sit amet.</div>
-          <div>Lorem ipsum dolor sit amet.</div>
-          <div>Lorem ipsum dolor sit amet.</div>
-          <div>Lorem ipsum dolor sit amet.</div>
-          <div>Lorem ipsum dolor sit amet.</div>
-          <div>Lorem ipsum dolor sit amet.</div>
-          <div>Lorem ipsum dolor sit amet.</div>
-        </div>
+        <div class="container-list" id="all-s">  </div>
 
       </section>
 

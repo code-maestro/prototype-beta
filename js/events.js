@@ -247,6 +247,11 @@ document.getElementById("students").onclick = function() {
   document.querySelector(".appointments").style.display = "none";
   document.querySelector(".update-form").style.display = "none";
   document.querySelector(".communication-form").style.display = "none";
+
+  // getStudentsOnline();
+
+  getAllStudents();
+
 }
 
 // UPDATE SECTION
@@ -381,3 +386,55 @@ setInterval(() => {
   xhttp.send();
 
 }, 500);
+
+// Function to retrieve all the counsellors registered with the app
+function getAllStudents() {
+  // Create an XMLHttpRequest object
+  const xhttp = new XMLHttpRequest();
+
+  xhttp.open("POST", "modules/getAllStudents.php", true);
+
+  // Define a callback function
+  xhttp.onload = function() {
+    // Here you can use the Data
+    if(xhttp.readyState === XMLHttpRequest.DONE){
+      if(xhttp.status === 200){
+        let data = xhttp.response;
+        document.querySelector("#all-s").innerHTML = data;
+      }
+    }
+  }
+
+  // Send a request
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send();
+
+}
+
+// Function to retrieve all the counsellors registered with the app
+function getStudentsOnline() {
+  // Create an XMLHttpRequest object
+  const xhttp = new XMLHttpRequest();
+
+  xhttp.open("POST", "modules/getStudentsOnline.php", true);
+
+  // Define a callback function
+  xhttp.onload = function() {
+    // Here you can use the Data
+    if(xhttp.readyState === XMLHttpRequest.DONE){
+      
+      if(xhttp.status === 200){
+        
+        let data = xhttp.response;
+
+        document.querySelector("#online-s").innerHTML = data;
+
+      }
+    }
+  }
+
+  // Send a request
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send();
+
+}

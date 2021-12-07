@@ -74,6 +74,8 @@ counselorsBtn.onclick = function() {
   document.querySelector(".update-form").style.display = "none";
   document.querySelector(".faqs").style.display = "none";
 
+  getOnlineCounsellors();
+
   getAllCounsellors();
 
 }
@@ -97,12 +99,36 @@ function getAllCounsellors() {
   xhttp.onload = function() {
     // Here you can use the Data
     if(xhttp.readyState === XMLHttpRequest.DONE){
+      if(xhttp.status === 200){
+        let data = xhttp.response;
+        document.querySelector("#all-c").innerHTML = data;
+      }
+    }
+  }
+
+  // Send a request
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send();
+
+}
+
+// Function to retrieve all the counsellors registered with the app
+function getOnlineCounsellors() {
+  // Create an XMLHttpRequest object
+  const xhttp = new XMLHttpRequest();
+
+  xhttp.open("POST", "modules/getCounsellorsOnline.php", true);
+
+  // Define a callback function
+  xhttp.onload = function() {
+    // Here you can use the Data
+    if(xhttp.readyState === XMLHttpRequest.DONE){
       
       if(xhttp.status === 200){
         
         let data = xhttp.response;
 
-        document.querySelector(".container-list").innerHTML = data;
+        document.querySelector("#online-c").innerHTML = data;
 
       }
     }
@@ -305,9 +331,6 @@ document.querySelector("#update-btn").onclick = function() {
 }
 
 document.querySelector("#theFaqs").onclick = function() {
-
-  console.log("LOLO");
-
   document.querySelector(".faqs").style.display = "block";
   document.querySelector(".update-form").style.display = "none";
   document.querySelector(".counselors").style.display = "none";
@@ -519,15 +542,10 @@ setInterval(() => {
 
 // Sending a text message with live chat feature with click event
 $( "#sending" ).click(function() {
-
   if (inputField.value == "" ) {
-
     alert("Enter a message to start a conversation ");
-
   } else {
-
     $.post( "modules/std_newMessage.php", { email: counsellorid, incomingid: incoming_id, message: inputField.value} );
-
   }
 
   inputField.value = " ";

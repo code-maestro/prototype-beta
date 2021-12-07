@@ -96,17 +96,11 @@
       $result = $DB->readData($query);
 
       if ($result) {
-
-        return $result; 
-
+        return $result;
       }else {
-
         return false;      
-      
       }
-
     }
-
   }
 
 ?>
